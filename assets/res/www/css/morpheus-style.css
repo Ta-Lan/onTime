@@ -535,6 +535,10 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .map-info .txt-url{font-size:1.4rem;font-weight:400;color:#008dff;text-decoration:underline;}
 .map-info .btn-call{position:absolute;top:50%;right:1.5rem;margin-top:-2rem;}
 
+/** mypage **/
+.mypage-list{overflow: hidden;}
+.profile{float: left; text-align: center; font-size: large; font-weight: bolder;}
+.profile img{height: 100px; width: 100px; margin: 1.5rem; margin-left: 4rem; margin-right: 4rem;}
 
 @media only screen and (min-width:768px) {/* tablet */
 /*

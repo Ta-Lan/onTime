@@ -11,7 +11,7 @@
  */
 
 
-html{font-family:'Nanum Barun Gothic', sans-serif;line-height:1.15;font-size:62.5%;min-height:100%;}
+html{font-family:'GmarketSansTTFMedium'; src : url("../fonts/GmarketSansTTFMedium.ttf"); line-height:1.15;font-size:62.5%;min-height:100%;}
 body{color:#333;font-size:1.3rem;background-color:#fff;}
 input,button{font-size:inherit;}
 

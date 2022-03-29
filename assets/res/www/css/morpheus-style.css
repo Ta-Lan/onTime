@@ -24,8 +24,8 @@
 .progress .txt-info{font-size:1.3rem;font-weight:400;}
 .prg-bg{margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;}
 .prg-bg-r{overflow:hidden;margin:.8rem 0 2rem;width:100%;height:.5rem;background-color:#eee;border-radius:.5rem;}
-.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#0081c7;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;}
-.prg-bg .prg-bar{width:38%;height:100%;background-color:#0081c7;}
+.prg-bg-r .prg-bar{width:38%;height:100%;background-color:#58AAFF;border-top-left-radius: .5rem;border-bottom-left-radius:.5rem;}
+.prg-bg .prg-bar{width:38%;height:100%;background-color:#58AAFF;}
 .copy-wrap{padding:1.5rem 0;font-size:1rem;font-weight:400;}
 .progress.spinner > div{position:relative;}
 .progress.spinner .txt-percent{position:absolute;top:50%;left:50%;margin-top:-.7rem;margin-left:-1rem;}

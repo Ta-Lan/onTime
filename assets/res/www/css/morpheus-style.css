@@ -248,7 +248,7 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .info-box-top strong span{font-weight:400;}
 .info-box-btm{overflow:hidden;text-align:right;}
-.info-box-btm .btn-star{float:left;position:absolute;top:2.4rem;left:-.7rem;z-index:5;}
+.info-box-btm .btn-star{float:left;position:absolute;top:2.4rem;left:-.7rem;z-index:1;}
 .money{font-size:1.3rem;font-weight:bold;width:100%;}
 .money span{font-weight:400;vertical-align:initial;}
 .noti-wrap{border-top:1px solid #ebebeb}

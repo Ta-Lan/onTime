@@ -234,7 +234,7 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 .metro-wrap.pd{padding:1rem;}
 .metro-wrap li{float:left;width:49%;}
 .metro-wrap{overflow:hidden;}
-.metro-wrap li{position:relative;float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
+.metro-wrap li{position:relative; z-index: 1; float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
 .metro-wrap li:nth-child(1),
 .metro-wrap li:nth-child(2){margin-top:0;}
 .metro-wrap li:nth-child(2n){margin-left:2%;}

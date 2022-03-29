@@ -171,7 +171,7 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 /** Main-menu-box **/
 /* type01 */
 .main-menu-box{overflow:hidden;}
-.main-menu-box li{float:left;width:33.3333%;color:#fff;}
+.main-menu-box li{float:left;width:25%;color:#fff;}
 .main-menu-box li:nth-child(1){background:#00b2f0 url(../img/ico-edu-01.png) no-repeat center 35%;background-size:2.4rem;}
 .main-menu-box li:nth-child(2){background:#0081c7 url(../img/ico-edu-02.png) no-repeat center 30%;background-size:1.7rem;}
 .main-menu-box li:nth-child(3){background:#55ba47 url(../img/ico-edu-03.png) no-repeat center 35%;background-size:1.9rem;}
@@ -198,18 +198,18 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 .main-menu-box.type04,
 .main-menu-box.type06{border:1px solid #e0e0e0;border-bottom:0;background-color:#fff;text-align:center;}
 .main-menu-box.type04 li,
-.main-menu-box.type06 li{padding:5.4rem 0 1.5rem;background-color:#fff;color:#333;font-size:1.4rem;font-weight:400;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
+.main-menu-box.type06 li{padding:5.4rem 0 1.5rem;background-color:#fff;color:#333;font-size:1.6rem;font-weight:400;border:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0;}
 .main-menu-box.type04 li:nth-child(3n),
 .main-menu-box.type06 li:nth-child(3n){border-right:0;}
-.main-menu-box.type04 li:nth-child(1){background:url(../img/ico-menu-01.png) no-repeat center 2.1rem;background-size:2rem;}
-.main-menu-box.type04 li:nth-child(2){background:url(../img/ico-menu-02.png) no-repeat center 2.1rem;background-size:2.3rem;}
-.main-menu-box.type04 li:nth-child(3){background:url(../img/ico-menu-03.png) no-repeat center 2.1rem;background-size:1.9rem;}
-.main-menu-box.type04 li:nth-child(4){background:url(../img/ico-menu-04.png) no-repeat center 2.1rem;background-size:2.8rem;}
-.main-menu-box.type04 li:nth-child(5){background:url(../img/ico-menu-05.png) no-repeat center 2.1rem;background-size:3.5rem;}
-.main-menu-box.type04 li:nth-child(6){background:url(../img/ico-menu-06.png) no-repeat center 2.1rem;background-size:2.5rem;}
-.main-menu-box.type04 li:nth-child(7){background:url(../img/ico-menu-07.png) no-repeat center 2.1rem;background-size:1.9rem;}
-.main-menu-box.type04 li:nth-child(8){background:url(../img/ico-menu-08.png) no-repeat center 2.1rem;background-size:2.5rem;}
-.main-menu-box.type04 li:nth-child(9){background:url(../img/ico-menu-09.png) no-repeat center 2.1rem;background-size:2rem;}
+.main-menu-box.type04 li:nth-child(1){background:url(../img/pictogram/lesson.png) no-repeat center 2.1rem;background-size:3.6rem;}
+.main-menu-box.type04 li:nth-child(2){background:url(../img/pictogram/living.png) no-repeat center 2.1rem;background-size:4rem;}
+.main-menu-box.type04 li:nth-child(3){background:url(../img/pictogram/event.png) no-repeat center 2.1rem;background-size:3.6rem;}
+.main-menu-box.type04 li:nth-child(4){background:url(../img/pictogram/business.png) no-repeat center 2.1rem;background-size:3.6rem;}
+.main-menu-box.type04 li:nth-child(5){background:url(../img/pictogram/thinking.png) no-repeat center 2.1rem;background-size:3.6rem;}
+.main-menu-box.type04 li:nth-child(6){background:url(../img/pictogram/health.png) no-repeat center 2.1rem;background-size:3.6rem;}
+.main-menu-box.type04 li:nth-child(7){background:url(../img/pictogram/tire.png) no-repeat center 2.1rem;background-size:3.6rem;}
+.main-menu-box.type04 li:nth-child(8){background:url(../img/pictogram/etc.png) no-repeat center 2.1rem;background-size:3.6rem;}
+.main-menu-box.type04 li:nth-child(9){background:url(../img/pictogram/etc.png) no-repeat center 2.1rem;background-size:2rem;}
 /* type06 */
 .main-menu-box.type06 li{position:relative;font-size:1.5rem;padding:8rem 0 1rem;}
 .main-menu-box.type06 li::before{content:'';position:absolute;top:1.4rem;left:50%;width:5rem;height:5rem;margin-left:-2.5rem;background:url(../img/sprite-ico-menu.png) no-repeat;background-size:auto 100%;}

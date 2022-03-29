@@ -152,6 +152,7 @@
      * @param {Animation Type} options.animation 애니메이션
      * */
     $.moveBack = function (options) {
+        console.log('뒤로가기');
         if (options == null) {
             {
                 options = {param: ''}

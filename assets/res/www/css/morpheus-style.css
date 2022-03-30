@@ -234,7 +234,7 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 .metro-wrap.pd{padding:1rem;}
 .metro-wrap li{float:left;width:49%;}
 .metro-wrap{overflow:hidden;}
-.metro-wrap li{position:relative;float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
+.metro-wrap li{position:relative; z-index: 1; float:left;margin-top:1rem;width:49%;/*height:14.5rem;*/border:1px solid #e0e0e0;}
 .metro-wrap li:nth-child(1),
 .metro-wrap li:nth-child(2){margin-top:0;}
 .metro-wrap li:nth-child(2n){margin-left:2%;}
@@ -248,7 +248,7 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .info-box-top strong span{font-weight:400;}
 .info-box-btm{overflow:hidden;text-align:right;}
-.info-box-btm .btn-star{float:left;position:absolute;top:2.4rem;left:-.7rem;z-index:5;}
+.info-box-btm .btn-star{float:left;position:absolute;top:2.4rem;left:-.7rem;z-index:1;}
 .money{font-size:1.3rem;font-weight:bold;width:100%;}
 .money span{font-weight:400;vertical-align:initial;}
 .noti-wrap{border-top:1px solid #ebebeb}
@@ -535,6 +535,10 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .map-info .txt-url{font-size:1.4rem;font-weight:400;color:#008dff;text-decoration:underline;}
 .map-info .btn-call{position:absolute;top:50%;right:1.5rem;margin-top:-2rem;}
 
+/** mypage **/
+.mypage-list{overflow: hidden;}
+.profile{float: left; text-align: center; font-size: large; font-weight: bolder;}
+.profile img{height: 100px; width: 100px; margin: 1.5rem; margin-left: 4rem; margin-right: 4rem;}
 
 @media only screen and (min-width:768px) {/* tablet */
 /*

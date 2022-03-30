@@ -3,9 +3,9 @@ buildscript {
 		maven {url "https://maven.google.com"}
 		maven {url "https://jcenter.bintray.com"}
 	}
-	
+
 	dependencies {
-		classpath 'com.android.tools.build:gradle:4.0.1'
+		classpath 'com.android.tools.build:gradle:4.2.0'
 	}
 }
 
@@ -14,20 +14,20 @@ apply plugin: 'com.android.application'
 repositories {
 	maven {url "https://maven.google.com"}
 	maven {url "https://jcenter.bintray.com"}
-	
+
 }
 
 
 def assetDir = "assets"
 def properties = new Properties()
 if (project.rootProject.file('local.properties').exists()) {
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    assetDir = properties.getProperty("asset.dir", "assets")
+	properties.load(project.rootProject.file('local.properties').newDataInputStream())
+	assetDir = properties.getProperty("asset.dir", "assets")
 }
 
 
 android {
-	compileSdkVersion 29
+	compileSdkVersion 30
 	//buildToolsVersion "33.0.0 rc1"
 	useLibrary 'org.apache.http.legacy'
 	sourceSets {
@@ -43,16 +43,16 @@ android {
 				srcDir 'libs'
 			}
 		}
-		
+
 		androidTest.setRoot('tests')
 		debug.setRoot('build-types/debug')
 		release.setRoot('build-types/release')
 	}
-	
+
 	dexOptions {
 		preDexLibraries = false
 	}
-	
+
 	defaultConfig{
 		minSdkVersion 14
 		targetSdkVersion 30
@@ -60,12 +60,12 @@ android {
 	packagingOptions {
 		exclude "META-INF/LICENSE"
 		exclude "META-INF/DEPENDENCIES"
-	}	
+	}
 	lintOptions {
 		checkReleaseBuilds false
 		abortOnError false
 	}
-	
+
 	if (KEYSTORE_PATH?.trim()) {
 		signingConfigs{
 			releaseWithSignedKey {
@@ -76,7 +76,7 @@ android {
 			}
 		}
 	}
-	
+
 	buildTypes {
 		release {
 			//minifyEnabled true
@@ -90,24 +90,24 @@ android {
 
 //추가
 repositories {
-    flatDir {
-        dirs 'libs', 'mcoreLibs'
-    }
+	flatDir {
+		dirs 'libs', 'mcoreLibs'
+	}
 }
 
 
 
 dependencies {
 	implementation fileTree(dir: 'mcoreLibs', include: '*.jar')
-	
-	
+
+
 	/**
-	* ==========================================
-	* 외부라이브러리 적용시  [example.aar file]
-	* ==========================================
-	* implementation name: 'example-release', ext: 'aar'
-	*/
-	
+	 * ==========================================
+	 * 외부라이브러리 적용시  [example.aar file]
+	 * ==========================================
+	 * implementation name: 'example-release', ext: 'aar'
+	 */
+
 }
 
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -120,4 +120,3 @@ task  AppRunDebug (type: Exec, dependsOn: 'installDebug') {
 		commandLine android.getAdbExe().toString(), "shell", 'am', 'start', '-n', 'mcore.edu.talan/.Startup'
 	}
 }
-

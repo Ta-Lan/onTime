@@ -227,7 +227,89 @@
             return str;
         }
     };
+    /**
+     * password rule
+     * @param str
+     * @returns boolean
+     * 1. At least one digit [0-9]
+     * 2. At least one lowercase character [a-z]
+     * 3. At least one uppercase character [A-Z]
+     * 4. At least one special character [!@#$%^&*=.+-]
+     * */
+    var isCorrectPasswordRule = module.isCorrectPasswordRule = function (str) {
+        if (str == null) {
+            str = "";
+        }
+        console.log(str);// 1        2,3                4
+        var _str = /^(?=.+[0-9])(?=.+[a-zA-Z])(?=.+[!@#$%^&*=.+-]){8,}/.test(str);
+        console.log(_str);
+        return _str;
+    };
 
+    /**
+     * password 와 repassword 가 같은지 확인
+     * @param {string} pass
+     * @param {string} repass
+     * */
+    var confirmPasswordAndRePassword = module.confirmPasswordAndRePassword = function (pass, repass, callbackFunction) {
+        var password = pass.trim();
+        if (isCorrectPasswordRule(password) == false) {
+            return alert('비밀번호는 숫자,영문,특수문자를 포함한 8자 이상이어야합니다.');
+        }
+        var rePassword = repass.trim();
+        if (password != rePassword) {
+            return alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+        }
+        callbackFunction();
+    }
+    /**
+     * @param {string} dateStr yyyyMMdd
+     * @return boolean
+     * 유효한 날자형식인지 검증
+     * */
+    var isBirthday = module.isBirthday = function isBirthday(dateStr) {
+        var year = Number(dateStr.substr(0, 4));
+        var month = Number(dateStr.substr(4, 2));
+        var day = Number(dateStr.substr(6, 2));
+        var today = new Date();
+        var yearNow = today.getFullYear();
+        if (dateStr.length <= 8) {
+            if (1900 > year || year > yearNow) {
+                return false;
+            } else if (month < 1 || month > 12) {
+                return false;
+            } else if (day < 1 || day > 31) {
+                return false;
+            } else if ((month == 4 || month == 6 || month == 9 || month == 11) && day == 31) {
+                return false;
+            } else if (month == 2) {
+                var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+                if (day > 29 || (day == 29 && !isleap)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+    /**
+     * 입력값이 유효한 휴대폰 번호인지 검사
+     * @param {string} cellphoneStr
+     * 길이가 11
+     * 휴대폰번호의 시작은 010,011,016,017,018,019
+     * */
+    var isCellphone = module.isCellphone = function isCellphone(cellphoneStr) {
+        console.log(cellphoneStr);
+        if (cellphoneStr.length != 11) {
+            return false
+        }
+        var result = /^01[016789]/.test(cellphoneStr);
+        return result;
+    }
     window.__util__ = module;
 
 })();

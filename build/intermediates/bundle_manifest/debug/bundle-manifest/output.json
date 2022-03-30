@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "mcore.edu.talan",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "BUNDLE_MANIFEST"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 1,
+        "versionName": "1.0",
+        "outputFile": "TaLan-debug.apk",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "mcore.edu.talan",
+        "split": "",
+        "minSdkVersion": "14"
+      }
+    }
+  ]
+}

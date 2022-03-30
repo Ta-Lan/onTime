@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <application>
-    	
+
     <projectName>TaLan</projectName>
-    	
+
     <applicationName>talan</applicationName>
-    	
+
     <android>
-        		
+
         <projectName>TaLan</projectName>
-        		
+
         <applicationName>talan</applicationName>
-        		
+
         <packageName>mcore.edu.talan</packageName>
-        		
-        <compileSdk>android-29</compileSdk>
-        	
+
+        <compileSdk>android-30</compileSdk>
+
     </android>
-    	
+
     <ios>
         <projectName>TaLan</projectName>
         <applicationName>talan</applicationName>
         <bundleIdentifier>mcore.edu.talan</bundleIdentifier>
         <deploymentTarget>iphoneos15.0</deploymentTarget>
     </ios>
-    	
+
     <components/>
-    	
+
     <libraries>
         <library api="2.1" id="m.client.library.core" revision="8.10" type="core"/>
         <library api="2.1" id="m.client.library.addon.db" revision="4.10" type="addon"/>
@@ -36,5 +36,5 @@
         <library api="2.1" id="m.client.library.addon.popup" revision="4.31" type="addon"/>
         <library api="2.1" id="m.client.library.addon.zip" revision="4.3" type="addon"/>
     </libraries>
-    
+
 </application>

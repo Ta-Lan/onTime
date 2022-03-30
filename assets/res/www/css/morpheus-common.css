@@ -38,6 +38,7 @@ input,button{font-size:inherit;}
 .mg20{margin:1rem 0 !important;}
 .mg30{margin:1.5rem 0 !important;}
 .mg50{margin:2.5rem 0 !important;}
+.mg60{margin:10rem 0 !important;}
 /* 위쪽 공간 */
 .pd-t10{padding-top:.5rem !important;}
 .pd-t20{padding-top:1rem !important;}
@@ -45,6 +46,7 @@ input,button{font-size:inherit;}
 .mg-t10{margin-top:.5rem !important;}
 .mg-t20{margin-top:1rem !important;}
 .mg-t30{margin-top:1.5rem !important;}
+.mg-t40{margin-top:10rem !important;}
 .mg-tm01{margin-top: -0.1rem !important;}
 .mg-tm20{margin-top: -1rem !important;}
 /* 아래쪽 공간 */
@@ -94,7 +96,7 @@ p.divider::after{content:'';position:absolute;top:50%;right:0;width:40%;height:1
 .shadow-t{box-shadow:0px -2px 15px rgba(0,0,0,.1);}
 /*====== Layout ======*/
 .wrapper,
-.full-pop{position:relative;height:100%;background-color:#fff;padding-top: 5rem;}
+.full-pop{position:relative;height:100%;background-color:#fff;}
 .cont-wrap.pd{padding:0 1.5rem;}
 .btm-fix{position:absolute;right:0;left:0;bottom:0;}
 .r-fix{position:absolute;right:0;top:0;}
@@ -317,6 +319,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .btn-wrap button{height:4.5rem;}
 .btn-wrap button:only-child{width:100%;}
 .btn-s{width:9.3rem;height:4rem;}
+.btn-next{background:url(../img/btn-next.png) no-repeat; background-size:80%; float: right;}
 .btn-back{background:url(../img/btn-back.png) no-repeat;background-size:100%}
 .btn-menu{background:url(../img/btn-menu.png) no-repeat;background-size:100%}
 .btn-modify{background:url(../img/btn-profile.png) no-repeat;background-size: auto 100%;width: 4rem !important;}

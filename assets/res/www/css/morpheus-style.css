@@ -547,7 +547,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .aa {clear: both; margin-top: 0.5rem;}
 .title {float: left; padding-left: 3rem; font-size: x-large; font-weight: bolder; }
 .my-info{margin: 4rem; clear: both;}
-.mypage-list {
+.page-list {
     clear: both;
     margin-bottom: 3rem;
     margin-left: 3rem;
@@ -568,6 +568,61 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .item-info{ font-weight: bold; font-size: 15px;}
 
 .delete-account{margin-top: 2.5rem; font-size: 15px; font-weight: lighter;}
+
+
+/*payList*/
+.item-container-box {
+    clear:both;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 1rem 0 1rem .5rem;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+}
+.item-box-top{
+    width: 100%;
+    border-bottom: 1px solid #e9e9e9;
+    padding: .5rem .5rem 0 .5rem;
+}
+.item-box-date{
+    float: left;
+    width: 50%;
+}
+.item-box-price{
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+.item-box-bottom{
+    width: 100%;
+    padding: 1rem;
+}
+.item-box-bottom img{
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin-right: 1rem;
+}
+.item-box-btm-l{
+    float: left;
+}
+.item-box-title{
+    font-weight: bold;
+    padding: 1rem 1rem 0 0;
+}
+.item-box-btm-r {
+    float: right;
+    margin: 2rem 1rem 2rem 0;
+}
+.item-box-status{
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    padding: .5rem .5rem .25rem .5rem;
+}
+
+
 
 @media only screen and (min-width:768px) {/* tablet */
 /*

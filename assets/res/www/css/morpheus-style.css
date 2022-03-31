@@ -551,6 +551,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     clear: both;
     margin-bottom: 3rem;
     margin-left: 3rem;
+    margin-right: 3rem;
 }
 .item-container {
     cursor: pointer;

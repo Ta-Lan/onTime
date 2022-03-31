@@ -46,6 +46,7 @@ input,button{font-size:inherit;}
 .mg-t10{margin-top:.5rem !important;}
 .mg-t20{margin-top:1rem !important;}
 .mg-t30{margin-top:1.5rem !important;}
+.mg-t33{margin-top:4.8rem !important;}
 .mg-t40{margin-top:10rem !important;}
 .mg-tm01{margin-top: -0.1rem !important;}
 .mg-tm20{margin-top: -1rem !important;}
@@ -57,6 +58,7 @@ input,button{font-size:inherit;}
 .mg-b10{margin-bottom:.5rem !important;}
 .mg-b20{margin-bottom:1rem !important;}
 .mg-b30{margin-bottom:1.5rem !important;}
+.mg-b33{margin-bottom:20rem !important;}
 
 /*====== 공통 클래스 ======*/
 /* Color */

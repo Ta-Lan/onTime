@@ -1,0 +1,17 @@
+.div-card{
+    border: 2px solid #58AAFF;
+    margin : 3px;
+    border-radius: 1em;
+    height: 10em;
+    padding-left: 1em;
+}
+.card-title{
+    font-size: 2em;
+    display: inline-block;
+
+}
+.card-day{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    display: inline-block;
+}

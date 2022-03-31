@@ -565,17 +565,15 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .chat-list{
     display: inline-block;
     height: 100%;
+    width: 100%;
     position: relative;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    align-items: center;
 }
 .provider{
     padding: 1rem;
-}
-.chat-item{
-    border: none;
-    border-radius: 0;
 }
 .chat-item{
     cursor: pointer;
@@ -585,6 +583,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     border: .06rem solid #f2f2f2;
     border-radius: 8px;
     position: relative;
+    width: 100%;
 }
 .chat-item section.user-info div.service-info .pro-info{
     padding: .2rem 0 0;
@@ -601,9 +600,6 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     margin-top: 1rem;
 }
 .chat-item div.last-message {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     width: 100%;
     margin: 0;
     position: relative;
@@ -611,8 +607,17 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     margin-top: 1rem;
     margin-left: 1rem;
     color: #737373;
-    font-size: .875rem;
+
 }
+.chat-item div.last-message .message-ellipsis{
+    width:380px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+    font-size:1.3rem;
+}
+
 .chat-item div.last-message p .unread-count.badge {
     border-radius: .63rem;
     font-weight: 500;
@@ -630,6 +635,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     right: 0;
 }
 .chat-item div.price {
+    clear: both;
     display: flex;
     text-align: center;
     font-size: 1.25rem;
@@ -664,7 +670,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     color: #fff;
 }
 .badge {
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: .75rem;
     font-weight: 500;
     padding: .125rem .375rem;
@@ -699,9 +705,241 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     background-color: #e1e1e1;
 }
 
+
 /**message**/
+.chat-wrapper{
+    background-color: #f2f2f2;
+    height:100%;
+    position: relative;
+
+}
+.chattings{
+    width:100%;
+    height:100%;
+}
+.chat-room-messages{
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    background-position: 100%;
+}
+.chat-room .button-area{
+    width:100%;
+    background-color: #fff;
+    margin-top: 5rem;
+    position: fixed;
+}
+.chat-room .button-area .chat-btn{
+    border-radius: 1rem;
+    padding: .5625rem .75rem;
+}
+.chat-room .button-area .paymentBtn {
+    margin: 0.5%;
+    background-image: linear-gradient(90deg,#58AAFF 0,#4cc8e5);
+    color: #fff;
+    width: 48%;
+}
+.chat-room .button-area .informBtn{
+    margin: 0.5%;
+    color: #58AAFF;
+    background-color: #fff;
+    border: 1px solid #58AAFF;
+    width: 48%;
+}
+.chat-room .chat-room-messages .chat-date{
+    margin: 1rem 1rem 0 1rem;
+    text-align: center;
+}
+.chattings .chat-profile img{
+    height: 40px;
+    width: 40px;
+    margin: 1rem;
+    border-radius: 2rem;
+}
+.sender-message-box{
+    border-radius: 1rem;
+    background-color: #fff;
+    float: left;
+    padding: 1.5rem;
+    max-width: 250px;
+    width:100%;
+}
+.sender-message-box .message-title img{
+    height: 20px;
+    width: 20px;
+    margin: 0.5rem;
+}
+.sender-message-box .message-subtitle{
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+    font-size:1.3rem;
+}
+.sender-message-box .service-info{
+    margin-top: 0.3rem;
+}
+.sender-message-box .service-info .service{
+    top:0.5rem;
+    font-size: 1.3rem;
+    margin-left: 0.3rem;
+}
+.sender-message-box .service-info .service-name{
+    float: right;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+.sender-message-box .price-info{
+    clear: both;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+    margin-left: 0.3rem;
+}
+.sender-message-box .price-info .price{
+    font-size: 1.3rem;
+}
+.sender-message-box .price-info .price-value{
+    font-size: 1.6rem;
+    color: #58AAFF;
+    font-weight: 700;
+    margin-left: auto;
+    float: right;
+    text-align: right;
+}
+.sender-message-box .guide{
+    display: grid;
+    grid-template-columns: 20px 200px;
+    grid-template-rows: 20px 20px;  
+    grid-gap: 10px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.sender-message-box .guide .guide-icon img{
+    width: 20px;
+    height: 20px;
+    float: top;
+    grid-column: 1;
+    grid-row: 1/2;
+}
+.sender-message-box .guide .guide-text{
+    margin-left: auto;
+    text-align: initial;
+    grid-column: 2/3;
+    grid-row:1/2;
+}
+.sender-message-box .estimate-btn{
+    clear: both;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: #58AAFF;
+    padding:1.5rem 3.7rem;
+    margin-top: 1rem;
+    font-size:medium;
+    color:#fff;
+    width:90%;
+}
+.sender-message-box .message-foot{
+    width: 100%;
+}
+.sender-message-box .estimate-btn img{
+    width:15px;
+    height:15px;
+    margin-left:1rem;
+}
+.s-message-bubble{
+    margin-top: 1.5rem;
+    overflow: hidden;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.s-message-bubble .message-status{
+    height:100%;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+.message-status .message-time{    
+    font-size: 0.3rem;
+    padding: 1rem;
+}
+
+.r-message-bubble{
+    margin: 1.5rem 1.5rem 1rem 0;
+    overflow: hidden;
+    height: 100%;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+.r-message-bubble .receiver-message-box{
+    border-radius: 1rem;
+    background-color: #fff;
+    float: right;
+    padding: 1.5rem;
+    max-width: 250px;
+    width:100%;
+}
+.r-message-bubble .message-status{
+    height:100%;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
 
 
+
+
+.chat-room-inputs form[name="chatform"]{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 6rem;
+}
+.chat-room-inputs form[name="chatform"] > textarea{
+    flex-basis: 90%;
+    flex-grow: 1;
+    margin: 0 1rem 0 1rem;
+    border-radius: 3rem;
+    align-self: center;
+}
+.chat-room-inputs .chat-submit{
+    border: 1px solid #58AAFF;
+    border-radius: 1rem;
+    background-color:rgb(248, 248, 248);
+    color: #58AAFF;
+    align-self: center;
+    margin-right: 1rem;
+    width: 50px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition-property: background-color, color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+.chat-room-inputs .chat-submit:hover{
+    background-color: #58AAFF;
+    color: rgb(248, 248, 248);
+}
+
+.chat-footer{
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #58AAFF;
+}
+
+/*report*/
+.report-form{
+    width:100%;
+    height:100%;
+    padding:2rem;
+    font-size:2rem;
+}
+.report-form .report-btn{
+    align-items: center;
+}
 @media only screen and (min-width:768px) {/* tablet */
 /*
     .tab-menu.count2,

@@ -38,7 +38,7 @@ input,button{font-size:inherit;}
 .mg20{margin:1rem 0 !important;}
 .mg30{margin:1.5rem 0 !important;}
 .mg50{margin:2.5rem 0 !important;}
-.mg60{margin:10rem 0 !important;}
+.mg60{margin:6rem 0 !important;}
 /* 위쪽 공간 */
 .pd-t10{padding-top:.5rem !important;}
 .pd-t20{padding-top:1rem !important;}
@@ -113,7 +113,7 @@ img{width:100%;}
 .exception .btm-wrap{position:relative;z-index:999}
 
 /* Header */
-.header{position:fixed; z-index: 999; top:0; left:0; right:0; height:5rem;text-align:center;background-color:#fff;}
+.header{position:sticky; z-index: 999; top:0; left:0; right:0; height:5rem;text-align:center;background-color:#fff;}
 .header h1{line-height:5rem;font-size:1.9rem;font-weight:bold;}
 .header h1.logo{text-indent:-9999rem;background:url(../img/logo-header.png) no-repeat center center;background-size:12.1rem;}
 .header h1.logo.wit{background:url(../img/logo-wit.png) no-repeat center center;background-size:11.2rem;}
@@ -126,7 +126,7 @@ img{width:100%;}
 .header.type02 .r-fix:first-of-type{top:0;right:5rem;background-position:100% center;}
 
 /* Footer */
-.footer { position: fixed; bottom: 0; z-index: 999;/* width: 100% */ left: 0; right: 0;}
+.footer { position: sticky; z-index: 999; bottom: 0; /* width: 100% */ left: 0; right: 0;}
 .footer-tab-menu{height:6rem;border-top:1px solid #ddd;}
 .footer-tab-menu .tab-menu{height:100%;padding:3.5rem 0 0;}
 .footer-tab-menu .tab-menu li{font-size:1.2rem;font-weight:400;color:#777;}

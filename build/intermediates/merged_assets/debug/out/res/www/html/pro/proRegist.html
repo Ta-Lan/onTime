@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+   <title>TALAN</title>
+   <link rel="stylesheet" href="../../css/morpheus-style.css" />
+   <link rel="stylesheet" href="../../css/swiper.min.css" />
+   <link rel="stylesheet" href="../../css/muikit.css" />
+</head>
+
+<body>
+   <header class="header line">
+      <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+      <!-- 하단에 라인이 있는경우 class="line"추가 -->
+      <h1>
+         PRO등록
+      </h1>
+      <button type="button" class="btn-back l-fix">
+         뒤로가기
+      </button>
+   </header>
+      <div class="cont-wrap pd">
+         <div class="info-wrap">
+            <h2 class="sub-tit">
+               추가 정보를 입력하세요.
+            </h2>
+         </div>
+         <div class="ipt-wrap">
+            <div class="ipt-form-type1">
+               <span>
+                  전문분야 <!--category-->
+               </span>
+               <div class="ipt-form-col">
+                  <select class="category-select-box" name="category">
+                     <option value="">카테고리</option>
+                     <option value="">레슨</option>
+                     <option value="">홈/리빙</option>
+                     <option value="">이벤트</option>
+                     <option value="">비즈니스</option>
+                     <option value="">디자인/개발</option>
+                     <option value="">건강/미용</option>
+                     <option value="">아르바이트</option>
+                     <option value="">기타</option>
+                  </select>
+               </div>
+            </div>
+            <div class="ipt-form-type1">
+               <span>
+                  계좌번호
+               </span>
+               <div class="ipt-form-col">
+                  <input type="text" id="account" placeholder="계좌번호" />
+               </div>
+            </div>
+            <div class="ipt-form-type2">
+               <span>
+                  닉네임
+               </span>
+               <div class="ipt-form-row">
+                  <input type="text" id="nickname" placeholder="닉네임 입력" />
+                  <button type="button" id="dup-btn" class="btn-line">
+                     중복확인
+                  </button>
+               </div>
+            </div>
+           
+         </div>
+         
+      </div>
+<div class="footer">
+    <div class="btn-wrap pd">
+       <button type="button" id="join-btn" class="btn-point-color">
+          등록하기
+       </button>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/join2.js"></script>
+
+</html>

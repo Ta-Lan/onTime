@@ -66,6 +66,7 @@ input,button,textarea,select{font-family:'gsans';font-size:inherit;}
 
 /*====== 공통 클래스 ======*/
 /* Color */
+.bg-lightgray{background-color: #f2f2f2 !important;}
 .bg-gray{background-color:#ececec !important;}
 .bg-white{background-color:#fff !important;}
 .bg-blue{background-color:#0084cc !important;}

@@ -635,12 +635,12 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 /** messageList **/
 .chat-profile{float: left; text-align: center; font-size: large; font-weight: bolder;}
 .chat-profile img{height: 50px; width: 50px; margin: 0.5rem;}
+
 .page-body{
     padding: .625rem 0 0;
     background-color: #f2f2f2;
 }
 .page-body{
-    min-height: stretch;
     padding-top: 1rem;
     padding-left: 0.5rem;
     position: relative;
@@ -973,6 +973,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     align-self: flex-end;
     flex-shrink: 0;
 }
+
 
 
 

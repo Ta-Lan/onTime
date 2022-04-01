@@ -11,7 +11,7 @@
 
 <body>
     <div class="chat-wrapper">
-        <header class="header line">
+        <header class="header">
             <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
             <!-- 하단에 라인이 있는경우 class="line"추가 -->
             <h1>
@@ -28,18 +28,19 @@
             </button>
         </header>
         <!-- 상단바 -->
-        <!--수정할거: 보내는 메시지 받는 메시지 색 다르게 / 텍스트 센터로-->
+
+        <!--수정할거: 보내는 메시지 받는 메시지 색 다르게 / 텍스트 센터로 제발!-->
         <div class="chat-room">
+            <div class="button-area">
+                <p>
+                    <!--결제페이지 이동-->
+                    <button type="button" class="chat-btn paymentBtn">거래하기</button>
+                    <!--고수정보 페이지로 이동-->
+                    <button type="button" class="chat-btn informBtn">정보보기</button>
+                </p>
+            </div>
             <section class="chat-section">
                 <!--메시지 상단-->
-                <div class="button-area">
-                    <p>
-                        <!--결제페이지 이동-->
-                        <button type="button" class="chat-btn paymentBtn">거래하기</button>
-                        <!--고수정보 페이지로 이동-->
-                        <button type="button" class="chat-btn informBtn">정보보기</button>
-                    </p>
-                </div>
                 <div class="divider"></div>
                 <div class="chat-room-messages mg-t-chat">
                     <!--메시지-->
@@ -116,7 +117,7 @@
                             </div>
                         </div>
 
-                         <!--받는 메시지-->
+                        <!--받는 메시지-->
                         <div class="s-message-bubble">
                             <div class="chat-profile">
                                 <img src="../img/profile-image.png" />
@@ -155,8 +156,8 @@
                             </div>
                         </div>
 
-                         <!--받는 메시지-->
-                         <div class="s-message-bubble">
+                        <!--받는 메시지-->
+                        <div class="s-message-bubble">
                             <div class="chat-profile">
                                 <img src="../img/profile-image.png" />
                             </div>
@@ -169,37 +170,24 @@
                                 </p>
                             </div>
                         </div>
-
-                    
                     </div>
-                </br></br>
+                    </br></br>
                 </div>
-            
+
                 <div class="chat-footer">
                     <ul class="chat-foot-menu-wrap">
                         <div class="chat-room-inputs">
-                        <!--메시지 입력창-->
+                            <!--메시지 입력창-->
                             <form name="chatform" action="#" method="post">
-                            <textarea name="chat-insert"></textarea>
-                            <button type="button" class="chat-submit">전송</button>
+                                <textarea name="chat-insert"></textarea>
+                                <button type="button" class="chat-submit">전송</button>
                             </form>
                         </div>
                     </ul>
                 </div>
             </section>
-        </div>  
+        </div>
     </div>
-    
-
-    <!--
-    <div class="footer">
-        푸터 영역 (푸터 디자인에 따라 바꿔치기 가능)
-        <ul class="foot-menu-wrap">
-            <input type="text" placeholder="메시지를 입력하세요." />
-            <input type="submit" value="전송" />
-        </ul>
-    </div> -->
-   
 </body>
 <script type="text/javascript" src="../js/mcore.min.js"></script>
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->

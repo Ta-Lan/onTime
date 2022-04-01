@@ -817,7 +817,6 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .chat-room .button-area{
     width:100%;
     background-color: #fff;
-    margin-top: 5rem;
     position: fixed;
 }
 .chat-room .button-area .chat-btn{

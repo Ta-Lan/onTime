@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../css/morpheus-style.css" />
+    <link rel="stylesheet" href="../css/swiper.min.css" />
+    <link rel="stylesheet" href="../css/muikit.css" />
+</head>
+
+<body>
+    <div class="chat-wrapper">
+        <header class="header line">
+            <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+            <!-- 하단에 라인이 있는경우 class="line"추가 -->
+            <h1>
+                <span>심고수</span>
+            </h1>
+            <button type="button" class="btn-menu r-fix">
+                메뉴
+                <!-- 왼쪽 버튼 class="l-fix" 추가 -->
+                <!-- 오른쪽 버튼 class="r-fix" 추가 -->
+            </button>
+
+            <button type="button" class="btn-back l-fix">
+                뒤로가기
+            </button>
+        </header>
+        <!-- 상단바 -->
+        <!--수정할거: 보내는 메시지 받는 메시지 색 다르게 / 텍스트 센터로-->
+        <div class="chat-room">
+            <section class="chat-section">
+                <!--메시지 상단-->
+                <div class="button-area">
+                    <p>
+                        <!--결제페이지 이동-->
+                        <button type="button" class="chat-btn paymentBtn">거래하기</button>
+                        <!--고수정보 페이지로 이동-->
+                        <button type="button" class="chat-btn informBtn">정보보기</button>
+                    </p>
+                </div>
+                <div class="divider"></div>
+                <div class="chat-room-messages mg-t-chat">
+                    <!--메시지-->
+                    <div class="chat-date">2022년 03월 31일</div>
+                    <div class="chattings">
+                        <!--견적서를 전송받으면 도착하는 메시지-->
+                        <div class="s-message-bubble">
+                            <div class="chat-profile">
+                                <img src="../img/profile-image.png" />
+                            </div>
+                            <div class="sender-message-box">
+                                <div class="message-title">
+                                    <img src="../img/icon-money.png" />
+                                    견적서가 도착했습니다.
+                                </div>
+                                <div class="message-subtitle">
+                                    <span>김소담</span> 고객님 안녕하세요. 요청서에 따른 예상 금액입니다.
+                                </div>
+                                <div class="divider"></div>
+                                <div class="service-info">
+                                    <span class="service">서비스</span>
+                                    <span class="service-name">방송댄스 레슨</span>
+                                </div>
+                                <div class="price-info">
+                                    <span class="price">예상금액</span>
+                                    <span class="price-value">시간 당 20,000원</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="guide">
+                                    <div class="guide-icon">
+                                        <img src="../img/ico-noti.png">
+                                    </div>
+                                    <div class="guide-text">
+                                        견적금액에 대해 궁금한 점을 채팅으로 물어보세요!
+                                    </div>
+                                </div>
+                                <div class="message-foot">
+                                    <a role="button" class="estimate-btn">
+                                        <!--detailEstimate이동-->
+                                        견적서 상세보기 <img src="../img/ico-arrow-white.png">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="message-status">
+                                <p class="message-time">
+                                    <span>오전 10:49</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!--받는 메시지-->
+                        <div class="s-message-bubble">
+                            <div class="chat-profile">
+                                <img src="../img/profile-image.png" />
+                            </div>
+                            <div class="sender-message-box">
+                                안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?안녕하세요?
+                            </div>
+                            <div class="message-status">
+                                <p class="message-time">
+                                    <span>오전 10:50</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!--보내는 메시지-->
+                        <div class="r-message-bubble">
+                            <div class="receiver-message-box">
+                                안녕하세요? 혹시 죄송한데 실례가 되지 않으면 집에 보내주시겠어요?
+                            </div>
+                            <div class="message-status">
+                                <p class="message-time">
+                                    <span>오전 10:49</span>
+                                </p>
+                            </div>
+                        </div>
+
+                         <!--받는 메시지-->
+                        <div class="s-message-bubble">
+                            <div class="chat-profile">
+                                <img src="../img/profile-image.png" />
+                            </div>
+                            <div class="sender-message-box">
+                                되겠나요?
+                            </div>
+                            <div class="message-status">
+                                <p class="message-time">
+                                    <span>오전 10:50</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!--보내는 메시지-->
+                        <div class="r-message-bubble">
+                            <div class="receiver-message-box">
+                                흑흑 시방
+                            </div>
+                            <div class="message-status">
+                                <p class="message-time">
+                                    <span>오전 10:49</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!--보내는 메시지-->
+                        <div class="r-message-bubble">
+                            <div class="receiver-message-box">
+                                기매은 방구머거
+                            </div>
+                            <div class="message-status">
+                                <p class="message-time">
+                                    <span>오후 10:11</span>
+                                </p>
+                            </div>
+                        </div>
+
+                         <!--받는 메시지-->
+                         <div class="s-message-bubble">
+                            <div class="chat-profile">
+                                <img src="../img/profile-image.png" />
+                            </div>
+                            <div class="sender-message-box">
+                                뿡
+                            </div>
+                            <div class="message-status">
+                                <p class="message-time">
+                                    <span>오후 10:12</span>
+                                </p>
+                            </div>
+                        </div>
+
+                    
+                    </div>
+                </br></br>
+                </div>
+            
+                <div class="chat-footer">
+                    <ul class="chat-foot-menu-wrap">
+                        <div class="chat-room-inputs">
+                        <!--메시지 입력창-->
+                            <form name="chatform" action="#" method="post">
+                            <textarea name="chat-insert"></textarea>
+                            <button type="button" class="chat-submit">전송</button>
+                            </form>
+                        </div>
+                    </ul>
+                </div>
+            </section>
+        </div>  
+    </div>
+    
+
+    <!--
+    <div class="footer">
+        푸터 영역 (푸터 디자인에 따라 바꿔치기 가능)
+        <ul class="foot-menu-wrap">
+            <input type="text" placeholder="메시지를 입력하세요." />
+            <input type="submit" value="전송" />
+        </ul>
+    </div> -->
+   
+</body>
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+
+</html>

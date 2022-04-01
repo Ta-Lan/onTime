@@ -38,6 +38,7 @@ input,button{font-size:inherit;}
 .mg20{margin:1rem 0 !important;}
 .mg30{margin:1.5rem 0 !important;}
 .mg50{margin:2.5rem 0 !important;}
+.mg60{margin:10rem 0 !important;}
 /* 위쪽 공간 */
 .pd-t10{padding-top:.5rem !important;}
 .pd-t20{padding-top:1rem !important;}
@@ -45,6 +46,8 @@ input,button{font-size:inherit;}
 .mg-t10{margin-top:.5rem !important;}
 .mg-t20{margin-top:1rem !important;}
 .mg-t30{margin-top:1.5rem !important;}
+.mg-t33{margin-top:4.8rem !important;}
+.mg-t40{margin-top:10rem !important;}
 .mg-tm01{margin-top: -0.1rem !important;}
 .mg-tm20{margin-top: -1rem !important;}
 /* 아래쪽 공간 */
@@ -55,6 +58,7 @@ input,button{font-size:inherit;}
 .mg-b10{margin-bottom:.5rem !important;}
 .mg-b20{margin-bottom:1rem !important;}
 .mg-b30{margin-bottom:1.5rem !important;}
+.mg-b33{margin-bottom:20rem !important;}
 
 /*====== 공통 클래스 ======*/
 /* Color */
@@ -317,6 +321,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .btn-wrap button{height:4.5rem;}
 .btn-wrap button:only-child{width:100%;}
 .btn-s{width:9.3rem;height:4rem;}
+.btn-next{background:url(../img/btn-next.png) no-repeat; background-size:80%; float: right;}
 .btn-back{background:url(../img/btn-back.png) no-repeat;background-size:100%}
 .btn-menu{background:url(../img/btn-menu.png) no-repeat;background-size:100%}
 .btn-modify{background:url(../img/btn-profile.png) no-repeat;background-size: auto 100%;width: 4rem !important;}

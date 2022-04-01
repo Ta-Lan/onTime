@@ -12,7 +12,7 @@
         </update>
     </resource>
     <startpage>
-        <name>www/html/requestwrite.html</name>
+        <name>www/html/main.html</name>
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>

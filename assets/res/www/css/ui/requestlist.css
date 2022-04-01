@@ -1,9 +1,16 @@
 .div-card{
     border: 2px solid #58AAFF;
-    margin : 3px;
     border-radius: 1em;
-    height: 10em;
+    height: 8em;
     padding-left: 1em;
+    margin: 0.5em;
+}
+.div-card-request{
+    border: 2px solid ;
+    border-radius: 1em;
+    height: 8em;
+    padding-left: 1em;
+    margin: 0.5em;
 }
 .card-title{
     font-size: 2em;
@@ -15,3 +22,13 @@
     margin-left: 0.5em;
     display: inline-block;
 }
+
+.card-profile{
+    width: 3.2em;
+    height : 3.2em;
+    display: inline-block;
+}
+.head-box{
+    height : 3.5em;
+}
+select{line-height:5rem;font-size:1.9rem;font-weight:bold;text-align: center;}

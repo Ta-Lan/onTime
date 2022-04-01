@@ -51,7 +51,7 @@ input,button,textarea,select{font-family:'gsans';font-size:inherit;}
 .mg-t40{margin-top:10rem !important;}
 .mg-tm01{margin-top: -0.1rem !important;}
 .mg-tm20{margin-top: -1rem !important;}
-.mg-t-chat{margin-top: 8.5rem !important;}
+.mg-t-chat{margin-top: 4rem !important;}
 /* 아래쪽 공간 */
 .pd-b10{padding-bottom:.5rem !important;}
 .pd-b20{padding-bottom:1rem !important;}
@@ -295,7 +295,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 /* Select box */
 .select-box{padding:1rem; background:url(../img/ico-arrow-down2.png) no-repeat 100% center;background-size:3.1rem;border:1px solid #ddd;font-weight:400;}
 .select-box.h4p{height: 4rem;}
-.category-select-box{padding:1rem; width:100%; background:url(../img/ico-arrow-down2.png) no-repeat 100% center;background-size:3.1rem;border:1px solid #ddd;font-weight:400;}
+.category-select-box{margin-bottom:1rem;padding:1rem; width:100%; background:url(../img/ico-arrow-down2.png) no-repeat 100% center;background-size:3.1rem;border:1px solid #ddd;font-weight:400;}
 /* Check Box */
 .chk{width:2.2rem;height:2.2rem;background:url(../img/ipt-chk.png) no-repeat;background-size:100%;}   
 .chk:checked{background-position:0 -2.2rem;}

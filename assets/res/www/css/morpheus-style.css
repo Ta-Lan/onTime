@@ -2640,6 +2640,20 @@ strong.ellipsis {
     width: 50%;
 }
 
+.item-box-l2 {
+    float: left;
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 1rem;
+}
+
+.item-box-r {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+
 .item-box-r2 {
     float: right;
     text-align: right;

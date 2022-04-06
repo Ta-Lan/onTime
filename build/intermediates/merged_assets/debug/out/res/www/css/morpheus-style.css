@@ -156,7 +156,7 @@ li.txt-btn .btn-txt{position:absolute;right:1.5rem;display:inline-block;color:#9
 .main-box.type-d .info-box-blue p{padding-bottom:.5rem;}
 .main-box.type-d .btn-wrap{text-align:center;}
 .main-box.type-d .btn-wrap .btn-line-wit{width:auto;height:auto;margin:1.5rem 0;}
-.main-box.type-d .btn-wrap .btn-line-wit::after{content:'';display:inline-block;width:5px;height:9px;margin-left:.5rem;background:url(../img/ico-arrow-white.png)no-repeat;background-size:100%;}
+.main-box.type-d .btn-wrap .btn-line-wit::after{content:'';display:inline-block;width:5px;height:9px;margin-left:.5rem;background:url(../img/ico-arrow-white.png) no-repeat;background-size:100%;}
 .main-box.type-d .main-box-01 .btn-wrap::after{content:'';width:100%;height:4.5rem;display:block;}
 .main-box.type-d .main-menu-box.type06{margin:-4.5rem 1.5rem 0rem;}
 .main-box.type-d .main-box-02{padding:0;margin:1.5rem 0 1.5rem 1.5rem;}
@@ -432,7 +432,7 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .info-wrap.type03 .txt-wrap em,
 .info-wrap.type03 .txt-wrap strong{font-size:1.5rem;}
 .info-wrap.type03 .btn-line{font-size:1.4rem;height:4rem;}
-.info-wrap.type03 .btn-line::after{content:'';display:inline-block;width:1.4rem;height:1.3rem;margin-left:.8rem;background:url(../img/ico-down.png)no-repeat;background-size:100%;}
+.info-wrap.type03 .btn-line::after{content:'';display:inline-block;width:1.4rem;height:1.3rem;margin-left:.8rem;background:url(../img/ico-down.png) no-repeat;background-size:100%;}
 .divide-wrap .thumbnail-wrap{float: left; width: 30%; height: 17.5rem;}
 .divide-wrap .tbl-wrap{float: left; width: 70%;}
 /* 하단 float영역 */
@@ -513,14 +513,14 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .ranking-box ul li::after{content:'';position:absolute;top:50%;right:1.1rem;display:inline-block;width:8px;height:2px;background-color:#666;}
 .ranking-box ul li.up::after,
 .ranking-box ul li.down::after{display:none}
-.ranking-box ul li.up{background:url(../img/ico-up.png)no-repeat 100% center;background-size:3.1rem;}
-.ranking-box ul li.down{background:url(../img/ico-down-blue.png)no-repeat 100% center;background-size:3.1rem;}
+.ranking-box ul li.up{background:url(../img/ico-up.png) no-repeat 100% center;background-size:3.1rem;}
+.ranking-box ul li.down{background:url(../img/ico-down-blue.png) no-repeat 100% center;background-size:3.1rem;}
 .recent-wrap{position:absolute;top:5.6rem;left:0;right:0;padding:0 1.5rem;background-color:#fff;z-index:1}
 .recent-wrap ul{border:1px solid #333;background-color:#fff;}
 .recent-wrap li{position:relative;overflow:hidden;padding:1rem 3.5rem 1rem 1.5rem;border-bottom:1px solid #ddd;}
 .recent-wrap li:last-child{border-bottom:0;}
 .recent-wrap span{float:right;color:#999;font-weight:400;}
-.recent-wrap .btn-close-s{position:absolute;top:0; right:0;text-indent:-9999rem;width:3.5rem;height:3.5rem;background:url(../img/ico-close.png)no-repeat center;background-size:1rem;}
+.recent-wrap .btn-close-s{position:absolute;top:0; right:0;text-indent:-9999rem;width:3.5rem;height:3.5rem;background:url(../img/ico-close.png) no-repeat center;background-size:1rem;}
 .ranking-box.clean li::after{display:none;}
 
 /** map **/
@@ -538,21 +538,23 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 /** mypage **/
 .join-pro {background-color: #333333; font-size: 17px; text-align: left; padding-left: 3rem; color: #fff;}
 .container {height: 100%;}
-.mypage-list {padding: 3rem;}
+.profile-box {padding: 1rem 3rem 0.5rem 3rem; }
 .profile {width:100%;}
 .profile img{position: relative; height: 100px; width: 100px; margin-left: 1rem; margin-bottom: 3rem;}
 .name {float: right; text-align: center; font-size: large; font-weight: bolder; margin-right: 8rem; margin-top: 1rem;}
 .b-text {margin-left: 1rem; text-align: center; font-size: small; font-weight: bolder;}
 .bline {clear: both; border-bottom: 1px darkgray solid; }
-.aa {clear: both; margin-top: 0.5rem;}
+
 .title {float: left; padding-left: 3rem; font-size: x-large; font-weight: bolder; }
 .my-info{margin: 4rem; clear: both;}
-.account-info {
+.page-list {
     clear: both;
     margin-bottom: 3rem;
     margin-left: 3rem;
+    margin-right: 3rem;
 }
 .item-container {
+    clear:both;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -567,22 +569,639 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 
 .delete-account{margin-top: 2.5rem; font-size: 15px; font-weight: lighter;}
 
-@media only screen and (min-width:768px) {/* tablet */
-/*
-    .tab-menu.count2,
-    .tab-menu.count3,
-    .tab-menu.count4,
-    .tab-menu.count5,
-    .tab-menu.count6 {max-width:70%;margin:0 auto;}
-*/
-    .main-box.type-a{max-width:120rem;width:100%;margin:0 auto;}
-    .main-box.type-a::after{content:'';display:inline-block;clear:both;}
-    .main-box.type-a .main-box-01{margin:1rem .5rem;}
-    .main-box.type-a .left-box{float:left;width:50%;}
-    .main-box.type-a .right-box{float:left;width:50%;}
-    .main-box.type-a .main-box > div > section{margin-right:.5rem;margin-left:.5rem;}
-    
-/*    .tab-menu-wrap{max-width:70rem;margin:0 auto;}*/
+
+/*payList*/
+.item-container-box {
+    clear:both;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 1rem 0 1rem .5rem;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+}
+.item-box-top{
+    width: 100%;
+    border-bottom: 1px solid #e9e9e9;
+    padding: .5rem .5rem 0 .5rem;
+}
+.item-box-l{
+    float: left;
+    width: 50%;
+}
+.item-box-r{
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+.item-box-bottom{
+    width: 100%;
+    padding: 1rem;
+}
+.item-box-bottom img{
+    float: left;
+    width: 75px;
+    height: 75px;
+    margin-right: 1rem;
+}
+.item-box-btm-l{
+    float: left;
+    width: 210px;
+}
+.item-box-title{
+    font-weight: bold;
+    padding: 1rem 1rem 0 0;
+}
+.item-box-content{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.item-box-btm-r {
+    float: right;
+    margin: 2rem 1rem 2rem 0;
+}
+.item-box-status{
+    border: 1px solid #58AAFF;
+    color: #58AAFF;
+    border-radius: 10px;
+    padding: .5rem .5rem .25rem .5rem;
 }
 
 
+
+
+/** messageList **/
+.chat-profile{float: left; text-align: center; font-size: large; font-weight: bolder;}
+.chat-profile img{height: 50px; width: 50px; margin: 0.5rem;}
+.page-body{
+    padding: .625rem 0 0;
+    background-color: #f2f2f2;
+}
+.page-body{
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    position: relative;
+}
+.chat-container{
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.chat-list{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    align-items: center;
+}
+.provider{
+    padding: 1rem;
+}
+.chat-item{
+    cursor: pointer;
+    padding: .875rem 1rem .75rem;
+    background-color: #fff;
+    margin-bottom: .625rem;
+    border: .06rem solid #f2f2f2;
+    border-radius: 8px;
+    position: relative;
+    width: 100%;
+}
+.chat-item section.user-info div.service-info .pro-info{
+    padding: .2rem 0 0;
+    color: #737373;
+    font-size: .875rem;
+    line-height: .875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.chat-item section.user-info div.service-info .pro-status{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+.chat-item div.last-message {
+    width: 100%;
+    margin: 0;
+    position: relative;
+    padding-right: 1.875rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    color: #737373;
+
+}
+.chat-item div.last-message .message-ellipsis{
+    width:380px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    float: left;
+    font-size:1.3rem;
+}
+
+.chat-item div.last-message p .unread-count.badge {
+    border-radius: .63rem;
+    font-weight: 500;
+    font-size: .75rem;
+    float: right;
+    width: 1.4375rem;
+    height: 1.25rem;
+    text-align: center;
+    padding: 0;
+    line-height: 1.25rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    right: 0;
+}
+.chat-item div.price {
+    clear: both;
+    display: flex;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.chat-item div.price span.updated-at {
+    color: #b5b5b5;
+    font-size: .75rem;
+    margin: 0;
+    float: inline-end;
+}
+.price img {
+    float: left;
+    padding: 0.2rem;
+    margin: 0.5rem;
+    width: 20px;
+    height: 20px;
+}
+.badge-list{
+    position: relative;
+    top: -.0625rem;
+}
+.m-auto {
+    margin: auto!important;
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.badge.badge-danger {
+    background-color: #ff3131;
+    color: #fff;
+}
+.badge {
+    border-radius: 6px;
+    font-size: .75rem;
+    font-weight: 500;
+    padding: .125rem .375rem;
+    line-height: normal;
+}
+
+.badge-danger {
+    color: #fff;
+    background-color: #ff3131;
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.user-profile-picture div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: .0625rem solid #f2f2f2;
+    overflow: hidden;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-color: #e1e1e1;
+}
+
+
+/**message**/
+.chat-wrapper{
+    background-color: #f2f2f2;
+    height:100%;
+    position: relative;
+
+}
+.chattings{
+    width:100%;
+    height:100%;
+}
+.chat-room-messages{
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    background-position: 100%;
+}
+.chat-room .button-area{
+    width:100%;
+    background-color: #fff;
+    margin-top: 5rem;
+    position: fixed;
+}
+.chat-room .button-area .chat-btn{
+    border-radius: 1rem;
+    padding: .5625rem .75rem;
+}
+.chat-room .button-area .paymentBtn {
+    margin: 0.5%;
+    background-image: linear-gradient(90deg,#58AAFF 0,#4cc8e5);
+    color: #fff;
+    width: 48%;
+}
+.chat-room .button-area .informBtn{
+    margin: 0.5%;
+    color: #58AAFF;
+    background-color: #fff;
+    border: 1px solid #58AAFF;
+    width: 48%;
+}
+.chat-room .chat-room-messages .chat-date{
+    margin: 1rem 1rem 0 1rem;
+    text-align: center;
+}
+.chattings .chat-profile img{
+    height: 40px;
+    width: 40px;
+    margin: 1rem;
+    border-radius: 2rem;
+}
+.sender-message-box{
+    border-radius: 1rem;
+    background-color: #fff;
+    float: left;
+    padding: 1.5rem;
+    max-width: 250px;
+    width:100%;
+}
+.sender-message-box .message-title img{
+    height: 20px;
+    width: 20px;
+    margin: 0.5rem;
+}
+.sender-message-box .message-subtitle{
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+    font-size:1.3rem;
+}
+.sender-message-box .service-info{
+    margin-top: 0.3rem;
+}
+.sender-message-box .service-info .service{
+    top:0.5rem;
+    font-size: 1.3rem;
+    margin-left: 0.3rem;
+}
+.sender-message-box .service-info .service-name{
+    float: right;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+.sender-message-box .price-info{
+    clear: both;
+    margin-top: 0.3rem;
+    margin-bottom: 0.2rem;
+    margin-left: 0.3rem;
+}
+.sender-message-box .price-info .price{
+    font-size: 1.3rem;
+}
+.sender-message-box .price-info .price-value{
+    font-size: 1.6rem;
+    color: #58AAFF;
+    font-weight: 700;
+    margin-left: auto;
+    float: right;
+    text-align: right;
+}
+.sender-message-box .guide{
+    display: grid;
+    grid-template-columns: 20px 200px;
+    grid-template-rows: 20px 20px;  
+    grid-gap: 10px;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+.sender-message-box .guide .guide-icon img{
+    width: 20px;
+    height: 20px;
+    float: top;
+    grid-column: 1;
+    grid-row: 1/2;
+}
+.sender-message-box .guide .guide-text{
+    margin-left: auto;
+    text-align: initial;
+    grid-column: 2/3;
+    grid-row:1/2;
+}
+.sender-message-box .estimate-btn{
+    clear: both;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: #58AAFF;
+    padding:1.5rem 3.7rem;
+    margin-top: 1rem;
+    font-size:medium;
+    color:#fff;
+    width:90%;
+}
+.sender-message-box .message-foot{
+    width: 100%;
+}
+.sender-message-box .estimate-btn img{
+    width:15px;
+    height:15px;
+    margin-left:1rem;
+}
+.s-message-bubble{
+    margin-top: 1.5rem;
+    overflow: hidden;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.s-message-bubble .message-status{
+    height:100%;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+.message-status .message-time{    
+    font-size: 0.3rem;
+    padding: 1rem;
+}
+
+.r-message-bubble{
+    margin: 1.5rem 1.5rem 1rem 0;
+    overflow: hidden;
+    height: 100%;
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+.r-message-bubble .receiver-message-box{
+    border-radius: 1rem;
+    background-color: #fff;
+    float: right;
+    padding: 1.5rem;
+    max-width: 250px;
+    width:100%;
+}
+.r-message-bubble .message-status{
+    height:100%;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+
+
+
+
+.chat-room-inputs form[name="chatform"]{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 6rem;
+}
+.chat-room-inputs form[name="chatform"] > textarea{
+    flex-basis: 90%;
+    flex-grow: 1;
+    margin: 0 1rem 0 1rem;
+    border-radius: 3rem;
+    align-self: center;
+}
+.chat-room-inputs .chat-submit{
+    border: 1px solid #58AAFF;
+    border-radius: 1rem;
+    background-color:rgb(248, 248, 248);
+    color: #58AAFF;
+    align-self: center;
+    margin-right: 1rem;
+    width: 50px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition-property: background-color, color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+.chat-room-inputs .chat-submit:hover{
+    background-color: #58AAFF;
+    color: rgb(248, 248, 248);
+}
+
+.chat-footer{
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #58AAFF;
+}
+
+/*reportForm*/
+.report-form{
+    width:100%;
+    height:100%;
+    padding:2rem;
+    font-size:2rem;
+}
+.report-form .report-btn{
+    align-items: center;
+}
+
+
+/*reportList*/
+.report-container-box {
+    clear:both;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin : 1rem 0 1rem .5rem;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    line-height:160%;
+}
+.report-box-bottom{
+    width: 100%;
+    padding: 0 1rem;
+}
+.report-box-btm-l{
+    float: left;
+    width: 280px;
+}
+/*request*/
+.main-box-05 {
+    height: 17em;
+    width: 100%;
+    padding: 2rem;
+    background-size: cover;
+    background: url("../img/template/img_1.jpg") no-repeat center left;;
+    color: white;
+}
+
+.main-box-05 .h2 {
+    font-size: 2em;
+    color: white
+}
+
+.main-box-05 .Deadline {
+    margin-top: 2em;
+}
+
+.main-box-05 .myrequest {
+    background-color: #fff;
+    color: #323232;
+    border-radius: 4px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("../img/ico-arrow-down3.png");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 4%;
+    width: 100%;
+    height: 2.625rem;
+    padding: 0.875rem;
+    display: flex;
+}
+
+.main-box-05 .request-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3125rem 0.375rem;
+    color: #737373;
+    font-size: .75rem;
+    font-weight: 500;
+    line-height: 1;
+    background: #f2f2f2;
+    border-radius: 0.25rem;
+}
+
+.no-received-quotes {
+    width: 100%;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding: 5rem 0;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+
+.request-profile {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+    padding: 0.5em;
+    border-bottom: 1px darkgray solid;
+}
+
+.request-profile .img{
+    float: left;
+    display: inline-block;
+    height: 70px;
+    width: 70px;
+}
+.request-profile .detail{
+    text-align: left;
+    width : 70%;
+    display: inline-block;
+}
+.request-profile .detail .info{
+    font-size: 0.7em;
+}
+.request-profile .detail .info img{
+    margin-bottom: 3px;
+    width: 13px;
+    height: 13px;
+
+}
+
+/*request*/
+.main-box-05 {
+    height: 17em;
+    width: 100%;
+    padding: 2rem;
+    background-size: cover;
+    background: url("../img/template/img_1.jpg") no-repeat center left;;
+    color: white;
+}
+
+.main-box-05 .h2 {
+    font-size: 2em;
+    color: white
+}
+
+.main-box-05 .Deadline {
+    margin-top: 2em;
+}
+
+.main-box-05 .myrequest {
+    background-color: #fff;
+    color: #323232;
+    border-radius: 4px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("../img/ico-arrow-down3.png");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 4%;
+    width: 100%;
+    height: 2.625rem;
+    padding: 0.875rem;
+    display: flex;
+}
+
+.main-box-05 .request-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3125rem 0.375rem;
+    color: #737373;
+    font-size: .75rem;
+    font-weight: 500;
+    line-height: 1;
+    background: #f2f2f2;
+    border-radius: 0.25rem;
+}
+
+.no-received-quotes {
+    width: 100%;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding: 5rem 0;
+}
+
+.text-center {
+    text-align: center !important;
+}

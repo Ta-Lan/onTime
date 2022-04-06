@@ -640,7 +640,6 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     background-color: #f2f2f2;
 }
 .page-body{
-    min-height: stretch;
     padding-top: 1rem;
     padding-left: 0.5rem;
     position: relative;
@@ -1053,8 +1052,6 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     float: left;
     width: 280px;
 }
-@media only screen and (min-width:768px) {/* tablet */
-
 /*request*/
 .main-box-05 {
     height: 17em;
@@ -1147,49 +1144,6 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
     height: 13px;
 
 }
-@media only screen and (min-width: 768px) {
-    /* tablet */
-    /*
->>>>>>> 9865df4daa804349234e03b2c7893d35d614a240
-    .tab-menu.count2,
-    .tab-menu.count3,
-    .tab-menu.count4,
-    .tab-menu.count5,
-    .tab-menu.count6 {max-width:70%;margin:0 auto;}
-*/
-    .main-box.type-a {
-        max-width: 120rem;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .main-box.type-a::after {
-        content: '';
-        display: inline-block;
-        clear: both;
-    }
-
-    .main-box.type-a .main-box-01 {
-        margin: 1rem .5rem;
-    }
-
-    .main-box.type-a .left-box {
-        float: left;
-        width: 50%;
-    }
-
-    .main-box.type-a .right-box {
-        float: left;
-        width: 50%;
-    }
-
-    .main-box.type-a .main-box > div > section {
-        margin-right: .5rem;
-        margin-left: .5rem;
-    }
-
-    /*    .tab-menu-wrap{max-width:70rem;margin:0 auto;}*/
-}
 
 /*request*/
 .main-box-05 {
@@ -1251,7 +1205,12 @@ strong.ellipsis{position:relative;display:inline-block;width:100%;}
 .text-center {
     text-align: center !important;
 }
-
-
-
+select{
+    -webkit-appearance: menulist-button;
+    -moz-appearance: menulist-button;
+    appearance: menulist-button;
+}
+input[type=range]{
+    width: 100%;
+    -webkit-appearance: slider-horizontal;
 }

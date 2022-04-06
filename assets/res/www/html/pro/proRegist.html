@@ -28,40 +28,36 @@
             </h2>
          </div>
          <div class="ipt-wrap">
-            <div class="ipt-form-type1">
+            <div class="ipt-form-type2">
                <span>
-                  전문분야 <!--category-->
+                  경력사항
                </span>
                <div class="ipt-form-col">
                   <select class="category-select-box" name="category">
                      <option value="">카테고리</option>
-                     <option value="">레슨</option>
-                     <option value="">홈/리빙</option>
-                     <option value="">이벤트</option>
-                     <option value="">비즈니스</option>
-                     <option value="">디자인/개발</option>
-                     <option value="">건강/미용</option>
-                     <option value="">아르바이트</option>
-                     <option value="">기타</option>
+                     <option value="lesson">레슨</option>
+                     <option value="home">홈/리빙</option>
+                     <option value="event">이벤트</option>
+                     <option value="business">비즈니스</option>
+                     <option value="design">디자인/개발</option>
+                     <option value="health">건강/미용</option>
+                     <option value="parttime">아르바이트</option>
+                     <option value="etc">기타</option>
                   </select>
                </div>
-            </div>
-            <div class="ipt-form-type1">
-               <span>
-                  계좌번호
-               </span>
                <div class="ipt-form-col">
-                  <input type="text" id="account" placeholder="계좌번호" />
+                  <input type="text" placeholder="세부 내용을 입력하세요." />
+                  <input type="text" placeholder="기간을 입력하세요." />
                </div>
             </div>
             <div class="ipt-form-type2">
                <span>
-                  닉네임
+                  자격증
                </span>
                <div class="ipt-form-row">
-                  <input type="text" id="nickname" placeholder="닉네임 입력" />
+                  <input type="text" id="login-id" placeholder="자격증을 입력해주세요." />
                   <button type="button" id="dup-btn" class="btn-line">
-                     중복확인
+                     추가
                   </button>
                </div>
             </div>

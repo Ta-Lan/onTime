@@ -2715,14 +2715,6 @@ strong.ellipsis {
 .page-body {
     padding: .625rem 0 0;
     background-color: #f2f2f2;
-}
-<<<<<<< HEAD
-
-.page-body {
-    min-height: stretch;
-=======
-.page-body{
->>>>>>> e31cb58261561730f0f21f02bdd7e76adaa556de
     padding-top: 1rem;
     padding-left: 0.5rem;
     position: relative;
@@ -3186,11 +3178,11 @@ strong.ellipsis {
     float: left;
     width: 280px;
 }
-<<<<<<< HEAD
+
 
 @media only screen and (min-width:768px) {
     /* tablet */
-=======
+
 /*request*/
 .main-box-05 {
     height: 17em;
@@ -3200,7 +3192,6 @@ strong.ellipsis {
     background: url("../img/template/img_1.jpg") no-repeat center left;;
     color: white;
 }
->>>>>>> e31cb58261561730f0f21f02bdd7e76adaa556de
 
     /*request*/
     .main-box-05 {
@@ -3275,7 +3266,6 @@ strong.ellipsis {
         border-bottom: 1px darkgray solid;
     }
 
-<<<<<<< HEAD
     .request-profile .img {
         float: left;
         display: inline-block;
@@ -3402,7 +3392,7 @@ strong.ellipsis {
         align-content: center;
         padding: 5rem 0;
     }
-=======
+
 }
 
 /*request*/
@@ -3452,17 +3442,7 @@ strong.ellipsis {
     background: #f2f2f2;
     border-radius: 0.25rem;
 }
->>>>>>> e31cb58261561730f0f21f02bdd7e76adaa556de
 
-    .text-center {
-        text-align: center !important;
-    }
-
-<<<<<<< HEAD
-
-
-
-=======
 .text-center {
     text-align: center !important;
 }
@@ -3474,5 +3454,4 @@ select{
 input[type=range]{
     width: 100%;
     -webkit-appearance: slider-horizontal;
->>>>>>> e31cb58261561730f0f21f02bdd7e76adaa556de
 }

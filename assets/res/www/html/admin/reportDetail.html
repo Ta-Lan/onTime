@@ -13,7 +13,7 @@
         <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
         <!-- 하단에 라인이 있는경우 class="line"추가 -->
         <h1>
-            신고번호
+            신고
         </h1>
 
         <button type="button" class="btn-back l-fix">
@@ -21,49 +21,93 @@
         </button>
     </header>
     <!-- 상단바 -->
-    신고 코드
-    신고 번호
-    신고자
-    신고 대상
-    신고 내용
+    <div class="container">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <div class="cont-wrap">
+            <!-- 태블릿에서 볼때 왼쪽에 정렬될 내용 -->
+            <div>
+                <table class="tbl-ipt">
+                    <colgroup>
+                        <col style="width:30%"/>
+                        <col style="width:70%"/>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>
+                                신 고 번 호
+                            </th>
+                            <td>
+                                <input type="text" disabled id="reportNumber" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                신 고 자
+                            </th>
+                            <td>
+                                <input type="text" disabled id="reportPeople" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="required">
+                                신 고 대 상
+                            </th>
+                            <td>
+                                <input type="text" value="박people" readonly="readonly" id="reportTarget" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                신 고 사 항
+                            </th>
+                            <td>
+                                <input type="text" value="개인 정보 노출" readonly="readonly" id="reportCode" class="full"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                내 용
+                            </th>
+                            <td>
+                                <textarea class="full report-textarea">
+퇴근하고싶은데 아직 5시37분이에요. 시간이 이상하게 느리게 가는 거 같아서 신고합니다.
+                                </textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="required">
+                                메 일
+                            </th>
+                            <td>
+                                <input type="text" id="email" value="people@talan.com" class="full"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
         
-    대상 회원 추방
-    용서하기
+    </div>
+
+    <!-- 하단바 -->
 </div>
-<!-- 하단바 -->
 <div class="footer">
     <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
-    <ul class="foot-menu-wrap">
-        <li>
-            <img src="../../img/pictogram/list.png" alt="요청/견적">
-            <br/>
-            요청/견적
-        </li>
-        <li>
-            <img src="../../img/pictogram/search.png" alt="고수찾기">
-            <br/>
-            고수 찾기
-        </li>
-        <li>
-            <img src="../../img/pictogram/home.png" alt="홈">
-            <br/>
-            홈
-        </li>
-        <li>
-            <img src="../../img/pictogram/chat.png" alt="메시지">
-            <br/>
-            메시지
-        </li>
-        <li>
-            <img src="../../img/pictogram/people.png" alt="마이페이지">
-            <br/>
-            마이페이지
-        </li>
-    </ul>
+
+        <div class="btn-wrap count2 pd">
+            <!--신고대상 회원 추방-->
+            <button type="button" class="btn-point-color">
+                승인하기
+            </button>
+            <button type="button" class="btn-line">
+                반려하기
+            </button>
+        </div>
 </div>
 </body>
-<script type="text/javascript" src="../js/mcore.min.js"></script>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
-<script type="text/javascript" src="../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
 </html>

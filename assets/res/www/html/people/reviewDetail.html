@@ -56,7 +56,7 @@
                                     제 목
                                 </th>
                                 <td>
-                                    <input type="text" id="" class="full" placeholder="리뷰제목 입력" />
+                                    <input type="text" id="" class="full" value="리뷰제목" readonly="readonly" />
                                 </td>
                             </tr>
                             <tr>
@@ -64,7 +64,9 @@
                                     내 용
                                 </th>
                                 <td>
-                                    <textarea class="full report-textarea" placeholder="리뷰내용 입력"></textarea>
+                                    <textarea class="full report-textarea"  readonly="readonly">
+리뷰내용입니다. 음 어땠냐면 저는 야근하기 싫었는데 옆 사람이 자꾸 야근하자고 매달리셔서 의뢰드렸는데 말끔히 처리해주셨어요! 감사합니다! 저는 더 이상 야근하지 않아도 돼요!
+                                    </textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -72,17 +74,32 @@
                                     별 점
                                 </th>
                                 <td>
-                                    <fieldset class="star-point">
-                                        <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">⭐</label>
-                                        <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">⭐</label>
-                                        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">⭐</label>
-                                        <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">⭐</label>
-                                        <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">⭐</label>
-                                    </fieldset>
+                                    ⭐⭐⭐⭐
                                 </td>
                             </tr>
+                            
                         </tbody>
                     </table>
+                    <div class="divider mg-t30"></div>
+                    <div class="comment-list">
+                        <ul>
+                            <li>
+                                김pro
+                            </li>
+                            <li>
+                                후기 감사합니다. 다음에 또 이용해주세요!
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="comment-writer">
+                       <div class="comment-inbox">
+                            <textarea placeholder="답변을 남겨보세요." rows="2" class="comment-inbox-text"></textarea>
+                            <button type="button" class="btn-line">등록</button>
+                        </div>
+                       <div class="register-box">
+                           
+                       </div>
+                   </div>
                 </div>
 
             </div>
@@ -97,13 +114,14 @@
     <!-- 하단바 -->
     <div class="footer">
         <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
-
+        <!--본인 게시글일 경우 버튼 띄움-->
+        <!--답변 달렸을 경우 수정 모대-->
         <div class="btn-wrap count2 pd">
             <button type="button" class="btn-point-color">
-                작성하기
+                수정하기
             </button>
             <button type="button" class="btn-line">
-                취소하기
+                삭제하기
             </button>
         </div>
     </div>

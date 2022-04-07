@@ -3297,6 +3297,47 @@ strong.ellipsis {
 
 }
 
+/*peopleInfo*/
+.people-info-btn-wrap {
+    margin-top: 1rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.people-info-btn button {
+    border: 1px solid #58AAFF;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pro-feed-name,
+.people-info-name {
+    float: right;
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+    margin-right: 8rem;
+    margin-top: 1rem;
+}
+
+.pro-feed-info {
+    font-size: 0.7em;
+}
+
+.pro-feed-info img {
+    margin: 0;
+    width: 13px;
+    height: 13px;
+
+}
+
+.pro-feed-info span {
+    margin-left: 1rem;
+}
+
 
 @media only screen and (min-width: 768px) {
 
@@ -3358,3 +3399,61 @@ input[type=range] {
     width: 100%;
     -webkit-appearance: slider-horizontal;
 }
+
+/*별점*/
+.star-point{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl;
+    border: 0; /* 필드셋 테두리 제거 */
+}
+.star-point input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+.star-point label{
+    font-size: 2em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+.star-point label:hover{
+    text-shadow: 0 0 0 #ffc107; /* 마우스 호버 */
+}
+.star-point label:hover ~ label{
+    text-shadow: 0 0 0 #ffc107; /* 마우스 호버 뒤에오는 이모지들 */
+}
+.star-point input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #ffc107; /* 마우스 클릭 체크 */
+}
+
+.reporting-list{
+    display: inline-block;
+    border: 0;
+}
+.reporting-list input[type=radio]{
+    display: flex;
+}
+
+/*feed-detail*/
+.feed-body{
+    padding:1.5rem;
+}
+
+.feed-title{
+    font-weight: 600;
+}
+.feed-info{
+    margin:1rem;
+}
+.feed-info-detail{
+    padding:0.5rem;
+}
+.feed-info img{
+    width:50px;
+    height:50px;
+    margin:0.75rem;
+    float:left;
+}
+
+.feed-info-writer{
+    font-size:0.75rem;
+    margin-top:1rem;
+}  

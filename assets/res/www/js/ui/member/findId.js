@@ -4,7 +4,7 @@
  * @date :
  */
 
-(function ($, CONFIG, window) {
+(function ($, M, CONFIG, window) {
     var ENV = CONFIG.ENV;
     var MSG = CONFIG.MSG;
     var CONSTANT = CONFIG.CONSTANT;
@@ -31,18 +31,21 @@
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
-            this.els.$findIdBtn.on('click', function () {
+            self.els.$findIdBtn.on('click', function () {
+                console.log("저도 눌려요.");
                 self.findId();
             });
-            this.els.$findPwBtn.on('click', function () {
+            self.els.$findPwBtn.on('click', function () {
+                console.log("비번찾기는 눌려요.");
                 M.page.html('./findPw1.html');
             });
         },
 
-        findId: function(){
+        findId: function findId(){
             var self = this;
             var name = self.els.$name.val().trim();
             var email = self.els.$email.val().trim();
+            console.log("눌리긴 하니?");
     
             if(name == ''){
                 return alert("이름을 입력해주세요.");
@@ -54,11 +57,11 @@
             $.sendHttp({
                 path: SERVER_PATH.FIND_ID,
                 data:{
-                    userNm : userNm,
-                    cellPhone : cellPhone,
+                    name : name,
+                    email : email,
                 },
                 succ: function(data){
-                    alert("아이디는 " +data.peopleId+" 입니다.");
+                    alert("아이디는 " +data.loginId+" 입니다.");
                 },
                 error: function(data){
                     alert("등록된 ID가 없습니다.");
@@ -68,7 +71,7 @@
           }
     };
     window.__page__ = page;
-})(jQuery, __config__, window);
+})(jQuery, M, __config__, window);
 
 (function ($, M, pageFunc, window) {
 

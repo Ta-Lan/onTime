@@ -10,6 +10,7 @@
     var MSG = CONFIG.MSG;
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
+    var SERVER_PATH = CONFIG.SERVER_PATH;
     var page = {
         els: {
             $percent: null,
@@ -17,23 +18,25 @@
         },
         data: {},
         init: function init() {
+            console.log("어디부터 안되는거야..?");
             this.els.$percent = $('#percent');
-            this.els.$progressBar = $('progress-bar');
+            this.els.$progressBar = $('#progress-bar');
         },
         startProgress: function startProgress(succCallBack) {
+            console.log("아니 이거 돼? 돌아가?");
             var $percent = this.els.$percent;
             var $progressBar = this.els.$progressBar;
-            var count = 0;
+            var count = 0;                              
 
             var interval = setInterval(function () {
                 count += 10;
                 $percent.html(count);
                 $progressBar.css('width', count + '%')
                 if (count == 100) {
-                    clearInterval(interval);
+                    clearInterval(interval); // 반복 실행을 멈춘다.
                     succCallBack();
                 }
-            }, 50)
+            }, 50); // 반복적으로 함수를 실행 1ms
         },
 
         moveLoginPage: function moveLoginPage() {
@@ -47,12 +50,14 @@
             var self = this;
             var existLoginData = M.data.storage('AUTO_LOGIN_AUTH');
             if (existLoginData) {
+                console.log("된겨?");
                 this.startProgress(function () {
+                    console.log("이건?"),
                     $.sendHttp({
                         path: SERVER_PATH.LOGIN,
                         data: {
-                            peopleId: existLoginData.id,
-                            password: existLoginData.pw
+                            peopleId: existLoginData.peopleId,
+                            password: existLoginData.password
                         },
                         succ: function (data) {
                             //로그인이 성공했을 때 콜백

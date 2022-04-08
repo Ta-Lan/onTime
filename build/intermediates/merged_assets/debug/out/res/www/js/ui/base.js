@@ -11,7 +11,8 @@
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
     var page = {
-        els: {},
+        els: {  
+        },
         data: {},
         init: function init() {
         },

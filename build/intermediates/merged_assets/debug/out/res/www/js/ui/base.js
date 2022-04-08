@@ -4,12 +4,12 @@
  * @date :
  */
 
-// 페이지 단위 모듈
 (function ($, CONFIG, window) {
     var ENV = CONFIG.ENV;
     var MSG = CONFIG.MSG;
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
+    var SERVER_PATH = CONFIG.SERVER_PATH;
     var page = {
         els: {},
         data: {},
@@ -25,13 +25,10 @@
     window.__page__ = page;
 })(jQuery, __config__, window);
 
-// 해당 페이지에서 실제 호출
 (function ($, M, pageFunc, window) {
 
-    // 화면에 리소스가 로딩을 끝내고 정상적으로 동작할 수 있는 시점에 대한 콜백
-    // window.onload 와 비슷함.
     M.onReady(function () {
-        pageFunc.init(); // 최초 화면 초기화
+        pageFunc.init();
         pageFunc.initView();
         pageFunc.initEvent();
     });

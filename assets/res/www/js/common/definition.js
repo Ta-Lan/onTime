@@ -1,22 +1,23 @@
 /**
  * @file : definition.js 상수 값을 모아두는 공통 JS
- * @author : 
- * @date : 
+ * @author :
+ * @date :
  */
 (function (window, M) {
-	var module = {};
+    var module = {};
 
-	var IS_DEV = true;
-  var IS_PROD = !IS_DEV;
+    var IS_DEV = true;
+    var IS_PROD = !IS_DEV;
 
 
-  // 앱 환경변수 값
-	var ENV = module.ENV = {
-    IS_DEV : IS_DEV, // 개발 모드 여부
-		SERVER_NAME: IS_PROD ? "GW_SERVER" : "GW_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
-		,UPLOAD_URL: IS_PROD ? "" : ""
-		,INDICATOR: true //서버통신시 indicator 여부 
-	};
+    // 앱 환경변수 값
+    var ENV = module.ENV = {
+        IS_DEV: IS_DEV, // 개발 모드 여부
+        SERVER_NAME: IS_PROD ? "OT_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+        , UPLOAD_URL: IS_PROD ? "" : ""
+        , INDICATOR: true //서버통신시 indicator 여부
+    };
+
 
 	//서버 전문 요청 목록
 	var SERVER_PATH = module.SERVER_PATH = {
@@ -24,29 +25,31 @@
 		DUPLICATE: "api/people/duplicate", //아이디 중복 체크
 		JOIN: "api/people/join", //회원가입
 		FIND_ID: "api/people/findId", //아이디 찾기
-		FIND: "api/peopl;e/find", //비밀번호 변경 전 개인정보 확인
+		FIND: "api/people/find", //비밀번호 변경 전 개인정보 확인
 		PASSWORD: "api/people/password", //비밀번호 변경
 		OUT: "api/people/out", //회원 탈퇴
 		INFO: "api/people/info", //회원 정보 조회
 		UPDATE: "api/people/update", //회원 정보 수정
 		CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
-	};
+        REQUEST_WRITE: "api/request/write", // request 글쓰기
+        GET_MESSAGE: "api/message/info",
+    };
 
-  var SERVER_CODE = module.SERVER_CODE = {
-    SUCC: '0000', // 성공시
-  }
+    var SERVER_CODE = module.SERVER_CODE = {
+        SUCC: '0000', // 성공시
+    }
 
-  // 상수 키 값
-  var CONSTANT = module.CONSTANT =  {
-    AUTO_LOGIN_AUTH: 'AUTO_LOGIN_AUTH'
-  }
+    // 상수 키 값
+    var CONSTANT = module.CONSTANT = {
+        AUTO_LOGIN_AUTH: 'AUTO_LOGIN_AUTH'
+    }
 
-  // 메시지 문자열 상수
-  var MSG = module.MSG = {
-    INDICATOR_MSG: "통신중..." //서버통신시 default indicator_msg 
-		,DEFAULT_ERROR_MSG: "네트워크 통신 중 오류가 발생했습니다."
-  };
+    // 메시지 문자열 상수
+    var MSG = module.MSG = {
+        INDICATOR_MSG: "통신중..." //서버통신시 default indicator_msg
+        , DEFAULT_ERROR_MSG: "네트워크 통신 중 오류가 발생했습니다."
+    };
 
-  
-  window.__config__ = module;
+
+    window.__config__ = module;
 })(window, M);

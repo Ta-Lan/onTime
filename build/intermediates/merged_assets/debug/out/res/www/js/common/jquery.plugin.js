@@ -162,7 +162,7 @@
             param: options.param || {},
             animation: options.animation || "DEFAULT"
         };
-        M.page.back
+        M.page.back();
     }
     // Storage 저장소 관련 모듈
     $.storage = {

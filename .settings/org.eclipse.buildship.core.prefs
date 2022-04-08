@@ -1,2 +1,12 @@
 connection.project.dir=
 eclipse.preferences.version=1
+<<<<<<< HEAD
+=======
+gradle.user.home=
+java.home=C\:\:\:\:\:\:\:\:/Program Files/Java/jdk1.8.0_191
+jvm.arguments=
+offline.mode=false
+override.workspace.settings=true
+show.console.view=true
+show.executions.view=true
+>>>>>>> 3721d7917104751f52f0dc69e9c86edf8ed1b822

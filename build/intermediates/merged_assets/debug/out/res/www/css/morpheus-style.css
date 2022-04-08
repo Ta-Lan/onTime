@@ -1044,6 +1044,7 @@ li.txt-btn .btn-txt {
     position: relative;
     padding-top: 62%;
     overflow: hidden;
+
 }
 
 .thumbnail img {
@@ -1052,7 +1053,7 @@ li.txt-btn .btn-txt {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .metro-wrap .info-box {
@@ -2713,32 +2714,6 @@ strong.ellipsis {
 
 
 /** messageList **/
-.chat-profile {
-    float: left;
-    text-align: center;
-    font-size: large;
-    font-weight: bolder;
-}
-
-.chat-profile img {
-    height: 50px;
-    width: 50px;
-    margin: 0.5rem;
-}
-
-.chat-profile {
-    float: left;
-    text-align: center;
-    font-size: large;
-    font-weight: bolder;
-}
-
-.chat-profile img {
-    height: 50px;
-    width: 50px;
-    margin: 0.5rem;
-}
-
 .page-body {
     padding: .625rem 0 0;
     background-color: #f2f2f2;
@@ -2747,172 +2722,75 @@ strong.ellipsis {
     position: relative;
 }
 
-.chat-container {
-    display: inline-block;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.chat-list {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    align-items: center;
-}
-
-.provider {
-    padding: 1rem;
-}
-
-.chat-item {
-    cursor: pointer;
-    padding: .875rem 1rem .75rem;
-    background-color: #fff;
-    margin-bottom: .625rem;
-    border: .06rem solid #f2f2f2;
-    border-radius: 8px;
-    position: relative;
-    width: 100%;
-}
-
-.chat-item section.user-info div.service-info .pro-info {
-    padding: .2rem 0 0;
-    color: #737373;
-    font-size: .875rem;
-    line-height: .875rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.chat-item section.user-info div.service-info .pro-status {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.chat-item div.last-message {
-    width: 100%;
-    margin: 0;
-    position: relative;
-    padding-right: 1.875rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
-    color: #737373;
-
-}
-
-.chat-item div.last-message .message-ellipsis {
-    width: 380px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    float: left;
-    font-size: 1.3rem;
-}
-
-.chat-item div.last-message p .unread-count.badge {
-    border-radius: .63rem;
-    font-weight: 500;
-    font-size: .75rem;
-    float: right;
-    width: 1.4375rem;
-    height: 1.25rem;
-    text-align: center;
-    padding: 0;
-    line-height: 1.25rem;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    right: 0;
-}
-
-.chat-item div.price {
+.chat-container-box {
     clear: both;
+    cursor: pointer;
     display: flex;
-    text-align: center;
-    font-size: 1.25rem;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0 1rem .5rem;
+    border: 1px solid #e9e9e9;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
-.chat-item div.price span.updated-at {
-    color: #b5b5b5;
-    font-size: .75rem;
-    margin: 0;
-    float: inline-end;
-}
-
-.price img {
-    float: left;
-    padding: 0.2rem;
-    margin: 0.5rem;
-    width: 20px;
-    height: 20px;
-}
-
-.badge-list {
-    position: relative;
-    top: -.0625rem;
-}
-
-.m-auto {
-    margin: auto !important;
-}
-
-.no-gutters {
-    margin-right: 0;
-    margin-left: 0;
-}
-
-.badge.badge-danger {
-    background-color: #ff3131;
-    color: #fff;
-}
-
-.badge {
-    border-radius: 6px;
-    font-size: .75rem;
-    font-weight: 500;
-    padding: .125rem .375rem;
-    line-height: normal;
-}
-
-.badge-danger {
-    color: #fff;
-    background-color: #ff3131;
-}
-
-.badge {
-    display: inline-block;
-    padding: .25em .4em;
-    font-size: 75%;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.user-profile-picture div {
-    position: relative;
+.chat-box-top {
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: .0625rem solid #f2f2f2;
-    overflow: hidden;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-color: #e1e1e1;
 }
+.chat-box-bottom {
+    width: 100%;
+    padding: 0 2rem;
+}
+.chat-people-info{
+    margin: 1rem;
+    margin-bottom: 0;
+}
+.chat-people-info-detail{
+    padding:0.5rem;
+}
+.chat-people-info-detail div{
+    font-size:1.15rem;
+}
+.chat-people-info img{
+    width:50px;
+    height:50px;
+    margin:0.75rem;
+    float:left;
+}
+.chat-box-content{
+    position: relative;
+}
+.chat-people-sender{
+    margin-top:1rem;
+} 
+.chat-box-text{
+    width:90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.chat-box-badge{
+    position: absolute;
+    bottom: 0.7rem;
+    right: 0px;
+    color: #fff;
+    background-color: #d61717;
+    border-radius: 10px;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+}
+.chat-box-price{
+    float: left;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    font-weight: 500;
+}
+.chat-box-price img{
+    padding:0.1rem;
+    width:20px;
+    height:20px;
+}
+
 
 
 /**message**/
@@ -3297,6 +3175,47 @@ strong.ellipsis {
 
 }
 
+/*peopleInfo*/
+.people-info-btn-wrap {
+    margin-top: 1rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.people-info-btn button {
+    border: 1px solid #58AAFF;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pro-feed-name,
+.people-info-name {
+    float: right;
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+    margin-right: 8rem;
+    margin-top: 1rem;
+}
+
+.pro-feed-info {
+    font-size: 0.7em;
+}
+
+.pro-feed-info img {
+    margin: 0;
+    width: 13px;
+    height: 13px;
+
+}
+
+.pro-feed-info span {
+    margin-left: 1rem;
+}
+
 
 @media only screen and (min-width: 768px) {
 
@@ -3357,4 +3276,94 @@ select {
 input[type=range] {
     width: 100%;
     -webkit-appearance: slider-horizontal;
+}
+
+/*별점*/
+.star-point{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl;
+    border: 0; /* 필드셋 테두리 제거 */
+}
+.star-point input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+.star-point label{
+    font-size: 2em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+.star-point label:hover{
+    text-shadow: 0 0 0 #ffc107; /* 마우스 호버 */
+}
+.star-point label:hover ~ label{
+    text-shadow: 0 0 0 #ffc107; /* 마우스 호버 뒤에오는 이모지들 */
+}
+.star-point input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #ffc107; /* 마우스 클릭 체크 */
+}
+
+.reporting-list{
+    display: inline-block;
+    border: 0;
+}
+.reporting-list input[type=radio]{
+    display: flex;
+}
+
+/*feed-detail*/
+.feed-body{
+    padding:1.5rem;
+}
+
+.feed-title{
+    font-weight: 600;
+}
+.feed-info{
+    margin:1rem;
+}
+.feed-info-detail{
+    padding:0.5rem;
+}
+.feed-info img{
+    width:50px;
+    height:50px;
+    margin:0.75rem;
+    float:left;
+}
+
+.feed-info-writer{
+    font-size:0.75rem;
+    margin-top:1rem;
+}  
+
+.star-rate{
+    width:50px;
+    height:50px;
+}
+
+/*comment*/
+.comment-writer {
+    margin: 0 0 29px;
+    padding: 16px 10px 10px 18px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.comment-inbox{
+    width:100%;
+}
+.comment-inbox textarea{
+    width:90%;
+    padding:0.5rem;
+    height:5rem;
+}
+.comment-inbox button{
+    float:right;
+    width:10%;
+    height:5rem;
+    background-color:#fff;
+    color:#58AAFF;
+    border:1px solid #58AAFF;
+}
+.comment-list{
+    padding:2rem;
 }

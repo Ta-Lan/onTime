@@ -13,7 +13,7 @@
     // 앱 환경변수 값
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
-        SERVER_NAME: IS_PROD ? "GW_SERVER" : "GW_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+        SERVER_NAME: IS_PROD ? "OT_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
         , UPLOAD_URL: IS_PROD ? "" : ""
         , INDICATOR: true //서버통신시 indicator 여부
     };
@@ -31,8 +31,22 @@
         UPDATE: "api/member/update", //회원 정보 수정
         CHECK_PASSWORD: "api/member/chkPwd", //회원 비밀번호 확인
 
+        //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
-        GET_MESSAGE: "api/message/info",
+
+        //message
+        GET_MESSAGE: "api/message/info", // message info
+        SET_MESSAGE: "api/message/send", // send message
+
+        //feed
+        FEED_REGIST: "api/feed/regist", //피드 등록
+        FEED_UPDATE: "api/feed/update", //피드 업데이트
+        FEED_LIST: "api/feed/list", //피드 리스트
+        FEED_DETAIL: "api/feed/detail", //피드 디테일
+        FEED_DELETE: "api/feed/delete", //피드 삭제
+        FEED_COMMENT_REGIST: "api/feed/commentsRegist", //피드 댓글 작성
+        FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
+        FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
     };
 
     var SERVER_CODE = module.SERVER_CODE = {

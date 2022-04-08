@@ -1600,6 +1600,9 @@ strong.ellipsis {
     background-size: 100%;
 }
 
+.tbl-ipt tbody td p{
+    margin: 1rem 0;
+}
 /** Set_out **/
 .logo-box {
     padding-top: 42%;
@@ -2970,7 +2973,7 @@ strong.ellipsis {
 }
 
 .message-status .message-time {
-    font-size: 0.3rem;
+    font-size: 1rem;
     padding: 1rem;
 }
 
@@ -3309,7 +3312,12 @@ input[type=range] {
 .reporting-list input[type=radio]{
     display: flex;
 }
-
+/*feed*/
+.feed-file-btn{
+    color:#58AAFF;
+    border: 1px solid #58AAFF;
+    padding: 1.23rem 2rem 1.23rem 2rem;
+}
 /*feed-detail*/
 .feed-body{
     padding:1.5rem;
@@ -3342,11 +3350,26 @@ input[type=range] {
 }
 
 /*comment*/
-.comment-writer {
+.comment-writer-info{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.comment-writer{
+    font-weight: 600;
+}
+.comment-write-date{
+    font-size:0.5rem;
+}
+.comment-write {
     margin: 0 0 29px;
     padding: 16px 10px 10px 18px;
     border-radius: 6px;
     box-sizing: border-box;
+}
+.delete-comment {
+    color:red;
 }
 .comment-inbox{
     width:100%;
@@ -3366,4 +3389,8 @@ input[type=range] {
 }
 .comment-list{
     padding:2rem;
+}
+
+.exdate{
+    width:27%;
 }

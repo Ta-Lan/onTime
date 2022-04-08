@@ -13,6 +13,7 @@
     </resource>
     <startpage>
         <name>www/html/service/message.html</name>
+
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>

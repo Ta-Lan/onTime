@@ -13,6 +13,7 @@
     </resource>
     <startpage>
         <name>www/html/service/message.html</name>
+
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>
@@ -38,14 +39,14 @@
     </library>
     <network>
         <http>
-			<GW_SERVER>
-				<path>mcore.edu.talan.implementation.HttpDefaultNetworkManager</path>
-				<address>http://192.168.0.34:8080/</address>
-				<timeout>30000</timeout>
-				<encoding>utf-8</encoding>
-				<type>rest</type>
-			</GW_SERVER>
-		</http>
+            <OT_SERVER>
+                <path>mcore.edu.talan.implementation.HttpDefaultNetworkManager</path>
+                <address>http://192.168.0.34:8080/</address>
+                <timeout>30000</timeout>
+                <encoding>utf-8</encoding>
+                <type>rest</type>
+            </OT_SERVER>
+        </http>
         <socket/>
     </network>
     <application>

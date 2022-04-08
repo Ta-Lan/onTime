@@ -1,6 +1,6 @@
 /**
  * @file : findPw1.js
- * @author :
+ * @author : suhyun
  * @date : 2022.04.08
  */
 

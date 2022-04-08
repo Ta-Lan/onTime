@@ -18,21 +18,35 @@
         , INDICATOR: true //서버통신시 indicator 여부
     };
 
+    //서버 전문 요청 목록
+    var SERVER_PATH = module.SERVER_PATH = {
+        LOGIN: "api/people/login", //로그인
+        DUPLICATE: "api/people/duplicate", //아이디 중복 체크
+        JOIN: "api/people/join", //회원가입
+        FIND_ID: "api/people/findId", //아이디 찾기
+        FIND: "api/people/find", //비밀번호 변경 전 개인정보 확인
+        PASSWORD: "api/people/password", //비밀번호 변경
+        OUT: "api/people/out", //회원 탈퇴
+        INFO: "api/people/info", //회원 정보 조회
+        UPDATE: "api/people/update", //회원 정보 수정
+        CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
 
-	//서버 전문 요청 목록
-	var SERVER_PATH = module.SERVER_PATH = {
-		LOGIN: "api/people/login", //로그인
-		DUPLICATE: "api/people/duplicate", //아이디 중복 체크
-		JOIN: "api/people/join", //회원가입
-		FIND_ID: "api/people/findId", //아이디 찾기
-		FIND: "api/people/find", //비밀번호 변경 전 개인정보 확인
-		PASSWORD: "api/people/password", //비밀번호 변경
-		OUT: "api/people/out", //회원 탈퇴
-		INFO: "api/people/info", //회원 정보 조회
-		UPDATE: "api/people/update", //회원 정보 수정
-		CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
+        //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
-        GET_MESSAGE: "api/message/info",
+
+        //message
+        GET_MESSAGE: "api/message/info", // message info
+        SET_MESSAGE: "api/message/send", // send message
+
+        //feed
+        FEED_REGIST: "api/feed/regist", //피드 등록
+        FEED_UPDATE: "api/feed/update", //피드 업데이트
+        FEED_LIST: "api/feed/list", //피드 리스트
+        FEED_DETAIL: "api/feed/detail", //피드 디테일
+        FEED_DELETE: "api/feed/delete", //피드 삭제
+        FEED_COMMENT_REGIST: "api/feed/commentsRegist", //피드 댓글 작성
+        FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
+        FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
     };
 
     var SERVER_CODE = module.SERVER_CODE = {

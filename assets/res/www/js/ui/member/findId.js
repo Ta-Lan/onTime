@@ -1,7 +1,7 @@
 /**
  * @file :findId.js
- * @author :
- * @date :
+ * @author : suhyun
+ * @date : 2022.04.08
  */
 
 (function ($, M, CONFIG, window) {

@@ -1044,6 +1044,7 @@ li.txt-btn .btn-txt {
     position: relative;
     padding-top: 62%;
     overflow: hidden;
+
 }
 
 .thumbnail img {
@@ -1052,7 +1053,7 @@ li.txt-btn .btn-txt {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .metro-wrap .info-box {

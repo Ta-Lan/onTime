@@ -1,6 +1,6 @@
 /**
  * @file : login.js
- * @author : Team OnTime
+ * @author : suhyun
  * @date : 22.04.08
  */
 

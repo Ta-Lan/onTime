@@ -1,6 +1,6 @@
 /**
  * @file : login.js
- * @author : Team OnTime
+ * @author : suhyun
  * @date : 22.04.08
  */
 
@@ -23,13 +23,13 @@
         data: {},
         init: function init() {
             var self = this;
-            this.els.$loginIdIpt = $('#login-id');
-            this.els.$passwordIpt = $('#password');
-            this.els.$loginBtn = $('#login-btn');
-            this.els.$autoLoginChk = $('#auto-login-chk');
-            this.els.$findIdBtn = $('#find-id');
-            this.els.$findPwBtn = $('#find-pw');
-            this.els.$joinBtn = $('#join-btn');
+            self.els.$loginIdIpt = $('#login-id');
+            self.els.$passwordIpt = $('#password');
+            self.els.$loginBtn = $('#login-btn');
+            self.els.$autoLoginChk = $('#auto-login-chk');
+            self.els.$findIdBtn = $('#find-id');
+            self.els.$findPwBtn = $('#find-pw');
+            self.els.$joinBtn = $('#join-btn');
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터

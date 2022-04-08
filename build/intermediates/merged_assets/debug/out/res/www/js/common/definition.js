@@ -20,16 +20,16 @@
 
     //서버 전문 요청 목록
     var SERVER_PATH = module.SERVER_PATH = {
-        LOGIN: "api/member/login", //로그인
-        DUPLICATE: "api/member/duplicate", //아이디 중복 체크
-        JOIN: "api/member/join", //회원가입
-        FIND_ID: "api/member/findId", //아이디 찾기
-        FIND: "api/member/find", //비밀번호 변경 전 개인정보 확인
-        PASSWORD: "api/member/password", //비밀번호 변경
-        OUT: "api/member/out", //회원 탈퇴
-        INFO: "api/member/info", //회원 정보 조회
-        UPDATE: "api/member/update", //회원 정보 수정
-        CHECK_PASSWORD: "api/member/chkPwd", //회원 비밀번호 확인
+        LOGIN: "api/people/login", //로그인
+        DUPLICATE: "api/people/duplicate", //아이디 중복 체크
+        JOIN: "api/people/join", //회원가입
+        FIND_ID: "api/people/findId", //아이디 찾기
+        FIND: "api/people/find", //비밀번호 변경 전 개인정보 확인
+        PASSWORD: "api/people/password", //비밀번호 변경
+        OUT: "api/people/out", //회원 탈퇴
+        INFO: "api/people/info", //회원 정보 조회
+        UPDATE: "api/people/update", //회원 정보 수정
+        CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
 
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기

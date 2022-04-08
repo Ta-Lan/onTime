@@ -12,8 +12,8 @@
     <header class="header line">
         <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
         <!-- 하단에 라인이 있는경우 class="line"추가 -->
-        <h1>
-            신고
+        <h1 class>
+            답변 작성
         </h1>
 
         <button type="button" class="btn-back l-fix">
@@ -31,37 +31,22 @@
                         <col style="width:30%"/>
                         <col style="width:70%"/>
                     </colgroup>
+                    
                     <tbody>
                         <tr>
                             <th>
-                                신 고 번 호
+                                문 의 번 호
                             </th>
                             <td>
-                                <input type="text" disabled id="reportNumber" class="full"/>
+                                <input type="text" disabled id="" class="full"/>
                             </td>
                         </tr>
                         <tr>
                             <th>
-                                신 고 자
+                                제 목
                             </th>
                             <td>
-                                <input type="text" disabled id="reportPeople" class="full"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="required">
-                                신 고 대 상
-                            </th>
-                            <td>
-                                <input type="text" value="박people" readonly="readonly" id="reportTarget" class="full"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                신 고 사 항
-                            </th>
-                            <td>
-                                <input type="text" value="개인 정보 노출" readonly="readonly" id="reportCode" class="full"/>
+                                <input type="text" id="" class="full" value="RE: 문의제목"/>
                             </td>
                         </tr>
                         <tr>
@@ -69,18 +54,12 @@
                                 내 용
                             </th>
                             <td>
-                                <textarea class="full report-textarea">
-퇴근하고싶은데 아직 5시37분이에요. 시간이 이상하게 느리게 가는 거 같아서 신고합니다.
-                                </textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="required">
-                                메 일
-                            </th>
-                            <td>
-                                <input type="text" id="email" value="people@talan.com" class="full"/>
-                            </td>
+                                <textarea class="full response-textarea">문의 내용 그대로 불러와주세요
+
+---------------------
+
+답변답변답변답변답변답변답변답변답변답변답변답변답변답변</textarea>
+                           </td>
                         </tr>
                     </tbody>
                 </table>
@@ -90,18 +69,21 @@
         
     </div>
 
-    <!-- 하단바 -->
+
+    
+        
+    
 </div>
+<!-- 하단바 -->
 <div class="footer">
     <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
 
         <div class="btn-wrap count2 pd">
-            <!--신고대상 회원 추방-->
             <button type="button" class="btn-point-color">
-                승인하기
+                답변하기
             </button>
             <button type="button" class="btn-line">
-                반려하기
+                취소하기
             </button>
         </div>
 </div>

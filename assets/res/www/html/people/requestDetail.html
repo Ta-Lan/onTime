@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>TALAN</title>
+    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
+    <link rel="stylesheet" href="../../css/swiper.min.css"/>
+    <link rel="stylesheet" href="../../css/muikit.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header line">
+        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+        <!-- 하단에 라인이 있는경우 class="line"추가 -->
+        <h1>
+            <span>김people</span>님의 요청서
+        </h1>
+        <button type="button" class="btn-menu r-fix">
+            메뉴
+            <!-- 왼쪽 버튼 class="l-fix" 추가 -->
+            <!-- 오른쪽 버튼 class="r-fix" 추가 -->
+        </button>
+
+        <button type="button" class="btn-back l-fix">
+            뒤로가기
+        </button>
+    </header>
+    <!-- 상단바 -->
+    <div class="wrapper">
+        <table class="tbl-ipt">
+            <colgroup>
+                <col style="width:30%"/>
+                <col style="width:70%"/>
+            </colgroup>
+            <tr>
+                <th>카 테 고 리</th>
+                <td><input type="text" class="full" value="비즈니스" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>일 시</th>
+                <td><input type="text" class="full" value="2022.04.07" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>제 목</th>
+                <td><input type="text" class="full" value="저를 뽑아주십쇼" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>내 용</th>
+                <td><textarea class="full report-textarea" readonly="readonly">
+내용이 무슨 내용이냐면 요청서 작성할 때 people이 작성한 내용이 그대로 오면 되겠지요? 이건 누가 만들죠? 바로 나.
+                </textarea></td>
+            </tr>
+            <tr>
+                <th>우 대 사 항</th>
+                <td><input type="text" class="full" value="저 자격증 있어요" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>지 역</th>
+                <td><input type="text" class="full" value="경기도 안산시 상록수구" readonly="readonly"></td>
+            </tr>
+            <tr>
+                <th>업 무 강 도</th>
+                <td><input type="text" class="full" value="3" readonly="readonly"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- 하단바 -->
+<div class="footer">
+    <!--pro만 보이게-->
+    <div class="btn-wrap count2 pd" hidden>
+        <button type="button" class="btn-line">
+            견적서 작성하기
+        </button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+</html>

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_ic_rotate_left.png.flat",
-        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable-xhdpi/addon_media_crop_ic_rotate_left.png"
-    },
-    {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_record_menu_bg.png.flat",
         "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable-hdpi/addon_media_record_menu_bg.png"
+    },
+    {
+        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_ic_rotate_left.png.flat",
+        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable-xhdpi/addon_media_crop_ic_rotate_left.png"
     },
     {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/layout_image_list_item.xml.flat",
@@ -32,12 +32,12 @@
         "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable/addon_popup_picker_up_normal.9.png"
     },
     {
-        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-mdpi_icon.png.flat",
-        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable-mdpi/icon.png"
-    },
-    {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/anim_core_slide_right_out.xml.flat",
         "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/anim/core_slide_right_out.xml"
+    },
+    {
+        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-mdpi_icon.png.flat",
+        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable-mdpi/icon.png"
     },
     {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/layout_addon_net_progressnetworkdialoglayout.xml.flat",
@@ -48,12 +48,12 @@
         "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable/addon_popup_picker_up_btn.xml"
     },
     {
-        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/layout_listitemtitle.xml.flat",
-        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/layout/listitemtitle.xml"
-    },
-    {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/anim_core_slide_right_in.xml.flat",
         "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/anim/core_slide_right_in.xml"
+    },
+    {
+        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/layout_listitemtitle.xml.flat",
+        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/layout/listitemtitle.xml"
     },
     {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-ldpi_icon.png.flat",
@@ -144,12 +144,12 @@
         "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable/addon_popup_picker_input_pressed.9.png"
     },
     {
-        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_selector_crop_button.xml.flat",
-        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable-xhdpi/addon_media_crop_selector_crop_button.xml"
-    },
-    {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/layout_addon_media_audiorecorder.xml.flat",
         "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/layout/addon_media_audiorecorder.xml"
+    },
+    {
+        "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-xhdpi_addon_media_crop_selector_crop_button.xml.flat",
+        "source": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/res/drawable-xhdpi/addon_media_crop_selector_crop_button.xml"
     },
     {
         "merged": "/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/res/merged/debug/drawable-hdpi_addon_media_bottom_btn_list_s.png.flat",

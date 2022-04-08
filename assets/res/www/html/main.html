@@ -58,11 +58,11 @@
             </li>
         </ul>
         <div class="container bg-gray line-t">
-            <ul class="metro-wrap pd">
+            <ul class="metro-wrap pd" id="feed-list">
                 <li>
                     <div class="thumbnail-wrap">
                         <div class="thumbnail">
-                            <img src="../img/pro-feed-image.png" alt="" />
+                            <img src="../img/template/sq_img_1.jpg" alt="피드 이미지" />
                         </div>
                     </div>
                     <div class="info-box">
@@ -81,27 +81,7 @@
                 <li>
                     <div class="thumbnail-wrap">
                         <div class="thumbnail">
-                            <img src="../img/pro-feed-image.png" alt="" />
-                        </div>
-                    </div>
-                    <div class="info-box">
-                        <div class="info-box-top">
-                            <strong class="ellipsis_1">
-                                PRO FEED TITLE
-                            </strong>
-                        </div>
-                        <div class="info-box-btm">
-                            <p style="text-align:left;" class="ellipsis_1">
-                                PRO FEED CONTENT
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="thumbnail-wrap">
-
-                        <div class="thumbnail">
-                            <img src="../img/pro-feed-image.png" alt="" />
+                            <img src="../img/template/sq_img_2.jpg" alt="" />
                         </div>
                     </div>
                     <div class="info-box">
@@ -120,7 +100,7 @@
                 <li>
                     <div class="thumbnail-wrap">
                         <div class="thumbnail">
-                            <img src="../img/pro-feed-image.png" alt="" />
+                            <img src="../img/template/sq_img_4.jpg" alt="" />
                         </div>
                     </div>
                     <div class="info-box">
@@ -139,7 +119,7 @@
                 <li>
                     <div class="thumbnail-wrap">
                         <div class="thumbnail">
-                            <img src="../img/pro-feed-image.png" alt="" />
+                            <img src="../img/template/sq_img_5.jpg" alt="" />
                         </div>
                     </div>
                     <div class="info-box">
@@ -158,7 +138,7 @@
                 <li>
                     <div class="thumbnail-wrap">
                         <div class="thumbnail">
-                            <img src="../img/pro-feed-image.png" alt="" />
+                            <img src="../img/template/sq_img_6.jpg" alt="" />
                         </div>
                     </div>
                     <div class="info-box">
@@ -177,7 +157,26 @@
                 <li>
                     <div class="thumbnail-wrap">
                         <div class="thumbnail">
-                            <img src="../img/pro-feed-image.png" alt="" />
+                            <img src="../img/template/sq_img_7.jpg" alt="피드 이미지" />
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="info-box-top">
+                            <strong class="ellipsis_1">
+                                PRO FEED TITLE
+                            </strong>
+                        </div>
+                        <div class="info-box-btm">
+                            <p style="text-align:left;" class="ellipsis_1">
+                                PRO FEED CONTENT
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="thumbnail-wrap">
+                        <div class="thumbnail">
+                            <img src="../img/template/sq_img_2.jpg" alt="피드 이미지" />
                         </div>
                     </div>
                     <div class="info-box">
@@ -218,37 +217,40 @@
     </div>
 
     <!-- 하단바 -->
-
     <div class="footer">
         <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
         <ul class="foot-menu-wrap">
-            <li>
-                <img src="../../img/pictogram/list.png" alt="요청/견적">
+            <li id="request-btn">
+                <img src="../img/pictogram/list.png" alt="요청/견적">
                 <br />
                 요청/견적
             </li>
-            <li>
-                <img src="../../img/pictogram/chat.png" alt="메시지">
+            <li id="message-btn">
+                <img src="../img/pictogram/chat.png" alt="메시지">
                 <br />
                 메시지
             </li>
-            <li>
-                <img src="../../img/pictogram/home.png" alt="홈">
+            <li id="home-btn">
+                <img src="../img/pictogram/home.png" alt="홈">
                 <br />
                 홈
             </li>
-            <li> 
-                <img src="../../img/pictogram/search.png" alt="고수찾기">
+            <li id="inquire-btn">
+                <img src="../img/pictogram/search.png" alt="고수찾기">
                 <br />
                 문의
             </li>
-            <li>
-                <img src="../../img/pictogram/people.png" alt="마이페이지">
+            <li id="my-page-btn">
+                <img src="../img/pictogram/people.png" alt="마이페이지">
                 <br />
                 마이페이지
             </li>
         </ul>
     </div>
 </body>
-
+<script type="text/javascript" src="../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../js/ui/common.event.js"></script>
+<!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../js/ui/main.js"></script>
 </html>

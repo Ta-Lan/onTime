@@ -6,14 +6,14 @@
 (function (window, M) {
     var module = {};
 
-    var IS_DEV = false;
+    var IS_DEV = true;
     var IS_PROD = !IS_DEV;
 
 
     // 앱 환경변수 값
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
-        SERVER_NAME: IS_PROD ? "LH_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+        SERVER_NAME: IS_PROD ? "OT_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
         , UPLOAD_URL: IS_PROD ? "" : ""
         , INDICATOR: true //서버통신시 indicator 여부
     };

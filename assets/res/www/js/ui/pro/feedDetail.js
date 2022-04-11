@@ -24,7 +24,7 @@
             // 화면에서 세팅할 동적데이터
             var self = this;
             var feedNumber = M.data.param("feedNumber");
-            console.log(feedNumber);
+            console.log(feedNumber);x
             $.sendHttp({
                 path : SERVER_PATH.FEED_DETAIL,
                 data : {

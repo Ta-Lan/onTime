@@ -86,8 +86,12 @@
                 //로그인이 성공했을 때 콜백
                 if (isAutoLogin) self.setAutoLogin(id, pw);
                 M.data.global({
-                  "peopleId": id
-                });
+                  LOGIN_INFO: {
+                      nickName: "",
+                      auth: "people", // people, pro, admin
+                      peopleId : ""
+                  }
+              });
                 M.page.html("../main.html");
               },
               err: function (data) {

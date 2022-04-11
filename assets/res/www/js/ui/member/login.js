@@ -56,7 +56,8 @@
             M.data.storage('AUTO_LOGIN_AUTH',{
                 peopleId: id,
                 password: pw
-            });    
+            });
+            console.log(M.data.storage("AUTO_LOGIN_AUTH"));    
         },
         unsetAutoLogin: function(id, pw){
             M.data.removeStorage('AUTO_LOGIN_AUTH');
@@ -64,9 +65,9 @@
 
         login: function () {
             var self = this;
-            var id = this.els.$loginIdIpt.val().trim(); // 로그인 아이디 가져오기
-            var pw = this.els.$passwordIpt.val().trim(); // 비밀번호 가져오기
-            var isAutoLogin = this.els.$autoLoginChk.prop('checked'); // true / false
+            var id = self.els.$loginIdIpt.val().trim(); // 로그인 아이디 가져오기
+            var pw = self.els.$passwordIpt.val().trim(); // 비밀번호 가져오기
+            var isAutoLogin = self.els.$autoLoginChk.prop('checked'); // true / false
       
             if (id == '') {
               return alert('아이디를 입력해주세요');
@@ -86,16 +87,18 @@
                 //로그인이 성공했을 때 콜백
                 if (isAutoLogin) self.setAutoLogin(id, pw);
                 M.data.global({
-                  LOGIN_INFO: {
-                      nickName: "",
+                  "LOGIN_INFO": {
+                      nickname: data.session.nickname,
                       auth: "people", // people, pro, admin
-                      peopleId : ""
+                      peopleId : id
                   }
               });
+                console.log(M.data.global("LOGIN_INFO"));
+                console.log(M.data.global("LOGIN_INFO.peopleId"));
                 M.page.html("../main.html");
               },
               err: function (data) {
-                if (data.rsltCode != '0000') {
+                if (data.rsltCode == '2001') {
                   alert("아이디 혹은 비밀번호가 틀립니다.");
                 }
               }

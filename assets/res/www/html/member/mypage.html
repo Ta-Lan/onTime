@@ -29,10 +29,10 @@
     <div class="container mg60">
         <ul class="profile-box">
             <li class="profile">
-                <img src="../../img/profile-image.png" />
+                <img src="../../img/profile-image.png" id ="profile-img-btn"/>
                 <div class="name">
-                    일억이 [PEOPLE]
-                    <div class="b-text">
+                    <span id="nickname">일억이</span> [PEOPLE]
+                    <div class="b-text" id="intro">
                         안녕하세요 멍멍
                     </div>
                 </div>
@@ -43,38 +43,44 @@
             <ul class="page-list">
                 <li class="item-container">
                     <div class="item">
+                        <div class="item-title" id="modify-info">회원 정보 수정</div>
+                    </div>
+                </li>
+                <li class="item-container">
+                    <div class="item">
                         <div class="item-title">결제</div>
-                        <div class="item-info">결제 정보</div>
+                        <div class="item-info" id="payment-info">결제 정보</div>
                     </div>
                 </li>
                 <li class="item-container">
                     <div class="item">
                         <div class="item-title">최근 결제 내역</div>
-                        <div class="item-info">최근 결제 내역이 없습니다.</div>
+                        <div class="item-info" id="latest-payment">최근 결제 내역이 없습니다.</div>
                         <!--<div class="item-info">가장 최근 결제한 내역 띄우삼</div>-->
 
                     </div>
                 <li class="item-container">
                     <div class="item">
                         <div class="item-title">최근 요청 내역</div>
-                        <div class="item-info">최근 요청 내역이 없습니다.</div>
+                        <div class="item-info" id="latest-request">최근 요청 내역이 없습니다.</div>
                         <!--<div class="item-info">가장 최근 요청한 내역 띄우삼</div>-->
                     </div>
                 </li>
                 <li class="item-container">
                     <div class="item">
                         <div class="item-title">최근 후기 내역</div>
-                        <div class="item-info">최근 후기 내역이 없습니다.</div>
+                        <div class="item-info" id="latest-review">최근 후기 내역이 없습니다.</div>
                         <!--<div class="item-info">가장 최근 후기 쓴 내역 띄우삼</div>-->
                     </div>
                 </li>
                 <li class="item-container">
                     <div class="item">
                         <div class="item-title">최근 문의 내역</div>
-                        <div class="item-info">최근 문의 내역이 없습니다.</div>
+                        <div class="item-info"id="latest-inquiry">최근 문의 내역이 없습니다.</div>
                         <!--<div class="item-info">가장 최근 문의한 내역 띄우삼</div>-->
                     </div>
                 </li>
+                
             </ul>
         </div>
     </div>
@@ -114,5 +120,6 @@
 <script type="text/javascript" src="../../js/mcore.min.js"></script>
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/member/mypage.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
 </html>

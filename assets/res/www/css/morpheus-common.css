@@ -126,6 +126,9 @@ img{width:100%;}
 .line-t{border-top:1px solid #e0e0e0;}
 .header button{text-indent:-9999rem;width:5rem;height:5rem;}
 
+/* header2 */
+.header2{position:sticky; z-index: 999; top:5rem; left:0; right:0; height:3.4rem;background-color:darkgray;}
+span.header2{text-align: left}
 /* Header Type02 */
 .header.type02 .logo{background-position:1.5rem center;}
 .header.type02 .r-fix:first-of-type{top:0;right:5rem;background-position:100% center;}

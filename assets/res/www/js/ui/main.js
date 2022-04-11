@@ -12,7 +12,7 @@
     var SERVER_PATH = CONFIG.SERVER_PATH;
     var page = {
         els: {
-            $feedList : null,
+            $feedList: null,
         },
         data: {},
         init: function init() {
@@ -20,16 +20,16 @@
             self.els.$feedList = $('#feed-list');
 
             $.sendHttp({
-                path : SERVER_PATH.FEED_LIST,
-                data : {
+                path: SERVER_PATH.FEED_LIST,
+                data: {
                     lastFeedNumber: '0',
                     cnt: '8'
                 },
-                succ : function(data){
-                    for (var i=0 ; i<data.list.length(); i++){
-                        self.addFeedList(data.list.get(i),i);
+                succ: function (data) {
+                    for (var i = 0; i < data.list.length; i++) {
+                        console.log(data.list[i]);
+                        self.addFeedList(data.list[i], i);
                     }
-                    console.log(data);
                 }
             });
 
@@ -39,9 +39,31 @@
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
+            $('#main-request-box').on('click', 'li', function () {
+                var category = $(this).attr('id');
+                console.log(category);
+                $.movePage({
+                    url : "/www/html/pro/requestList.html",
+                    param : {
+                        category : category
+                    }
+                })
+            });
+            $('#feed-list').on('click', 'li', function () {
+                var feedNumber = $(this).attr('id');
+                console.log(feedNumber);
+                $.movePage({
+                    url : "/www/html/pro/feedDetail.html",
+                    param : {
+                        feedNumber : feedNumber
+                    }
+                });
+            });
         },
-        addFeedList: function addFeedList(feedData,idx){
-            $("div.feed-list:eq("+idx+")").html(feedData.feedTitle);
+        addFeedList: function addFeedList(feedData, idx) {
+            $("strong.ellipsis_1:eq(" + idx + ")").html(feedData.feedTitle);
+            $("p.ellipsis_1:eq(" + idx + ")").html(feedData.feedContent);
+            $("li.feed-li:eq(" + idx + ")").attr('id', feedData.feedNumber);
         }
     };
     window.__page__ = page;

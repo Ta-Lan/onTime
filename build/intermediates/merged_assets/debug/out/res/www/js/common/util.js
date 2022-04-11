@@ -250,7 +250,7 @@
      * @param {string} pass
      * @param {string} repass
      * */
-    var confirmPasswordAndRePassword = module.confirmPasswordAndRePassword = function (pass, repass, callbackFunction) {
+    var confirmPasswordAndRePassword = module.confirmPasswordAndRePassword = function (pass, repass, /*callbackFunction*/) {
         var password = pass.trim();
         if (isCorrectPasswordRule(password) == false) {
             return alert('비밀번호는 숫자,영문,특수문자를 포함한 8자 이상이어야합니다.');
@@ -259,20 +259,20 @@
         if (password != rePassword) {
             return alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
         }
-        callbackFunction();
+        //callbackFunction();
     }
     /**
      * @param {string} dateStr yyyyMMdd
      * @return boolean
      * 유효한 날자형식인지 검증
      * */
-    var isBirthday = module.isBirthday = function isBirthday(dateStr) {
-        var year = Number(dateStr.substr(0, 4));
-        var month = Number(dateStr.substr(4, 2));
-        var day = Number(dateStr.substr(6, 2));
+    var isBirthday = module.isBirthday = function isBirthday(year, month, day) {
+        var year = year;//Number(dateStr.substr(0, 4));
+        var month = month;//Number(dateStr.substr(4, 2));
+        var day = day;//Number(dateStr.substr(6, 2));
         var today = new Date();
         var yearNow = today.getFullYear();
-        if (dateStr.length <= 8) {
+        //if (year.length + month.length + day.length <= 8) {
             if (1900 > year || year > yearNow) {
                 return false;
             } else if (month < 1 || month > 12) {
@@ -291,9 +291,9 @@
             } else {
                 return true;
             }
-        } else {
-            return false;
-        }
+        //} else {
+        //    return false;
+        //}
     }
     /**
      * 입력값이 유효한 휴c대폰 번호인지 검사
@@ -309,6 +309,10 @@
         var result = /^01[016789]/.test(cellphoneStr);
         return result;
     }
+
+
+    
     window.__util__ = module;
+
 
 })();

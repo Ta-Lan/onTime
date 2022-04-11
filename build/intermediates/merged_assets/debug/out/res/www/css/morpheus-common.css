@@ -127,7 +127,7 @@ img{width:100%;}
 .header button{text-indent:-9999rem;width:5rem;height:5rem;}
 
 /* header2 */
-.header2{position:sticky; z-index: 999; top:5rem; left:0; right:0; height:3.4rem;background-color:darkgray;}
+.header2{position:sticky; z-index: 999; top:5rem; left:0; right:0; height:4.45rem;background-color:darkgray;}
 span.header2{text-align: left}
 /* Header Type02 */
 .header.type02 .logo{background-position:1.5rem center;}

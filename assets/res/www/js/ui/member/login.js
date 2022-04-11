@@ -89,12 +89,12 @@
                 M.data.global({
                   "LOGIN_INFO": {
                       nickname: data.session.nickname,
-                      auth: "people", // people, pro, admin
+                      auth: data.isProRegisted, // people, pro, admin
                       peopleId : id
                   }
               });
                 console.log(M.data.global("LOGIN_INFO"));
-                console.log(M.data.global("LOGIN_INFO.peopleId"));
+                console.log(M.data.global("LOGIN_INFO.auth"));
                 M.page.html("../main.html");
               },
               err: function (data) {

@@ -21,7 +21,7 @@
         init: function init() {
             var self = this;
             self.els.$name = $('#user-name');
-            self.els.$cellPhone = $('#email');
+            self.els.$email = $('#email');
             self.els.$findIdBtn = $('#find-id-btn');
             self.els.$findPwBtn = $('#find-pw');
         },
@@ -31,12 +31,10 @@
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
-            self.els.$findIdBtn.on('click', function () {
-                console.log("저도 눌려요.");
+            this.els.$findIdBtn.on('click', function () {
                 self.findId();
             });
-            self.els.$findPwBtn.on('click', function () {
-                console.log("비번찾기는 눌려요.");
+            this.els.$findPwBtn.on('click', function () {
                 M.page.html('./findPw1.html');
             });
         },
@@ -45,7 +43,6 @@
             var self = this;
             var name = self.els.$name.val().trim();
             var email = self.els.$email.val().trim();
-            console.log("눌리긴 하니?");
     
             if(name == ''){
                 return alert("이름을 입력해주세요.");
@@ -68,7 +65,7 @@
                 }
             });
     
-          }
+        }
     };
     window.__page__ = page;
 })(jQuery, M, __config__, window);

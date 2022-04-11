@@ -60,12 +60,12 @@
         "source": "C:\\workspace\\onTime\\res\\anim\\core_fade_in.xml"
     },
     {
-        "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\drawable_addon_popup_picker_down_pressed.9.png.flat",
-        "source": "C:\\workspace\\onTime\\res\\drawable\\addon_popup_picker_down_pressed.9.png"
-    },
-    {
         "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\drawable_addon_media_rec_btn_list.xml.flat",
         "source": "C:\\workspace\\onTime\\res\\drawable\\addon_media_rec_btn_list.xml"
+    },
+    {
+        "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\drawable_addon_popup_picker_down_pressed.9.png.flat",
+        "source": "C:\\workspace\\onTime\\res\\drawable\\addon_popup_picker_down_pressed.9.png"
     },
     {
         "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_addon_media_record_bg_shadow.png.flat",
@@ -104,12 +104,12 @@
         "source": "C:\\workspace\\onTime\\res\\layout-xlarge\\addon_media_audiorecorder.xml"
     },
     {
-        "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\anim_core_slide_bottom_in.xml.flat",
-        "source": "C:\\workspace\\onTime\\res\\anim\\core_slide_bottom_in.xml"
-    },
-    {
         "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\anim_core_slide_bottom_out.xml.flat",
         "source": "C:\\workspace\\onTime\\res\\anim\\core_slide_bottom_out.xml"
+    },
+    {
+        "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\anim_core_slide_bottom_in.xml.flat",
+        "source": "C:\\workspace\\onTime\\res\\anim\\core_slide_bottom_in.xml"
     },
     {
         "merged": "C:\\workspace\\onTime\\build\\intermediates\\res\\merged\\debug\\drawable_addon_popup_picker_up_btn.xml.flat",

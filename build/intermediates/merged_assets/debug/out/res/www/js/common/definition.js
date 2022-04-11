@@ -21,7 +21,9 @@
     //서버 전문 요청 목록
     var SERVER_PATH = module.SERVER_PATH = {
         LOGIN: "api/people/login", //로그인
-        DUPLICATE: "api/people/duplicate", //아이디 중복 체크
+        DUPLICATE1: "api/people/duplicate1", //아이디 중복 체크
+        DUPLICATE2: "api/people/duplicate2", //이메일 중복 체크
+        DUPLICATE3: "api/people/duplicate3", //닉네임 중복 체크
         JOIN: "api/people/join", //회원가입
         FIND_ID: "api/people/findId", //아이디 찾기
         FIND: "api/people/find", //비밀번호 변경 전 개인정보 확인

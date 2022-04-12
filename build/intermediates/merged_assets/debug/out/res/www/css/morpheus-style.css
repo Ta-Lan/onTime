@@ -2542,8 +2542,9 @@ strong.ellipsis {
     text-align: center;
     font-size: large;
     font-weight: bolder;
-    margin-right: 8rem;
+    margin-right: 3rem;
     margin-top: 1rem;
+    width: 60%;
 }
 
 .b-text {
@@ -3455,19 +3456,39 @@ input:checked + .slider:before {
 /* Rounded sliders */
 .slider.round {
     border-radius: 34px;
+    padding: 1rem;
+    font-size: 1.6rem;
 }
-
-.slider.round:before {
+.slider.round.r-fix{
+    background-color: #58AAFF;
+}
+.slider.round.r-fix:before { /*switch btn*/
+    border-radius: 50%;
+    left: 2.99rem;
+}
+.slider.round.l-fix:before{
     border-radius: 50%;
 }
 
 .pro-people {
     float: right;
+    left: 3rem;
 }
 .pro-background{
     background-color: #58AAFF;
 }
 .header2 span{
+    padding: 1rem;
     font-size: 1.6rem;
 
+}
+.people-info-topbar{
+    top:1rem;
+    padding: 0.5rem;
+}
+
+.register{
+    text-indent: -9999rem;
+    width: 5rem;
+    height: 5rem;
 }

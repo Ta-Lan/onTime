@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : peopleInfo.js
+ * @author : ParkDoYoung
+ * @date : 22.4.12
  */
 
 (function ($, CONFIG, window) {

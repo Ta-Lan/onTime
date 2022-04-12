@@ -43,9 +43,9 @@
                 var category = $(this).attr('id');
                 console.log(category);
                 $.movePage({
-                    url : "/www/html/pro/requestList.html",
-                    param : {
-                        category : category
+                    url: "/www/html/pro/requestList.html",
+                    param: {
+                        category: category
                     }
                 })
             });
@@ -53,9 +53,9 @@
                 var feedNumber = $(this).attr('id');
                 console.log(feedNumber);
                 $.movePage({
-                    url : "/www/html/pro/feedDetail.html",
-                    param : {
-                        feedNumber : feedNumber
+                    url: "/www/html/pro/feedDetail.html",
+                    param: {
+                        feedNumber: feedNumber
                     }
                 });
             });
@@ -64,6 +64,11 @@
             $("strong.ellipsis_1:eq(" + idx + ")").html(feedData.feedTitle);
             $("p.ellipsis_1:eq(" + idx + ")").html(feedData.feedContent);
             $("li.feed-li:eq(" + idx + ")").attr('id', feedData.feedNumber);
+            if (feedData.filePath === null){
+                $("div.thumbnail:eq(" + idx + ")").html("<img src='/res/www/img/profile-image.png'/>");
+            }else{
+                $("div.thumbnail:eq(" + idx + ")").html("<img src='" +feedData.filePath +feedData.storeFileName +"'/>");
+            }
         }
     };
     window.__page__ = page;
@@ -76,5 +81,7 @@
         pageFunc.initView();
         pageFunc.initEvent();
     });
-
+    M.onRestore(function () {
+        pageFunc.initView();
+    });
 })(jQuery, M, __page__, window);

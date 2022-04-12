@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : feedDetail.js
+ * @author : ParkDoYoung
+ * @date : 22.4.12
  */
 
 (function ($, CONFIG, window) {
@@ -19,6 +19,7 @@
             $delete: null,
             $commentContent: null,
             $commentSubmit: null,
+            $feedImage : null,
         },
         data: {
             feedWriter: "",
@@ -34,13 +35,14 @@
             self.els.$delete = $('#delete');
             self.els.$commentContent = $('#comment-content');
             self.els.$commentSubmit = $('#comment-submit');
+            self.els.$feedImage = $('#feed-image');
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
             var self = this;
             // nick name get
             var login_info = M.data.global("LOGIN_INFO");
-            self.data.myNickname = login_info.nickName;
+            self.data.myNickname = login_info.nickname;
 
             var feedNumber = M.data.param("feedNumber");
             $.sendHttp({
@@ -50,11 +52,11 @@
                 },
                 succ: function succ(data) {
                     $("div.feed-title").html(data.feedTitle);
-                    $("div.feed-content").html(data.feedContent);
+                    $("div.feed-text").html(data.feedContent);
                     $("div.feed-writer").html(data.feedWriterNickname);
                     $("div.feed-write-date").html(data.feedRegisterDate);
+                    $("div#feed-image").html("<img src='"+data.filePath +data.storeFileName +"'/>");
                     self.data.feedWriter = data.feedWriterId;
-                    // 아직 파일 관련 처리 x
                 },
                 error: function errir(data) {
                     console.log(data);
@@ -174,5 +176,7 @@
         pageFunc.initView();
         pageFunc.initEvent();
     });
-
+    M.onRestore(function () {
+        pageFunc.initView();
+    });
 })(jQuery, M, __page__, window);

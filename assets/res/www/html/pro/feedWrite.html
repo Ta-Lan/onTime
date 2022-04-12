@@ -61,8 +61,8 @@
                                 첨 부 파 일
                             </th>
                             <td>
-                                <input type="text" disabled placeholder="미디어 이름">
-                                <button type="button" id="imgBtn" class="feed-file-btn"> 
+                                <input type="text" id="img-name" disabled placeholder="미디어 이름">
+                                <button type="button" id="img-btn" class="feed-file-btn">
                                     미디어 선택
                                 </button>
                             </td>
@@ -70,21 +70,18 @@
                     </tbody>
                 </table>
             </div>
-           
         </div>
-        
     </div>
 
     <!-- 하단바 -->
 </div>
 <div class="footer">
     <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
-
         <div class="btn-wrap count2 pd">
-            <button type="button" class="btn-point-color">
+            <button type="button" id="submit" class="btn-point-color">
                 작성하기
             </button>
-            <button type="button" class="btn-line">
+            <button type="button" id="cancel" class="btn-line">
                 취소하기
             </button>
         </div>
@@ -94,4 +91,5 @@
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/pro/feedWrite.js"></script>
 </html>

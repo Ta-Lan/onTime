@@ -6,7 +6,7 @@
 (function (window, M) {
     var module = {};
 
-    var IS_DEV = false;
+    var IS_DEV = true; // true = 소담씨 컴퓨터 , false = postman MockUp Server
     var IS_PROD = !IS_DEV;
 
 
@@ -50,6 +50,8 @@
         FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
         FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
         FEED_LIST_BY_WRITER: "api/feed/listByWriter", //피드 작성자별 리스트
+        FEED_REGIST_WITH_IMAGE: "api/feed/registWithImage",
+        FEED_UPDATE_WITH_IMAGE: "api/feed/updateWithImage",
     };
 
     var SERVER_CODE = module.SERVER_CODE = {
@@ -73,11 +75,10 @@
             "                    <li>\n" +
             "                        <div class=\"comment-writer-info\">\n" +
             "                            <div class=\"comment-writer\">김people</div>\n" +
-            "                            <div class=\"comment-write-date\">2022.04.07 <span class=\"delete-comment\">X</span></div>\n" +
+            "                            <div class=\"comment-write-date\"><span class=\"delete-comment\">X</span></div>\n" +
             "                        </div>\n" +
             "                    </li>\n" +
             "                    <li class='comment-content'>\n" +
-            "                        게시글 잘 보고 갑니다. 제 블로그 놀러오셔서 자격증 정보 알아가세요.\n" +
             "                    </li>\n" +
             "                </ul>"
     };

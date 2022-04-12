@@ -152,37 +152,37 @@
         // { name: "imgs", content: "test.zip", type: "FILE" },
         // ],
         var fileUploadFinish = function (status, header, body, setting) {
-          var _body = null;
-          try {
-            var _body = JSON.parse(body);
-          } catch (e) {
-            _body = body;
-          }
-    
-          if (status == '200' && $.isFunction(options.succ) && _body.rsltCode == SERVER_CODE.SUC) {
-            options.succ(_body.body);
-          } else if ($.isFunction(options.error)) {
-            options.error(status, body)
-          }
+            var _body = null;
+            try {
+                var _body = JSON.parse(body);
+            } catch (e) {
+                _body = body;
+            }
+
+            if (status == '200' && $.isFunction(options.succ) && _body.rsltCode == SERVER_CODE.SUC) {
+                options.succ(_body.body);
+            } else if ($.isFunction(options.error)) {
+                options.error(status, body)
+            }
         }
         var fileUploadProgress = function (total, current) {
-          if ($.isFunction(options.progress)) {
-            options.progress(total, current)
-          }
+            if ($.isFunction(options.progress)) {
+                options.progress(total, current)
+            }
         }
         var _options = {
-          url: "http://192.168.0.8:8888/" + ENV.UPLOAD_URL + options.path,
-          header: options.header || {},
-          params: options.params || {},
-          body: options.body || [],
-          encoding: "UTF-8",
-          finish: fileUploadFinish,
-          progress: fileUploadProgress
+            url: "http://192.168.0.8:8888/" + ENV.UPLOAD_URL + options.path,
+            header: options.header || {},
+            params: options.params || {},
+            body: options.body || [],
+            encoding: "UTF-8",
+            finish: fileUploadFinish,
+            progress: fileUploadProgress
         }
-    
-    
+
+
         M.net.http.upload(_options);
-      }
+    }
     /**
      * @param {object} options
      * @param {string} options.param 전달할 파라미터
@@ -225,6 +225,47 @@
         clearAuth: function clearAuth() {
             M.data.removeStorage(CONSTANT.AUTO_LOGIN_AUTH);
         }
+    }
+
+    /**
+     * picker
+     * @param {object} options
+     * @param {string} options.mode SINGLE or MULTI
+     * @param {string} options.mediaType 사진(PHOTO) or 동영상(VIDEO) or 오디오(AUDIO) or 갤러리(ALL)
+     * @param {string} options.path 파일 경로 (도큐먼트로 부터의 경로, 로컬 웹서버를 통해 파일 접근 가능)
+     * @param {int} options.maxCount 최대 선택 갯수
+     * @param {int} options.column  미디어 선택 화면 컬럼 수
+     * @param {boolean} options.detail 상세 화면 모드
+     * @param {boolean} options.zoom 줌 모드
+     * @param {Function} options.succ 성공시 콜백
+     * @param {Function} options.error 실패시 콜백
+     * */
+    $.picker = function (options) {
+        var callback = function succFunc(status, data) {
+            console.log('HTTP RESPONE :: ', status + JSON.stringify(data));
+            if (status === "SUCCESS") {
+                if ($.isFunction(options.succ)) {
+                    options.succ(data);
+                }
+            } else {
+                // 실패
+                $.modal(data);
+                if ($.isFunction(options.error)) {
+                    options.error(data);
+                }
+            }
+        };
+        var _options = {
+            mode: options.mode || "SINGLE", // SINGLE, MULTI(PHOTO 일때만)
+            mediaType: options.mediaType || "PHOTO", //( PHOTO: 사진, VIDEO: 동영상, AUDIO: 오디오, ALL : 갤러리 )
+            path: options.path || null,
+            maxCount: options.maxCount || 0, //(기본값:0, 0인경우 제한없음)
+            column: options.column || 3,
+            detail: options.detail || false,
+            zoom: options.zoom || false,
+            callback: callback,
+        }
+        M.media.picker(_options);
     }
 
 })(jQuery, M, __config__);

@@ -6,14 +6,14 @@
 (function (window, M) {
     var module = {};
 
-    var IS_DEV = true; // true = 소담씨 컴퓨터 , false = postman MockUp Server
+    var IS_DEV = true;
     var IS_PROD = !IS_DEV;
 
 
     // 앱 환경변수 값
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
-        SERVER_NAME: IS_PROD ? "LH_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+        SERVER_NAME: IS_PROD ? "OT_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
         , UPLOAD_URL: IS_PROD ? "" : ""
         , INDICATOR: true //서버통신시 indicator 여부
     };
@@ -50,8 +50,6 @@
         FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
         FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
         FEED_LIST_BY_WRITER: "api/feed/listByWriter", //피드 작성자별 리스트
-        FEED_REGIST_WITH_IMAGE: "api/feed/registWithImage",
-        FEED_UPDATE_WITH_IMAGE: "api/feed/updateWithImage",
     };
 
     var SERVER_CODE = module.SERVER_CODE = {
@@ -75,10 +73,11 @@
             "                    <li>\n" +
             "                        <div class=\"comment-writer-info\">\n" +
             "                            <div class=\"comment-writer\">김people</div>\n" +
-            "                            <div class=\"comment-write-date\"><span class=\"delete-comment\">X</span></div>\n" +
+            "                            <div class=\"comment-write-date\">2022.04.07 <span class=\"delete-comment\">X</span></div>\n" +
             "                        </div>\n" +
             "                    </li>\n" +
             "                    <li class='comment-content'>\n" +
+            "                        게시글 잘 보고 갑니다. 제 블로그 놀러오셔서 자격증 정보 알아가세요.\n" +
             "                    </li>\n" +
             "                </ul>"
     };

@@ -1128,6 +1128,7 @@ strong.ellipsis {
     overflow: hidden;
     padding: 1rem;
     background-color: #58AAFF;
+    width: 100%;
 }
 
 .foot-menu-wrap li {

@@ -71,8 +71,7 @@
             // 마이페이지
             $(self.els.$myPageBtn).on('click',function(){
                 $.movePage({
-                    url : "/www/html/member/mypage.html",
-                    actionType : 'NO_HISTORY'
+                    url : "/www/html/member/mypage.html"
                 });
             });
         }

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
     <title>TALAN</title>
     <link rel="stylesheet" href="../../css/morpheus-style.css" />
     <link rel="stylesheet" href="../../css/swiper.min.css" />
@@ -67,20 +68,22 @@
                     </div>
                 </li>
                 <div class="btn-wrap">
-                
                     <button type="button" id="modify-info" class="btn-point-color">
                         정보 수정
                     </button>
                 </div>
-                <li class="item-container">
-                    <div class="delete-account">
+                <div class="btn-wrap">
+                    <button type="button" id="delete-member" class="btn-line-04">
                         계정 탈퇴
-                    </div>
+                    </button>
                 </li>
             </ul>
         </div>
     </div> 
 
 </body>
-
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
+<script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/member/modifyInfo.js"></script>
 </html>

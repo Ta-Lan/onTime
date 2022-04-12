@@ -349,6 +349,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 .btn-line.small{padding:.4rem 1rem;font-size:1.2rem;width:auto;height:auto;}
 .btn-line-02{width:5rem;height:2.5rem;line-height:2.5rem;border:1px solid #ddd;font-weight:400;}
 .btn-line-03{border:1px solid #e0e0e0;color:#666;}
+.btn-line-04{height:4.5rem;background-color:#fff;color:#58AAFF;border:1px solid #58AAFF;font-size:1.5rem;font-weight: 600;}
 .btn-line-wit{background-color:inherit;border:1px solid #fff;border-radius:1rem;color:#fff;font-size:1.2rem;padding:.5rem 1.5rem;}
 .btn-star{text-indent:-9999rem;width:4rem;height:4rem;background:url(../img/btn-star.png) no-repeat;background-size:100%;}
 .btn-star.on{background-position:0 -4rem;}

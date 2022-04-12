@@ -71,7 +71,7 @@
             // 마이페이지
             $(self.els.$myPageBtn).on('click',function(){
                 $.movePage({
-                    url : "/www/html/pro/feedWrite.html"
+                    url : "/www/html/member/mypage.html"
                 });
             });
         }

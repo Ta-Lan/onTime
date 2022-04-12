@@ -11,7 +11,11 @@
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
     var page = {
-        els: {  
+        els: {
+            $name: null,
+            $nickname: null,
+            $birth: null,
+            
         },
         data: {},
         init: function init() {

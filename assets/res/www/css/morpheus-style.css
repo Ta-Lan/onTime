@@ -2593,7 +2593,7 @@ strong.ellipsis {
 }
 
 .item-info {
-    font-weight: bold;
+    font-weight: 500;
     font-size: 15px;
 }
 
@@ -3491,4 +3491,9 @@ input:checked + .slider:before {
     text-indent: -9999rem;
     width: 5rem;
     height: 5rem;
+}
+
+.feed-write-btn{
+    border: 1px solid #F2F2F2;
+    font-weight:400;
 }

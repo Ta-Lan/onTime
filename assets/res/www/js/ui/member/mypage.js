@@ -67,7 +67,7 @@
                         $("#pro-register").css("display", "block");
                         self.peopleOn();
                         $("#people-mypage").css("display", "none");
-                        $("#pro-mypage").css("display", "none");
+                        $("#pro-mypage").css("display", "none");3
                         
                     }
                 },
@@ -84,6 +84,9 @@
             self.els.$goPeople.on('click', function(){
                 self.goPeople();
             });
+            self.els.$modifyInfo.on('click', function(){
+                M.page.html("./modifyInfo.html");
+            })
             self.els.$proRegist.on('click', function () {
                 M.page.html("../pro/proRegist.html");
             });

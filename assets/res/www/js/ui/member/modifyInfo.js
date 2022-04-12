@@ -1,7 +1,7 @@
 /**
  * @file : modifyInfo.js
  * @author : suhyun
- * @date : 2022.04.11
+ * @date : 2022.04.12
  */
 
  (function ($, CONFIG, window) {

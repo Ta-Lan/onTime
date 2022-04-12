@@ -317,19 +317,6 @@
                 return alert("소개를 입력하세요.");
             }
 
-            console.log(name);
-            console.log(gender);
-            console.log(peopleId);
-            console.log(password);
-            console.log(year+month+day);
-            console.log(nickname);
-            console.log(city+" "+country);
-            console.log(phone);
-            console.log(introduce);
-            console.log(email);
-            console.log(account);
-            console.log(body);
-
             $.sendHttp({
                 path: SERVER_PATH.JOIN,
                 data:{
@@ -339,7 +326,7 @@
                     password: password,
                     birth: year+module.digitNum(month)+module.digitNum(day),
                     nickname: nickname,
-                    address: city+country,
+                    address: city+"`"+country,
                     phone: phone,
                     intro: introduce,
                     email: email,

@@ -18,12 +18,10 @@
         },
         data: {},
         init: function init() {
-            console.log("어디부터 안되는거야..?");
             this.els.$percent = $('#percent');
             this.els.$progressBar = $('#progress-bar');
         },
         startProgress: function startProgress(succCallBack) {
-            console.log("아니 이거 돼? 돌아가?");
             var $percent = this.els.$percent;
             var $progressBar = this.els.$progressBar;
             var count = 0;                              
@@ -45,14 +43,19 @@
                 actionType: "CLEAR_TOP"
             });
         },
+        moveMainPage: function moveMainPage() {
+            $.movePage({
+              url: "./main.html",
+              actionType: "CLEAR_TOP"
+            });
+          },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
             var self = this;
             var existLoginData = M.data.storage('AUTO_LOGIN_AUTH');
+            console.log(existLoginData);
             if (existLoginData) {
-                console.log("된겨?");
                 this.startProgress(function () {
-                    console.log("이건?"),
                     $.sendHttp({
                         path: SERVER_PATH.LOGIN,
                         data: {
@@ -61,7 +64,14 @@
                         },
                         succ: function (data) {
                             //로그인이 성공했을 때 콜백
-                            M.page.html('./main.html');
+                            M.data.global({
+                                "LOGIN_INFO": {
+                                    nickname: data.session.nickname,
+                                    auth: data.isProRegisted, // people, pro, admin
+                                    peopleId : existLoginData.peopleId
+                                }
+                            });
+                            self.moveMainPage();
                         },
                         error: function () {
                             self.moveLoginPage();

@@ -99,7 +99,7 @@
     font-weight: 400;
 }
 
-.progress.spinner>div {
+.progress.spinner > div {
     position: relative;
 }
 
@@ -255,7 +255,7 @@ input.pw {
     font-size: 1.2rem;
 }
 
-.sns-wrap.type03 ul li+li {
+.sns-wrap.type03 ul li + li {
     margin-top: 1rem;
 }
 
@@ -320,7 +320,7 @@ input.pw {
     padding-right: 2rem
 }
 
-.login-box .ipt-form-col input+input {
+.login-box .ipt-form-col input + input {
     margin-top: 0;
     border-top: 0;
 }
@@ -373,7 +373,7 @@ input.pw {
     border: 1px solid #ddd;
 }
 
-.terms-wrap>ul {
+.terms-wrap > ul {
     margin-top: 1rem;
 }
 
@@ -468,7 +468,7 @@ li.txt-btn .btn-txt {
 }
 
 /** Main_type_A **/
-.main-box.type-a section+section {
+.main-box.type-a section + section {
     box-shadow: 1px 1px 1px rgba(51, 51, 51, .1);
 }
 
@@ -524,8 +524,7 @@ li.txt-btn .btn-txt {
     left: 2.5rem;
     width: 1.5rem;
     height: 1.5rem;
-    line-height: 1.6rem;
-    ;
+    line-height: 1.6rem;;
     border-radius: 50%;
     background-color: #0084cc;
     color: #fff;
@@ -542,13 +541,13 @@ li.txt-btn .btn-txt {
     border-radius: 1rem;
 }
 
-.main-box.type-b .main-box-01 .swiper-container-horizontal>.swiper-pagination-bullets,
+.main-box.type-b .main-box-01 .swiper-container-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
     bottom: 6rem;
 }
 
-.main-box.type-b section+section {
+.main-box.type-b section + section {
     box-shadow: 2px 2px 10px rgba(51, 51, 51, .1);
 }
 
@@ -563,7 +562,7 @@ li.txt-btn .btn-txt {
     border-radius: 1rem;
 }
 
-.main-box.type-b .info-box-blue li>span {
+.main-box.type-b .info-box-blue li > span {
     color: #aee6f9;
 }
 
@@ -586,8 +585,8 @@ li.txt-btn .btn-txt {
     height: 100%;
 }
 
-.swiper-container-horizontal.type03>.swiper-pagination-bullets,
-.swiper-container-horizontal.type04>.swiper-pagination-bullets {
+.swiper-container-horizontal.type03 > .swiper-pagination-bullets,
+.swiper-container-horizontal.type04 > .swiper-pagination-bullets {
     bottom: 1px;
 }
 
@@ -1072,8 +1071,7 @@ li.txt-btn .btn-txt {
 
 .info-box-top strong {
     padding-left: 3.9rem;
-    padding-top: 2px;
-    ;
+    padding-top: 2px;;
     font-size: 1.4rem;
     font-weight: bold;
 }
@@ -1345,7 +1343,7 @@ strong.ellipsis {
     vertical-align: inherit;
 }
 
-.list-wrap .info-btm>p {
+.list-wrap .info-btm > p {
     font-size: 1.3rem;
     font-weight: 400;
     color: #bbb;
@@ -1397,7 +1395,7 @@ strong.ellipsis {
     font-weight: 400;
 }
 
-.detail-tit>span {
+.detail-tit > span {
     font-size: 1.3rem;
     font-weight: 400;
     color: #666;
@@ -1547,7 +1545,7 @@ strong.ellipsis {
     border-bottom: 1px solid #e0e0e0 !important;
 }
 
-.tbl-ipt.accordion thead.open+tbody {
+.tbl-ipt.accordion thead.open + tbody {
     display: table-row-group;
 }
 
@@ -1600,9 +1598,10 @@ strong.ellipsis {
     background-size: 100%;
 }
 
-.tbl-ipt tbody td p{
+.tbl-ipt tbody td p {
     margin: 1rem 0;
 }
+
 /** Set_out **/
 .logo-box {
     padding-top: 42%;
@@ -1643,7 +1642,7 @@ strong.ellipsis {
     margin-top: 1rem;
 }
 
-.chk-wrap.type02+.chk-wrap.type02 {
+.chk-wrap.type02 + .chk-wrap.type02 {
     margin-top: 1rem;
 }
 
@@ -1731,7 +1730,7 @@ strong.ellipsis {
     border: 1px solid #ddd;
 }
 
-.count-box>* {
+.count-box > * {
     float: left;
     width: 2.4rem;
     height: 2.4rem;
@@ -2005,7 +2004,7 @@ strong.ellipsis {
     box-shadow: 0px -2px 15px rgba(0, 0, 0, .1);
 }
 
-.btn-buy.open+.float-top {
+.btn-buy.open + .float-top {
     display: block;
 }
 
@@ -2086,7 +2085,7 @@ strong.ellipsis {
     font-weight: bold;
 }
 
-.boarding .swiper-container-horizontal>.swiper-pagination-bullets,
+.boarding .swiper-container-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
     top: 3.1rem;
@@ -2108,8 +2107,7 @@ strong.ellipsis {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
-    ;
+    width: 100%;;
     height: 72%;
     background: url(../img/temp-img-boarding.png) no-repeat center 100%;
     background-size: contain;
@@ -2259,7 +2257,7 @@ strong.ellipsis {
     color: #333;
 }
 
-.pw-wrap span+span {
+.pw-wrap span + span {
     margin-left: 3%;
 }
 
@@ -2454,8 +2452,7 @@ strong.ellipsis {
 .btn-road {
     position: absolute;
     right: 1.5rem;
-    top: 1.5rem;
-    ;
+    top: 1.5rem;;
     width: 4rem;
     height: 4rem;
     background: url(../img/btn-location.png) no-repeat;
@@ -2468,8 +2465,7 @@ strong.ellipsis {
 .btn-location {
     position: absolute;
     right: 1.5rem;
-    top: 6.5rem;
-    ;
+    top: 6.5rem;;
     width: 4rem;
     height: 4rem;
     background: url(../img/btn-location.png) no-repeat 0 -4rem;
@@ -2546,8 +2542,9 @@ strong.ellipsis {
     text-align: center;
     font-size: large;
     font-weight: bolder;
-    margin-right: 8rem;
+    margin-right: 3rem;
     margin-top: 1rem;
+    width: 60%;
 }
 
 .b-text {
@@ -2714,8 +2711,6 @@ strong.ellipsis {
 }
 
 
-
-
 /** messageList **/
 .page-body {
     padding: .625rem 0 0;
@@ -2740,39 +2735,48 @@ strong.ellipsis {
 .chat-box-top {
     width: 100%;
 }
+
 .chat-box-bottom {
     width: 100%;
     padding: 0 2rem;
 }
-.chat-people-info{
+
+.chat-people-info {
     margin: 1rem;
     margin-bottom: 0;
 }
-.chat-people-info-detail{
-    padding:0.5rem;
+
+.chat-people-info-detail {
+    padding: 0.5rem;
 }
-.chat-people-info-detail div{
-    font-size:1.15rem;
+
+.chat-people-info-detail div {
+    font-size: 1.15rem;
 }
-.chat-people-info img{
-    width:50px;
-    height:50px;
-    margin:0.75rem;
-    float:left;
+
+.chat-people-info img {
+    width: 50px;
+    height: 50px;
+    margin: 0.75rem;
+    float: left;
 }
-.chat-box-content{
+
+.chat-box-content {
     position: relative;
 }
-.chat-people-sender{
-    margin-top:1rem;
-} 
-.chat-box-text{
-    width:90%;
+
+.chat-people-sender {
+    margin-top: 1rem;
+}
+
+.chat-box-text {
+    width: 90%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.chat-box-badge{
+
+.chat-box-badge {
     position: absolute;
     bottom: 0.7rem;
     right: 0px;
@@ -2783,17 +2787,18 @@ strong.ellipsis {
     width: 20px;
     text-align: center;
 }
-.chat-box-price{
+
+.chat-box-price {
     float: left;
     margin: 0.5rem 0.5rem 0.5rem 0;
     font-weight: 500;
 }
-.chat-box-price img{
-    padding:0.1rem;
-    width:20px;
-    height:20px;
-}
 
+.chat-box-price img {
+    padding: 0.1rem;
+    width: 20px;
+    height: 20px;
+}
 
 
 /**message**/
@@ -3002,7 +3007,6 @@ strong.ellipsis {
 }
 
 
-
 .chat-room-inputs form[name="chatform"] {
     display: flex;
     flex-direction: row;
@@ -3011,7 +3015,7 @@ strong.ellipsis {
     height: 6rem;
 }
 
-.chat-room-inputs form[name="chatform"]>textarea {
+.chat-room-inputs form[name="chatform"] > textarea {
     flex-basis: 90%;
     flex-grow: 1;
     margin: 0 1rem 0 1rem;
@@ -3092,8 +3096,7 @@ strong.ellipsis {
     width: 100%;
     padding: 2rem;
     background-size: cover;
-    background: url("../img/template/img_1.jpg") no-repeat center left;
-    ;
+    background: url("../img/template/img_1.jpg") no-repeat center left;;
     color: white;
 }
 
@@ -3256,14 +3259,13 @@ strong.ellipsis {
         width: 50%;
     }
 
-    .main-box.type-a .main-box>div>section {
+    .main-box.type-a .main-box > div > section {
         margin-right: .5rem;
         margin-left: .5rem;
     }
 
     /*    .tab-menu-wrap{max-width:70rem;margin:0 auto;}*/
 }
-
 
 
 .text-center {
@@ -3282,115 +3284,211 @@ input[type=range] {
 }
 
 /*별점*/
-.star-point{
+.star-point {
     display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
     direction: rtl;
     border: 0; /* 필드셋 테두리 제거 */
 }
-.star-point input[type=radio]{
+
+.star-point input[type=radio] {
     display: none; /* 라디오박스 감춤 */
 }
-.star-point label{
+
+.star-point label {
     font-size: 2em; /* 이모지 크기 */
     color: transparent; /* 기존 이모지 컬러 제거 */
     text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
 }
-.star-point label:hover{
+
+.star-point label:hover {
     text-shadow: 0 0 0 #ffc107; /* 마우스 호버 */
 }
-.star-point label:hover ~ label{
+
+.star-point label:hover ~ label {
     text-shadow: 0 0 0 #ffc107; /* 마우스 호버 뒤에오는 이모지들 */
 }
-.star-point input[type=radio]:checked ~ label{
+
+.star-point input[type=radio]:checked ~ label {
     text-shadow: 0 0 0 #ffc107; /* 마우스 클릭 체크 */
 }
 
-.reporting-list{
+.reporting-list {
     display: inline-block;
     border: 0;
 }
-.reporting-list input[type=radio]{
+
+.reporting-list input[type=radio] {
     display: flex;
 }
+
 /*feed*/
-.feed-file-btn{
-    color:#58AAFF;
+.feed-file-btn {
+    color: #58AAFF;
     border: 1px solid #58AAFF;
     padding: 1.23rem 2rem 1.23rem 2rem;
 }
+
 /*feed-detail*/
-.feed-body{
-    padding:1.5rem;
+.feed-body {
+    padding: 1.5rem;
 }
 
-.feed-title{
+.feed-title {
     font-weight: 600;
 }
-.feed-info{
-    margin:1rem;
-}
-.feed-info-detail{
-    padding:0.5rem;
-}
-.feed-info img{
-    width:50px;
-    height:50px;
-    margin:0.75rem;
-    float:left;
+
+.feed-info {
+    margin: 1rem;
 }
 
-.feed-info-writer{
-    font-size:0.75rem;
-    margin-top:1rem;
-}  
+.feed-info-detail {
+    padding: 0.5rem;
+}
 
-.star-rate{
-    width:50px;
-    height:50px;
+.feed-info img {
+    width: 50px;
+    height: 50px;
+    margin: 0.75rem;
+    float: left;
+}
+
+.feed-info-writer {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+}
+
+.star-rate {
+    width: 50px;
+    height: 50px;
 }
 
 /*comment*/
-.comment-writer-info{
+.comment-writer-info {
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.comment-writer{
+.comment-writer {
     font-weight: 600;
 }
-.comment-write-date{
-    font-size:0.5rem;
+
+.comment-write-date {
+    font-size: 0.5rem;
 }
+
 .comment-write {
     margin: 0 0 29px;
     padding: 16px 10px 10px 18px;
     border-radius: 6px;
     box-sizing: border-box;
 }
+
 .delete-comment {
-    color:red;
-}
-.comment-inbox{
-    width:100%;
-}
-.comment-inbox textarea{
-    width:90%;
-    padding:0.5rem;
-    height:5rem;
-}
-.comment-inbox button{
-    float:right;
-    width:10%;
-    height:5rem;
-    background-color:#fff;
-    color:#58AAFF;
-    border:1px solid #58AAFF;
-}
-.comment-list{
-    padding:2rem;
+    color: red;
 }
 
-.exdate{
-    width:27%;
+.comment-inbox {
+    width: 100%;
+}
+
+.comment-inbox textarea {
+    width: 90%;
+    padding: 0.5rem;
+    height: 5rem;
+}
+
+.comment-inbox button {
+    float: right;
+    width: 10%;
+    height: 5rem;
+    background-color: #fff;
+    color: #58AAFF;
+    border: 1px solid #58AAFF;
+}
+
+.comment-list {
+    padding: 2rem;
+}
+
+.exdate {
+    width: 27%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+.slider.round.r-fix{
+    background-color: #58AAFF;
+}
+.slider.round.r-fix:before { /*switch btn*/
+    border-radius: 50%;
+    left: 2.99rem;
+}
+.slider.round.l-fix:before{
+    border-radius: 50%;
+}
+
+.pro-people {
+    float: right;
+    left: 3rem;
+}
+.pro-background{
+    background-color: #58AAFF;
+}
+.header2 span{
+    padding: 1rem;
+    font-size: 1.6rem;
+
+}
+.people-info-topbar{
+    top:1rem;
+    padding: 0.5rem;
+}
+
+.register{
+    text-indent: -9999rem;
+    width: 5rem;
+    height: 5rem;
 }

@@ -13,54 +13,155 @@
     var HTML = CONFIG.HTML;
     var page = {
         els: {
-            $commentList : null,
+            $commentList: null,
+            $isMyFeed: null,
+            $update: null,
+            $delete: null,
+            $commentContent: null,
+            $commentSubmit: null,
         },
-        data: {},
+        data: {
+            feedWriter: "",
+            feedCnt: 0,
+            myId: "",
+            myNickname: "",
+        },
         init: function init() {
             var self = this;
             self.els.$commentList = $('#comment-list');
+            self.els.$isMyFeed = $('#is-my-feed');
+            self.els.$update = $('#update');
+            self.els.$delete = $('#delete');
+            self.els.$commentContent = $('#comment-content');
+            self.els.$commentSubmit = $('#comment-submit');
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
             var self = this;
+            // nick name get
+            var login_info = M.data.global("LOGIN_INFO");
+            self.data.myNickname = login_info.nickName;
+
             var feedNumber = M.data.param("feedNumber");
-            console.log(feedNumber);
             $.sendHttp({
-                path : SERVER_PATH.FEED_DETAIL,
-                data : {
-                    feedNumber : feedNumber
+                path: SERVER_PATH.FEED_DETAIL,
+                data: {
+                    feedNumber: feedNumber,
                 },
-                succ : function succ(data){
+                succ: function succ(data) {
                     $("div.feed-title").html(data.feedTitle);
                     $("div.feed-content").html(data.feedContent);
-                    $("div.feed-writer").html(data.feedWriter);
+                    $("div.feed-writer").html(data.feedWriterNickname);
                     $("div.feed-write-date").html(data.feedRegisterDate);
+                    self.data.feedWriter = data.feedWriterId;
                     // 아직 파일 관련 처리 x
                 },
-                error : function errir(data){
+                error: function errir(data) {
                     console.log(data);
                 }
             });
             $.sendHttp({
-                path : SERVER_PATH.FEED_COMMENT_DETAIL,
-                data : {
-                    feedNumber : "FEED100021"
+                path: SERVER_PATH.FEED_COMMENT_DETAIL,
+                data: {
+                    feedNumber: feedNumber
                 },
-                succ : function succ(data){
+                succ: function succ(data) {
                     console.log(data);
-                    for ( var i = 0; i < data.list.length ; i++){
+                    $(self.els.$commentList).html("");
+                    for (var i = 0; i < data.list.length; i++) {
                         $(self.els.$commentList).append(HTML.FEED_COMMENT_HTML);
-                        console.log(data.list[0].nickname);
-                        $("div.comment-writer:eq("+i+")").html(data.list[i].nickname);
-                        $("div.comment-write-date:eq("+i+")").html(data.list[i].feedCommentsRegisterDate);
-                        $("li.comment-content:eq("+i+")").html(data.list[i].feedCommentsContent)
+                        $("div.comment-writer:eq(" + i + ")").html(data.list[i].nickname);
+                        // x 버튼 글쓴이 == l일때만 보이기
+                        if (self.data.myNickname === data.list[i].nickname) {
+                            $("div.comment-write-date:eq(" + i + ")").append(data.list[i].feedCommentsRegisterDate);
+                        } else {
+                            $("div.comment-write-date:eq(" + i + ")").html(data.list[i].feedCommentsRegisterDate);
+                        }
+                        $("span.delete-comment:eq(" + i + ")").attr('id', data.list[i].feedCommentsNumber);
+                        $("li.comment-content:eq(" + i + ")").html(data.list[i].feedCommentsContent);
                     }
+                    self.checkWriter();
                 }
-            })
+            });
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
-
+            var self = this;
+            var feedNumber = M.data.param("feedNumber");
+            self.els.$update.on('click', function () {
+                $.movePage({
+                    url: "/www/html/pro/feedWrite.html",
+                    param: {
+                        feedNumber: feedNumber
+                    }
+                });
+            });
+            self.els.$delete.on('click', function () {
+                var result = confirm("정말로 삭제하시겠습니까?");
+                if (result === false) {
+                    return;
+                }
+                $.sendHttp({
+                    path: SERVER_PATH.FEED_DELETE,
+                    data: {
+                        feedNumber: feedNumber,
+                    },
+                    succ: function (data) {
+                        console.log(data);
+                    }
+                });
+                $.movePage({
+                    url: "/www/html/pro/proInfo.html",
+                    actionType: "NO_HISTORY"
+                });
+            });
+            $("#comment-list").on('click', 'span.delete-comment', function () {
+                var result = confirm('정말 삭제하시겠습니까?');
+                if (result === true) {
+                    $.sendHttp({
+                        path: SERVER_PATH.FEED_COMMENT_DELETE,
+                        data: {
+                            feedCommentsNumber: $(this).attr('id')
+                        },
+                        succ : function (data){
+                            console.log(data);
+                            alert('삭제되었습니다!');
+                            self.initView();
+                        }
+                    });
+                }
+            })
+            self.els.$commentSubmit.on('click', function () {
+                var comments = self.els.$commentContent.val().trim();
+                if (comments !== "") {
+                    console.log(comments);
+                    $.sendHttp({
+                        path: SERVER_PATH.FEED_COMMENT_REGIST,
+                        data: {
+                            feedNumber: feedNumber,
+                            feedCommentsContent: comments
+                        },
+                        succ: function (data) {
+                            alert('댓글작성에 성공했습니다!');
+                            $(self.els.$commentContent).val("");
+                            self.initView();
+                        },
+                        error: function (data) {
+                            console.log(data);
+                            alert('댓글 작성에 실패했습니다');
+                        }
+                    })
+                }
+            })
+        },
+        checkWriter: function checkWriter() {
+            var self = this;
+            var loginInfo = M.data.global("LOGIN_INFO");
+            console.log(self.data.feedWriter);
+            console.log(loginInfo.peopleId);
+            if (self.data.feedWriter !== loginInfo.peopleId) {
+                document.getElementById("is-my-feed").style.display = "none";
+            }
         }
     };
     window.__page__ = page;

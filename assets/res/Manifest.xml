@@ -12,7 +12,7 @@
         </update>
     </resource>
     <startpage>
-        <name>www/html/member/join3.html</name>
+        <name>www/html/member/login.html</name>
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>

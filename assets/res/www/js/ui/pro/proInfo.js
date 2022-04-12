@@ -63,5 +63,7 @@
         pageFunc.initView();
         pageFunc.initEvent();
     });
-
+    M.onRestore(function () {
+        pageFunc.initView();
+    });
 })(jQuery, M, __page__, window);

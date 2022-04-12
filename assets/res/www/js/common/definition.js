@@ -46,6 +46,8 @@
         FEED_LIST: "api/feed/list", //피드 리스트
         FEED_DETAIL: "api/feed/detail", //피드 디테일
         FEED_DELETE: "api/feed/delete", //피드 삭제
+        FEED_UPDATE_WITH_IMAGE: "api/feed/updateWithImage",
+        FEED_WRITE_WITH_IMAGE: "api/feed/registWithImage",
         FEED_COMMENT_REGIST: "api/feed/commentsRegist", //피드 댓글 작성
         FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
         FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
@@ -73,7 +75,7 @@
             "                    <li>\n" +
             "                        <div class=\"comment-writer-info\">\n" +
             "                            <div class=\"comment-writer\">김people</div>\n" +
-            "                            <div class=\"comment-write-date\">2022.04.07 <span class=\"delete-comment\">X</span></div>\n" +
+            "                            <div class=\"comment-write-date\"><span class=\"delete-comment\">X</span></div>\n" +
             "                        </div>\n" +
             "                    </li>\n" +
             "                    <li class='comment-content'>\n" +

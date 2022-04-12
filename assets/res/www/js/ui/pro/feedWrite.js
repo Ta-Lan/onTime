@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : feedWrite.js
+ * @author : ParkDoYoung
+ * @date : 22.4.12
  */
 
 (function ($, CONFIG, window) {
@@ -75,7 +75,7 @@
                 $.picker({
                     succ : function succ(data){
                         $(self.els.$imgName).val(data.name);
-                        self.data.filePath = data.path
+                        self.data.filePath = data.path;
                     }
                 });
             });
@@ -112,6 +112,7 @@
                 },
                 succ : function(data){
                     console.log(data);
+                    $.moveBack();
                 },
                 error : function(data){
                     console.log(data);
@@ -128,6 +129,7 @@
                 },
                 succ : function(data){
                     console.log(data);
+                    $.moveBack();
                 },
                 error : function(data){
                     console.log(data);
@@ -137,10 +139,12 @@
         updateWithFile : function updateWithFile(){
             var self = this;
             var imagePath = self.data.filePath;
+            var feedNumber = self.data.feedNumber;
             var feedTitle = self.els.$feedTitle.val().trim();
             var feedContent = self.els.$feedContent.val().trim();
             var body = [
                 {name : "image", content :imagePath , type : "FILE"},
+                {name : "feedNumber", content : feedNumber, type : "TEXT"},
                 {name : "feedTitle", content : feedTitle, type : "TEXT"},
                 {name : "feedContent", content : feedContent, type : "TEXT"}
             ];
@@ -149,6 +153,7 @@
                 body : body,
                 succ : function(data){
                     console.log(data);
+                    $.moveBack();
                 },
                 error : function(status,data){
                     console.log(status + JSON.stringify(data));
@@ -168,10 +173,11 @@
                 {name : "feedContent", content : feedContent, type : "TEXT"}
             ];
             $.fileHttpSend({
-                path : SERVER_PATH.FEED_UPDATE_WITH_IMAGE,
+                path : SERVER_PATH.FEED_WRITE_WITH_IMAGE,
                 body : body,
                 succ : function(data){
                     console.log(data);
+                    $.moveBack();
                 },
                 error : function(status,data){
                     console.log(status + JSON.stringify(data));

@@ -67,7 +67,7 @@
                             M.data.global({
                                 "LOGIN_INFO": {
                                     nickname: data.session.nickname,
-                                    auth: "people", // people, pro, admin
+                                    auth: data.isProRegisted, // people, pro, admin
                                     peopleId : existLoginData.peopleId
                                 }
                             });

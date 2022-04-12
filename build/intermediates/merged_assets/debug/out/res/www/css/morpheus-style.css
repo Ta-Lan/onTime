@@ -3496,6 +3496,7 @@ input:checked + .slider:before {
 .feed-write-btn{
     border: 1px solid #F2F2F2;
     font-weight:400;
+<<<<<<< HEAD
 }
 
 .name img{
@@ -3505,4 +3506,6 @@ input:checked + .slider:before {
     float: right;
     top: 1rem;
     right: 3rem;
+=======
+>>>>>>> 5b4e312f846c794e755d1ddeb01f7212833de9ac
 }

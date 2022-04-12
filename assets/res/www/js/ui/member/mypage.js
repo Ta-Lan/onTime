@@ -29,6 +29,7 @@
         data: {},
         init: function init() {
             var self = this;
+            webView.setDisplayZoomControls(false)
             self.els.$nickname = $('#nickname');
             self.els.$intro = $('#intro');
             self.els.$profileImgBtn = $('#profile-img-btn');

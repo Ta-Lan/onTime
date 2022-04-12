@@ -6,10 +6,10 @@ mcore/edu/talan/implementation/SocketDataNetworkManager.java
  mcore.edu.talan.implementation.SocketDataNetworkManager
  mcore.edu.talan.implementation.SocketDataNetworkManager$1
  mcore.edu.talan.implementation.SocketDataNetworkManager$2
-mcore/edu/talan/samples/activity/ImageDetailsActivity.java
- mcore.edu.talan.samples.activity.ImageDetailsActivity
- mcore.edu.talan.samples.activity.ImageDetailsActivity$1
- mcore.edu.talan.samples.activity.ImageDetailsActivity$2
+mcore/edu/talan/samples/activity/BatchTempActivity.java
+ mcore.edu.talan.samples.activity.BatchTempActivity
+ mcore.edu.talan.samples.activity.BatchTempActivity$1
+ mcore.edu.talan.samples.activity.BatchTempActivity$2
 mcore/edu/talan/implementation/HttpDefaultNetworkManager.java
  mcore.edu.talan.implementation.HttpDefaultNetworkManager
  mcore.edu.talan.implementation.HttpDefaultNetworkManager$1
@@ -27,15 +27,8 @@ mcore/edu/talan/samples/activity/SampleActivity.java
  mcore.edu.talan.samples.activity.SampleActivity$2
  mcore.edu.talan.samples.activity.SampleActivity$3
  mcore.edu.talan.samples.activity.SampleActivity$4
-mcore/edu/talan/samples/activity/ImageList2Activity.java
- mcore.edu.talan.samples.activity.ImageList2Activity
- mcore.edu.talan.samples.activity.ImageList2Activity$1
- mcore.edu.talan.samples.activity.ImageList2Activity$2
- mcore.edu.talan.samples.activity.ImageList2Activity$2$1
- mcore.edu.talan.samples.activity.ImageList2Activity$3
- mcore.edu.talan.samples.activity.ImageList2Activity$4
- mcore.edu.talan.samples.activity.ImageList2Activity$ImageDownloaderTask
- mcore.edu.talan.samples.activity.ImageList2Activity$ViewHolder
+mcore/edu/talan/implementation/ExtendWNInterface.java
+ mcore.edu.talan.implementation.ExtendWNInterface
 mcore/edu/talan/BaseActivity.java
  mcore.edu.talan.BaseActivity
 mcore/edu/talan/samples/activity/SampleNativeListActivity.java
@@ -73,9 +66,16 @@ mcore/edu/talan/implementation/PushServiceManager.java
  mcore.edu.talan.implementation.PushServiceManager$3
  mcore.edu.talan.implementation.PushServiceManager$4
  mcore.edu.talan.implementation.PushServiceManager$5
-mcore/edu/talan/implementation/ExtendWNInterface.java
- mcore.edu.talan.implementation.ExtendWNInterface
-mcore/edu/talan/samples/activity/BatchTempActivity.java
- mcore.edu.talan.samples.activity.BatchTempActivity
- mcore.edu.talan.samples.activity.BatchTempActivity$1
- mcore.edu.talan.samples.activity.BatchTempActivity$2
+mcore/edu/talan/samples/activity/ImageDetailsActivity.java
+ mcore.edu.talan.samples.activity.ImageDetailsActivity
+ mcore.edu.talan.samples.activity.ImageDetailsActivity$1
+ mcore.edu.talan.samples.activity.ImageDetailsActivity$2
+mcore/edu/talan/samples/activity/ImageList2Activity.java
+ mcore.edu.talan.samples.activity.ImageList2Activity
+ mcore.edu.talan.samples.activity.ImageList2Activity$1
+ mcore.edu.talan.samples.activity.ImageList2Activity$2
+ mcore.edu.talan.samples.activity.ImageList2Activity$2$1
+ mcore.edu.talan.samples.activity.ImageList2Activity$3
+ mcore.edu.talan.samples.activity.ImageList2Activity$4
+ mcore.edu.talan.samples.activity.ImageList2Activity$ImageDownloaderTask
+ mcore.edu.talan.samples.activity.ImageList2Activity$ViewHolder

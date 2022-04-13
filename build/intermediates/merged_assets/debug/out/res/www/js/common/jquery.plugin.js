@@ -207,20 +207,26 @@
     // Storage 저장소 관련 모듈
     $.storage = {
         /**
-         * 저장된 사용자 로그인 정보를 가져온다.
+         * 저장된 사용자 로그인 정보를 복호화하여 가져온다.
          * @returns {object|string}
          */
         getAuth: function getAuth() {
-            return M.data.storage(CONSTANT.AUTO_LOGIN_AUTH);
+            var _options = {};
+            var options = M.data.storage(CONSTANT.AUTO_LOGIN_AUTH);
+            _options.id = $.decrypt(options.id);
+            _options.pw = $.decrypt(options.pw);
+            return _options;
         },
 
         /**
-         * 사용자 로그인 정보를 저장한다.
+         * 사용자 로그인 정보를 암호화하여 저장한다.
          * @param {string} id
          * @param {string} pw
          */
         setAuth: function setAuth(id, pw) {
-            M.data.storage(CONSTANT.AUTO_LOGIN_AUTH, {id: id, pw: pw})
+            var encId = $.encrypt(id);
+            var encPw = $.encrypt(pw);
+            M.data.storage(CONSTANT.AUTO_LOGIN_AUTH, {id: encId, pw: encPw});
         },
         /**
          * 저장된 사용자 로그인 정보를 삭제한다.
@@ -228,10 +234,23 @@
         clearAuth: function clearAuth() {
             M.data.removeStorage(CONSTANT.AUTO_LOGIN_AUTH);
         }
-
-
     }
-
+    /**
+     * @param {string} options 암호화할 Hex 문자열
+     * returns {object|string} status 변환 성공 여부 (SUCCESS or FAIL)
+     * returns {object|string} result 암호화된 문자열
+     */
+    $.encrypt = function(options){
+        return M.sec.encrypt(options);
+    }
+    /**
+     * @param {string} options 암호화된 Hex 문자열
+     * returns {object|string} status 변환 성공 여부 (SUCCESS or FAIL)
+     * returns {object|string} result 복호화된 문자열
+     */
+    $.decrypt = function(options){
+        return M.sec.decrypt();
+    }
     /**
      * picker
      * @param {object} options

@@ -52,7 +52,7 @@
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
             var self = this;
-            var existLoginData = M.data.storage('AUTO_LOGIN_AUTH');
+            var existLoginData = $.storage.getAuth();
             console.log(existLoginData);
             if (existLoginData) {
                 this.startProgress(function () {

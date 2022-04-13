@@ -6,7 +6,7 @@
 (function (window, M) {
     var module = {};
 
-    var IS_DEV = true; // true = 소담씨 노트북, false = 목업서버
+    var IS_DEV = false; // true = 소담씨 노트북, false = 목업서버
     var IS_PROD = !IS_DEV;
 
 

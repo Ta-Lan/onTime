@@ -6,7 +6,7 @@
 (function (window, M) {
     var module = {};
 
-    var IS_DEV = false; // true = 소담씨 노트북, false = 목업서버
+    var IS_DEV = true; // true = 소담씨 노트북, false = 목업서버
     var IS_PROD = !IS_DEV;
 
 
@@ -14,7 +14,7 @@
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
         SERVER_NAME: IS_PROD ? "MU_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
-        , UPLOAD_URL: IS_PROD ? "" : ""
+        , UPLOAD_URL: IS_PROD ? "http://192.168.0.56:8888/" : "http://192.168.0.56:8888/"
         , INDICATOR: true //서버통신시 indicator 여부
     };
 

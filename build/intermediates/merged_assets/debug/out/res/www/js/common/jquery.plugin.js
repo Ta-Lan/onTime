@@ -174,7 +174,7 @@
             }
         }
         var _options = {
-            url: "http://192.168.0.8:8888/" + ENV.UPLOAD_URL + options.path,
+            url: ENV.UPLOAD_URL + options.path,
             header: options.header || {},
             params: options.params || {},
             body: options.body || [],

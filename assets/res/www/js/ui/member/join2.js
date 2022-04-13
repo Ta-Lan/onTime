@@ -27,7 +27,7 @@
             $account: null,
             $nickname: null,
             $introduce: null,
-            $imgSrc: null,
+            $imgName: null,
             $imgBtn: null,
             $joinBtn: null,
             $dupBtn1: null,
@@ -55,7 +55,7 @@
             this.els.$account = $('#account');
             this.els.$nickname = $('#nickname');
             this.els.$introduce = $('#introduce');
-            this.els.$imgSrc = $('#img-src');
+            this.els.$imgName = $('#img-src');
             this.els.$imgBtn = $('#img-btn');
             this.els.$joinBtn = $('#join-btn');
             this.els.$dupBtn1 = $('#dup-btn1');
@@ -75,7 +75,12 @@
             var self = this;
             module.onKeyupNum(this.els.$phone);
             self.els.$imgBtn.on('click', function () {
-                self.addImage();
+                $.picker({
+                    succ: function succ(data){
+                        $(self.els.$imgName).val(data.name);
+                        self.data.filePath = data.path;
+                    }
+                })
             });
             self.els.$joinBtn.on('click', function () {
                 self.join();
@@ -148,7 +153,7 @@
                         peopleId: id
                     },
                     succ: function (data) {
-                        if (data.dupYn == 'Y') {
+                        if (data.existYn == 'Y') {
                             $.toast("중복된 아이디입니다.");
                             return false;
                         } else {
@@ -170,7 +175,7 @@
                         email: email
                     },
                     succ: function (data) {
-                        if (data.dupYn == 'Y') {
+                        if (data.existYn == 'Y') {
                             $.toast("중복된 이메일입니다.");
                             return false;
                         } else {
@@ -211,7 +216,7 @@
                         nickname: nickname
                     },
                     succ: function (data) {
-                        if (data.dupYn == 'Y') {
+                        if (data.existYn == 'Y') {
                             $.toast("중복된 닉네임입니다.");
                             return false;
                         } else {
@@ -259,90 +264,79 @@
             var account = self.els.$account.val().trim();
             var nickname = self.els.$nickname.val().trim();
             var introduce = self.els.$introduce.val().trim();
-            var body = [
-                 { name: "file", content: imgPath, type: "FILE" },
-            ]
-            if(name == ''){
-                return alert("이름을 입력하세요.");
-            }
-            if(!($("input:radio[name='gender']").is(':checked'))){
-                return alert("성별을 선택하세요.");
-            }
-            if(!module.isBirthday(year,module.digitNum(month),module.digitNum(day))){
-                return alert("올바른 생년월일을 입력하세요.");
-            }
-            if(!module.isCellphone(phone)){
-                return alert("올바른 연락처를 입력하세요.");
-            }
-            if(peopleId == ''){
-                return alert("아이디를 입력하세요.");
-            }
-            if(!self.els.$isCheckedId){
-                return alert("아이디 중복확인을 해주세요.")
-            }
-            if(password == ''){
-                return alert("비밀번호를 입력하세요.");
-            }
-            if(repassword == ''){
-                return alert("비밀번호 확인을 입력하세요.");
-            }
-            if(password != repassword){
-                return alert("비밀번호와 비밀번호 확인이 다릅니다.");
-            }
-            if(!self.checkPw(password)){
-                return alert("비밀번호는 8~20자 사이의 문자, 숫자, 특수문자를 한 개 이상 포함해야 합니다.");
-            }
-            if(email == ''){
-                return alert("이메일을 입력하세요.");
-            }
-            if(!self.els.$isCheckedEmail){
-                return alert("이메일 중복확인을 해주세요.")
-            }
-            if(city === '시/도'){
-                return alert("시도를 선택하세요.");
-            }
-            if(country === '시/군/구 선택'){
-                return alert("시/군/구를 선택하세요.");
-            }
-            if(account == ''){
-                return alert("계좌번호를 입력하세요.");
-            }
-            if(nickname == ''){
-                return alert("닉네임을 입력하세요.");
-            }
-            if(!self.els.$isCheckedNickname){
-                return alert("닉네임 중복확인을 해주세요.")
-            }
-            if(introduce == ''){
-                return alert("소개를 입력하세요.");
-            }
+            var imgPath = self.data.filePath;
 
-            $.sendHttp({
-                path: SERVER_PATH.JOIN,
-                data:{
-                    name: name,
-                    gender: gender,
-                    peopleId: peopleId,
-                    password: password,
-                    birth: year+module.digitNum(month)+module.digitNum(day),
-                    nickname: nickname,
-                    address: city+"`"+country,
-                    phone: phone,
-                    intro: introduce,
-                    email: email,
-                    account: account,
-                    //image: body,
-                },
-                succ: function(data){
-                    M.page.html("./join3.html");
-                },
-                error: function(data){
-                    alert("회원가입 오류");
-                }
-            })
+            //validation
+            if($.isEmpty(name)){return alert("이름을 입력하세요.");}
+            if(!($("input:radio[name='gender']").is(':checked'))){return alert("성별을 선택하세요.");}
+            if(!module.isBirthday(year,module.digitNum(month),module.digitNum(day))){return alert("올바른 생년월일을 입력하세요.");}
+            if(!module.isCellphone(phone)){return alert("올바른 연락처를 입력하세요.");}
+            if($.isEmpty(peopleId)){return alert("아이디를 입력하세요.");}
+            if(!self.els.$isCheckedId){return alert("아이디 중복확인을 해주세요.");}
+            if($.isEmpty(password)){return alert("비밀번호를 입력하세요.");}
+            if($.isEmpty(repassword)){return alert("비밀번호 확인을 입력하세요.");}
+            if(password != repassword){return alert("비밀번호와 비밀번호 확인이 다릅니다.");}
+            if(!self.checkPw(password)){return alert("비밀번호는 8~20자 사이의 문자, 숫자, 특수문자를 한 개 이상 포함해야 합니다.");}
+            if($.isEmpty(email)){return alert("이메일을 입력하세요.");}
+            if(!self.els.$isCheckedEmail){return alert("이메일 중복확인을 해주세요.");}
+            if(city === '시/도'){return alert("시도를 선택하세요.");}
+            if(country === '시/군/구 선택'){return alert("시/군/구를 선택하세요.");}
+            if($.isEmpty(account)){return alert("계좌번호를 입력하세요.");}
+            if($.isEmpty(nickname)){return alert("닉네임을 입력하세요.");}
+            if(!self.els.$isCheckedNickname){return alert("닉네임 중복확인을 해주세요.")}
+            if($.isEmpty(introduce)){return alert("소개를 입력하세요.");}
 
-
-
+            if($.isEmpty(imgPath)){
+                $.sendHttp({
+                    path: SERVER_PATH.JOIN,
+                    data:{
+                        name: name,
+                        gender: gender,
+                        peopleId: peopleId,
+                        password: password,
+                        birth: year+module.digitNum(month)+module.digitNum(day),
+                        nickname: nickname,
+                        address: city+"`"+country,
+                        phone: phone,
+                        intro: introduce,
+                        email: email,
+                        account: account,
+                    },
+                    succ: function(data){
+                        console.log(data);
+                        M.page.html("./join3.html");
+                    },
+                    error: function(data){
+                        alert("회원가입 오류");
+                    }
+                })
+            }
+            else{
+                var body = [
+                    { name: "name", content: name, type: "TEXT"},
+                    { name: "gender", content: gender, type: "TEXT"},
+                    { name: "birth", content: year+module.digitNum(month)+module.digitNum(day), type: "TEXT"},
+                    { name: "phone", content: phone, type: "TEXT"},
+                    { name: "peopleId", content: peopleId, type: "TEXT"},
+                    { name: "password", content: password, type: "TEXT"},
+                    { name: "email", content: email, type: "TEXT"},
+                    { name: "account", content: account, type: "TEXT"},
+                    { name: "address", content: city+"`"+country, type: "TEXT"},
+                    { name: "nickname", content: nickname, type: "TEXT"},
+                    { name: "introduce", content: introduce, type: "TEXT"},
+                    { name: "image", content: imgPath, type: "FILE" },
+                ]
+                $.fileHttpSend({
+                    path: SERVER_PATH.JOIN_WITH_IMAGE,
+                    body: body,
+                    succ: function(data){
+                        M.page.html("./join3.html");
+                    },
+                    error: function(data){
+                        alert("회원가입 오류");
+                    }
+                })
+            }
         },
         checkPw: function (password) {
             var reg_pw = /^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$/;

@@ -25,7 +25,7 @@
             this.els.$changePwBtn = $('#change-pw-btn');
         },
         initView: function initView() {
-            this.els.$peopleId.val(M.data.param("peopleId"));
+            this.els.$peopleId.val(M.data.global("LOGIN_INFO.peopleId"));
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩

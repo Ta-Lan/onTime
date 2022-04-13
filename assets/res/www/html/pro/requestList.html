@@ -2,129 +2,128 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=no, viewport-fit=cover">
-    <title>TALAN</title>
-    <link rel="stylesheet" href="../../css/morpheus-style.css"/>
-    <link rel="stylesheet" href="../../css/swiper.min.css"/>
-    <link rel="stylesheet" href="../../css/muikit.css"/>
-    <link rel="stylesheet" href="../../css/ui/requestlist.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,user-scalable=false, viewport-fit=cover">
+  <title>TALAN</title>
+  <link rel="stylesheet" href="../../css/morpheus-style.css" />
+  <link rel="stylesheet" href="../../css/swiper.min.css" />
+  <link rel="stylesheet" href="../../css/muikit.css" />
+  <link rel="stylesheet" href="../../css/ui/requestlist.css">
 </head>
 
 <body>
 <div class="wrapper">
-    <header class="header">
-        <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
-        <!-- 하단에 라인이 있는경우 class="line"추가 -->
-        <select class="h1 center">
-            <option>선택</option>
-            <option value="lesson">레슨</option>
-            <option value="home">홈/리빙</option>
-            <option value="event">이벤트</option>
-            <option value="business">비즈니스</option>
-            <option value="design">디자인/개발</option>
-            <option value="part-time-job">아르바이트</option>
-            <option value="etc">기타</option>
-        </select>
-        <button type="button" class="btn-menu r-fix">
-            메뉴
-            <!-- 왼쪽 버튼 class="l-fix" 추가 -->
-            <!-- 오른쪽 버튼 class="r-fix" 추가 -->
-        </button>
-        <button type="button" class="btn-back l-fix">
-            뒤로가기
-        </button>
-    </header>
-    <!-- 상단바 -->
-    <ul id="list">
-        <li class="div-card">
-            <div class="head-box">
-                <h3 class="card-title">앱 개발</h3>
-                <p class="card">2022.03.29</p>
-            </div>
-            <div class="card-body">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/profile-image.png">
-            </div>
-        </li>
-        <li class="div-card">
-            <div class="head-box">
-                <h3 class="card-title">견적서 제목</h3>
-                <p class="card">day</p>
-            </div>
-            <div class="card-body">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-            </div>
-        </li>
-        <li class="div-card">
-            <div class="head-box">
-                <h3 class="card-title">앱 개발</h3>
-                <p class="card">2022.03.29</p>
-            </div>
-            <div class="card-body">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-            </div>
-        </li>
-        <li class="div-card">
-            <div class="head-box">
-                <h3 class="card-title">앱 개발</h3>
-                <p class="card">2022.03.29</p>
-            </div>
-            <div class="card-body">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-                <img class="card-profile" src="../../img/temp-img-profile.png">
-            </div>
-        </li>
-    </ul>
-    <div class="no-received-quotes">
-        <article class="no-items align-self-center text-center">
-            <h3>받은 견적이 없습니다.</h3>
-            <p class="help-block p2">
-            <div class="desc">고수님에게 받은 견적이 없습니다.</div>
-            </p>
-            <!---->
-        </article>
-    </div>
-    <button id="request-write">요청 등록하기</button>
+  <header class="header">
+    <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
+    <!-- 하단에 라인이 있는경우 class="line"추가 -->
+    <select class="h1 center">
+      <option>선택</option>
+      <option value="lesson">레슨</option>
+      <option value="home">홈/리빙</option>
+      <option value="event">이벤트</option>
+      <option value="business">비즈니스</option>
+      <option value="design">디자인/개발</option>
+      <option value="part-time-job">아르바이트</option>
+      <option value="etc">기타</option>
+    </select>
+    <button type="button" class="btn-menu r-fix">
+      메뉴
+      <!-- 왼쪽 버튼 class="l-fix" 추가 -->
+      <!-- 오른쪽 버튼 class="r-fix" 추가 -->
+    </button>
+    <button type="button" class="btn-back l-fix">
+      뒤로가기
+    </button>
+  </header>
+  <!-- 상단바 -->
+  <ul>
+    <li class="div-card">
+      <div class="head-box">
+        <h3 class="card-title">앱 개발</h3>
+        <p class="card">2022.03.29</p>
+      </div>
+      <div class="card-body">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/profile-image.png">
+      </div>
+    </li>
+    <li class="div-card">
+      <div class="head-box">
+        <h3 class="card-title">견적서 제목</h3>
+        <p class="card">day</p>
+      </div>
+      <div class="card-body">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+      </div>
+    </li>
+    <li class="div-card">
+      <div class="head-box">
+        <h3 class="card-title">앱 개발</h3>
+        <p class="card">2022.03.29</p>
+      </div>
+      <div class="card-body">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+      </div>
+    </li>
+    <li class="div-card">
+      <div class="head-box">
+        <h3 class="card-title">앱 개발</h3>
+        <p class="card">2022.03.29</p>
+      </div>
+      <div class="card-body">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+        <img class="card-profile" src="../../img/temp-img-profile.png">
+      </div>
+    </li>
+  </ul>
+  <div class="no-received-quotes">
+    <article class="no-items align-self-center text-center">
+      <h3>받은 견적이 없습니다.</h3>
+      <p class="help-block p2">
+      <div class="desc">고수님에게 받은 견적이 없습니다.</div>
+      </p>
+      <!---->
+    </article>
+  </div>
+  <button id="request-write">요청 등록하기</button>
 </div>
 <!-- 하단바 -->
 <div class="footer">
-    <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
-    <ul class="foot-menu-wrap">
-        <li id="request-btn">
-            <img src="../../img/pictogram/list.png" alt="요청/견적">
-            <br/>
-            요청/견적
-        </li>
-        <li id="message-btn">
-            <img src="../../img/pictogram/chat.png" alt="메시지">
-            <br/>
-            메시지
-        </li>
-        <li id="home-btn">
-            <img src="../../img/pictogram/home.png" alt="홈">
-            <br/>
-            홈
-        </li>
-        <li id="inquire-btn">
-            <img src="../../img/pictogram/search.png" alt="고수찾기">
-            <br/>
-            문의
-        </li>
-        <li id="my-page-btn">
-            <img src="../../img/pictogram/people.png" alt="마이페이지">
-            <br/>
-            마이페이지
-        </li>
-    </ul>
+  <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
+  <ul class="foot-menu-wrap">
+    <li id="request-btn">
+      <img src="../../img/pictogram/list.png" alt="요청/견적">
+      <br />
+      요청/견적
+    </li>
+    <li id="message-btn">
+      <img src="../../img/pictogram/chat.png" alt="메시지">
+      <br />
+      메시지
+    </li>
+    <li id="home-btn">
+      <img src="../../img/pictogram/home.png" alt="홈">
+      <br />
+      홈
+    </li>
+    <li id="inquire-btn">
+      <img src="../../img/pictogram/search.png" alt="고수찾기">
+      <br />
+      문의
+    </li>
+    <li id="my-page-btn">
+      <img src="../../img/pictogram/people.png" alt="마이페이지">
+      <br />
+      마이페이지
+    </li>
+  </ul>
 </div>
 </body>
 <script type="text/javascript" src="../../js/mcore.min.js"></script>

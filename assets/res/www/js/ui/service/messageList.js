@@ -15,10 +15,15 @@
         els: {
             $chatList: null
         },
-        data: {},
+        data: {
+            loginInfo : {},
+
+        },
         init: function init() {
             var self = this;
             self.els.$chatList = $('#chat-list');
+            self.data.loginInfo = M.data.global("LOGIN_INFO");
+            console.log(self.data.loginInfo);
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터

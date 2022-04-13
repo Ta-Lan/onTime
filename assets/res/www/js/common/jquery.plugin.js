@@ -109,7 +109,7 @@
     $.sendHttp = function sendHttp(options) {
         if ($.isEmpty(options.path)) throw new Error('sendHttp :: 옵션의 Path 값은 필수입니다.');
         var _error = null;
-        if ($.isEmpty(options.error)){
+        if ($.isEmpty(options.error)) {
 
         }
         var succFunc = function succFunc(data) {
@@ -130,7 +130,7 @@
         var errFunc = function errFunc(code, msg, setting) {
             $.modal(code + '\n' + msg);
             var callback = options.error || function (code, msg, setting) {
-            console.log(code + msg + setting);
+                console.log(code + msg + setting);
             };
             callback(code, msg, setting);
         };
@@ -211,10 +211,13 @@
          * @returns {object|string}
          */
         getAuth: function getAuth() {
-            var _options = {};
             var options = M.data.storage(CONSTANT.AUTO_LOGIN_AUTH);
-            _options.id = $.decrypt(options.id);
-            _options.pw = $.decrypt(options.pw);
+            var _options= {
+                id : $.decrypt(options.id).result,
+                pw : $.decrypt(options.pw).result
+            };
+            console.log(_options.id);
+            console.log(_options.pw);
             return _options;
         },
 
@@ -224,8 +227,8 @@
          * @param {string} pw
          */
         setAuth: function setAuth(id, pw) {
-            var encId = $.encrypt(id);
-            var encPw = $.encrypt(pw);
+            var encId = $.encrypt(id).result;
+            var encPw = $.encrypt(pw).result;
             M.data.storage(CONSTANT.AUTO_LOGIN_AUTH, {id: encId, pw: encPw});
         },
         /**
@@ -240,7 +243,7 @@
      * returns {object|string} status 변환 성공 여부 (SUCCESS or FAIL)
      * returns {object|string} result 암호화된 문자열
      */
-    $.encrypt = function(options){
+    $.encrypt = function (options) {
         return M.sec.encrypt(options);
     }
     /**
@@ -248,8 +251,8 @@
      * returns {object|string} status 변환 성공 여부 (SUCCESS or FAIL)
      * returns {object|string} result 복호화된 문자열
      */
-    $.decrypt = function(options){
-        return M.sec.decrypt();
+    $.decrypt = function (options) {
+        return M.sec.decrypt(options);
     }
     /**
      * picker
@@ -291,7 +294,6 @@
         }
         M.media.picker(_options);
     }
-
 
 
 })(jQuery, M, __config__);

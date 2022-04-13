@@ -59,8 +59,8 @@
                     $.sendHttp({
                         path: SERVER_PATH.LOGIN,
                         data: {
-                            peopleId: existLoginData.peopleId,
-                            password: existLoginData.password
+                            peopleId: existLoginData.id,
+                            password: existLoginData.pw
                         },
                         succ: function (data) {
                             //로그인이 성공했을 때 콜백
@@ -68,7 +68,7 @@
                                 "LOGIN_INFO": {
                                     nickname: data.session.nickname,
                                     auth: data.isProRegisted, // people, pro, admin
-                                    peopleId : existLoginData.peopleId
+                                    peopleId : existLoginData.id
                                 }
                             });
                             self.moveMainPage();

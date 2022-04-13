@@ -60,7 +60,7 @@
             // });
             // console.log(M.data.storage("AUTO_LOGIN_AUTH"));
         },
-        unsetAutoLogin: function(id, pw){
+        unsetAutoLogin: function(){
             // M.data.removeStorage('AUTO_LOGIN_AUTH');
             $.storage.clearAuth();
         },

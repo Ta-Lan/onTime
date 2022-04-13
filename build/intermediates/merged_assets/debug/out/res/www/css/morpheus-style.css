@@ -3498,3 +3498,6 @@ input:checked + .slider:before {
     border: 1px solid #F2F2F2;
     font-weight:400;
 }
+input#price{
+    width: 82%;
+}

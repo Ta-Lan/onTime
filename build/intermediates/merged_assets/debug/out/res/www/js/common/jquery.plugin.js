@@ -35,9 +35,7 @@
         if (typeof obj == "number") obj = obj + "";
 
         if (obj == null) return true;
-        if (obj == undefined) return true;
-        if (obj == "undefined") return true;
-
+        if (obj === "undefined") return true;
         if (obj.length > 0) return false;
         if (obj.length === 0) return true;
 
@@ -110,6 +108,10 @@
      */
     $.sendHttp = function sendHttp(options) {
         if ($.isEmpty(options.path)) throw new Error('sendHttp :: 옵션의 Path 값은 필수입니다.');
+        var _error = null;
+        if ($.isEmpty(options.error)){
+
+        }
         var succFunc = function succFunc(data) {
             console.log('HTTP RESPONE :: ', data);
             if (data.rsltCode == SERVER_CODE.SUCC) {
@@ -118,7 +120,7 @@
                 }
             } else {
                 // 실패
-                $.modal(data.rsltMsg);
+                // $.modal(data.rsltMsg);
                 if ($.isFunction(options.error)) {
                     options.error(data);
                 }
@@ -127,7 +129,8 @@
 
         var errFunc = function errFunc(code, msg, setting) {
             $.modal(code + '\n' + msg);
-            var callback = options.error || function () {
+            var callback = options.error || function (code, msg, setting) {
+            console.log(code + msg + setting);
             };
             callback(code, msg, setting);
         };
@@ -225,6 +228,8 @@
         clearAuth: function clearAuth() {
             M.data.removeStorage(CONSTANT.AUTO_LOGIN_AUTH);
         }
+
+
     }
 
     /**
@@ -267,5 +272,7 @@
         }
         M.media.picker(_options);
     }
+
+
 
 })(jQuery, M, __config__);

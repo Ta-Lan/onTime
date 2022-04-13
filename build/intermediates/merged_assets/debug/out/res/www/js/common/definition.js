@@ -6,14 +6,14 @@
 (function (window, M) {
     var module = {};
 
-    var IS_DEV = true;
+    var IS_DEV = true; // true = 소담씨 노트북, false = 목업서버
     var IS_PROD = !IS_DEV;
 
 
     // 앱 환경변수 값
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
-        SERVER_NAME: IS_PROD ? "OT_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+        SERVER_NAME: IS_PROD ? "MU_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
         , UPLOAD_URL: IS_PROD ? "" : ""
         , INDICATOR: true //서버통신시 indicator 여부
     };
@@ -35,11 +35,12 @@
 
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
+        REQUEST_LIST: "api/request/list", // request list
 
         //messagewe
         GET_MESSAGE: "api/message/info", // message info
         SET_MESSAGE: "api/message/send", // send message
-
+        GET_MESSAGE_LIST: "api/message/list" ,
         //feed
         FEED_REGIST: "api/feed/regist", //피드 등록
         FEED_UPDATE: "api/feed/update", //피드 업데이트
@@ -52,6 +53,12 @@
         FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
         FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
         FEED_LIST_BY_WRITER: "api/feed/listByWriter", //피드 작성자별 리스트
+
+        //estimate
+        ESTIMATE_REGIST: "api/estimate/regist", //견적서 등록
+        ESTIMATE_LIST: "api/estimate/list",
+        ESTIMATE_DETAIL: "api/estimate/detail",
+        ESTIMATE_MATCH: "api/estimate/matched",
     };
 
     var SERVER_CODE = module.SERVER_CODE = {
@@ -74,14 +81,48 @@
         FEED_COMMENT_HTML: "<ul>\n" +
             "                    <li>\n" +
             "                        <div class=\"comment-writer-info\">\n" +
-            "                            <div class=\"comment-writer\">김people</div>\n" +
+            "                            <div class=\"comment-writer\">" +
+            // "                               김people" +
+        "                               </div>\n" +
             "                            <div class=\"comment-write-date\"><span class=\"delete-comment\">X</span></div>\n" +
             "                        </div>\n" +
             "                    </li>\n" +
             "                    <li class='comment-content'>\n" +
-            "                        게시글 잘 보고 갑니다. 제 블로그 놀러오셔서 자격증 정보 알아가세요.\n" +
+            // "                        게시글 잘 보고 갑니다. 제 블로그 놀러오셔서 자격증 정보 알아가세요.\n" +
             "                    </li>\n" +
-            "                </ul>"
+            "                </ul>",
+        MESSAGE_LIST: "<li class=\"chat-container-box\">\n" +
+            "                        <div class=\"chat-box-top\">\n" +
+            "                            <div class=\"chat-people-info\">\n" +
+            "                                <div>\n" +
+            "                                    <img src=\"../../img/profile-image.png\">\n" +
+            "                                </div>\n" +
+            "                                <div class=\"chat-people-info-detail\">\n" +
+            "                                   <div class=\"chat-people-sender\">" +
+            // "                                       김pro
+            "                                   </div>\n" +
+            "                                   <div class=\"chat-people-category\">" +
+// "                                                   방송댄스 레슨 | 경기도 부천시
+            "                                   </div>\n" +
+            "                                </div>\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"chat-box-bottom\">\n" +
+            "                            <div class=\"chat-box-content\">\n" +
+            "                                <div class=\"chat-box-text\">\n" +
+            // "                                안녕하세요. 올려주신 요청서에 대한 견적서 보냅니다! 1:1 또는 소규모로 레슨 진행하고 있습니다. 편안하게 문의 주세요.\n" +
+            "                                </div>\n" +
+            "                                <div class=\"chat-box-badge\">  \n" +
+            "                                    3\n" +
+            "                                </div>\n" +
+            "                            </div>\n" +
+            "                            <div class=\"divider\"></div>\n" +
+            "                            <div class=\"chat-box-price\">\n" +
+            "                                <img src=\"../../img/icon-money.png\"/>\n" +
+            // "                                시간당 20000원\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </li>"
     };
 
     window.__config__ = module;

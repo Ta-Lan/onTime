@@ -16,6 +16,7 @@
             $intro: null,
             $profileImgBtn: null,
             $modifyInfo: null,
+            $modifyIntro: null,
             $paymentInfo: null,
             $latestPayment: null,
             $latestRequest: null,
@@ -29,11 +30,11 @@
         data: {},
         init: function init() {
             var self = this;
-            webView.setDisplayZoomControls(false)
             self.els.$nickname = $('#nickname');
             self.els.$intro = $('#intro');
             self.els.$profileImgBtn = $('#profile-img-btn');
             self.els.$modifyInfo = $('#modify-info');
+            self.els.$modifyIntro = $('#modify-intro');
             self.els.$paymentInfo = $('#payment-info');
             self.els.$latestPayment = $('#latest-payment');
             self.els.$latestRequest = $('#latest-request');
@@ -50,8 +51,6 @@
             var peopleId = M.data.global("LOGIN_INFO.peopleId");
             var nickname = M.data.global("LOGIN_INFO.nickname");
             var auth = M.data.global("LOGIN_INFO.auth");
-            console.log(peopleId);
-            console.log(nickname);
             $.sendHttp({
                 path: SERVER_PATH.INFO,
                 data: {
@@ -59,6 +58,8 @@
                 },
                 succ: function (data) {
                     self.els.$nickname.text(nickname);
+                    self.els.$intro.text(data.intro);
+                    $("#profile-img-btn").html("<img src='"+data.filePath+data.storeFileName+"'/>");
                     if (auth) {
                         //pro인증이 된 회원
                         $('#pro-register').css("display", "none");
@@ -68,8 +69,7 @@
                         $("#pro-register").css("display", "block");
                         self.peopleOn();
                         $("#people-mypage").css("display", "none");
-                        $("#pro-mypage").css("display", "none");3
-                        
+                        $("#pro-mypage").css("display", "none");
                     }
                 },
                 error: function () {
@@ -86,14 +86,28 @@
                 self.goPeople();
             });
             self.els.$modifyInfo.on('click', function(){
-                M.page.html("./modifyInfo.html");
+                M.page.html("./viewInfo.html");
+            })
+            self.els.$modifyIntro.on('click', function(){
+                M.pop.alert({
+                    title: '소개 수정',
+                    message: document.write("<input type='text' name='intro'/>"),
+                    buttons: ['확인', '취소'],
+                    callback: function(index) {
+                            console.log( "index: ", index );
+                    }
+            });
             })
             self.els.$proRegist.on('click', function () {
                 M.page.html("../pro/proRegist.html");
             });
             self.els.$feedWriteBtn.on('click', function(){
                 M.page.html("../pro/feedWrite.html")
-            })
+            });
+            self.els.$profileImgBtn.on('click', function(){
+                self.updateImage();
+            });
+            
         },
         goPro: function goPro(){
             var self = this;
@@ -128,6 +142,9 @@
             document.querySelector("#pro-mypage").style.display = 'block';
             document.querySelector("#people-mypage").style.display = 'none';
         },
+        updateImage: function updateImage(){
+            //프로필 이미지 수정
+        }
         
     };
     window.__page__ = page;

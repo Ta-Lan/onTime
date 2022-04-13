@@ -6,15 +6,15 @@
 (function (window, M) {
     var module = {};
 
-    var IS_DEV = true;
+    var IS_DEV = true; //true->OT false->MS
     var IS_PROD = !IS_DEV;
 
 
     // 앱 환경변수 값
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
-        SERVER_NAME: IS_PROD ? "OT_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
-        , UPLOAD_URL: IS_PROD ? "" : ""
+        SERVER_NAME: IS_PROD ? "MS_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+        , UPLOAD_URL: IS_PROD ? "http://192.168.0.56:8888/" : "http://192.168.0.56:8888/"
         , INDICATOR: true //서버통신시 indicator 여부
     };
 
@@ -32,6 +32,7 @@
         OUT: "api/people/out", //회원 탈퇴
         INFO: "api/people/info", //회원 정보 조회
         UPDATE: "api/people/update", //회원 정보 수정
+        UPDATE: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
 
         //request

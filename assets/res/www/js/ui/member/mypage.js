@@ -59,7 +59,10 @@
                 succ: function (data) {
                     self.els.$nickname.text(nickname);
                     self.els.$intro.text(data.intro);
-                    $("#profile-img-btn").html("<img src='"+data.filePath+data.storeFileName+"'/>");
+                    console.log(data.imagePath);
+                    console.log(data.storeImageName);
+                    console.log(data.originImageName);
+                    document.getElementById("profile-img-btn").src=data.imagePath+data.storeImageName;
                     if (auth) {
                         //pro인증이 된 회원
                         $('#pro-register').css("display", "none");
@@ -89,15 +92,22 @@
                 M.page.html("./viewInfo.html");
             })
             self.els.$modifyIntro.on('click', function(){
-                M.pop.alert({
-                    title: '소개 수정',
-                    message: document.write("<input type='text' name='intro'/>"),
-                    buttons: ['확인', '취소'],
-                    callback: function(index) {
-                            console.log( "index: ", index );
+                var userInput = prompt("소개 수정"+"소개를 입력하세요.");
+                self.els.$intro.text(userInput);
+                var intro = self.els.$intro.val();
+                $.sendHttp({
+                    path: SERVER_PATH.UPDATE_INTRO,
+                    data: {
+                        intro: intro
+                    },
+                    succ: function(){
+                        alert("소개가 수정되었습니다.");
+                    },
+                    error: function(){
+                        alert("소개 수정 오류");
                     }
+                })
             });
-            })
             self.els.$proRegist.on('click', function () {
                 M.page.html("../pro/proRegist.html");
             });

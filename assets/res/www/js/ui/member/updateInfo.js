@@ -4,12 +4,14 @@
  * @date : 2022.04.13
  */
 
- (function ($, CONFIG, window) {
+ (function ($, CONFIG, module, window) {
     var ENV = CONFIG.ENV;
     var MSG = CONFIG.MSG;
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
+    var originNickname;
+    var originEmail;
     var page = {
         els: {
             $name: null,
@@ -27,6 +29,8 @@
             $updateBtn: null,
             $dupEmail: null,
             $dupNickname: null,
+            $isCheckedEmail: null,
+            $isCheckedNickname: null,
         },
         data: {},
         init: function init() {
@@ -46,6 +50,8 @@
             self.els.$updateBtn = $('#update-btn');
             self.els.$dupEmail = $('#dup-btn2');
             self.els.$dupNickname = $('#dup-btn3');
+            self.els.$isCheckedEmail = null;
+            self.els.$isCheckedNickname = null;
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
@@ -74,6 +80,10 @@
                     self.els.$city.val(data.address.split('`')[0]);
                     $("#sigungu").html("<option value='" + data.address.split('`')[1] + "'>" + data.address.split('`')[1] + "</option>");           
                     self.els.$account.val(data.account);
+
+                    originNickname = data.nickname;
+                    originEmail = data.email;
+                    
                 }
             });
         },
@@ -81,8 +91,81 @@
             // Dom Event 바인딩
             var self = this;
             self.els.$updateBtn.on('click', function(){
+                console.log(originNickname);
+                console.log(originEmail);
                 self.update();
             });
+            self.els.$dupEmail.on('click', function(){
+                self.els.$isCheckedEmail = false;
+                self.duplicateEmail();
+            });
+            self.els.$dupNickname.on('click', function(){
+                self.els.$isCheckedNickname = false;
+                self.duplicateNickname();
+            })
+        },
+        duplicateEmail: function () {
+            var self = this;
+            var email = this.els.$email.val().trim();
+            if (self.checkEmail(email)) {
+                $.sendHttp({
+                    path: SERVER_PATH.DUPLICATE2,
+                    data: {
+                        email: email
+                    },
+                    succ: function (data) {
+                        if (data.existYn == 'Y') {
+                            $.toast("중복된 이메일입니다.");
+                            return false;
+                        } else {
+                            $.toast("사용가능한 이메일입니다.");
+                            self.els.$isCheckedEmail = true;
+                            return true;
+                        }
+                    }
+                });
+            } else {
+                return $.toast("이메일 형식이 잘못되었습니다.");
+            }
+        },
+        checkEmail: function (email) {
+            var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+            if(email.length != 0){
+                if (!reg_email.test(email)) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            else{
+                return false;
+            }
+        },
+
+        duplicateNickname: function () {
+            var nickname = this.els.$nickname.val().trim();
+            var self = this;
+
+            if (nickname.length > 6 || nickname.length == 0) {
+                return $.toast("닉네임은 6자이하로 입력하세요.");
+            } else {
+                $.sendHttp({
+                    path: SERVER_PATH.DUPLICATE3,
+                    data: {
+                        nickname: nickname
+                    },
+                    succ: function (data) {
+                        if (data.existYn == 'Y') {
+                            $.toast("중복된 닉네임입니다.");
+                            return false;
+                        } else {
+                            $.toast("사용가능한 닉네임입니다.");
+                            self.els.$isCheckedNickname = true;
+                            return true;
+                        }
+                    }
+                });
+            }
         },
         setCityAndCountryData : function setCityAndCountryData(){
             // city 선택에 따른 country 데이터 셋팅
@@ -128,19 +211,69 @@
         },
         update: function(){
             var self = this;
+            var peopleId = M.data.global("LOGIN_INFO.peopleId")
             var name = self.els.$name.val().trim();
+            var year = self.els.$year.val().trim();
+            var month = self.els.$month.val().trim();
+            var date = self.els.$date.val().trim();
             var nickname = self.els.$nickname.val().trim();
-            var birth = self.els.$birth.val().trim();
-            var email = self.els.$email.val().trim();
+            var city = self.els.$city.val().trim();
+            var country = self.els.$country.val().trim();
             var phone = self.els.$phone.val().trim();
-            
-        },
-        drop: function(){
+            var email = self.els.$email.val().trim();
+            var account = self.els.$account.val().trim();
 
+            if($.isEmpty(name)){return alert("이름을 입력하세요.");}
+            if(!module.isBirthday(year,module.digitNum(month),module.digitNum(date))){return alert("올바른 생년월일을 입력하세요.");}
+            if(!module.isCellphone(phone)){return alert("올바른 연락처를 입력하세요.");}
+            if($.isEmpty(email)){return alert("이메일을 입력하세요.");}
+            if(email != originEmail){
+                if(!self.els.$isCheckedEmail){return alert("이메일 중복확인을 해주세요.");}
+            }
+            if(city === '시/도'){return alert("시도를 선택하세요.");}
+            if(country === '시/군/구 선택'){return alert("시/군/구를 선택하세요.");}
+            if($.isEmpty(account)){return alert("계좌번호를 입력하세요.");}
+            if($.isEmpty(nickname)){return alert("닉네임을 입력하세요.");}
+            if(nickname != originNickname){{
+                if(!self.els.$isCheckedNickname){return alert("닉네임 중복확인을 해주세요.");}
+            }
+            //머야 여까진 댐
+            $.sendHttp({
+                path: SERVER_PATH.UPDATE,
+                data:{
+                    peopleId: peopleId,
+                    name: name,
+                    birth: year+month+date,
+                    nickname: nickname,
+                    address: city+"`"+country,
+                    phone: phone,
+                    email: email,
+                    account: account
+                },
+                succ: function(data){
+                    console.log(data.name);
+                    console.log(data.birth);
+                    console.log(data.nickname);
+                    console.log(data.address);
+                    console.log(data.phone);
+                    console.log(data.email);
+                    console.log(data.account);
+                    alert("정보가 수정되었습니다.");
+                    M.page.html({
+                        url: "./viewInfo.html",
+                        actionType: "CLEAR_TOP"
+                    });
+                },
+                error: function(status, data){
+                    alert("수정 오류");
+                }
+            });
+
+        }
         }
     };
     window.__page__ = page;
-})(jQuery, __config__, window);
+})(jQuery, __config__, __util__, window);
 
 (function ($, M, pageFunc, window) {
 

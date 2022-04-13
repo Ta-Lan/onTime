@@ -61,11 +61,12 @@
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
+            var peopleId = M.data.global("LOGIN_INFO.peopleId");
             self.els.$modifyBtn.on('click', function(){
                 M.page.html("./updateInfo.html")
             });
             self.els.$deleteBtn.on('click', function(){
-                self.drop();
+                self.drop(peopleId);
             });
             self.els.$changePassword.on('click', function(){
                 M.page.html("./findPw2.html")
@@ -81,8 +82,37 @@
             var email = self.els.$email.val().trim();
             var phone = self.els.$phone.val().trim();
         },
-        drop: function(){
 
+        drop: function(){
+            M.pop.alert({
+                title: '탈퇴확인',
+                message: '탈퇴하시겠습니까?',
+                buttons: ['예', '아니오'],
+                callback: function (index) {
+                  if (index == 0) {
+                    //탈퇴후 로그인페이지로 이동
+                    $.sendHttp({
+                      path: SERVER_PATH.OUT,
+                      data: {
+                        peopleId: peopleId
+                      },
+                      succ: function (data) {
+                        alert("정상적으로 탈퇴되었습니다.");
+                        M.page.html({
+                          url: "./login.html",
+                          actionType: "CLEAR_TOP"
+                        });
+                      },
+                      error: function (status, data){
+                          console.log(peopleId);
+                          alert("탈퇴 오류");
+                      }
+                    });
+                  } else {
+                    return false;
+                  }
+                }
+              });
         }
     };
     window.__page__ = page;

@@ -53,14 +53,16 @@
         
         //자동로그인
         setAutoLogin: function(id, pw){
-            M.data.storage('AUTO_LOGIN_AUTH',{
-                peopleId: id,
-                password: pw
-            });
-            console.log(M.data.storage("AUTO_LOGIN_AUTH"));    
+            $.storage.setAuth(id,pw);
+            // M.data.storage('AUTO_LOGIN_AUTH',{
+            //     peopleId: id,
+            //     password: pw
+            // });
+            // console.log(M.data.storage("AUTO_LOGIN_AUTH"));
         },
         unsetAutoLogin: function(id, pw){
-            M.data.removeStorage('AUTO_LOGIN_AUTH');
+            // M.data.removeStorage('AUTO_LOGIN_AUTH');
+            $.storage.clearAuth();
         },
 
         login: function () {

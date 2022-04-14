@@ -51,7 +51,6 @@
             $(self.els.$messageBtn).on('click',function(){
                 $.movePage({
                     url : "/www/html/service/messageList.html",
-                    actionType : 'NO_HISTORY'
                 });
             });
             // 홈

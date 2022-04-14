@@ -236,6 +236,25 @@
          */
         clearAuth: function clearAuth() {
             M.data.removeStorage(CONSTANT.AUTO_LOGIN_AUTH);
+        },
+        /**
+         * 채팅방 최근 시간 저장
+         * @param id
+         * @param time
+         */
+        setMessageTime: function (id,time){
+            var encTime = $.encrypt(time).result;
+            M.data.storage(id,encTime);
+        },
+        /**
+         * 채팅방 최근 시간 불러오기
+         * @param id
+         * @return {string}
+         */
+        getMessageTime: function(id){
+            var time = M.data.storage(id);
+            var decTime = $.decrypt(time).result;
+            return decTime;
         }
     }
     /**

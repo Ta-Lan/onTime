@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : message.js
+ * @author : ParkDoYoung
+ * @date : 22.4.13
  */
 
 (function ($, CONFIG, window) {
@@ -10,30 +10,183 @@
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
+    var HTML = CONFIG.HTML;
     var page = {
-        els: {},
+        els: {
+            $chatting: null,
+            $chatInsert: null,
+            $submit: null
+        },
         data: {},
         init: function init() {
-            console.log('send http');
+            var self = this;
+            self.els.$chatting = $('#chatting');
+            self.els.$chatInsert = $('#chat-insert');
+            self.els.$submit = $('#submit');
+            // parameter 가져오기  chatNumber, adversary Id
+            self.data.chatNumber = M.data.param('chatNumber');
+            // 내 정보 가져오기
+            self.data.loginInfo = M.data.global("LOGIN_INFO");
+            // initial date
+            self.data.date = "1900.01.01";
+
+        },
+        initView: function initView() {
+            // 화면에서 세팅할 동적데이터
+            var self = this;
+            // 대화상대 닉네임 가져오기
+            $("#adversary").html(self.data.nickname);
             $.sendHttp({
                 path: SERVER_PATH.GET_MESSAGE,
-                data : {
-                    messageSender: "dy",
-                    messageReceiver:"yd"
+                data: {
+                    chatNumber: self.data.chatNumber
                 },
-                succ : function(data){
+                succ: function (data) {
                     console.log(data.Data);
+                    $("#chatting").html(" "); // 기존 채팅 내역 지우기
+                    for (var i = 0; i < data.Data.length; i++) {
+                        // data.date 와 날자가 같으면 안보이게하기
+                        $("#chatting").append(HTML.MESSAGE_DATE); // 날짜칸 추가 후 위의 데이터와 날짜가 같으면 안보이게하기
+                        if (self.data.date === data.Data[i].messageTime.substr(0, 10)) {
+                            $("div.chat-room-messages:eq(" + i + ")").hide();
+                        }
+                        self.data.date = data.Data[i].messageTime.substr(0, 10);
+                        $("div.chat-date:eq(" + i + ")").html(data.Data[i].messageTime.substr(0, 4) + "년 " + data.Data[i].messageTime.substr(5, 2) + "월 " + data.Data[i].messageTime.substr(8, 2) + "일")
+                        // 수신 메세지
+                        if (data.Data[i].messageReceiver === self.data.loginInfo.peopleId) {
+                            self.data.adversary = data.Data[i].messageSender;
+                            // 견적서 or 메세지
+                            if (data.Data[i].messageNumber.substr(0, 8) === 'MESSAGES') { // 메시지인 경우
+                                self.receiveMessage(data.Data[i], i);
+                            } else {
+                                self.receiveEstimate(data.Data[i], i);
+                            }
+                        } else { // 송신 메세지
+                            self.sendMessage(data.Data[i], i);
+                            self.data.adversary = data.Data[i].messageReceiver;
+                        }
+                    }
+                    // 메세지 보낸사람에 대한 정보 가져오기
+                    $.sendHttp({
+                        path: SERVER_PATH.INFO,
+                        data: {
+                            peopleId: self.data.adversary,
+                        },
+                        succ: function (data) {
+                            console.log(data);
+                            self.data.nickname = data.nickname;
+                            self.data.imagepath = data.imagePath + data.storeImageName;
+                        }
+                    });
+                    // 메시지 시간 저장하기
+                    var chatNumber = data.Data[data.Data.length - 1].chatNumber;
+                    var time = data.Data[data.Data.length - 1].messageTime;
+                    console.log(time);
+                    $.storage.setMessageTime(chatNumber, time);
                 },
-                error : function(data){
+                error: function (data) {
                     console.log(data);
                 }
             });
         },
-        initView: function initView() {
-            // 화면에서 세팅할 동적데이터
-        },
         initEvent: function initEvent() {
             // Dom Event 바인딩
+            var self = this;
+            $("#chat-insert").on("keydown", function (key) {
+                if (key.keyCode == 13) {
+                    self.sendEvent();
+                }
+            });
+            $("#chat-insert").on("focus", function () {
+                var scrollHeight = $(document).height();
+                $('body,html').animate({
+                    scrollTop: scrollHeight
+                }, 800);
+            });
+            $("#submit").on('click', function () {
+                self.sendEvent();
+            });
+        },
+        receiveMessage: function receiveMessage(data, idx) {
+            var self = this;
+            $("#chatting").append(HTML.MESSAGE_RECEIVE);
+            $("div.bubble:eq(" + idx + ")").attr('id', data.messageNumber);
+            $("div#" + data.messageNumber + "").children(".sender-message-box").html(data.messageContent);
+            $("div#" + data.messageNumber + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
+            $("div#" + data.messageNumber + "").children(".chat-profile").html("<img src='" + self.data.imagepath + "'>");
+        },
+        receiveEstimate: function receiveEstimate(data, idx) {
+            var self = this;
+            $("#chatting").append(HTML.MESSAGE_ESTIMATE);
+            $("div.bubble:eq(" + idx + ")").attr('id', data.messageNumber);
+            $("div#" + data.messageNumber + "").children(".receiver-message-box").html(data.messageContent);
+            $("div#" + data.messageNumber + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
+            $("div#" + data.messageNumber + "").children(".chat-profile").html("<img src='" + self.data.imagepath + "'>");
+            $("div.message-subtitle").children("span").html(self.data.loginInfo.peopleId);
+            $.sendHttp({
+                path: SERVER_PATH.ESTIMATE_DETAIL,
+                data: {
+                    estimateNumber: data.messageContent
+                },
+                succ: function (datas) {
+                    console.log(datas);
+                    self.getRequest(datas.requestNumber, data.messageNumber, datas.quotePrice);
+                }
+            });
+            self.setEvent(data.messageNumber);
+        },
+        sendMessage: function sendMessage(data, idx) {
+            $("#chatting").append(HTML.MESSAGE_SEND);
+            $("div.bubble:eq(" + idx + ")").attr('id', data.messageNumber);
+            $("div#" + data.messageNumber + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
+            $("div#" + data.messageNumber + "").children(".receiver-message-box").html(data.messageContent);
+        },
+        sendEvent: function sendEvent() {
+            var self = this;
+            var value = $(self.els.$chatInsert).val().trim();
+            $.sendHttp({
+                path: SERVER_PATH.SET_MESSAGE,
+                data: {
+                    messageSender: self.data.loginInfo.peopleId,
+                    messageReceiver: self.data.adversary,
+                    messageContent: value
+                },
+                succ: function (data) {
+                    console.log(data);
+                    self.els.$chatInsert.val("");
+                    self.initView();
+                    var scrollHeight = $(document).height();
+                    $('body,html').animate({
+                        scrollTop: scrollHeight
+                    }, 800);
+                }
+            });
+        },
+        getRequest: function getRequest(number, id, price) {
+            $.sendHttp({
+                path: SERVER_PATH.REQUEST_DETAIL,
+                data: {
+                    requestNumber: number
+                },
+                succ: function (data) {
+                    console.log(data);
+                    console.log(id);
+                    $("div#" + id + "").children(".sender-message-box").children(".service-info").children(".service-name").html(data.category);
+                    $("div#" + id + "").children(".sender-message-box").children(".price-info").children(".price-value").html(price+'원');
+                }
+            })
+        },
+        setEvent: function setEvent(id){
+            $("#"+id).on('click',function(){
+                console.log(id);
+                $.movePage({
+                    url : "/www/html/pro/estimateDetail.html",
+                    param : {
+                        estimateNumber : id
+                    }
+                })
+            });
+
         }
     };
     window.__page__ = page;

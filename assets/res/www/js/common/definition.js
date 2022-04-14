@@ -32,11 +32,17 @@
         OUT: "api/people/out", //회원 탈퇴
         INFO: "api/people/info", //회원 정보 조회
         UPDATE: "api/people/update", //회원 정보 수정
-        UPDATE: "api/people/updateIntro",//회원 소개 수정
+        UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
-
+        
+        PRO_REGIST: "api/pro/regist",
+        LICENSE_SEARCH: "api/pro/searchLicense",
+        
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
+
+        //estimate
+        ESTIMATE_REGIST: "api/estimate/regist",
 
         //messagewe
         GET_MESSAGE: "api/message/info", // message info

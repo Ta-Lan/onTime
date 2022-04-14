@@ -3512,3 +3512,14 @@ input:checked + .slider:before {
     top: 1rem;
     right: 3rem;
 }
+
+.license-list{
+    border: 1px solid #777777;
+    text-align: center;
+}
+.license-list >thead >tr >td{
+    border:1px solid #777777;
+}
+.license-list >tbody >tr >td{
+    border:1px solid #777777;
+}

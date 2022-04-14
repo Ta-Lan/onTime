@@ -10,6 +10,7 @@
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
+    var proStatus = M.data.global("PRO_STATUS.proStatus");
     var page = {
         els: {
             $nickname: null,
@@ -135,22 +136,25 @@
             $("#people-mypage1").css("display", "none");
             $("#people-mypage2").css("display", "none");
             $("#people-mypage3").css("display", "none");
+            M.data.global("PRO_STATUS.proStatus", true);
 
-            //people로 전환
+            //people로 전환하는 버튼
             $("#people-mypage").css("display", "block");
             $("#pro-mypage").css("display", "none");
         },
         peopleOn: function peopleOn(){
             //pro -> people
-            document.querySelector("#pro-mypage1").style.display = 'none';
-            document.querySelector("#pro-mypage2").style.display = 'none';
-            document.querySelector("#pro-mypage3").style.display = 'none';
-            document.querySelector("#people-mypage1").style.display = 'block';
-            document.querySelector("#people-mypage2").style.display = 'block';
-            document.querySelector("#people-mypage3").style.display = 'block';
+            $("#pro-mypage1").css("display","none");
+            $("#pro-mypage2").css("display","none");
+            $("#pro-mypage3").css("display", "none");
+            $("#people-mypage1").css("display", "block");
+            $("#people-mypage2").css("display", "block");
+            $("#people-mypage3").css("display", "block");
             //pro로 전환
-            document.querySelector("#pro-mypage").style.display = 'block';
-            document.querySelector("#people-mypage").style.display = 'none';
+            $("#pro-mypage").css("display", "block");
+            $("#people-mypage").css("display","none");
+
+            M.data.global("PRO_STATUS.proStatus", false);
         },
         updateImage: function updateImage(){
             //프로필 이미지 수정

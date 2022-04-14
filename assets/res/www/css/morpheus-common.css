@@ -302,7 +302,7 @@ input[type=number]{padding:0 1rem;height:4rem;border:1px solid #ddd;}
 /* Select box */
 .select-box{padding:1rem; background:url(../img/ico-arrow-down.png) no-repeat 100% center;background-size:3.1rem;border:1px solid #ddd;font-weight:400;}
 .select-box.h4p{height: 4rem;}
-.category-select-box{margin-bottom:1rem;padding:1rem; width:100%; background:url(../img/ico-arrow-down2.png) no-repeat 100% center;background-size:3.1rem;border:1px solid #ddd;font-weight:400;}
+.category-select-box{margin-bottom:1rem;padding:1rem; width:100%;background-size:3.1rem;border:1px solid #ddd;font-weight:400;}
 /* Check Box */
 .chk{width:2.2rem;height:2.2rem;margin-right: 1rem;background:url(../img/ipt-chk.png) no-repeat;background-size:100%;}   
 .chk:checked{background-position:0 -2.2rem;}

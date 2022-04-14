@@ -118,7 +118,7 @@
                 }
             } else {
                 // 실패
-                $.modal(data.rsltMsg);
+                //$.modal(data.rsltMsg);
                 if ($.isFunction(options.error)) {
                     options.error(data);
                 }

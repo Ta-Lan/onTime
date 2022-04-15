@@ -35,9 +35,7 @@
         if (typeof obj == "number") obj = obj + "";
 
         if (obj == null) return true;
-        if (obj == undefined) return true;
-        if (obj == "undefined") return true;
-
+        if (obj === "undefined") return true;
         if (obj.length > 0) return false;
         if (obj.length === 0) return true;
 
@@ -110,6 +108,10 @@
      */
     $.sendHttp = function sendHttp(options) {
         if ($.isEmpty(options.path)) throw new Error('sendHttp :: 옵션의 Path 값은 필수입니다.');
+        var _error = null;
+        if ($.isEmpty(options.error)) {
+
+        }
         var succFunc = function succFunc(data) {
             console.log('HTTP RESPONE :: ', data);
             if (data.rsltCode == SERVER_CODE.SUCC) {
@@ -118,7 +120,11 @@
                 }
             } else {
                 // 실패
+<<<<<<< HEAD
                 //$.modal(data.rsltMsg);
+=======
+                // $.modal(data.rsltMsg);
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
                 if ($.isFunction(options.error)) {
                     options.error(data);
                 }
@@ -127,7 +133,8 @@
 
         var errFunc = function errFunc(code, msg, setting) {
             $.modal(code + '\n' + msg);
-            var callback = options.error || function () {
+            var callback = options.error || function (code, msg, setting) {
+                console.log(code + msg + setting);
             };
             callback(code, msg, setting);
         };
@@ -204,29 +211,72 @@
     // Storage 저장소 관련 모듈
     $.storage = {
         /**
-         * 저장된 사용자 로그인 정보를 가져온다.
+         * 저장된 사용자 로그인 정보를 복호화하여 가져온다.
          * @returns {object|string}
          */
         getAuth: function getAuth() {
-            return M.data.storage(CONSTANT.AUTO_LOGIN_AUTH);
+            var options = M.data.storage(CONSTANT.AUTO_LOGIN_AUTH);
+            var _options= {
+                id : $.decrypt(options.id).result,
+                pw : $.decrypt(options.pw).result
+            };
+            console.log(_options.id);
+            console.log(_options.pw);
+            return _options;
         },
 
         /**
-         * 사용자 로그인 정보를 저장한다.
+         * 사용자 로그인 정보를 암호화하여 저장한다.
          * @param {string} id
          * @param {string} pw
          */
         setAuth: function setAuth(id, pw) {
-            M.data.storage(CONSTANT.AUTO_LOGIN_AUTH, {id: id, pw: pw})
+            var encId = $.encrypt(id).result;
+            var encPw = $.encrypt(pw).result;
+            M.data.storage(CONSTANT.AUTO_LOGIN_AUTH, {id: encId, pw: encPw});
         },
         /**
          * 저장된 사용자 로그인 정보를 삭제한다.
          */
         clearAuth: function clearAuth() {
             M.data.removeStorage(CONSTANT.AUTO_LOGIN_AUTH);
+        },
+        /**
+         * 채팅방 최근 시간 저장
+         * @param id
+         * @param time
+         */
+        setMessageTime: function (id,time){
+            var encTime = $.encrypt(time).result;
+            M.data.storage(id,encTime);
+        },
+        /**
+         * 채팅방 최근 시간 불러오기
+         * @param id
+         * @return {string}
+         */
+        getMessageTime: function(id){
+            var time = M.data.storage(id);
+            var decTime = $.decrypt(time).result;
+            return decTime;
         }
     }
-
+    /**
+     * @param {string} options 암호화할 Hex 문자열
+     * returns {object|string} status 변환 성공 여부 (SUCCESS or FAIL)
+     * returns {object|string} result 암호화된 문자열
+     */
+    $.encrypt = function (options) {
+        return M.sec.encrypt(options);
+    }
+    /**
+     * @param {string} options 암호화된 Hex 문자열
+     * returns {object|string} status 변환 성공 여부 (SUCCESS or FAIL)
+     * returns {object|string} result 복호화된 문자열
+     */
+    $.decrypt = function (options) {
+        return M.sec.decrypt(options);
+    }
     /**
      * picker
      * @param {object} options
@@ -267,5 +317,6 @@
         }
         M.media.picker(_options);
     }
+
 
 })(jQuery, M, __config__);

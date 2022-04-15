@@ -6,27 +6,6 @@
 
     var module = {};
 
-    /**
-     * 값의 존재 여부 확인
-     */
-    var isEmpty = module.isEmpty = function isEmpty(obj) {
-
-        var hasOwnProperty = Object.prototype.hasOwnProperty;
-        if (typeof obj == "number") obj = obj + "";
-
-        if (obj == null) return true;
-        if (obj == undefined) return true;
-        if (obj == "undefined") return true;
-
-        if (obj.length > 0) return false;
-        if (obj.length === 0) return true;
-
-        for (var key in obj) {
-            if (hasOwnProperty.call(obj, key)) return false;
-        }
-
-        return true;
-    };
     /*
      * 값이 존재하지 않으면 특정 값으로 정의한다.
      */

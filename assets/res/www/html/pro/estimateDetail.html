@@ -14,7 +14,11 @@
         <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
         <!-- 하단에 라인이 있는경우 class="line"추가 -->
         <h1>
+<<<<<<< HEAD
             <span id="pro-id">김pro</span>님의 견적서
+=======
+            <span id="name">김pro</span>님의 견적서
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
         </h1>
         <button type="button" class="btn-menu r-fix">
             메뉴
@@ -33,26 +37,25 @@
                 <div class="ipt-form-type2">
                     <span>예상소요시간</span>
                     <div class="estimate-ipt-form-col">
-                        <input type="text" id="time-expect" name="time-expect" value="3시간30분">
+                        <input type="text" id="time-expect" name="time-expect" readonly>
                     </div>
                 </div>
                 <div class="ipt-form-type2">
                     <span>제시금액</span>
                     <div class="estimate-ipt-form-col">
-                        <input type="text" id="price" name="price" value="100,000원">
+                        <input type="text" id="price" name="price" readonly>
                     </div>
                 </div>
                 <div class="ipt-form-type2">
                     <span>상세제목</span>
                     <div class="estimate-ipt-form-col">
-                        <input type="text" id="subject" name="subject" value="견적서 상세제목">
+                        <input type="text" id="subject" name="subject" readonly>
                     </div>
                 </div>
                 <div class="ipt-form-type2">
                     <span>상세내용</span>
                     <div class="estimate-ipt-form-col">
-                        <textarea class="report-textarea" id="content" name="content">
-견적서 상세내용 디티오는 제가 다 만들엇는데요? 개머싯죠? 아니 그럼 리포지토리에 나 또 기여자 명단에 업는거잖아 나도 기여를 해야겟어 코드를 넘겨.
+                        <textarea class="report-textarea" id="content" name="content" readonly>
                         </textarea>
                     </div>
                 </div>
@@ -64,10 +67,17 @@
 <div class="footer">
 
     <div class="btn-wrap count2 pd">
+<<<<<<< HEAD
         <button type="button" class="btn-point-color" id="chat-btn">
             1:1 채팅
         </button>
         <button type="button" class="btn-line" id="decline-btn">
+=======
+        <button type="button" id="message" class="btn-point-color">
+            1:1 채팅
+        </button>
+        <button type="button" id="reject" class="btn-line">
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
             거절하기
         </button>
     </div>
@@ -78,4 +88,5 @@
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
 <script type="text/javascript" src="../../js/ui/pro/estimateDetail.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/pro/estimateDetail.js"></script>
 </html>

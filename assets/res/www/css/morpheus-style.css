@@ -81,7 +81,7 @@
 
 .prg-bg-r .prg-bar {
     width: 38%;
-    height: 100%;
+    min-height: 100%;
     background-color: #58AAFF;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
@@ -89,7 +89,7 @@
 
 .prg-bg .prg-bar {
     width: 38%;
-    height: 100%;
+    min-height: 100%;
     background-color: #58AAFF;
 }
 
@@ -344,7 +344,11 @@ input.pw {
 .login.type-c div.divider {
     margin: 1.5rem 5rem 3.5rem;
 }
-
+.divider-section{
+    padding-top: 3rem;
+    height: auto;
+    padding-bottom: 6rem;
+}
 /** Join_terms **/
 .logo img {
     width: 12.1rem;
@@ -582,7 +586,7 @@ li.txt-btn .btn-txt {
 
 .swiper-container.type03 .swiper-slide img {
     border-radius: 1rem;
-    height: 100%;
+    min-height: 100%;
 }
 
 .swiper-container-horizontal.type03 > .swiper-pagination-bullets,
@@ -790,7 +794,7 @@ li.txt-btn .btn-txt {
     top: 0;
     right: 0;
     width: 4rem;
-    height: 100%;
+    min-height: 100%;
     background: rgba(0, 0, 0, .1) url(../img/ico-arrow-white.png) no-repeat center center;
     background-size: .6rem;
 }
@@ -1052,7 +1056,7 @@ li.txt-btn .btn-txt {
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 .metro-wrap .info-box {
@@ -1247,7 +1251,7 @@ strong.ellipsis {
 .mask {
     position: absolute;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: rgba(37, 37, 37, .6);
     z-index: 7;
 }
@@ -1439,7 +1443,7 @@ strong.ellipsis {
 
 .profile img {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 .profile .btn-modify {
@@ -2059,15 +2063,15 @@ strong.ellipsis {
 
 /** on_boarding **/
 .boarding {
-    height: 100%;
+    min-height: 100%;
 }
 
 .boarding .cont-wrap {
-    height: 100%;
+    min-height: 100%;
 }
 
 .boarding .swiper-container {
-    height: 100%;
+    min-height: 100%;
 }
 
 .boarding .tit-wrap {
@@ -2133,7 +2137,7 @@ strong.ellipsis {
     left: 0;
     display: table;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     z-index: 5;
     color: #fff;
 }
@@ -2143,7 +2147,7 @@ strong.ellipsis {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: #000;
     opacity: .7;
     z-index: -1;
@@ -2212,7 +2216,7 @@ strong.ellipsis {
 
 /** certify_finger **/
 .finger-wrap {
-    height: 100%;
+    min-height: 100%;
     padding-top: 40%;
     text-align: center;
 }
@@ -2228,7 +2232,7 @@ strong.ellipsis {
 
 /** certify_pin **/
 .cont-wrap.pin {
-    height: 100%;
+    min-height: 100%;
 }
 
 .pin-wrap {
@@ -2288,7 +2292,7 @@ strong.ellipsis {
 
 .keypad table {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 .keypad table td {
@@ -2433,13 +2437,13 @@ strong.ellipsis {
 
 /** map **/
 .map-wrap {
-    height: 100%;
+    min-height: 100%;
 }
 
 .map-box {
     position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 .map-pin {
@@ -2519,7 +2523,7 @@ strong.ellipsis {
 }
 
 .container {
-    height: 100%;
+    min-height: 100%;
 }
 
 .profile-box {
@@ -2717,6 +2721,7 @@ strong.ellipsis {
     background-color: #f2f2f2;
     padding-top: 1rem;
     padding-left: 0.5rem;
+    padding-right: 0.5rem;
     position: relative;
 }
 
@@ -2726,10 +2731,11 @@ strong.ellipsis {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem 0 1rem .5rem;
+    margin: 1rem 0.5rem 1rem 0.5rem;
     border: 1px solid #e9e9e9;
     border-radius: 10px;
     background-color: #fff;
+
 }
 
 .chat-box-top {
@@ -2775,17 +2781,23 @@ strong.ellipsis {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
+.chat-section{
+    background: #f2f2f2;
+    height: auto;
+}
 .chat-box-badge {
     position: absolute;
-    bottom: 0.7rem;
-    right: 0px;
+    bottom: 4rem;
+    right: 0;
     color: #fff;
     background-color: #d61717;
-    border-radius: 10px;
-    height: 20px;
-    width: 20px;
+    border-radius: 13px;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    vertical-align: middle;
     text-align: center;
+    font-size: 1rem;
 }
 
 .chat-box-price {
@@ -2804,14 +2816,18 @@ strong.ellipsis {
 /**message**/
 .chat-wrapper {
     background-color: #f2f2f2;
-    height: 100%;
+    min-height: 100%;
     position: relative;
-
+    height: auto;
 }
 
 .chattings {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+}
+
+.chat-room{
+    height: auto;
 }
 
 .chat-room-messages {
@@ -2949,7 +2965,7 @@ strong.ellipsis {
     margin-top: 1rem;
     font-size: medium;
     color: #fff;
-    width: 90%;
+    /*width: 90%;*/
 }
 
 .sender-message-box .message-foot {
@@ -2965,14 +2981,14 @@ strong.ellipsis {
 .s-message-bubble {
     margin-top: 1.5rem;
     overflow: hidden;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
 }
 
 .s-message-bubble .message-status {
-    height: 100%;
+    min-height: 100%;
     align-self: flex-end;
     flex-shrink: 0;
 }
@@ -2985,7 +3001,7 @@ strong.ellipsis {
 .r-message-bubble {
     margin: 1.5rem 1.5rem 1rem 0;
     overflow: hidden;
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: row-reverse;     
     justify-content: flex-start;
@@ -3002,7 +3018,7 @@ strong.ellipsis {
 }
 
 .r-message-bubble .message-status {
-    height: 100%;
+    min-height: 100%;
     align-self: flex-end;
     flex-shrink: 0;
 }
@@ -3058,7 +3074,7 @@ strong.ellipsis {
 /*reportForm*/
 .report-form {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     padding: 2rem;
     font-size: 2rem;
 }

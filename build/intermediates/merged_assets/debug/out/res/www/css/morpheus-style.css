@@ -2534,7 +2534,7 @@ strong.ellipsis {
     width: 100%;
 }
 
-.profile img {
+.profile #profile-img-btn {
     position: relative;
     height: 100px;
     width: 100px;
@@ -3214,7 +3214,11 @@ strong.ellipsis {
     padding: 1rem;
     margin-bottom: 1rem;
 }
-
+img.pro-image-img {
+    width: 100px;
+    height: 100px;
+    margin: 1rem;
+}
 .pro-feed-name,
 .people-info-name {
     float: right;
@@ -3222,7 +3226,7 @@ strong.ellipsis {
     font-size: large;
     font-weight: bolder;
     margin-right: 8rem;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .pro-feed-info {
@@ -3523,4 +3527,18 @@ input:checked + .slider:before {
     float: right;
     top: 1rem;
     right: 3rem;
+}
+
+.license-list{
+    border: 1px solid #777777;
+    text-align: center;
+}
+.license-list >thead >tr >td{
+    border:1px solid #777777;
+}
+.license-list >tbody >tr >td{
+    border:1px solid #777777;
+}
+.select-btn{
+    text-decoration: underline;
 }

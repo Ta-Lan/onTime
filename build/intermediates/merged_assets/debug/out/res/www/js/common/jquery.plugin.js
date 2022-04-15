@@ -120,7 +120,19 @@
                 }
             } else {
                 // 실패
+<<<<<<< HEAD
+                //$.modal(data.rsltMsg);
+=======
+<<<<<<< HEAD
                 // $.modal(data.rsltMsg);
+=======
+<<<<<<< HEAD
+                //$.modal(data.rsltMsg);
+=======
+                // $.modal(data.rsltMsg);
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
+>>>>>>> d929d5d3ddd28a3c27582cad76b8d47dc692ba5a
                 if ($.isFunction(options.error)) {
                     options.error(data);
                 }

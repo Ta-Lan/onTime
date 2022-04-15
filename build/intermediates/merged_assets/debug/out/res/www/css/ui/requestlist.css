@@ -13,7 +13,7 @@
     margin: 0.5em;
 }
 .card-title{
-    font-size: 2em;
+    font-size: 1.5em;
     display: inline-block;
 
 }
@@ -23,12 +23,31 @@
     display: inline-block;
 }
 
+.card-body img{
+    float:left;
+    margin-right:1.5rem;
+}
+.estimate-info{
+    bottom: 1rem;
+}
 .card-profile{
     width: 3.2em;
     height : 3.2em;
     display: inline-block;
 }
-.head-box{
-    height : 3.5em;
+.card-day{
+    float:right;
+    margin: 0.3rem 1rem 0 0;
 }
+.head-box{
+    height : 3em;
+}
+
+.write-btn{
+    width:30px;
+    height:30px;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+}
+
 select{line-height:5rem;font-size:1.9rem;font-weight:bold;text-align: center;}

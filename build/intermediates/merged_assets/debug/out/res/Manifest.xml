@@ -46,13 +46,37 @@
 				<encoding>utf-8</encoding>
 				<type>rest</type>
 			</OT_SERVER>
+<<<<<<< HEAD
+            <MS_SERVER>
+=======
+<<<<<<< HEAD
             <MU_SERVER>
+=======
+<<<<<<< HEAD
+            <MS_SERVER>
+=======
+            <MU_SERVER>
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
+>>>>>>> d929d5d3ddd28a3c27582cad76b8d47dc692ba5a
                 <path>mcore.edu.talan.implementation.HttpDefaultNetworkManager</path>
                 <address>https://a0591d88-c1ae-4e6a-8845-e7e01577f8f8.mock.pstmn.io/</address>
                 <timeout>30000</timeout>
                 <encoding>utf-8</encoding>
                 <type>rest</type>
+<<<<<<< HEAD
+            </MS_SERVER>
+=======
+<<<<<<< HEAD
             </MU_SERVER>
+=======
+<<<<<<< HEAD
+            </MS_SERVER>
+=======
+            </MU_SERVER>
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
+>>>>>>> d929d5d3ddd28a3c27582cad76b8d47dc692ba5a
 		</http>
         <socket/>
     </network>

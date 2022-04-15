@@ -1,10 +1,10 @@
 /**
  * @file : estimateWrite.js
- * @author : ParkDoYoung
- * @date : 22.4.13
+ * @author : suhyun
+ * @date : 2022.04.14
  */
 
-(function ($, module,CONFIG, window) {
+ (function ($, CONFIG, module, window) {
     var ENV = CONFIG.ENV;
     var MSG = CONFIG.MSG;
     var CONSTANT = CONFIG.CONSTANT;

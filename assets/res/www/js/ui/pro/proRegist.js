@@ -20,6 +20,8 @@
             $searchBtn: null,
             $searchResult: null,
             $registBtn: null,
+            $selectBtn: null,
+
         },
         data: {},
         init: function init() {
@@ -28,27 +30,37 @@
             self.els.$registContent = $('#regist-content');
             self.els.$experiencePeriod = $('#experience-period');
             self.els.$license = $('#license');
+            self.els.$licenseList = $('#license-list')
+            self.els.$selectedLicense = $('#selected-license');
             self.els.$searchBtn = $('#search-btn');
             self.els.$searchResult = $('#search-result');
             self.els.$registBtn = $('#regist-btn');
+            self.els.$selectBtn = $('.select-btn');
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
-            //자격증 목록 한 열개 띄워
+            $('#search-result').css("display", "none");
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
-            console.log("버튼눌려요?");
             self.els.$searchBtn.on('click', function(){
-                console.log("네");
                 self.searchLicenses();
+                $("#search-result").css("display", "block");
+            });
+            $("#license-list").on('click','tr', function(){
+               $(self.els.$selectedLicense).val($(this).children("td.license-name").text());
             });
             self.els.$registBtn.on('click', function(){
-                var category = self.els.$category;
-                var registContent = self.els.$registContent;
-                var experiencePeriod = self.els.$experiencePeriod;
-                var license = self.els.$selectedLicense;
+                var category = self.els.$category.val();
+                var registContent = self.els.$registContent.val();
+                var experiencePeriod = self.els.$experiencePeriod.val();
+                var license = self.els.$selectedLicense.val().trim();
+                
+                if($.isEmpty(category)){return alert("카테고리를 선택하세요.");}
+                if($.isEmpty(registContent)){return alert("세부 내용을 입력하세요.");}
+                if($.isEmpty(experiencePeriod)){return alert("기간을 입력하세요.");}
+                
                 $.sendHttp({
                     path: SERVER_PATH.PRO_REGIST,
                     data:{
@@ -62,27 +74,46 @@
                         M.data.global("LOGIN_INFO.auth", true);
                         M.data.global("PRO_STAUTS.proStatus", true);
                         M.page.html({
-                            url:"././mypage.html",
+                            url:"././member/mypage.html",
                             action:"CLEAR_TOP"
                         });
-                        
                     },
                     error: function(data, status){
                         alert("error");
                     }
                 })
-            })
+            });
         },
         
         searchLicenses: function(){
             var self = this;
             var license = self.els.$license.val();
-            if(license.length < 2){ return alert("검색어를 2자 이상 입력하세요.");}
+            if(license.length < 2){
+                alert("검색어를 2자 이상 입력하세요.");
+                $("#search-result").css("display", "none");
+            }
             else{
-                document.querySelector("#layer_search_condition > div.layer-contents > div.search-gray-box > div > button")
+                $.sendHttp({
+                    path: SERVER_PATH.SEARCH_LICENSE,
+                    data:{
+                        searchLicense : license
+                    },
+                    succ: function(data){
+                        console.log(data.licenseList.length);
+                        if(data.licenseList.length == 0){
+                            alert("검색 결과가 없습니다.");
+                            $("#search-result").css("display", "none");
+                        }
+                        else{
+                            for(var i = 0; i < data.licenseList.length; i++){
+                               $(".search-license").append("<tr><td>"+data.licenseList[i].licenseType+"</td><td class='license-name'>"+data.licenseList[i].licenseName+"</td></tr>");
+                            }
+                        }
+                    }   
+                });
             }
 
-        }
+        },
     };
     window.__page__ = page;
 })(jQuery, __config__, window);

@@ -36,13 +36,16 @@
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
         
         PRO_REGIST: "api/pro/regist",
-        LICENSE_SEARCH: "api/pro/searchLicense",
+        SEARCH_LICENSE: "api/pro/searchLicense",
         
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist",
+        ESTIMATE_LIST: "api/estimate/list",
+        ESTIMATE_DETAIL: "api/estimate/detail",
+        ESTIMATE_MATCHED: "api/estimate/matched",
 
         //messagewe
         GET_MESSAGE: "api/message/info", // message info

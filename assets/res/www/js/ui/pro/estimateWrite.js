@@ -54,14 +54,13 @@
             $.sendHttp({
                 path: SERVER_PATH.ESTIMATE_REGIST,
                 data:{
-                    requestNumber: "REQUEST100010",
+                    requestNumber: "REQUEST100010", //이거 받아오는걸로 바꿔야해
                     predictTime: timeExpect,
                     quotePrice: price,
                     estimateTitle: subject,
                     estimateContent: content
                 },
                 succ: function(data){
-                    console.log(data);
                     alert("견적서 작성 완료");
                     $.moveBack();
                 },

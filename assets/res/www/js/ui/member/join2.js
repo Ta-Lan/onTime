@@ -312,7 +312,10 @@
                 },
                 succ: function(data){
                     console.log(data);
-                    M.page.html("./join3.html");
+                    M.page.html({
+                        url:"./join3.html",
+                        action:"CLEAR_TOP"
+                    });
                 },
                 error: function(data){
                     alert("회원가입 오류");

@@ -100,7 +100,7 @@
                     proStatus: false,
                   }
               });
-                M.page.html("../pro/estimateWrite.html");
+                M.page.html("../main.html");
               },
               error: function (data) {
                   alert("아이디 혹은 비밀번호가 틀립니다.");

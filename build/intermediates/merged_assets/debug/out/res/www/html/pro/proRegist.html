@@ -59,21 +59,21 @@
                   <button type="button" id="search-btn" class="btn-line">
                      검색
                   </button>
+                  <input type="text" id="selected-license" class="full mg20" placeholder="자격증 이름(자동입력)" disabled/>
                </div>
             </div>
             <div class="ipt-form-type2" id="search-result">
                <span>
                   검색결과
                </span>
-               <table id="license-list" class="license-list full">
-                  <col width="35%">
-                  <col width="55%">
-                  <col width="10%">
+               <table id="license-list" class="license-list full" >
+                  <col width="40%">
+                  <col width="60%">
                   <thead>
-                     <tr><td>계열명</td><td>종목명</td><td>선택</td></tr>
+                     <tr><td>계열명</td><td>종목명</td></tr>
                   </thead>
-                  <tbody>
-                     <tr><td>기사</td><td>정보처리기사</td><button type="button" id="select-btn">선택</button></tr>
+                  <tbody class="search-license" id="search-license">
+                     
                   </tbody>
                </table>
             </div>

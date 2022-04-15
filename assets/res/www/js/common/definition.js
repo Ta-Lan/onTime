@@ -45,6 +45,7 @@
         REQUEST_WRITE: "api/request/write", // request 글쓰기
         REQUEST_LIST: "api/request/listSearch", // request list
         REQUEST_DETAIL: "api/request/detail",
+        REQUEST_MYLIST: "api/request/myList",
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist",

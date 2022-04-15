@@ -93,15 +93,27 @@
                 if (isAutoLogin) self.setAutoLogin(id, pw);
                 M.data.global({
                   "LOGIN_INFO": {
-                    nickname: data.session.nickname,
-                    auth: data.isProRegisted, // people, pro, admin
-                    peopleId : id
-                  },
-                  "PRO_STATUS":{
-                    proId: id,
-                    proStatus: false,
+                      nickname: data.session.nickname,
+                      auth: data.isProRegisted, // people, pro, admin
+                      peopleId : existLoginData.id
                   }
-              });
+                });
+                if("LOFIN_INFO.auth"){
+                    M.data.global({
+                        "PRO_STATUS":{
+                            proId: existLoginData.id,
+                            proStatus: true,
+                        }
+                    });
+                }
+                else{
+                    M.data.global({
+                        "PRO_STATUS":{
+                            proId: "",
+                            proStatus: false,
+                        }
+                    });
+                }
                 M.page.html("../main.html");
               },
               error: function (data) {

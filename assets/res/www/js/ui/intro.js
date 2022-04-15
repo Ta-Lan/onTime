@@ -1,7 +1,7 @@
 /**
- * @file :
- * @author :
- * @date :
+ * @file : intro.js
+ * @author : suhyun
+ * @date : 2022.04.08
  */
 
 // 페이지 단위 모듈
@@ -71,6 +71,22 @@
                                     peopleId : existLoginData.id
                                 }
                             });
+                            if("LOFIN_INFO.auth"){
+                                M.data.global({
+                                    "PRO_STATUS":{
+                                        proId: existLoginData.id,
+                                        proStatus: true,
+                                    }
+                                });
+                            }
+                            else{
+                                M.data.global({
+                                    "PRO_STATUS":{
+                                        proId: "",
+                                        proStatus: false,
+                                    }
+                                });
+                            }
                             self.moveMainPage();
                         },
                         error: function () {

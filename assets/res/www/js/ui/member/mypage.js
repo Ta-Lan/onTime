@@ -27,6 +27,12 @@
             $goPro: null,
             $goPeople: null,
             $feedWriteBtn: null,
+
+            $paymentList: null,
+            $requestList: null,
+            $estimateList: null,
+            $reviewList: null,
+            $inquiryList: null,
         },
         data: {},
         init: function init() {
@@ -45,6 +51,12 @@
             self.els.$goPro = $('#go-pro');
             self.els.$goPeople = $('#go-people');
             self.els.$feedWriteBtn = $('#pro-mypage3');
+
+            self.els.$paymentList = $('#payment-list');
+            self.els.$requestList = $('#request-list');
+            self.els.$estimateList = $('#estimate-list');
+            self.els.$reviewList = $('#review-list');
+            self.els.$inquiryList = $('#inquiry-list');
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
@@ -80,6 +92,31 @@
         },
         initEvent: function initEvent() {
             var self = this;
+            self.els.$paymentList.on('click', function(){
+                $.movePage({
+                    url:"/www/html/people/paymentList.html"
+                })
+            });
+            self.els.$requestList.on('click', function(){
+                $.movePage({
+                    url:"/www/html/people/requestMyList.html"
+                })
+            });
+            self.els.$estimateList.on('click', function(){
+                $.movePage({
+                    url:"/www/html/pro/estimateMyList.html"
+                })
+            });
+            self.els.$reviewList.on('click', function(){
+                $.movePage({
+                    url:"/www/html/pro/reviewMyList.html"
+                })
+            });
+            self.els.$inquiryList.on('click', function(){
+                $.movePage({
+                    url:"/www/html/pro/qnaMyList.html"
+                })
+            });
             self.els.$goPro.on('click', function () {
                 self.goPro();
             });

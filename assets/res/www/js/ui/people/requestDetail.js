@@ -54,11 +54,13 @@
                     self.els.$preference.val(data.preference);
                     self.els.$address.val(data.town+" "+data.district);
                     self.els.$workIntense.val(data.taskLevel);
+                    self.estimateRight(data.category);
                 },
                 error: function(status, data){
                     alert("삐용삐용");
                 }
             });
+            
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
@@ -71,7 +73,33 @@
                         requestNumber : requestNumber
                     }
                 })
-            })
+            });
+        },
+        estimateRight: function estimateRight(category){
+            var proCategory = '';
+            var loginInfo = M.data.global("LOGIN_INFO");
+            if(loginInfo.auth){
+                var proStatus = M.data.global("PRO_STATUS");
+                console.log(proStatus);
+                console.log(proStatus.proId);
+                console.log(proStatus.proStatus);
+
+                $.sendHttp({
+                    path: SERVER_PATH.PRO_INFO,
+                    data:{
+                        proId: proStatus.proId,
+                    },
+                    succ: function(data){
+                        proCategory = data.category
+                        if(proCategory != category){
+                            $('.btn-wrap').css("display", "none");
+                        }
+                    },
+                    error: function(data, status){
+                        alert("error");
+                    }
+                });
+            }
         }
     };
     window.__page__ = page;

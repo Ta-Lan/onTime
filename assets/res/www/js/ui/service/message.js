@@ -15,7 +15,9 @@
         els: {
             $chatting: null,
             $chatInsert: null,
-            $submit: null
+            $submit: null,
+            $payment: null,
+            $proInfo: null,
         },
         data: {},
         init: function init() {
@@ -23,11 +25,14 @@
             self.els.$chatting = $('#chatting');
             self.els.$chatInsert = $('#chat-insert');
             self.els.$submit = $('#submit');
+            self.els.$payment = $('#payment');
+            self.els.$proInfo = $('#pro-info');
             // parameter 가져오기  chatNumber, adversary Id
             self.data.chatNumber = M.data.param('chatNumber');
             // 내 정보 가져오기
             self.data.loginInfo = M.data.global("LOGIN_INFO");
             // initial date
+            console.log(self.data.loginInfo);
             self.data.date = "1900.01.01";
 
         },
@@ -74,6 +79,7 @@
                         },
                         succ: function (data) {
                             console.log(data);
+                            self.data.isProRegisted = data.isProRegisted;
                             self.data.nickname = data.nickname;
                             self.data.imagepath = data.imagePath + data.storeImageName;
                         }
@@ -105,6 +111,35 @@
             });
             $("#submit").on('click', function () {
                 self.sendEvent();
+            });
+            $(self.els.$payment).on('click', function () {
+                // 뭔가 여기서 결제페이지로 가는게 순서가 이상한 거같음.
+                // 보류
+                $.movePage({
+                    url: "/www/html/people/payment.html",
+                    // param : {
+                    //     estimateNumber :
+                    // }
+                });
+            });
+            $(self.els.$proInfo).on('click', function () {
+                var self = this;
+                var id = self.data.loginInfo.peopleId;
+                if (self.data.isProRegisted === true) {
+                    $.movePage({
+                        url : "/www/html/pro/proInfo.html",
+                        param : {
+                            proId : id,
+                        }
+                    });
+                }else{
+                    $.movePage({
+                        url : "www/html/people/peopleInfo.html",
+                        param : {
+                            peopleId : id,
+                        }
+                    });
+                }
             });
         },
         receiveMessage: function receiveMessage(data, idx) {
@@ -172,17 +207,17 @@
                     console.log(data);
                     console.log(id);
                     $("div#" + id + "").children(".sender-message-box").children(".service-info").children(".service-name").html(data.category);
-                    $("div#" + id + "").children(".sender-message-box").children(".price-info").children(".price-value").html(price+'원');
+                    $("div#" + id + "").children(".sender-message-box").children(".price-info").children(".price-value").html(price + '원');
                 }
             })
         },
-        setEvent: function setEvent(id){
-            $("#"+id).on('click',function(){
+        setEvent: function setEvent(id) {
+            $("#" + id).on('click', function () {
                 console.log(id);
                 $.movePage({
-                    url : "/www/html/pro/estimateDetail.html",
-                    param : {
-                        estimateNumber : id
+                    url: "/www/html/pro/estimateDetail.html",
+                    param: {
+                        estimateNumber: id
                     }
                 })
             });

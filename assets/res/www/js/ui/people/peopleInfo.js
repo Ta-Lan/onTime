@@ -30,7 +30,7 @@
                     url : "/www/html/pro/proInfo.html",
                     actionType : "NO_HISTORY"
                 })
-            })
+            });
         }
     };
     window.__page__ = page;

@@ -74,7 +74,7 @@
                         M.data.global("LOGIN_INFO.auth", true);
                         M.data.global("PRO_STAUTS.proStatus", true);
                         M.page.html({
-                            url:"././member/mypage.html",
+                            url:"/www/html/member/mypage.html",
                             action:"CLEAR_TOP"
                         });
                     },

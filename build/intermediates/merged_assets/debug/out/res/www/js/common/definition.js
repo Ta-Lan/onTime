@@ -6,14 +6,30 @@
 (function (window, M) {
     var module = {};
 
+<<<<<<< HEAD
     var IS_DEV = false; // true = 소담씨 노트북, false = 목업서버
+=======
+<<<<<<< HEAD
+    var IS_DEV = true; //true->OT false->MS
+=======
+    var IS_DEV = false; // true = 소담씨 노트북, false = 목업서버
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
     var IS_PROD = !IS_DEV;
 
 
     // 앱 환경변수 값
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
+<<<<<<< HEAD
         SERVER_NAME: IS_PROD ? "MU_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+=======
+<<<<<<< HEAD
+        SERVER_NAME: IS_PROD ? "MS_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+=======
+        SERVER_NAME: IS_PROD ? "MU_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
         , UPLOAD_URL: IS_PROD ? "http://192.168.0.56:8888/" : "http://192.168.0.56:8888/"
         , INDICATOR: true //서버통신시 indicator 여부
     };
@@ -32,14 +48,34 @@
         OUT: "api/people/out", //회원 탈퇴
         INFO: "api/people/info", //회원 정보 조회
         UPDATE: "api/people/update", //회원 정보 수정
+        UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
+<<<<<<< HEAD
+        
+        PRO_REGIST: "api/pro/regist",
+        SEARCH_LICENSE: "api/pro/searchLicense",
+        
+=======
 
         //Pro
         PRO_INFO:"api/pro/info",
+<<<<<<< HEAD
+=======
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
         REQUEST_LIST: "api/request/list", // request list
         REQUEST_DETAIL: "api/request/detail",
+<<<<<<< HEAD
+=======
+
+        //estimate
+        ESTIMATE_REGIST: "api/estimate/regist",
+        ESTIMATE_LIST: "api/estimate/list",
+        ESTIMATE_DETAIL: "api/estimate/detail",
+        ESTIMATE_MATCHED: "api/estimate/matched",
+>>>>>>> suhyun
 
         //messagewe
         GET_MESSAGE: "api/message/info", // message info

@@ -12,8 +12,8 @@
     var SERVER_PATH = CONFIG.SERVER_PATH;
     var page = {
         els: {
-            $loginIdIpt: null,
-            $passwordIpt: null,
+            $peopleId: null,
+            $password: null,
             $loginBtn: null,
             $autoLoginChk: null,
             $findIdBtn: null,
@@ -23,8 +23,8 @@
         data: {},
         init: function init() {
             var self = this;
-            self.els.$loginIdIpt = $('#login-id');
-            self.els.$passwordIpt = $('#password');
+            self.els.$peopleId = $('#login-id');
+            self.els.$password = $('#password');
             self.els.$loginBtn = $('#login-btn');
             self.els.$autoLoginChk = $('#auto-login-chk');
             self.els.$findIdBtn = $('#find-id');
@@ -37,8 +37,11 @@
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
+            var id = self.els.$peopleId.val().trim();
+            var password = self.els.$password.val().trim();
+
             this.els.$loginBtn.on('click', function () {
-              self.login();
+              self.login(id, password);
             });
             this.els.$findIdBtn.on('click', function () {
               M.page.html('./findId.html');
@@ -67,8 +70,8 @@
 
         login: function () {
             var self = this;
-            var id = self.els.$loginIdIpt.val().trim(); // 로그인 아이디 가져오기
-            var pw = self.els.$passwordIpt.val().trim(); // 비밀번호 가져오기
+            var id = self.els.$peopleId.val().trim(); // 로그인 아이디 가져오기
+            var pw = self.els.$password.val().trim(); // 비밀번호 가져오기
             var isAutoLogin = self.els.$autoLoginChk.prop('checked'); // true / false
       
             if (id == '') {
@@ -90,19 +93,21 @@
                 if (isAutoLogin) self.setAutoLogin(id, pw);
                 M.data.global({
                   "LOGIN_INFO": {
-                      nickname: data.session.nickname,
-                      auth: data.isProRegisted, // people, pro, admin
-                      peopleId : id
+                    nickname: data.session.nickname,
+                    auth: data.isProRegisted, // people, pro, admin
+                    peopleId : id
+                  },
+                  "PRO_STATUS":{
+                    proId: id,
+                    proStatus: false,
                   }
               });
-                console.log(M.data.global("LOGIN_INFO"));
-                console.log(M.data.global("LOGIN_INFO.auth"));
                 M.page.html("../main.html");
               },
-              err: function (data) {
-                if (data.rsltCode == '2001') {
+              error: function (data) {
                   alert("아이디 혹은 비밀번호가 틀립니다.");
-                }
+                  self.els.$peopleId.val('');
+                  self.els.$password.val('');
               }
             });
           }

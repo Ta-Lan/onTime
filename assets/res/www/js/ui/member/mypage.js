@@ -10,6 +10,7 @@
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
+    var proStatus = M.data.global("PRO_STATUS.proStatus");
     var page = {
         els: {
             $nickname: null,
@@ -59,7 +60,10 @@
                 succ: function (data) {
                     self.els.$nickname.text(nickname);
                     self.els.$intro.text(data.intro);
-                    $("#profile-img-btn").html("<img src='"+data.filePath+data.storeFileName+"'/>");
+                    console.log(data.imagePath);
+                    console.log(data.storeImageName);
+                    console.log(data.originImageName);
+                    document.getElementById("profile-img-btn").src=data.imagePath+data.storeImageName;
                     if (auth) {
                         //pro인증이 된 회원
                         $('#pro-register').css("display", "none");
@@ -89,15 +93,22 @@
                 M.page.html("./viewInfo.html");
             })
             self.els.$modifyIntro.on('click', function(){
-                M.pop.alert({
-                    title: '소개 수정',
-                    message: document.write("<input type='text' name='intro'/>"),
-                    buttons: ['확인', '취소'],
-                    callback: function(index) {
-                            console.log( "index: ", index );
+                var userInput = prompt("소개 수정"+"소개를 입력하세요.");
+                self.els.$intro.text(userInput);
+                var intro = self.els.$intro.val();
+                $.sendHttp({
+                    path: SERVER_PATH.UPDATE_INTRO,
+                    data: {
+                        intro: intro
+                    },
+                    succ: function(){
+                        alert("소개가 수정되었습니다.");
+                    },
+                    error: function(){
+                        alert("소개 수정 오류");
                     }
+                })
             });
-            })
             self.els.$proRegist.on('click', function () {
                 M.page.html("../pro/proRegist.html");
             });
@@ -125,22 +136,25 @@
             $("#people-mypage1").css("display", "none");
             $("#people-mypage2").css("display", "none");
             $("#people-mypage3").css("display", "none");
+            M.data.global("PRO_STATUS.proStatus", true);
 
-            //people로 전환
+            //people로 전환하는 버튼
             $("#people-mypage").css("display", "block");
             $("#pro-mypage").css("display", "none");
         },
         peopleOn: function peopleOn(){
             //pro -> people
-            document.querySelector("#pro-mypage1").style.display = 'none';
-            document.querySelector("#pro-mypage2").style.display = 'none';
-            document.querySelector("#pro-mypage3").style.display = 'none';
-            document.querySelector("#people-mypage1").style.display = 'block';
-            document.querySelector("#people-mypage2").style.display = 'block';
-            document.querySelector("#people-mypage3").style.display = 'block';
+            $("#pro-mypage1").css("display","none");
+            $("#pro-mypage2").css("display","none");
+            $("#pro-mypage3").css("display", "none");
+            $("#people-mypage1").css("display", "block");
+            $("#people-mypage2").css("display", "block");
+            $("#people-mypage3").css("display", "block");
             //pro로 전환
-            document.querySelector("#pro-mypage").style.display = 'block';
-            document.querySelector("#people-mypage").style.display = 'none';
+            $("#pro-mypage").css("display", "block");
+            $("#people-mypage").css("display","none");
+
+            M.data.global("PRO_STATUS.proStatus", false);
         },
         updateImage: function updateImage(){
             //프로필 이미지 수정

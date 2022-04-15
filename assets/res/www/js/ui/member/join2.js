@@ -38,7 +38,10 @@
             $isCheckedNickname: null,
 
         },
-        data: {},
+        data: {
+            fileName: "",
+            filePath: "",
+        },
         init: function init() {
             this.els.$name = $('#user-name');
             this.els.$gender = $("input:radio[name='gender']");
@@ -55,7 +58,7 @@
             this.els.$account = $('#account');
             this.els.$nickname = $('#nickname');
             this.els.$introduce = $('#introduce');
-            this.els.$imgName = $('#img-src');
+            this.els.$imgName = $('#img-name');
             this.els.$imgBtn = $('#img-btn');
             this.els.$joinBtn = $('#join-btn');
             this.els.$dupBtn1 = $('#dup-btn1');
@@ -83,7 +86,14 @@
                 })
             });
             self.els.$joinBtn.on('click', function () {
-                self.join();
+                console.log(self.data.filePath);
+                if(self.data.filePath === ""){
+                    self.join();
+                }
+                else{
+                    self.joinWithImage();
+                }
+                
             });
             self.els.$dupBtn1.on('click', function () {
                 self.els.$isCheckedId = false;
@@ -245,9 +255,9 @@
                   }
                 }        
               });
-          },
+        },
 
-        join: function(imgPath){
+        join: function(){
             var self = this;
             var name = self.els.$name.val().trim();
             var gender = $('input:radio[name=gender]:checked').val();
@@ -264,7 +274,6 @@
             var account = self.els.$account.val().trim();
             var nickname = self.els.$nickname.val().trim();
             var introduce = self.els.$introduce.val().trim();
-            var imgPath = self.data.filePath;
 
             //validation
             if($.isEmpty(name)){return alert("이름을 입력하세요.");}
@@ -286,57 +295,78 @@
             if(!self.els.$isCheckedNickname){return alert("닉네임 중복확인을 해주세요.")}
             if($.isEmpty(introduce)){return alert("소개를 입력하세요.");}
 
-            if($.isEmpty(imgPath)){
-                $.sendHttp({
-                    path: SERVER_PATH.JOIN,
-                    data:{
-                        name: name,
-                        gender: gender,
-                        peopleId: peopleId,
-                        password: password,
-                        birth: year+module.digitNum(month)+module.digitNum(day),
-                        nickname: nickname,
-                        address: city+"`"+country,
-                        phone: phone,
-                        intro: introduce,
-                        email: email,
-                        account: account,
-                    },
-                    succ: function(data){
-                        console.log(data);
-                        M.page.html("./join3.html");
-                    },
-                    error: function(data){
-                        alert("회원가입 오류");
-                    }
-                })
-            }
-            else{
-                var body = [
-                    { name: "name", content: name, type: "TEXT"},
-                    { name: "gender", content: gender, type: "TEXT"},
-                    { name: "birth", content: year+module.digitNum(month)+module.digitNum(day), type: "TEXT"},
-                    { name: "phone", content: phone, type: "TEXT"},
-                    { name: "peopleId", content: peopleId, type: "TEXT"},
-                    { name: "password", content: password, type: "TEXT"},
-                    { name: "email", content: email, type: "TEXT"},
-                    { name: "account", content: account, type: "TEXT"},
-                    { name: "address", content: city+"`"+country, type: "TEXT"},
-                    { name: "nickname", content: nickname, type: "TEXT"},
-                    { name: "introduce", content: introduce, type: "TEXT"},
-                    { name: "image", content: imgPath, type: "FILE" },
-                ]
-                $.fileHttpSend({
-                    path: SERVER_PATH.JOIN_WITH_IMAGE,
-                    body: body,
-                    succ: function(data){
-                        M.page.html("./join3.html");
-                    },
-                    error: function(data){
-                        alert("회원가입 오류");
-                    }
-                })
-            }
+            $.sendHttp({
+                path: SERVER_PATH.JOIN,
+                data:{
+                    name: name,
+                    gender: gender,
+                    peopleId: peopleId,
+                    password: password,
+                    birth: year+module.digitNum(month)+module.digitNum(day),
+                    nickname: nickname,
+                    address: city+"`"+country,
+                    phone: phone,
+                    intro: introduce,
+                    email: email,
+                    account: account,
+                },
+                succ: function(data){
+                    console.log(data);
+                    M.page.html({
+                        url:"./join3.html",
+                        action:"CLEAR_TOP"
+                    });
+                },
+                error: function(data){
+                    alert("회원가입 오류");
+                }
+            })
+        },
+        joinWithImage: function(){
+            var self = this;
+            var name = self.els.$name.val().trim();
+            var gender = $('input:radio[name=gender]:checked').val();
+            var year = self.els.$year.val().trim();
+            var month = self.els.$month.val().trim();
+            var day = self.els.$day.val().trim();
+            var phone = self.els.$phone.val().trim();
+            var peopleId = self.els.$peopleId.val().trim();
+            var password = self.els.$password.val().trim();
+            var repassword = self.els.$repassword.val().trim();
+            var email = self.els.$email.val().trim();
+            var city = self.els.$city.val();
+            var country = self.els.$country.val();
+            var account = self.els.$account.val().trim();
+            var nickname = self.els.$nickname.val().trim();
+            var introduce = self.els.$introduce.val().trim();
+            var imgPath = self.data.filePath;
+            var body = [
+                { name: "name", content: name, type: "TEXT"},
+                { name: "gender", content: gender, type: "TEXT"},
+                { name: "birth", content: year+module.digitNum(month)+module.digitNum(day), type: "TEXT"},
+                { name: "phone", content: phone, type: "TEXT"},
+                { name: "peopleId", content: peopleId, type: "TEXT"},
+                { name: "password", content: password, type: "TEXT"},
+                { name: "email", content: email, type: "TEXT"},
+                { name: "account", content: account, type: "TEXT"},
+                { name: "address", content: city+"`"+country, type: "TEXT"},
+                { name: "nickname", content: nickname, type: "TEXT"},
+                { name: "intro", content: introduce, type: "TEXT"},
+                { name: "image", content: imgPath, type: "FILE" },
+            ];
+            $.fileHttpSend({
+                path: SERVER_PATH.JOIN_WITH_IMAGE,
+                body: body,
+                succ: function(data){
+                    console.log(data);
+                    M.page.html("./join3.html");
+                },
+                error: function(status, data){
+                    console.log(body);
+                    console.log(status + JSON.stringify(data));
+                    alert("회원가입 오류");
+                }
+            });
         },
         checkPw: function (password) {
             var reg_pw = /^(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$/;
@@ -346,7 +376,7 @@
             else {
               return true;
             }
-          }
+        }
 
     };
     window.__page__ = page;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>2
 <manifest useDirectView="false">
     <log>y</log>
     <lang>ko</lang>
@@ -46,13 +46,29 @@
 				<encoding>utf-8</encoding>
 				<type>rest</type>
 			</OT_SERVER>
+<<<<<<< HEAD
             <MU_SERVER>
+=======
+<<<<<<< HEAD
+            <MS_SERVER>
+=======
+            <MU_SERVER>
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
                 <path>mcore.edu.talan.implementation.HttpDefaultNetworkManager</path>
                 <address>https://a0591d88-c1ae-4e6a-8845-e7e01577f8f8.mock.pstmn.io/</address>
                 <timeout>30000</timeout>
                 <encoding>utf-8</encoding>
                 <type>rest</type>
+<<<<<<< HEAD
             </MU_SERVER>
+=======
+<<<<<<< HEAD
+            </MS_SERVER>
+=======
+            </MU_SERVER>
+>>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
+>>>>>>> suhyun
 		</http>
         <socket/>
     </network>

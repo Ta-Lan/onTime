@@ -33,7 +33,7 @@
                   경력사항
                </span>
                <div class="ipt-form-col">
-                  <select class="category-select-box" name="category">
+                  <select class="category-select-box" name="category" id="category">
                      <option value="">카테고리</option>
                      <option value="lesson">레슨</option>
                      <option value="home">홈/리빙</option>
@@ -46,8 +46,8 @@
                   </select>
                </div>
                <div class="ipt-form-col">
-                  <input type="text" placeholder="세부 내용을 입력하세요." />
-                  <input type="text" placeholder="기간을 입력하세요." />
+                  <input type="text" class="full" id="regist-content" placeholder="세부 내용을 입력하세요." />
+                  <input type="text" class="full" id="experience-period"placeholder="기간을 입력하세요." />
                </div>
             </div>
             <div class="ipt-form-type2">
@@ -55,11 +55,27 @@
                   자격증
                </span>
                <div class="ipt-form-row">
-                  <input type="text" id="login-id" placeholder="자격증을 입력해주세요." />
-                  <button type="button" id="dup-btn" class="btn-line">
-                     추가
+                  <input type="text" id="license" placeholder="두 글자 이상 입력하세요." />
+                  <button type="button" id="search-btn" class="btn-line">
+                     검색
                   </button>
+                  <input type="text" id="selected-license" class="full mg20" placeholder="자격증 이름(자동입력)" disabled/>
                </div>
+            </div>
+            <div class="ipt-form-type2" id="search-result">
+               <span>
+                  검색결과
+               </span>
+               <table id="license-list" class="license-list full" >
+                  <col width="40%">
+                  <col width="60%">
+                  <thead>
+                     <tr><td>계열명</td><td>종목명</td></tr>
+                  </thead>
+                  <tbody class="search-license" id="search-license">
+                     
+                  </tbody>
+               </table>
             </div>
            
          </div>
@@ -67,7 +83,7 @@
       </div>
 <div class="footer">
     <div class="btn-wrap pd">
-       <button type="button" id="join-btn" class="btn-point-color">
+       <button type="button" id="regist-btn" class="btn-point-color">
           등록하기
        </button>
     </div>
@@ -77,6 +93,6 @@
 <script type="text/javascript" src="../../js/mcore.min.js"></script>
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
-<script type="text/javascript" src="../../js/ui/join2.js"></script>
+<script type="text/javascript" src="../../js/ui/pro/proRegist.js"></script>
 
 </html>

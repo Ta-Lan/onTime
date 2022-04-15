@@ -1,4 +1,4 @@
-#Wed Apr 13 13:43:57 KST 2022
-base.0=C\:\\workspace\\onTime\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Thu Apr 14 22:45:48 KST 2022
+base.0=/Users/parkdoyoung/IdeaProjects/morpheus/TaLan/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

@@ -12,7 +12,7 @@
         </update>
     </resource>
     <startpage>
-<!--        <name>www/html/pro/estimateWrite.html</name>-->
+<!--        <name>www/html/member/login.html</name>-->
         <name>www/html/intro.html</name>
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
@@ -48,7 +48,7 @@
 			</OT_SERVER>
             <MU_SERVER>
                 <path>mcore.edu.talan.implementation.HttpDefaultNetworkManager</path>
-                <address>http://192.168.0.8:8888/</address>
+                <address>https://a0591d88-c1ae-4e6a-8845-e7e01577f8f8.mock.pstmn.io/</address>
                 <timeout>30000</timeout>
                 <encoding>utf-8</encoding>
                 <type>rest</type>

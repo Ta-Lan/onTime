@@ -5,7 +5,10 @@
  */
 (function (window, M) {
     var module = {};
+    var IS_DEV = true; // true = 소담씨 노트북, false = 목업서버
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
     var IS_DEV = false; // true = 소담씨 노트북, false = 목업서버
 =======
@@ -15,12 +18,16 @@
     var IS_DEV = false; // true = 소담씨 노트북, false = 목업서버
 >>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
 >>>>>>> suhyun
+>>>>>>> d929d5d3ddd28a3c27582cad76b8d47dc692ba5a
     var IS_PROD = !IS_DEV;
 
 
     // 앱 환경변수 값
     var ENV = module.ENV = {
         IS_DEV: IS_DEV, // 개발 모드 여부
+<<<<<<< HEAD
+        SERVER_NAME: IS_PROD ? "MS_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
+=======
 <<<<<<< HEAD
         SERVER_NAME: IS_PROD ? "MU_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
 =======
@@ -30,6 +37,7 @@
         SERVER_NAME: IS_PROD ? "MU_SERVER" : "OT_SERVER" //바라볼 서버 이름 (Manifest.xml에 설정되어있는 이름)
 >>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
 >>>>>>> suhyun
+>>>>>>> d929d5d3ddd28a3c27582cad76b8d47dc692ba5a
         , UPLOAD_URL: IS_PROD ? "http://192.168.0.56:8888/" : "http://192.168.0.56:8888/"
         , INDICATOR: true //서버통신시 indicator 여부
     };
@@ -50,19 +58,21 @@
         UPDATE: "api/people/update", //회원 정보 수정
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
-<<<<<<< HEAD
-        
         PRO_REGIST: "api/pro/regist",
         SEARCH_LICENSE: "api/pro/searchLicense",
         
-=======
+
 
         //Pro
         PRO_INFO:"api/pro/info",
 <<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
 =======
 >>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
 >>>>>>> suhyun
+>>>>>>> d929d5d3ddd28a3c27582cad76b8d47dc692ba5a
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
         REQUEST_LIST: "api/request/list", // request list

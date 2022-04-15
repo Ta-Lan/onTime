@@ -120,15 +120,8 @@
                 }
             } else {
                 // 실패
-<<<<<<< HEAD
-                // $.modal(data.rsltMsg);
-=======
-<<<<<<< HEAD
                 //$.modal(data.rsltMsg);
-=======
-                // $.modal(data.rsltMsg);
->>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
->>>>>>> suhyun
+
                 if ($.isFunction(options.error)) {
                     options.error(data);
                 }

@@ -47,6 +47,7 @@
 				<type>rest</type>
 			</OT_SERVER>
             <MS_SERVER>
+
                 <path>mcore.edu.talan.implementation.HttpDefaultNetworkManager</path>
                 <address>https://a0591d88-c1ae-4e6a-8845-e7e01577f8f8.mock.pstmn.io/</address>
                 <timeout>30000</timeout>

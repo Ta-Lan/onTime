@@ -1,10 +1,10 @@
 /**
- * @file :estimateDetail.js
+ * @file : estimateDetail.js
  * @author : suhyun
  * @date : 2022.04.14
  */
 
-(function ($, CONFIG, window) {7
+ (function ($, CONFIG, window) {
     var ENV = CONFIG.ENV;
     var MSG = CONFIG.MSG;
     var CONSTANT = CONFIG.CONSTANT;

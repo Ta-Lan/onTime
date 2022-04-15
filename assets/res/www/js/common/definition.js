@@ -5,8 +5,8 @@
  */
 (function (window, M) {
     var module = {};
-    var IS_DEV = true; // true = 소담씨 노트북, false = 목업서버
 
+    var IS_DEV = true; //true->OT false->MS
     var IS_PROD = !IS_DEV;
 
 
@@ -34,14 +34,13 @@
         UPDATE: "api/people/update", //회원 정보 수정
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
+        
         PRO_REGIST: "api/pro/regist",
         SEARCH_LICENSE: "api/pro/searchLicense",
         
 
-
         //Pro
         PRO_INFO:"api/pro/info",
-
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
         REQUEST_LIST: "api/request/list", // request list

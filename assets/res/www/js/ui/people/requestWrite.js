@@ -42,6 +42,7 @@
             // 화면에서 세팅할 동적데이터
             var self = this;
             self.setCityAndCountryData();
+            document.getElementById('operation-date').value = new Date().toISOString().substring(0, 10);
 
         },
         initEvent: function initEvent() {

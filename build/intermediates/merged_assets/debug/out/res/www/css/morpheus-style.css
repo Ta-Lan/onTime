@@ -3542,3 +3542,10 @@ input:checked + .slider:before {
 .select-btn{
     text-decoration: underline;
 }
+
+.logout{
+    background: url(../img/logout.png) no-repeat;
+    background-size: 100%;
+    float:right;
+    top:0;
+}

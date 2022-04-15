@@ -1,7 +1,7 @@
 /**
  * @file : requestList.js
- * @author : ParkDoYoung
- * @date : 22.4.10
+ * @author : shyun
+ * @date : 2022.04.15
  */
 
 (function ($, CONFIG, window) {
@@ -12,10 +12,14 @@
     var SERVER_PATH = CONFIG.SERVER_PATH;
     var page = {
         els: {
+            $category: null,
+            $writeBtn: null,
         },
         data: {},
         init: function init() {
-
+            var self = this;
+            self.els.$writeBtn = $('#write-btn')
+          
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
@@ -23,6 +27,12 @@
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
+            var self = this;
+            self.els.$writeBtn.on('click', function(){
+                $.movePage({
+                    url: "/www/html/people/requestWrite.html"
+                });
+            })
         }
     };
     window.__page__ = page;

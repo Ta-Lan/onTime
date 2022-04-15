@@ -124,7 +124,12 @@ img{width:100%;}
 .header h1.logo.wit{background:url(../img/logo-wit.png) no-repeat center center;background-size:11.2rem;}
 .line{border-bottom:1px solid #e0e0e0;}
 .line-t{border-top:1px solid #e0e0e0;}
-.header button{text-indent:-9999rem;width:5rem;height:5rem;}
+.header button{
+   text-indent: -9999rem;
+   width: 4rem;
+   height: 4rem;
+   top: 0.5rem;
+   right: 0.5rem;}
 
 /* header2 */
 .header2{position:sticky; z-index: 999; top:5rem; left:0; right:0; height:4.45rem;background-color:darkgray;}

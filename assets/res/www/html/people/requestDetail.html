@@ -14,7 +14,7 @@
         <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
         <!-- 하단에 라인이 있는경우 class="line"추가 -->
         <h1>
-            <span>김people</span>님의 요청서
+            <span id="people-id">김people</span>님의 요청서
         </h1>
         <button type="button" class="btn-menu r-fix">
             메뉴
@@ -34,33 +34,33 @@
             </colgroup>
             <tr>
                 <th>카 테 고 리</th>
-                <td><input type="text" class="full" value="비즈니스" readonly="readonly"></td>
+                <td><input type="text" class="full" id="category" value="비즈니스" readonly="readonly"></td>
             </tr>
             <tr>
                 <th>일 시</th>
-                <td><input type="text" class="full" value="2022.04.07" readonly="readonly"></td>
+                <td><input type="text" class="full" id="date" value="2022.04.07" readonly="readonly"></td>
             </tr>
             <tr>
                 <th>제 목</th>
-                <td><input type="text" class="full" value="저를 뽑아주십쇼" readonly="readonly"></td>
+                <td><input type="text" class="full" id="title" value="이거 해주세영" readonly="readonly"></td>
             </tr>
             <tr>
                 <th>내 용</th>
-                <td><textarea class="full report-textarea" readonly="readonly">
+                <td><textarea class="full report-textarea" id="content" readonly="readonly">
 내용이 무슨 내용이냐면 요청서 작성할 때 people이 작성한 내용이 그대로 오면 되겠지요? 이건 누가 만들죠? 바로 나.
                 </textarea></td>
             </tr>
             <tr>
                 <th>우 대 사 항</th>
-                <td><input type="text" class="full" value="저 자격증 있어요" readonly="readonly"></td>
+                <td><input type="text" class="full" id="preference" value="자격증 있으신 분 우대" readonly="readonly"></td>
             </tr>
             <tr>
                 <th>지 역</th>
-                <td><input type="text" class="full" value="경기도 안산시 상록수구" readonly="readonly"></td>
+                <td><input type="text" class="full" id ="address" value="경기도 안산시" readonly="readonly"></td>
             </tr>
             <tr>
                 <th>업 무 강 도</th>
-                <td><input type="text" class="full" value="3" readonly="readonly"></td>
+                <td><input type="text" class="full" id="work-intense" value="3" readonly="readonly"></td>
             </tr>
         </table>
 </div>
@@ -68,7 +68,7 @@
 <div class="footer">
     <!--pro만 보이게-->
     <div class="btn-wrap count2 pd">
-        <button type="button" class="btn-line">
+        <button type="button" class="btn-line" id="write-btn">
             견적서 작성하기
         </button>
     </div>
@@ -77,5 +77,6 @@
 <script type="text/javascript" src="../../js/mcore.min.js"></script>
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/people/requestDetail.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
 </html>

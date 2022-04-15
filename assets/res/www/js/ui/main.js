@@ -68,9 +68,10 @@
                     succ: function(){
                         M.data.removeGlobal("LOGIN_INFO");
                         M.data.removeGlobal("PRO_STATUS");
+                        console.log("logout");
                         $.movePage({
-                            url:"/www/html/member/login.html"
-                        })
+                            url:"./member/login.html"
+                        });
                     }
                 })
             });

@@ -60,10 +60,7 @@
                 succ: function (data) {
                     self.els.$nickname.text(nickname);
                     self.els.$intro.text(data.intro);
-                    console.log(data.imagePath);
-                    console.log(data.storeImageName);
-                    console.log(data.originImageName);
-                    document.getElementById("profile-img-btn").src=data.imagePath+data.storeImageName;
+                    document.getElementById("profile-img-btn").src=data.imagePath+data.storeImageName; //($.imagePath(data.imagePath, data.storeImageName))
                     if (auth) {
                         //pro인증이 된 회원
                         $('#pro-register').css("display", "none");

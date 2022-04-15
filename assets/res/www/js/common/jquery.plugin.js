@@ -313,6 +313,18 @@
         }
         M.media.picker(_options);
     }
+    /**
+     *
+     * @param path
+     * @return {string|*}
+     */
+    $.imagePath = function imagePath(path){
+        if ($.isEmpty(path)){
+            return "/www/img/profile-image.png"
+        }else{
+            return path;
+        }
+    }
 
 
 })(jQuery, M, __config__);

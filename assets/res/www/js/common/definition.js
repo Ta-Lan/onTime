@@ -21,6 +21,7 @@
     //서버 전문 요청 목록
     var SERVER_PATH = module.SERVER_PATH = {
         LOGIN: "api/people/login", //로그인
+        LOGOUT: "api/people/logout", //로그아웃
         DUPLICATE1: "api/people/duplicate1", //아이디 중복 체크
         DUPLICATE2: "api/people/duplicate2", //이메일 중복 체크
         DUPLICATE3: "api/people/duplicate3", //닉네임 중복 체크
@@ -35,12 +36,14 @@
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
         
-        PRO_REGIST: "api/pro/regist",
-        SEARCH_LICENSE: "api/pro/searchLicense",
+       
         
 
         //Pro
         PRO_INFO:"api/pro/info",
+        PRO_REGIST: "api/pro/regist",
+        SEARCH_LICENSE: "api/pro/searchLicense",
+
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
         REQUEST_LIST: "api/request/list", // request list

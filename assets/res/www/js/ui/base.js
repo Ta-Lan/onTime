@@ -15,12 +15,15 @@
         },
         data: {},
         init: function init() {
+            var self = this;
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
+            var self = this;
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
+            var self = this;
         }
     };
     window.__page__ = page;

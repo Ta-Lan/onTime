@@ -36,9 +36,6 @@
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
         
-       
-        
-
         //Pro
         PRO_INFO:"api/pro/info",
         PRO_REGIST: "api/pro/regist",
@@ -46,8 +43,9 @@
 
         //request
         REQUEST_WRITE: "api/request/write", // request 글쓰기
-        REQUEST_LIST: "api/request/list", // request list
+        REQUEST_LIST: "api/request/listSearch", // request list
         REQUEST_DETAIL: "api/request/detail",
+        REQUEST_MYLIST: "api/request/myList",
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist",
@@ -220,6 +218,18 @@
         MESSAGE_DATE: "<div class=\"chat-room-messages\">\n" +
             "                    <div class=\"chat-date\">2022년 03월 31일</div>\n" +
             "                </div>",
+        REQUEST_LIST: "<li class=\"div-card\">\n" +
+            "               <div class=\"head-box\">\n" +
+            "                    <h3 class=\"card-title\">요청서 제목</h3>\n" +
+            "                    <p class=\"card-day\">2022.03.29</p>\n" +
+            "                </div>\n" +
+            "                <div class=\"card-body\">\n" +
+            "                    <div class=\"request-info\">\n" +
+            "                        <p><span class=\"people-id\">심PEOPLE</span>님의 요청서</p>\n" +
+            "                        <p class=\"request-title\">프론트엔드 개발 속성 강의</p>\n" +
+            "                    </div>\n" +
+            "                </div>\n"+
+            "            </li>",
     };
 
     window.__config__ = module;

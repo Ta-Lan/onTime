@@ -8,7 +8,7 @@
     var MSG = CONFIG.MSG;
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
-
+    var HTML = CONFIG.HTML;
     /**
      * 함수 여부 확인
      * @param {any} target
@@ -120,19 +120,8 @@
                 }
             } else {
                 // 실패
-<<<<<<< HEAD
                 //$.modal(data.rsltMsg);
-=======
-<<<<<<< HEAD
-                // $.modal(data.rsltMsg);
-=======
-<<<<<<< HEAD
-                //$.modal(data.rsltMsg);
-=======
-                // $.modal(data.rsltMsg);
->>>>>>> 55d55524065aa7b09fde4d52eafcb1fc087fcd67
->>>>>>> suhyun
->>>>>>> d929d5d3ddd28a3c27582cad76b8d47dc692ba5a
+
                 if ($.isFunction(options.error)) {
                     options.error(data);
                 }
@@ -224,9 +213,9 @@
          */
         getAuth: function getAuth() {
             var options = M.data.storage(CONSTANT.AUTO_LOGIN_AUTH);
-            var _options= {
-                id : $.decrypt(options.id).result,
-                pw : $.decrypt(options.pw).result
+            var _options = {
+                id: $.decrypt(options.id).result,
+                pw: $.decrypt(options.pw).result
             };
             console.log(_options.id);
             console.log(_options.pw);
@@ -254,16 +243,16 @@
          * @param id
          * @param time
          */
-        setMessageTime: function (id,time){
+        setMessageTime: function (id, time) {
             var encTime = $.encrypt(time).result;
-            M.data.storage(id,encTime);
+            M.data.storage(id, encTime);
         },
         /**
          * 채팅방 최근 시간 불러오기
          * @param id
          * @return {string}
          */
-        getMessageTime: function(id){
+        getMessageTime: function (id) {
             var time = M.data.storage(id);
             var decTime = $.decrypt(time).result;
             return decTime;
@@ -324,6 +313,64 @@
             callback: callback,
         }
         M.media.picker(_options);
+    }
+    /**
+     *
+     * @param path
+     * @return {string|*}
+     */
+    $.imagePath = function imagePath(path, image,self,id) {
+        if (self !== null){
+            $(self).on('click',function(){
+                $.movePage({
+                    url : "/www/html/pro/proInfo.html",
+                    param : {
+                        proId : id
+                    }
+                });
+            });
+        }
+        if ($.isEmpty(image)) {
+            return "/res/www/img/profile-image.png"
+        } else {
+            return path + image;
+        }
+    }
+
+    $.setStar = function (score, cnt) {
+        var start = "<div class=\"pro-feed-info\">\n";
+        var one = "<img src=\"../../img/star.png\">\n";
+        var half = "<img src=\"../../img/half-star.png\">\n";
+        var zero = "<img src=\"../../img/star-null.png\">\n";
+        var end = "<span>" + score + "  (" + cnt + ")</span>\n</div>";
+        var _STAR_POINT = start + one;
+        if (score < 1.5) {
+            _STAR_POINT += zero + zero + zero + zero;
+        } else if (score < 1.9) {
+            _STAR_POINT += half + zero + zero + zero;
+        } else if (score < 2) {
+            _STAR_POINT += one + zero + zero + zero;
+        } else if (score < 2.5) {
+            _STAR_POINT += one + zero + zero + zero;
+        } else if (score < 2.9) {
+            _STAR_POINT += one + half + zero + zero;
+        } else if (score < 3) {
+            _STAR_POINT += one + one + zero + zero;
+        } else if (score < 3.5) {
+            _STAR_POINT += one + one + zero + zero;
+        } else if (score < 3.9) {
+            _STAR_POINT += one + one + half + zero;
+        } else if (score < 4) {
+            _STAR_POINT += one + one + one + zero;
+        } else if (score < 4.5) {
+            _STAR_POINT += one + one + one + zero;
+        } else if (score < 4.9) {
+            _STAR_POINT += one + one + one + half;
+        } else if (score < 5) {
+            _STAR_POINT += one + one + one + one;
+        }
+        _STAR_POINT += end;
+        return _STAR_POINT;
     }
 
 

@@ -38,14 +38,19 @@
                     for (var i = 0; i < data.list.length; i++) {
                         $("#chat-list").append(HTML.MESSAGE_LIST);
                         $("li.chat-container-box:eq(" + i + ")").attr('id',data.list[i].chatNumber);
+                        $("li.chat-container-box:eq(" + i + ")").attr('name',data.list[i].nickname);
                         if (myId === data.list[i].messageReceiver){
                             $("div.chat-people-sender:eq(" + i + ")").html(data.list[i].messageSender);
                             self.data.adversary[i] = data.list[i].messageSender;
+                            $("li.chat-container-box:eq(" + i + ")").attr('peopleId',data.list[i].messageSender);
                         }else{
                             $("div.chat-people-sender:eq(" + i + ")").html(data.list[i].messageReceiver);
                             self.data.adversary[i] = data.list[i].messageReceiver;
+                            $("li.chat-container-box:eq(" + i + ")").attr('peopleId',data.list[i].messageReceiver);
                         }
                         $("div.chat-people-category:eq(" + i + ")").html('아무튼 사람에 대한 정보');
+                        // 이미지 등록
+                        $("div.chat-people-info:eq(" + i + ")").children("div:eq(0)").html("<img src='"+$.imagePath(data.list[i].imagePath,data.list[i].storeImageName)+"'>")
                         // message가 estimate 가 아니면
                         if (data.list[i].messageNumber.substr(0,7) === 'MESSAGE'){ //  message 이면 estimate box 불필요
                             $("div.is-estimate-box:eq(" + i + ")").hide();
@@ -65,18 +70,23 @@
                 error: function (data) {
                     console.log(data);
                 }
-            })
+            });
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
             $(self.els.$chatList).on('click','li',function(){
                 var chatNumber = $(this).attr('id');
+                var nickname = $(this).attr('name');
+                var peopleId = $(this).attr('peopleId');
                 // console.log(chatNumber);
+
                 $.movePage({
                     url : "./message.html",
                     param : {
-                        chatNumber : chatNumber
+                        chatNumber : chatNumber,
+                        peopleId :peopleId,
+                        nickname : nickname
                     }
                 });
             });
@@ -92,8 +102,7 @@
                     $("div.chat-box-text:eq(" + idx + ")").html(data.estimateTitle);
                     $("div.chat-box-price:eq(" + idx + ")").append(data.quotePrice +'원');
                 }
-            })
-
+            });
         },
         getUserInfo : function getUserInfo(idx){
             var self = this;

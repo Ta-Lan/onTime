@@ -55,25 +55,41 @@
                 var preferentialTreatment = self.els.$preferentialTreatment.val().trim();
                 var city = self.els.$city.val();
                 var country = self.els.$country.val();
+                var workIntensity = self.els.$workIntensity.val();
+                var date = operationDate.substr(0,4) + operationDate.substr(5,2) + operationDate.substr(8,2);
+
                 if (category === '선택'){return alert('카테고리를 선택해주세요');}
                 if (operationDate === '') {return alert(('날자를 선택해주세요'));}
                 if (subject === ''){return alert('제목을 입력해주세요');}
                 if (content===''){return alert('내용을 입력해주세요');}
+                // if (preferentialTreatment === ''){return alert('우대사항을 입력해주세요');}  필수 아님
                 if (city === '시도' ){return alert('시/도를 선택해주세요');}
                 if (country === '시/군/구 선택'){return alert('시/군/구를 정확하게 선택해주세요');}
-                console.log(country);
                 $.sendHttp({
                     path : SERVER_PATH.REQUEST_WRITE,
                     data : {
-                        //이런 여기는 아직 벡엔드가 안되었군요
+                        category : category,
+                        requestDate : date,
+                        requestTitle : subject,
+                        requestContent: content,
+                        preference : preferentialTreatment,
+                        town : city,
+                        district : country,
+                        taskLevel : workIntensity
                     },
                     succ : function(data){
                         console.log(data);
+                        $.movePage({
+                           url : "/www/html/pro/receivedEstimateList.html"
+                        });
                     },
                     error : function(){
                         alert('error');
                     }
                 })
+            });
+            $(self.els.$cancel).on('click',function(){
+               $.moveBack();
             });
         },
 

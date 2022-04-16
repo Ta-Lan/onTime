@@ -64,10 +64,10 @@
             $("strong.ellipsis_1:eq(" + idx + ")").html(feedData.feedTitle);
             $("p.ellipsis_1:eq(" + idx + ")").html(feedData.feedContent);
             $("li.feed-li:eq(" + idx + ")").attr('id', feedData.feedNumber);
-            if (feedData.filePath === null){
+            if (feedData.filePath === null) {
                 $("div.thumbnail:eq(" + idx + ")").html("<img src='/res/www/img/profile-image.png'/>");
-            }else{
-                $("div.thumbnail:eq(" + idx + ")").html("<img src='" +feedData.filePath +feedData.storeFileName +"'/>");
+            } else {
+                $("div.thumbnail:eq(" + idx + ")").html("<img src='" + $.imagePath(feedData.filePath, feedData.storeFileName) + "'/>");
             }
         }
     };

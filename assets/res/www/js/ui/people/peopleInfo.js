@@ -13,23 +13,58 @@
     var page = {
         els: {
             $goPro : null,
+            $chatting : null,
+            $report : null,
         },
         data: {},
         init: function init() {
             var self = this;
-            self.els.$goPro = $('#go-pro');
+            // param
+            self.data.peopleId = M.data.param("peopleId");
+            self.els.$chatting = $("#chatting");
+            self.els.$report = $('#report');
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
+            var self = this;
+            $.sendHttp({
+                path : SERVER_PATH.INFO,
+                data : {
+                    peopleId : self.data.peopleId
+                },
+                succ : function(data){
+                    console.log(data);
+                    self.data.proId = self.data.peopleId;
+                    self.data.nickname = data.nickname;
+                    $("div.pro-feed-name").html(self.data.peopleId);
+                    $(".pro-image-img").attr('src',$.imagePath(data.imagePath,data.storeImageName,null,null));
+                    $("div.item-info").html(data.intro + "</br>");
+                    $("#pro-name").html(self.data.peopleId);
+                }
+            })
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
-            $(self.els.$goPro).on('click',function(){
+            // 채팅 이벤트
+            $(self.els.$chatting).on('click',function(){
+                console.log(self.data.proId);
                 $.movePage({
-                    url : "/www/html/pro/proInfo.html",
-                    actionType : "NO_HISTORY"
-                })
+                    url : "/www/html/service/message.html",
+                    param : {
+                        nickname : self.data.nickname,
+                        peopleId : self.data.proId
+                    }
+                });
+            });
+            // 신고 이벤트
+            $(self.els.$report).on('click',function(){
+                $.movePage({
+                    url : "/www/html/service/reportWrite.html",
+                    param : {
+                        id : self.data.proId
+                    }
+                });
             });
         }
     };

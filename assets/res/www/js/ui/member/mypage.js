@@ -64,6 +64,7 @@
             var peopleId = M.data.global("LOGIN_INFO.peopleId");
             var nickname = M.data.global("LOGIN_INFO.nickname");
             var auth = M.data.global("LOGIN_INFO.auth");
+            console.log(auth);
             $.sendHttp({
                 path: SERVER_PATH.INFO,
                 data: {

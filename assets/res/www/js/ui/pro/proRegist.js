@@ -112,7 +112,7 @@
                         }
                         else{
                             for(var i = 0; i < data.licenseList.length; i++){
-                               $(".search-license").append("<tr><td>"+data.licenseList[i].licenseType+"</td><td class='license-name'>"+data.licenseList[i].licenseName+"</td></tr>");
+                                $(".search-license").html("<tr><td>"+data.licenseList[i].licenseType+"</td><td class='license-name'>"+data.licenseList[i].licenseName+"</td></tr>");
                             }
                         }
                     }   

@@ -46,6 +46,7 @@
         REQUEST_LIST: "api/request/listSearch", // request list
         REQUEST_DETAIL: "api/request/detail",
         REQUEST_MYLIST: "api/request/myList",
+        REQUEST_CLOSED: "api/request/closed",
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist",
@@ -74,6 +75,7 @@
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist", //견적서 등록
         ESTIMATE_LIST: "api/estimate/list",
+        ESTIMATE_MYLIST: "api/estimate/myList",
         ESTIMATE_DETAIL: "api/estimate/detail",
         ESTIMATE_MATCH: "api/estimate/matched",
 
@@ -230,6 +232,29 @@
             "                    </div>\n" +
             "                </div>\n"+
             "            </li>",
+        REQUEST_MY_LIST: "<li class=\"div-card\">\n" +
+            "                 <div class=\"head-box\">\n" +
+            "                       <h3 class=\"card-title\">요청서 제목</h3>\n" +
+            "                       <p class=\"card-day\">2022.03.29</p>\n" +
+            "                 </div>\n" +
+            "                    <div class=\"card-body\">\n" +
+            "                    <div class=\"request-info\">\n" +
+            "                        <p class=\"request-title\">프론트엔드 개발 속성 강의</p>\n" +
+            "                    </div>\n" +
+            "                </div>\n"+
+            "                    <div class=\"decline-btn-wrap\">" +
+            "                        <button type=\"button\" class=\"decline-btn\" id=\"decline-btn\">마감하기</button>" +
+            "                    </div>" +
+            "               </li>",               
+        ESTIMATE_LIST: "<li class=\"div-card\">" +
+            "               <div class=\"head-box\">" +
+            "                   <h3 class=\"card-title\">앱 개발</h3>" +
+            "               </div>" +
+            "               <div class=\"card-body\">" +
+            "                   내용내용내용내용내용" +
+            "               </div>" +
+            "               <p class=\"card-estimate\">2022.03.29</p>" +
+            "           </li>",
     };
 
     window.__config__ = module;

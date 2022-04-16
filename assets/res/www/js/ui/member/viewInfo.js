@@ -72,17 +72,6 @@
                 M.page.html("./findPw2.html")
             });
         },
-
-        update: function(){
-            var self = this;
-            var name = self.els.$name.val().trim();
-            var nickname = self.els.$nickname.val().trim();
-            var birth = self.els.$birth.val().trim();
-            var address = self.els.$address.val().trim();
-            var email = self.els.$email.val().trim();
-            var phone = self.els.$phone.val().trim();
-        },
-
         drop: function(){
             M.pop.alert({
                 title: '탈퇴확인',

@@ -82,7 +82,7 @@
             $("h3.card-title:eq("+i+")").html(data.list[i].requestTitle);
             $("p.card-day:eq("+i+")").html(data.list[i].requestDate);
             $("span.people-id:eq("+i+")").html(data.list[i].nickname);
-            $("p.request-title:eq("+i+")").html(data.list[i].requestTitle);
+            $("p.request-title:eq("+i+")").html(data.list[i].requestContent);
         }
     };
     window.__page__ = page;

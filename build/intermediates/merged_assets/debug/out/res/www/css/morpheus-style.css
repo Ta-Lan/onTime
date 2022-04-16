@@ -1027,6 +1027,7 @@ li.txt-btn .btn-txt {
     width: 49%;
     /*height:14.5rem;*/
     border: 1px solid #e0e0e0;
+    border-radius: 3rem;
 }
 
 .metro-wrap li:nth-child(1),
@@ -1057,6 +1058,7 @@ li.txt-btn .btn-txt {
     bottom: 0;
     width: 100%;
     min-height: 100%;
+    border-radius: 3rem;
 }
 
 .metro-wrap .info-box {
@@ -3393,6 +3395,7 @@ input[type=range] {
 
 .comment-writer {
     font-weight: 600;
+    padding: 0 2rem;
 }
 
 .comment-write-date {
@@ -3494,7 +3497,6 @@ input:checked + .slider:before {
 
 .pro-people {
     float: right;
-    left: 3rem;
 }
 .pro-background{
     background-color: #58AAFF;

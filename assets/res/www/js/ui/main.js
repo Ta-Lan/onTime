@@ -68,6 +68,7 @@
                     succ: function(){
                         M.data.removeGlobal("LOGIN_INFO");
                         M.data.removeGlobal("PRO_STATUS");
+                        $.storage.clearAuth();
                         console.log("logout");
                         $.movePage({
                             url:"./member/login.html"

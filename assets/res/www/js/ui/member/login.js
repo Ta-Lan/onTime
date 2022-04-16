@@ -95,13 +95,13 @@
                   "LOGIN_INFO": {
                       nickname: data.session.nickname,
                       auth: data.isProRegisted, // people, pro, admin
-                      peopleId : existLoginData.id
+                      peopleId : id
                   }
                 });
                 if("LOFIN_INFO.auth"){
                     M.data.global({
                         "PRO_STATUS":{
-                            proId: existLoginData.id,
+                            proId:id,
                             proStatus: true,
                         }
                     });

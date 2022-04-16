@@ -104,7 +104,7 @@ p.divider::after{content:'';position:absolute;top:50%;right:0;width:40%;height:1
 .shadow-t{box-shadow:0px -2px 15px rgba(0,0,0,.1);}
 /*====== Layout ======*/
 .wrapper,
-.full-pop{position:relative;height:100%;background-color:#fff;}
+.full-pop{position:relative;min-height:100%;background-color:#fff;}
 .cont-wrap.pd{padding:0 1.5rem;}
 .btm-fix{position:absolute;right:0;left:0;bottom:0;}
 .r-fix{position:absolute;right:0;top:0;}
@@ -124,7 +124,12 @@ img{width:100%;}
 .header h1.logo.wit{background:url(../img/logo-wit.png) no-repeat center center;background-size:11.2rem;}
 .line{border-bottom:1px solid #e0e0e0;}
 .line-t{border-top:1px solid #e0e0e0;}
-.header button{text-indent:-9999rem;width:5rem;height:5rem;}
+.header button{
+   text-indent: -9999rem;
+   width: 4rem;
+   height: 4rem;
+   top: 0.5rem;
+   right: 0.5rem;}
 
 /* header2 */
 .header2{position:sticky; z-index: 999; top:5rem; left:0; right:0; height:4.45rem;background-color:darkgray;}

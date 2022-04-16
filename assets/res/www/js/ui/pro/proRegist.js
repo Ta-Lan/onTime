@@ -72,7 +72,13 @@
                     succ: function(data){
                         alert("pro 등록이 완료되었습니다!");
                         M.data.global("LOGIN_INFO.auth", true);
-                        M.data.global("PRO_STAUTS.proStatus", true);
+                        
+                        M.data.global({
+                            "PRO_STATUS":{
+                                proId: M.data.global("LOGIN_INFO.peopleId"),
+                                proStatus: true,
+                            }
+                        });
                         M.page.html({
                             url:"/www/html/member/mypage.html",
                             action:"CLEAR_TOP"

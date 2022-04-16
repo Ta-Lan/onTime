@@ -1,7 +1,7 @@
 /**
  * @file : requestList.js
- * @author : ParkDoYoung
- * @date : 22.4.10
+ * @author : shyun
+ * @date : 2022.04.15
  */
 
 (function ($, CONFIG, window) {
@@ -10,19 +10,79 @@
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
+    var HTML = CONFIG.HTML;
     var page = {
         els: {
+            $category: null,
+            $requestList: null,
+            $writeBtn: null,
         },
         data: {},
         init: function init() {
-
+            var self = this;
+            self.els.$writeBtn = $('#write-btn');
+            self.els.$requestList = $('#request-list');
+            self.els.$category = $('#category');
         },
         initView: function initView() {
-            // 화면에서 세팅할 동적데이터
-            console.log(M.data.param("category"));
+            var self = this;
+            $('#category').val(M.data.param("category"));
+            self.changeCategory(M.data.param("category"));
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
+            var self = this;
+            $('#category').on('change', function(){
+                var target = $('#category option:selected').val();
+                console.log(target);
+                self.changeCategory(target);
+            });
+            self.els.$requestList.on('click', 'li', function(){
+                var requestNumber = $(this).attr('id');
+                $.movePage({
+                    url: "/www/html/people/requestDetail.html",
+                    param:{
+                        requestNumber : requestNumber
+                    }
+                });
+            })
+            self.els.$writeBtn.on('click', function(){
+                $.movePage({
+                    url: "/www/html/people/requestWrite.html"
+                });
+            })
+        },
+        changeCategory: function changeCategory(target){
+            var self = this;
+            $.sendHttp({
+                path: SERVER_PATH.REQUEST_LIST,
+                data:{
+                    town: "전체",
+                    district: "전체",
+                    category: target,
+                    lastRequestNumber: "0",
+                    cnt: "0"
+                },
+                succ: function(data){
+                    console.log(data);
+                    for(var i = 0; i < data.list.length; i++){
+                        self.showRequestList(data, i);
+                    }
+                },
+                error: function(status, data){
+                    alert("request list error");
+                }
+
+            });
+        },
+        showRequestList: function showRequestList(data, i){
+            $("div#requst-list").html(" ");
+            $("#request-list").append(HTML.REQUEST_LIST);
+            $("li.div-card:eq("+i+")").attr('id', data.list[i].requestNumber);
+            $("h3.card-title:eq("+i+")").html(data.list[i].requestTitle);
+            $("p.card-day:eq("+i+")").html(data.list[i].requestDate);
+            $("span.people-id:eq("+i+")").html(data.list[i].nickname);
+            $("p.request-title:eq("+i+")").html(data.list[i].requestTitle);
         }
     };
     window.__page__ = page;

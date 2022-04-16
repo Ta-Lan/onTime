@@ -344,13 +344,11 @@ input.pw {
 .login.type-c div.divider {
     margin: 1.5rem 5rem 3.5rem;
 }
-
-.divider-section {
+.divider-section{
     padding-top: 3rem;
     height: auto;
     padding-bottom: 6rem;
 }
-
 /** Join_terms **/
 .logo img {
     width: 12.1rem;
@@ -2529,7 +2527,7 @@ strong.ellipsis {
 }
 
 .profile-box {
-    padding : 1rem 5% 0.5rem 5%;
+    padding: 1rem 3rem 0.5rem 3rem;
 }
 
 .profile {
@@ -2783,12 +2781,10 @@ strong.ellipsis {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-
-.chat-section {
+.chat-section{
     background: #f2f2f2;
     height: auto;
 }
-
 .chat-box-badge {
     position: absolute;
     bottom: 4rem;
@@ -2830,7 +2826,7 @@ strong.ellipsis {
     min-height: 100%;
 }
 
-.chat-room {
+.chat-room{
     height: auto;
 }
 
@@ -3007,14 +3003,14 @@ strong.ellipsis {
     overflow: hidden;
     min-height: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row-reverse;     
     justify-content: flex-start;
 }
 
 .r-message-bubble .receiver-message-box {
     border-radius: 1rem;
     background-color: #6aaffa;
-    color: #fff;
+    color:#fff;
     float: right;
     padding: 1.5rem;
     max-width: 250px;
@@ -3218,12 +3214,11 @@ strong.ellipsis {
     padding: 1rem;
     margin-bottom: 1rem;
 }
-
 img.pro-image-img {
-    width: 20%;
-    height: auto;
+    width: 100px;
+    height: 100px;
+    margin: 1rem;
 }
-
 .pro-feed-name,
 .people-info-name {
     float: right;
@@ -3486,17 +3481,14 @@ input:checked + .slider:before {
     padding: 1rem;
     font-size: 1.6rem;
 }
-
-.slider.round.r-fix {
+.slider.round.r-fix{
     background-color: #58AAFF;
 }
-
 .slider.round.r-fix:before { /*switch btn*/
     border-radius: 50%;
     left: 2.99rem;
 }
-
-.slider.round.l-fix:before {
+.slider.round.l-fix:before{
     border-radius: 50%;
 }
 
@@ -3504,35 +3496,31 @@ input:checked + .slider:before {
     float: right;
     left: 3rem;
 }
-
-.pro-background {
+.pro-background{
     background-color: #58AAFF;
 }
-
-.header2 span {
+.header2 span{
     padding: 1rem;
     font-size: 1.6rem;
 
 }
-
-.people-info-topbar {
-    top: 1rem;
+.people-info-topbar{
+    top:1rem;
     padding: 0.5rem;
 }
 
-.register {
+.register{
     text-indent: -9999rem;
     width: 5rem;
     height: 5rem;
 }
 
-.feed-write-btn {
+.feed-write-btn{
     border: 1px solid #F2F2F2;
-    font-weight: 400;
+    font-weight:400;
 }
 
-
-.name img {
+.name img{
     width: 72px;
     height: 24px;
     margin: 0;
@@ -3541,23 +3529,23 @@ input:checked + .slider:before {
     right: 3rem;
 }
 
-.license-list {
+.license-list{
     border: 1px solid #777777;
     text-align: center;
 }
-
-.license-list > thead > tr > td {
-    border: 1px solid #777777;
+.license-list >thead >tr >td{
+    border:1px solid #777777;
 }
-
-.license-list > tbody > tr > td {
-    border: 1px solid #777777;
+.license-list >tbody >tr >td{
+    border:1px solid #777777;
 }
-
-.select-btn {
+.select-btn{
     text-decoration: underline;
 }
 
-.item {
-    width: 100%
+.logout{
+    background: url(../img/logout.png) no-repeat;
+    background-size: 100%;
+    float:right;
+    top:0;
 }

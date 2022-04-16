@@ -21,6 +21,7 @@
     //서버 전문 요청 목록
     var SERVER_PATH = module.SERVER_PATH = {
         LOGIN: "api/people/login", //로그인
+        LOGOUT: "api/people/logout", //로그아웃
         DUPLICATE1: "api/people/duplicate1", //아이디 중복 체크
         DUPLICATE2: "api/people/duplicate2", //이메일 중복 체크
         DUPLICATE3: "api/people/duplicate3", //닉네임 중복 체크
@@ -34,17 +35,17 @@
         UPDATE: "api/people/update", //회원 정보 수정
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
-
+        
+        //Pro
+        PRO_INFO:"api/pro/info",
         PRO_REGIST: "api/pro/regist",
         SEARCH_LICENSE: "api/pro/searchLicense",
 
-
-        //Pro
-        PRO_INFO: "api/pro/info",
         //request
-        REQUEST_WRITE: "api/request/regist", // request 글쓰기
-        REQUEST_LIST: "api/request/list", // request list
+        REQUEST_WRITE: "api/request/write", // request 글쓰기
+        REQUEST_LIST: "api/request/listSearch", // request list
         REQUEST_DETAIL: "api/request/detail",
+        REQUEST_MYLIST: "api/request/myList",
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist",
@@ -68,7 +69,7 @@
         FEED_COMMENT_REGIST: "api/feed/commentsRegist", //피드 댓글 작성
         FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
         FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
-        FEED_LIST_BY_WRITER: "api/feed/proList", //피드 작성자별 리스트
+        FEED_LIST_BY_WRITER: "api/feed/listByWriter", //피드 작성자별 리스트
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist", //견적서 등록
@@ -183,7 +184,7 @@
             "                                <p class=\"message-time\">\n" +
             "                                    <span>" +
             // "                                       오전 10:49" +
-            "                                       </span>\n" +
+        "                                       </span>\n" +
             "                                </p>\n" +
             "                            </div>\n" +
             "                        </div>",
@@ -217,49 +218,18 @@
         MESSAGE_DATE: "<div class=\"chat-room-messages\">\n" +
             "                    <div class=\"chat-date\">2022년 03월 31일</div>\n" +
             "                </div>",
-        NO_LIST: "<!--    받은 견적이 없을 때!!!-->\n" +
-            "        <div class=\"no-received-quotes\">\n" +
-            "            <article class=\"no-items align-self-center text-center\">\n" +
-            "                <h3 id='no-message'>" +
-            "                   작성한 게시글이 없습니다." +
-            "                   </h3>\n" +
-            "                <p class=\"help-block p2\">\n" +
-            "                    <div class=\"desc\">" +
-            "                       고수님이 작성한 게시글이 없습니다." +
-            "                   </div>\n" +
-            "                </p>\n" +
-            "                <!---->\n" +
-            "            </article>\n" +
-            "        </div>",
-        STAR_POINT : "" +
-            "<div class=\"pro-feed-info\">\n" +
-            "                    <!--별 반복문 돌려주세여~-->\n" +
-            "                    <img id='img1' src=\"../../img/star.png\">\n" +
-            "                    <img id='img2'src=\"../../img/star.png\">\n" +
-            "                    <img id='img3'src=\"../../img/star.png\">\n" +
-            "                    <img id='img4'src=\"../../img/star.png\">\n" +
-            "                    <img id='img5'src=\"../../img/half-star.png\">\n" +
-            "                    <span id='score'></span>\n" +
-            "                </div>",
-        FEED_CONTENT : "<li>\n" +
-            "                        <div class=\"thumbnail-wrap\">\n" +
-            "                            <div class=\"thumbnail\">\n" +
-            "                                <img class='feed-image' src=\"../../img/pro-feed-image.png\" alt=\"\">\n" +
-            "                            </div>\n" +
-            "                        </div>\n" +
-            "                        <div class=\"info-box\">\n" +
-            "                            <div class=\"info-box-top\">\n" +
-            "                                <strong class=\"ellipsis_1\">\n" +
-            "                                    PRO FEED TITLE\n" +
-            "                                </strong>\n" +
-            "                            </div>\n" +
-            "                            <div class=\"info-box-btm\">\n" +
-            "                                <p style=\"text-align:left;\" class=\"ellipsis_1\">\n" +
-            "                                    PRO FEED CONTENT\n" +
-            "                                </p>\n" +
-            "                            </div>\n" +
-            "                        </div>\n" +
-            "                    </li>"
+        REQUEST_LIST: "<li class=\"div-card\">\n" +
+            "               <div class=\"head-box\">\n" +
+            "                    <h3 class=\"card-title\">요청서 제목</h3>\n" +
+            "                    <p class=\"card-day\">2022.03.29</p>\n" +
+            "                </div>\n" +
+            "                <div class=\"card-body\">\n" +
+            "                    <div class=\"request-info\">\n" +
+            "                        <p><span class=\"people-id\">심PEOPLE</span>님의 요청서</p>\n" +
+            "                        <p class=\"request-title\">프론트엔드 개발 속성 강의</p>\n" +
+            "                    </div>\n" +
+            "                </div>\n"+
+            "            </li>",
     };
 
     window.__config__ = module;

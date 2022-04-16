@@ -13,12 +13,13 @@
     var page = {
         els: {
             $feedList: null,
+            $logout: null,
         },
         data: {},
         init: function init() {
             var self = this;
             self.els.$feedList = $('#feed-list');
-
+            self.els.$logout = $('#logout');
             $.sendHttp({
                 path: SERVER_PATH.FEED_LIST,
                 data: {
@@ -39,6 +40,7 @@
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
+            var self = this;
             $('#main-request-box').on('click', 'li', function () {
                 var category = $(this).attr('id');
                 console.log(category);
@@ -58,6 +60,20 @@
                         feedNumber: feedNumber
                     }
                 });
+            });
+            self.els.$logout.on('click', function(){
+                $.sendHttp({
+                    path: SERVER_PATH.LOGOUT,
+                    data:{},
+                    succ: function(){
+                        M.data.removeGlobal("LOGIN_INFO");
+                        M.data.removeGlobal("PRO_STATUS");
+                        console.log("logout");
+                        $.movePage({
+                            url:"./member/login.html"
+                        });
+                    }
+                })
             });
         },
         addFeedList: function addFeedList(feedData, idx) {

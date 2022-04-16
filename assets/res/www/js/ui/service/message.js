@@ -18,6 +18,7 @@
             $submit: null,
             $payment: null,
             $proInfo: null,
+            $report: null,
         },
         data: {},
         init: function init() {
@@ -27,73 +28,102 @@
             self.els.$submit = $('#submit');
             self.els.$payment = $('#payment');
             self.els.$proInfo = $('#pro-info');
-            // parameter 가져오기  chatNumber, adversary Id
-            self.data.chatNumber = M.data.param('chatNumber');
+            self.els.$report = $('#report');
+            // parameter 가져오기  chatNumber, adversary nickname
+            self.data.nicknameAdr = M.data.param('nickname');
+            self.data.peopleId = M.data.param('peopleId');
+            console.log(self.data.peopleId);
             // 내 정보 가져오기
             self.data.loginInfo = M.data.global("LOGIN_INFO");
             // initial date
             console.log(self.data.loginInfo);
             self.data.date = "1900.01.01";
-
+            // 채팅방 정보 가져오기
+            $.sendHttp({
+                path: SERVER_PATH.SET_MESSAGE,
+                data: {
+                    messageSender: self.data.loginInfo.peopleId,
+                    messageReceiver: self.data.peopleId,
+                    messageContent: ""
+                },
+                error : function(data){
+                    self.data.chatNumber = data.chatNumber;
+                }
+            });
+            // 메세지 보낸사람에 대한 정보 가져오기
+            $.sendHttp({
+                path: SERVER_PATH.INFO,
+                data: {
+                    peopleId: self.data.peopleId,
+                },
+                succ: function (data) {
+                    console.log(data);
+                    self.data.isProRegisted = data.isProRegisted;
+                    self.data.imagepath = $.imagePath(data.imagePath, data.storeImageName);
+                }
+            });
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
             var self = this;
-            // 대화상대 닉네임 가져오기
-            $("#adversary").html(self.data.nickname);
+            $("#adversary").html(self.data.nicknameAdr);
+            // 채팅방 정보 가져오기
             $.sendHttp({
-                path: SERVER_PATH.GET_MESSAGE,
+                path: SERVER_PATH.SET_MESSAGE,
                 data: {
-                    chatNumber: self.data.chatNumber
+                    messageSender: self.data.loginInfo.peopleId,
+                    messageReceiver: self.data.peopleId,
+                    messageContent: ""
                 },
-                succ: function (data) {
-                    console.log(data.Data);
-                    $("#chatting").html(" "); // 기존 채팅 내역 지우기
-                    for (var i = 0; i < data.Data.length; i++) {
-                        // data.date 와 날자가 같으면 안보이게하기
-                        $("#chatting").append(HTML.MESSAGE_DATE); // 날짜칸 추가 후 위의 데이터와 날짜가 같으면 안보이게하기
-                        if (self.data.date === data.Data[i].messageTime.substr(0, 10)) {
-                            $("div.chat-room-messages:eq(" + i + ")").hide();
-                        }
-                        self.data.date = data.Data[i].messageTime.substr(0, 10);
-                        $("div.chat-date:eq(" + i + ")").html(data.Data[i].messageTime.substr(0, 4) + "년 " + data.Data[i].messageTime.substr(5, 2) + "월 " + data.Data[i].messageTime.substr(8, 2) + "일")
-                        // 수신 메세지
-                        if (data.Data[i].messageReceiver === self.data.loginInfo.peopleId) {
-                            self.data.adversary = data.Data[i].messageSender;
-                            // 견적서 or 메세지
-                            if (data.Data[i].messageNumber.substr(0, 8) === 'MESSAGES') { // 메시지인 경우
-                                self.receiveMessage(data.Data[i], i);
-                            } else {
-                                self.receiveEstimate(data.Data[i], i);
-                            }
-                        } else { // 송신 메세지
-                            self.sendMessage(data.Data[i], i);
-                            self.data.adversary = data.Data[i].messageReceiver;
-                        }
-                    }
-                    // 메세지 보낸사람에 대한 정보 가져오기
+                error : function(data){
+                    self.data.chatNumber = data.chatNumber;
                     $.sendHttp({
-                        path: SERVER_PATH.INFO,
+                        path: SERVER_PATH.GET_MESSAGE,
                         data: {
-                            peopleId: self.data.adversary,
+                            chatNumber: self.data.chatNumber
                         },
                         succ: function (data) {
+                            console.log(data.Data);
+                            $("#chatting").html(" "); // 기존 채팅 내역 지우기
+                            if (data.Data.length === 0) {
+                                self.noData();
+                                return;
+                            }
+                            for (var i = 0; i < data.Data.length; i++) {
+                                // data.date 와 날자가 같으면 안보이게하기
+                                $("#chatting").append(HTML.MESSAGE_DATE); // 날짜칸 추가 후 위의 데이터와 날짜가 같으면 안보이게하기
+                                if (self.data.date === data.Data[i].messageTime.substr(0, 10)) {
+                                    $("div.chat-room-messages:eq(" + i + ")").hide();
+                                }
+                                self.data.date = data.Data[i].messageTime.substr(0, 10);
+                                $("div.chat-date:eq(" + i + ")").html(data.Data[i].messageTime.substr(0, 4) + "년 " + data.Data[i].messageTime.substr(5, 2) + "월 " + data.Data[i].messageTime.substr(8, 2) + "일")
+                                // 수신 메세지
+                                if (data.Data[i].messageReceiver === self.data.loginInfo.peopleId) {
+                                    self.data.adversary = data.Data[i].messageSender;
+                                    // 견적서 or 메세지
+                                    if (data.Data[i].messageNumber.substr(0, 8) === 'MESSAGES') { // 메시지인 경우
+                                        self.receiveMessage(data.Data[i], i);
+                                    } else {
+                                        self.receiveEstimate(data.Data[i], i);
+                                    }
+                                } else { // 송신 메세지
+                                    self.sendMessage(data.Data[i], i);
+                                    self.data.adversary = data.Data[i].messageReceiver;
+                                }
+                            }
+                            // 메시지 시간 저장하기
+                            var chatNumber = data.Data[data.Data.length - 1].chatNumber;
+                            var time = data.Data[data.Data.length - 1].messageTime;
+                            console.log(time);
+                            $.storage.setMessageTime(chatNumber, time);
+                        },
+                        error: function (data) {
                             console.log(data);
-                            self.data.isProRegisted = data.isProRegisted;
-                            self.data.nickname = data.nickname;
-                            self.data.imagepath = data.imagePath + data.storeImageName;
                         }
                     });
-                    // 메시지 시간 저장하기
-                    var chatNumber = data.Data[data.Data.length - 1].chatNumber;
-                    var time = data.Data[data.Data.length - 1].messageTime;
-                    console.log(time);
-                    $.storage.setMessageTime(chatNumber, time);
-                },
-                error: function (data) {
-                    console.log(data);
                 }
             });
+
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
@@ -112,35 +142,34 @@
             $("#submit").on('click', function () {
                 self.sendEvent();
             });
-            $(self.els.$payment).on('click', function () {
-                // 뭔가 여기서 결제페이지로 가는게 순서가 이상한 거같음.
-                // 보류
-                $.movePage({
-                    url: "/www/html/people/payment.html",
-                    // param : {
-                    //     estimateNumber :
-                    // }
-                });
-            });
             $(self.els.$proInfo).on('click', function () {
-                var self = this;
-                var id = self.data.loginInfo.peopleId;
+                var id = self.data.peopleId;
+                console.log(id);
                 if (self.data.isProRegisted === true) {
                     $.movePage({
-                        url : "/www/html/pro/proInfo.html",
-                        param : {
-                            proId : id,
+                        url: "/www/html/pro/proInfo.html",
+                        param: {
+                            proId: id,
                         }
                     });
-                }else{
+                } else {
                     $.movePage({
-                        url : "www/html/people/peopleInfo.html",
-                        param : {
-                            peopleId : id,
+                        url: "/www/html/people/peopleInfo.html",
+                        param: {
+                            peopleId: id,
                         }
                     });
                 }
             });
+            $(self.els.$report).on('click', function () {
+                var id = self.data.peopleId;
+                $.movePage({
+                    url: "/www/html/service/reportWrite.html",
+                    param: {
+                        id: id,
+                    }
+                });
+            })
         },
         receiveMessage: function receiveMessage(data, idx) {
             var self = this;
@@ -188,6 +217,7 @@
                 },
                 succ: function (data) {
                     console.log(data);
+                    self.data.chatNumber = data.chatNumber;
                     self.els.$chatInsert.val("");
                     self.initView();
                     var scrollHeight = $(document).height();
@@ -222,7 +252,12 @@
                 })
             });
 
-        }
+        },
+        noData: function noData() {
+            $("#chatting").append(HTML.NO_LIST);
+            $("#no-message").html("대화 내역이 없습니다.");
+            $(".desc").html("채팅을 시작해보세요!");
+        },
     };
     window.__page__ = page;
 })(jQuery, __config__, window);
@@ -233,6 +268,9 @@
         pageFunc.init();
         pageFunc.initView();
         pageFunc.initEvent();
+    });
+    M.onRestore(function(){
+        pageFunc.initView();
     });
 
 })(jQuery, M, __page__, window);

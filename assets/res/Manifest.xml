@@ -12,7 +12,7 @@
         </update>
     </resource>
     <startpage>
-<!--        <name>www/html/member/login.html</name>-->
+<!--        <name>www/html/service/messageList.html</name>-->
         <name>www/html/intro.html</name>
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
@@ -41,7 +41,7 @@
         <http>
 			<OT_SERVER>
 				<path>mcore.edu.talan.implementation.HttpDefaultNetworkManager</path>
-				<address>http://192.168.0.56:8888/</address>
+				<address>http://192.168.0.53:8888/</address>
 				<timeout>30000</timeout>
 				<encoding>utf-8</encoding>
 				<type>rest</type>

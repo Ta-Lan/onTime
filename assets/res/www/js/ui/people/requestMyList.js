@@ -43,9 +43,17 @@
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
-            var self = this;
+            $('#request-list').on('click', 'li.div-card', function(){
+                var self = this;
+                $.movePage({
+                    url:"/www/html/people/receivedEstimateList.html",
+                    param:{
+                        requestNumber: $(self).attr('id')
+                    }
+                })
+            })
             $('#request-list').on('click','button.decline-btn', function(){
-                var self2 = this;
+                var self = this;
                 M.pop.alert({
                     title: '요청 마감',
                     message: '요청을 마감하시겠습니까? (마감되면 더 이상 견적서를 받을 수 없습니다.)',
@@ -55,7 +63,7 @@
                             $.sendHttp({
                                 path: SERVER_PATH.REQUEST_CLOSED,
                                 data:{
-                                    requestNumber: $(self2).parent().parent().attr('id')
+                                    requestNumber: $(self).parent().parent().attr('id')
                                 },
                                 succ: function(data){
                                     alert("요청이 마감되었습니다.");

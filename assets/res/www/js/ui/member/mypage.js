@@ -128,21 +128,28 @@
                 M.page.html("./viewInfo.html");
             })
             self.els.$modifyIntro.on('click', function(){
-                var userInput = prompt("소개 수정"+"소개를 입력하세요.");
-                self.els.$intro.text(userInput);
-                var intro = self.els.$intro.val();
-                $.sendHttp({
-                    path: SERVER_PATH.UPDATE_INTRO,
-                    data: {
-                        intro: intro
-                    },
-                    succ: function(){
-                        alert("소개가 수정되었습니다.");
-                    },
-                    error: function(){
-                        alert("소개 수정 오류");
-                    }
-                })
+                var intro = '';
+                swal("수정할 소개를 입력하세요", {
+                    content: "input",
+                  })
+                  .then((value) => {
+                    intro = value;
+                    $.sendHttp({
+                        path: SERVER_PATH.UPDATE_INTRO,
+                        data: {
+                            intro: intro
+                        },
+                        succ: function(){
+                            swal(`소개가 수정되었습니다.`,'','success');
+                            console.log(intro);
+                            self.initView();
+                        },
+                        error: function(){
+                            alert("소개 수정 오류");
+                        }
+                    });
+                  });
+                
             });
             self.els.$proRegist.on('click', function () {
                 M.page.html("../pro/proRegist.html");

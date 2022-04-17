@@ -20,6 +20,7 @@
 
     //서버 전문 요청 목록
     var SERVER_PATH = module.SERVER_PATH = {
+
         LOGIN: "api/people/login", //로그인
         LOGOUT: "api/people/logout", //로그아웃
         DUPLICATE1: "api/people/duplicate1", //아이디 중복 체크
@@ -46,7 +47,6 @@
         REQUEST_LIST: "api/request/listSearch", // request list
         REQUEST_DETAIL: "api/request/detail",
         REQUEST_MYLIST: "api/request/myList",
-        REQUEST_CLOSED: "api/request/closed",
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist",
@@ -72,13 +72,14 @@
         FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
         FEED_LIST_BY_WRITER: "api/feed/listByWriter", //피드 작성자별 리스트
 
-        //estimate
-        ESTIMATE_REGIST: "api/estimate/regist", //견적서 등록
-        ESTIMATE_LIST: "api/estimate/list",
-        ESTIMATE_MYLIST: "api/estimate/myList",
-        ESTIMATE_DETAIL: "api/estimate/detail",
-        ESTIMATE_MATCH: "api/estimate/matched",
-
+        // qna
+        QNA_LIST : "api/inquiry/allList", //qna 리스트 조회
+        QNA_DETAIL : "api/inquiry/detail", // qna 디테일
+        QNA_UPDATE : "api/inquiry/update",
+        QNA_REGIST : "api/inquiry/regist",
+        QNA_DELETE : "api/inquiry/delete",
+        //admin
+        ADMIN_QNA_DELETE : "api/admin/inquiryDelete",
     };
 
     var SERVER_CODE = module.SERVER_CODE = {
@@ -232,41 +233,54 @@
             "                    </div>\n" +
             "                </div>\n"+
             "            </li>",
-        REQUEST_MY_LIST: "<li class=\"div-card\">\n" +
-            "                 <div class=\"head-box\">\n" +
-            "                       <h3 class=\"card-title\">요청서 제목</h3>\n" +
-            "                       <p class=\"card-day\">2022.03.29</p>\n" +
-            "                 </div>\n" +
-            "                    <div class=\"card-body\">\n" +
-            "                    <div class=\"request-info\">\n" +
-            "                        <p class=\"request-title\">프론트엔드 개발 속성 강의</p>\n" +
+        QNA_ITEM : "<li class=\"item-container-box\">\n" +
+            "                <div class=\"item-box-top\">\n" +
+            "                    <div class=\"item-box-l\">답변 전</div>\n" +
+            "                    <div class=\"item-box-r\">2022.03.31</div>\n" +
+            "                </div>\n" +
+            "                <div class=\"item-box-bottom\">\n" +
+            "                    <div class=\"item-box-btm-l\">\n" +
+            "                        <div class=\"item-box-title\">앱이 개똥이에요</div>\n" +
+            "                        <div class=\"item-box-content\">이따구로 만들면 누가 사용하나요?</div>\n" +
             "                    </div>\n" +
-            "                </div>\n"+
-            "                    <div class=\"decline-btn-wrap\">" +
-            "                        <button type=\"button\" class=\"decline-btn\" id=\"decline-btn\">마감하기</button>" +
-            "                    </div>" +
-            "               </li>",               
-        ESTIMATE_LIST: "<li class=\"div-card\">" +
-            "               <div class=\"head-box\">" +
-            "                   <h3 class=\"card-title\">앱 개발</h3>" +
-            "               </div>" +
-            "               <div class=\"card-body\">" +
-            "                   내용내용내용내용내용" +
-            "               </div>" +
-            "               <p class=\"card-estimate\">2022.03.29</p>" +
-            "           </li>",
-        ESTIMATE_MYLIST: "<div class=\"main-box-04\">" +
-            "               <div class=\"request-profile\">" +
-            "                   <div class=\"img\"><img src=\"../../img/temp-img-profile.png\"></div>" +
-            "                   <div class=\"detail\">" +
-            "                       <div class=\"profile-name\">박고수</div>" + 
-            "                       <div class=\"info\">" +
-            "                           <img src=\"../../img/star.png\"> 5.0 (99+) 개잘핵" +
-            "                       </div>" +
-            "                   </div>" +
-            "                   </div>" +
-            "               </div>",
-        };
+            "                    <div class=\"item-box-btm-r\">\n" +
+            "                        <div class=\"item-box-status\">\n" +
+            "                            상세 보기\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "            </li>",
+        QNA_ANSWER : "<li class=\"item-container-box\">\n" +
+            "                <div class=\"item-box-top\">\n" +
+            "                    <div class=\"item-box-l\" id='response-number'>답변 번호 : <span>123456789</span></div>\n" +
+            "                    <div class=\"item-box-r\" id='response-date'>2022.03.31</div>\n" +
+            "                </div>\n" +
+            "                <div class=\"item-box-bottom\">\n" +
+            "                    <div class=\"item-box-title\" id='answer-title'>RE: 안녕하세여 여쭤볼 게 있는데여</div>\n" +
+            "                    <div class=\"item-box-pro\" id='answer-content'>저 카테고리에 다른거 추가해주시면 안댈가요? 저는 레저스포츠 선생님이 필요해요<br/><br/>-------------------------<br/><br/>\n" +
+            "                        안녕하세요? TaLan입니다.<br/>레저스포츠 고수는 레슨 카테고리를 이용하시면 됩니다.<br/> 또 다른 문의사항 있으시면 언제든지 문의게시판에 글 남겨주세요.<br/>감사방구.<br/></div>\n" +
+            "                </div>\n" +
+            "            </li>",
+        QNA_QUESTION : " <li class=\"item-container-box\">\n" +
+            "                <div class=\"item-box-top\">\n" +
+            "                    <div class=\"item-box-l\" id='inquiry-number'>문의 번호 : <span>0</span></div>\n" +
+            "                    <div class=\"item-box-r\" id='inquiry-date'>2022.03.31</div>\n" +
+            "                </div>\n" +
+            "                <div class=\"item-box-top\">\n" +
+            "                    <div class=\"item-box-title\" id='subject'>비밀글입니다.</div>\n" +
+            "                    <div class=\"item-box-pro\" id='content'>비밀글입니다.</div>\n" +
+            "                </div>\n" +
+            "            </li>",
+        QNA_BUTTON_DELETE : "<div class=\"qna-button\">\n" +
+            "                삭제하기\n" +
+            "            </div>\n",
+        QNA_BUTTON_MODIFY : "<div class=\"qna-button\">\n" +
+            "                수정하기\n" +
+            "            </div>",
+        QNA_BUTTON_ANSWER : "<div class=\"qna-button\">\n" +
+            "                답변하기\n" +
+            "            </div>"
+    };
 
     window.__config__ = module;
 })(window, M);

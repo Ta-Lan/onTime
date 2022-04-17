@@ -13,6 +13,7 @@ importFiles = [
 	"common/util.js",
 	"common/jquery.plugin.js",
 	"common/setup.js",
+	"sweetalert2.all.min.js"
 ];
 
 M.ScriptLoader.writeScript( importFiles, M.ScriptLoader.scriptPath(thisFileName));

@@ -36,7 +36,7 @@
         UPDATE: "api/people/update", //회원 정보 수정
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
-        
+        PAYMENT: "api/people/payment",//결제
         //Pro
         PRO_INFO:"api/pro/info",
         PRO_REGIST: "api/pro/regist",
@@ -55,7 +55,7 @@
         ESTIMATE_DETAIL: "api/estimate/detail",
         ESTIMATE_MATCHED: "api/estimate/matched",
 
-        //messagewe
+        //messageee
         GET_MESSAGE: "api/message/info", // message info
         SET_MESSAGE: "api/message/send", // send message
         GET_MESSAGE_LIST: "api/message/list",
@@ -87,6 +87,7 @@
         QNA_REGIST : "api/inquiry/regist",
         QNA_DELETE : "api/inquiry/delete",
         //admin
+
         ADMIN_QNA_DELETE : "api/admin/inquiryDelete",
     };
 

@@ -39,7 +39,7 @@
                                     결 제 번 호
                                 </th>
                                 <td>
-                                    <p class="payment-num">PAYMENT100001</p>
+                                    <p class="payment-num" id="payment-num">PAYMENT100001</p>
                                 </td>
                             </tr>
                             <tr>
@@ -47,8 +47,8 @@
                                     상 세 내 역
                                 </th>
                                 <td>
-                                    <p class="estimate-date">일시: 2022.05.01</p>
-                                    <p class="estimate-content">내용: 방송댄스 레슨</p>
+                                    <p class="estimate-date" id="estimate-date">2022.05.01</p>
+                                    <p class="estimate-content" id="estimate-content">방송댄스 레슨</p>
                                 </td>
                             </tr>
                             <tr>
@@ -56,7 +56,7 @@
                                     결 제 금 액
                                 </th>
                                 <td>
-                                    <p class="feed-content">70,000원</p>
+                                    <p class="amount" id="amount">70,000원</p>
                                 </td>
                             </tr>
                             <tr>
@@ -64,10 +64,10 @@
                                     결 제 유 형
                                 </th>
                                 <td>
-                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="card"
+                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="payment-type"
                                         value="card">
                                     <label for="card">카드</label>
-                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="account"
+                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="payment-type"
                                         value="account">
                                     <label for="account">무통장입금</label>
                                 </td>
@@ -80,7 +80,7 @@
                         </tbody>
                     </table>
                     <!--카드/무통장 선택으로 hidden-->
-                    <table class="tbl-ipt">
+                    <table class="tbl-ipt"id="payment-card">
                         <colgroup>
                             <col style="width:30%" />
                             <col style="width:70%" />
@@ -107,12 +107,12 @@
                                     유 효 기 간
                                 </th>
                                 <td>
-                                    <input type="text" class="exdate" id="exdate1"> / <input type="text" class="exdate" id="exdate2">
+                                    <input type="text" class="exdate" id="exdate1" placeholder="MM"> / <input type="text" class="exdate" id="exdate2" placeholder="YY">
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <table class="tbl-ipt">
+                    <table class="tbl-ipt" id="payment-account">
                         <colgroup>
                             <col style="width:30%" />
                             <col style="width:70%" />
@@ -120,13 +120,22 @@
                         <tbody>
                             <tr>
                                 <th>은 행 선 택</th>
-                               <td><select class="select-box">
+                               <td><select class="select-box" id="account-select">
                                    <option value="">========================</option>
                                    <option value="kb">국민은행 21070204437577(예금주: 심수현)</option>
                                    <option value="sh">신한은행 110500769504(예금주: 심수현)</option>
                                    <option value="kk">카카오뱅크 3333041548963(예금주: 심수현)</option>
-                                   <option value="hn">하나은행 15291044120907(예금주: 심수현)</option>    
+                                   <option value="hn">하나은행 15291044120907(예금주: 심수현)</option>
+                                   <option value="nh">농협은행 3020649471731(예금주: 심수현)</option>
                                </select></td>
+                            </tr>
+                            <tr>
+                                <th>입 금 자  명</th></td>
+                                <td><input type="text" id="income-name" placeholder="입금자명"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td style="color:red">입금자 명은 변경할 수 없습니다. 다른 이름으로 입금 시 관리자에게 문의주세요.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -142,7 +151,7 @@
         <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
 
         <div class="btn-wrap count2 pd">
-            <button type="button" class="btn-point-color">
+            <button type="button" class="btn-point-color" id="purchase">
                 결제하기
             </button>
             <button type="button" class="btn-line">
@@ -152,8 +161,10 @@
     </div>
 </body>
 <script type="text/javascript" src="../../js/mcore.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/people/payment.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
 
 </html>

@@ -17,8 +17,6 @@
             $requestContent: null,
             $requestDate: null,
             $myRequest: null,
-            $requestNumber: null,
-
         },
         data: {},
         init: function init() {
@@ -27,17 +25,18 @@
             self.els.$requestContent = $('#request-content');
             self.els.$requestDate = $('#request-date');
             self.els.$myRequest = $('#my-request');
-            self.els.$requestNumber = M.data.param("requestNumber");
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
             var self = this;
             var status = '';
+            var requestNumber = M.data.param("requestNumber");
+            console.log(requestNumber);
             //위에 정보 띄울 거
             $.sendHttp({
                 path: SERVER_PATH.REQUEST_DETAIL,
                 data:{
-                    requestNumber: self.els.$requestNumber
+                    requestNumber: requestNumber
                 },
                 succ: function(data){
                     console.log(data);
@@ -48,7 +47,7 @@
                         status = '요청 진행중';
                     }
                     self.els.$requestStatus.text(status);
-                    self.els.$requestContent.text(data.requestContent);
+                    self.els.$requestContent.text(data.requestTitle);
                     self.els.$requestDate.text(data.requestDate);
                 }
 
@@ -57,12 +56,12 @@
             $.sendHttp({
                 path: SERVER_PATH.ESTIMATE_LIST,
                 data:{
-                    requestNumber: self.els.$requestNumber
+                    requestNumber: M.data.param("requestNumber")
                 },
                 succ: function(data){
                     console.log(data);
-                    if(data.list.length() == 0){
-                        $('#no-received-quotes').css("display", "block");
+                    if(data.list.length == 0){
+                        $('.no-received-quotes').css("display", "block");
                     }
                     else{
                         for(var i = 0; i < data.list.length; i++){
@@ -87,15 +86,23 @@
                     }
                 });
             });
+            $(".container").on('click', 'div.request-profile', function(){
+                $.movePage({
+                    url:"/www/html/pro/estimateDetail.html",
+                    param:{
+                        estimateNumber: $(this).attr('id')
+                    }
+                })
+            })
         },
-        showEstiamteList: function showEstiamteList(data, i){
-            $(".container").append(HTML.ESTIMATE_LIST);
-            $(".img:eq("+i+")").html("<img src="+data.list[i].imagePath+data.list[i].storeImageName+"/>");
-            $(".profile-name:eq("+i+")").html(data.list[i].nickname);
-            $(".info:eq("+i+")").html("<img src=\"../../img.star.png\">"+data.list[i].kindScore);
-            $(".reiew-count:eq("+i+")").html(data.list[i].reviewCount);
-            $("#estimate-title:eq("+i+")").html(data.list[i].estimateTitle);
 
+        showEstiamteList: function showEstiamteList(data, i){
+            $(".container").append(HTML.ESTIMATE_MYLIST);
+            $(".request-profile:eq("+i+")").attr('id', data.list[i].estimateNumber);
+            $(".img:eq("+i+")").html("<img src=\""+$.imagePath(data.list[i].imagePath,data.list[i].storeImageName,null,null) +"\"/>");
+            $(".profile-name:eq("+i+")").html(data.list[i].nickname);
+            $(".estimate-title:eq("+i+")").append(data.list[i].estimateTitle);
+            $(".info:eq("+i+")").append($.setStar(data.list[i].kindScore, data.list[i].reviewCount)+data.list[i].estimateTitle);
         }
     };
     window.__page__ = page;

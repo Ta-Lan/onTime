@@ -19,7 +19,7 @@
             $delete: null,
             $commentContent: null,
             $commentSubmit: null,
-            $feedImage : null,
+            $feedImage: null,
         },
         data: {
             feedWriter: "",
@@ -43,8 +43,8 @@
             // nick name get
             var login_info = M.data.global("LOGIN_INFO");
             self.data.myNickname = login_info.nickname;
-
             var feedNumber = M.data.param("feedNumber");
+            // chat 대화가 없을때
             $.sendHttp({
                 path: SERVER_PATH.FEED_DETAIL,
                 data: {
@@ -55,7 +55,8 @@
                     $("div.feed-text").html(data.feedContent);
                     $("div.feed-writer").html(data.feedWriterNickname);
                     $("div.feed-write-date").html(data.feedRegisterDate);
-                    $("div#feed-image").html("<img src='"+data.filePath +data.storeFileName +"'/>");
+
+                    $("div#feed-image").html("<img src='" + $.imagePath(data.filePath, data.storeFileName,"img.feed-link",data.feedWriterId) + "'/>");
                     self.data.feedWriter = data.feedWriterId;
                 },
                 error: function errir(data) {
@@ -107,6 +108,7 @@
                     path: SERVER_PATH.FEED_DELETE,
                     data: {
                         feedNumber: feedNumber,
+                        nickname : self.data.myNickname
                     },
                     succ: function (data) {
                         console.log(data);
@@ -125,7 +127,7 @@
                         data: {
                             feedCommentsNumber: $(this).attr('id')
                         },
-                        succ : function (data){
+                        succ: function (data) {
                             console.log(data);
                             alert('삭제되었습니다!');
                             self.initView();

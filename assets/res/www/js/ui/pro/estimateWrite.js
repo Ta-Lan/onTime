@@ -62,6 +62,7 @@
                     succ : function (data){
                         console.log(data);
                         alert("견적서 전송이 완료되었습니다!");
+                        $.moveBack();
                     },
                     error : function (data){
                         console.log(data);
@@ -71,7 +72,7 @@
         }
     };
     window.__page__ = page;
-})(jQuery,__util__, __config__, window);
+})(jQuery,__config__, __util__, window);
 
 (function ($, M, pageFunc, window) {
 

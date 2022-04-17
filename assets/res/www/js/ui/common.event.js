@@ -64,7 +64,6 @@
             $(self.els.$inquireBtn).on('click',function(){
                 $.movePage({
                     url : "/www/html/member/qnaList.html",
-                    actionType : 'NO_HISTORY'
                 });
             });
             // 마이페이지

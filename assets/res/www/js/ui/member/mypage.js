@@ -73,7 +73,7 @@
                 succ: function (data) {
                     self.els.$nickname.text(nickname);
                     self.els.$intro.text(data.intro);
-                    document.getElementById("profile-img-btn").src=data.imagePath+data.storeImageName; //($.imagePath(data.imagePath, data.storeImageName))
+                    document.getElementById("profile-img-btn").src=($.imagePath(data.imagePath, data.storeImageName, null, null));
                     if (auth) {
                         //pro인증이 된 회원
                         $('#pro-register').css("display", "none");

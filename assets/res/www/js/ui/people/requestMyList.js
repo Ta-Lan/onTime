@@ -43,14 +43,15 @@
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
-            $('#request-list').on('click', 'li.div-card', function(){
-                var self = this;
+            $('#request-list').on('click', 'div.request-info', function(){
+                var requestNumber =  $(this).parent().parent().attr('id');
+                console.log(requestNumber);
                 $.movePage({
                     url:"/www/html/people/receivedEstimateList.html",
                     param:{
-                        requestNumber: $(self).attr('id')
+                        requestNumber: requestNumber
                     }
-                })
+                });
             })
             $('#request-list').on('click','button.decline-btn', function(){
                 var self = this;
@@ -90,7 +91,7 @@
             }else{
                 $("div.decline-btn-wrap:eq("+i+")").html("<button type='button' disabled class='declined-btn' id='declined-btn'>마감됨</button>")
             }
-            $("p.request-title:eq("+i+")").html(data.list[i].requestTitle);
+            $("p.request-content:eq("+i+")").html(data.list[i].requestContent);
         }
     };
     window.__page__ = page;

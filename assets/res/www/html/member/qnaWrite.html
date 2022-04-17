@@ -13,7 +13,7 @@
     <header class="header line">
         <!-- 헤더 입력 영역 (헤더 디자인에 따라 바꿔치기 가능) -->
         <!-- 하단에 라인이 있는경우 class="line"추가 -->
-        <h1 class>
+        <h1 id="head">
             Q&A 작성
         </h1>
 
@@ -39,7 +39,7 @@
                                 문 의 번 호
                             </th>
                             <td>
-                                <input type="text" disabled id="" class="full"/>
+                                <input type="text" disabled="true" id="inquiry-number" class="full"/>
                             </td>
                         </tr>
                         <tr>
@@ -47,7 +47,7 @@
                                 제 목
                             </th>
                             <td>
-                                <input type="text" id="" class="full" placeholder="문의제목 입력"/>
+                                <input type="text" id="subject" class="full" placeholder="문의제목 입력"/>
                             </td>
                         </tr>
                         <tr>
@@ -55,7 +55,7 @@
                                 내 용
                             </th>
                             <td>
-                                <textarea class="full report-textarea" placeholder="문의내용 입력"></textarea>
+                                <textarea id="content" class="full report-textarea" placeholder="문의내용 입력"></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -74,7 +74,7 @@
                                 비밀번호
                             </th>
                             <td>
-                                <input type="password" disabled id="email" placeholder="비밀번호 입력" class="full"/>
+                                <input type="password" disabled id="password" placeholder="비밀번호 입력" class="full"/>
                             </td>
                         </tr>
                     </tbody>
@@ -93,12 +93,11 @@
 <!-- 하단바 -->
 <div class="footer">
     <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
-
         <div class="btn-wrap count2 pd">
-            <button type="button" class="btn-point-color">
+            <button type="button" class="btn-point-color" id="submit">
                 문의하기
             </button>
-            <button type="button" class="btn-line">
+            <button type="button" class="btn-line" id="cancel">
                 취소하기
             </button>
         </div>
@@ -108,4 +107,5 @@
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/member/qnaWrite.js"></script>
 </html>

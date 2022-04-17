@@ -80,49 +80,62 @@
             if (pw == '') {
               return alert('비밀빈호를 입력해주세요');
             }
-      
-      
             $.sendHttp({
-              path: SERVER_PATH.LOGIN,
-              data: {
-                peopleId: id,
-                password: pw
-              },
-              succ: function (data) {
-                //로그인이 성공했을 때 콜백
-                if (isAutoLogin) self.setAutoLogin(id, pw);
-                M.data.global({
-                  "LOGIN_INFO": {
-                      nickname: data.session.nickname,
-                      auth: data.isProRegisted, // people, pro, admin
-                      peopleId : id
-                  }
-                });
-                if("LOFIN_INFO.auth"){
-                    M.data.global({
-                        "PRO_STATUS":{
-                            proId:id,
-                            proStatus: true,
+                path: SERVER_PATH.LOGIN,
+                data: {
+                    peopleId: id,
+                    password: pw
+                },
+                succ: function (data) {
+                    //로그인이 성공했을 때 콜백
+                    if (id === 'admin'){ // admin
+                        M.data.global({
+                            "LOGIN_INFO": {
+                                nickname: 'admin',
+                                auth: 'admin', // people, pro, admin
+                                peopleId : 'admin'
+                            }
+                        });
+                    }else{ // 다른사람들
+                        if (isAutoLogin) self.setAutoLogin(id, pw);
+                        M.data.global({
+                            "LOGIN_INFO": {
+                                nickname: data.session.nickname,
+                                auth: data.isProRegisted, // people, pro, admin
+                                peopleId : id
+                            }
+                        });
+                        if("LOGIN_INFO.auth"){
+                            M.data.global({
+                                "PRO_STATUS":{
+                                    proId:id,
+                                    proStatus: true,
+                                }
+                            });
                         }
-                    });
-                }
-                else{
-                    M.data.global({
-                        "PRO_STATUS":{
-                            proId: "",
-                            proStatus: false,
+                        else{
+                            M.data.global({
+                                "PRO_STATUS":{
+                                    proId: "",
+                                    proStatus: false,
+                                }
+                            });
                         }
-                    });
+                    }
+
+                    M.page.html("../main.html");
+                },
+                error: function (data) {
+                    alert("아이디 혹은 비밀번호가 틀립니다.");
+                    self.els.$peopleId.val('');
+                    self.els.$password.val('');
                 }
-                M.page.html("../main.html");
-              },
-              error: function (data) {
-                  alert("아이디 혹은 비밀번호가 틀립니다.");
-                  self.els.$peopleId.val('');
-                  self.els.$password.val('');
-              }
             });
-          }
+
+
+
+
+        }
     };
     window.__page__ = page;
 })(jQuery, M, __config__, window);

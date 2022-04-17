@@ -10,6 +10,7 @@
     var CONSTANT = CONFIG.CONSTANT;
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
+    var HTML = CONFIG.HTML;
     var page = {
         els: {
             $requestStatus: null,
@@ -56,13 +57,18 @@
             $.sendHttp({
                 path: SERVER_PATH.ESTIMATE_LIST,
                 data:{
-                    requestNumber: requestNumber
+                    requestNumber: self.els.$requestNumber
                 },
                 succ: function(data){
                     console.log(data);
-                    for(var i = 0; i < data.list.length; i++){
-                    //사진 고수닉네임 친절점수 리뷰갯수 견적서이름
-                        self.showEstiamteList(data, i);
+                    if(data.list.length() == 0){
+                        $('#no-received-quotes').css("display", "block");
+                    }
+                    else{
+                        for(var i = 0; i < data.list.length; i++){
+                        //사진 고수닉네임 친절점수 리뷰갯수 견적서이름
+                            self.showEstiamteList(data, i);
+                        }
                     }
                 },
                 error: function(data, status){
@@ -83,7 +89,13 @@
             });
         },
         showEstiamteList: function showEstiamteList(data, i){
-            
+            $(".container").append(HTML.ESTIMATE_LIST);
+            $(".img:eq("+i+")").html("<img src="+data.list[i].imagePath+data.list[i].storeImageName+"/>");
+            $(".profile-name:eq("+i+")").html(data.list[i].nickname);
+            $(".info:eq("+i+")").html("<img src=\"../../img.star.png\">"+data.list[i].kindScore);
+            $(".reiew-count:eq("+i+")").html(data.list[i].reviewCount);
+            $("#estimate-title:eq("+i+")").html(data.list[i].estimateTitle);
+
         }
     };
     window.__page__ = page;

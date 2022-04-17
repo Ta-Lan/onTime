@@ -255,7 +255,18 @@
             "               </div>" +
             "               <p class=\"card-estimate\">2022.03.29</p>" +
             "           </li>",
-    };
+        ESTIMATE_MYLIST: "<div class=\"main-box-04\">" +
+            "               <div class=\"request-profile\">" +
+            "                   <div class=\"img\"><img src=\"../../img/temp-img-profile.png\"></div>" +
+            "                   <div class=\"detail\">" +
+            "                       <div class=\"profile-name\">박고수</div>" + 
+            "                       <div class=\"info\">" +
+            "                           <img src=\"../../img/star.png\"> 5.0 (99+) 개잘핵" +
+            "                       </div>" +
+            "                   </div>" +
+            "                   </div>" +
+            "               </div>",
+        };
 
     window.__config__ = module;
 })(window, M);

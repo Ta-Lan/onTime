@@ -63,8 +63,7 @@
             var self = this;
             var peopleId = M.data.global("LOGIN_INFO.peopleId");
             var nickname = M.data.global("LOGIN_INFO.nickname");
-            var auth = M.data.global("LOGIN_INFO.auth");
-            console.log(auth);
+            var auth = M.data.param("auth");
             $.sendHttp({
                 path: SERVER_PATH.INFO,
                 data: {
@@ -73,13 +72,13 @@
                 succ: function (data) {
                     self.els.$nickname.text(nickname);
                     self.els.$intro.text(data.intro);
-                    document.getElementById("profile-img-btn").src=data.imagePath+data.storeImageName; //($.imagePath(data.imagePath, data.storeImageName))
+                    document.getElementById("profile-img-btn").src=($.imagePath(data.imagePath, data.storeImageName, null, null));
                     if (auth) {
                         //pro인증이 된 회원
                         $('#pro-register').css("display", "none");
                         self.proOn();
                     } else {
-                        //pro인증이 되지 않은 회원. pro가입하기 띄움
+                        //pro인증이 되지 않은 회원. pro가입하기 띄움'
                         $("#pro-register").css("display", "block");
                         self.peopleOn();
                         $("#people-mypage").css("display", "none");

@@ -81,7 +81,8 @@
                     succ : function(data){
                         console.log(data);
                         $.movePage({
-                           url : "/www/html/pro/receivedEstimateList.html"
+                           url : "/www/html/pro/requestList",
+                           action: "CLEAR_TOP"
                         });
                     },
                     error : function(){

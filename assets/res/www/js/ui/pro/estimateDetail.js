@@ -18,7 +18,7 @@
             $subject : null,
             $content : null,
             $message : null,
-            $reject : null,
+            $purchase : null,
         },
         data: {},
         init: function init() {
@@ -29,7 +29,7 @@
             self.els.$subject = $('#subject');
             self.els.$content = $('#content');
             self.els.$message = $('#message');
-            self.els.$reject = $('#reject');
+            self.els.$purchase = $('#purchase');
             self.data.loginInfo = M.data.global("LOGIN_INFO");
             self.data.estimateNumber = M.data.param('estimateNumber');
         },
@@ -55,6 +55,25 @@
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
+            var self = this;
+            $(self.els.$message).on('click',function(){
+                console.log(self.data.proId);
+                $.movePage({
+                    url : "/www/html/service/message.html",
+                    param : {
+                        peopleId : self.data.proId
+                    }
+                });
+            });
+            $(self.els.$purchase).on('click', function(){
+                console.log(self.data.estimateNumber);
+                $.movePage({
+                    url:"/www/html/people/payment.html",
+                    param:{
+                        estimateNumber : self.data.estimateNumber,
+                    }
+                })
+            })
         }
     };
     window.__page__ = page;

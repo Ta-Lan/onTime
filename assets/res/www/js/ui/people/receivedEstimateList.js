@@ -71,7 +71,7 @@
                     }
                 },
                 error: function(data, status){
-                    alert("견적서 리스트를 불러오는 데 실패하였습니다.");
+                    swal("견적서 리스트를 불러오는 데 실패하였습니다.","","error");
                 }
             })
         },

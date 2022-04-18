@@ -45,10 +45,10 @@
             var email = self.els.$email.val().trim();
     
             if(name == ''){
-                return alert("이름을 입력해주세요.");
+                return swal("이름을 입력해주세요.","","warning");
             }
             if(email == ''){
-                return alert("이메일을 입력해주세요.");
+                return swal("이메일을 입력해주세요.","","warning");
             }
     
             $.sendHttp({
@@ -58,10 +58,10 @@
                     email : email,
                 },
                 succ: function(data){
-                    alert("아이디는 " +data.loginId+" 입니다.");
+                    swal("아이디는 " +data.loginId+" 입니다.");
                 },
                 error: function(data){
-                    alert("등록된 ID가 없습니다.");
+                    swal("등록된 ID가 없습니다.","","error");
                 }
             });
     

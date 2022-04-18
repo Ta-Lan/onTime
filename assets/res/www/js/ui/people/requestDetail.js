@@ -57,7 +57,7 @@
                     self.estimateRight(data.category);
                 },
                 error: function(status, data){
-                    alert("삐용삐용");
+                    swal("견적서 상세내용을 불러오는 데 실패하였습니다","","warning");
                 }
             });
             

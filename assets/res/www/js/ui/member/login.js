@@ -105,7 +105,7 @@
                                 peopleId : id
                             }
                         });
-                        if("LOGIN_INFO.auth"){
+                        if(M.data.global("LOGIN_INFO.auth")){
                             M.data.global({
                                 "PRO_STATUS":{
                                     proId:id,

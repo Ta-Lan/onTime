@@ -36,29 +36,34 @@
         UPDATE: "api/people/update", //회원 정보 수정
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
-        PAYMENT: "api/people/payment",//결제
+        
+        //payment
+        PAYMENT: "api/payment/insert",//결제
+        PAYMENT_LIST: "api/payment/myList", //결제목록
+        PAYMENT_DETAIL: "api/payment/detail", //결제 상세
+        PAYMENT_CANCEL: "api/payment/cancel", //결제 취소
         //Pro
-        PRO_INFO:"api/pro/info",
-        PRO_REGIST: "api/pro/regist",
-        SEARCH_LICENSE: "api/pro/searchLicense",
+        PRO_INFO:"api/pro/info", //고수 정보
+        PRO_REGIST: "api/pro/regist", //고수 등록
+        SEARCH_LICENSE: "api/pro/searchLicense", //자격증 검색
 
         //request
         REQUEST_WRITE: "api/request/regist", // request 글쓰기
         REQUEST_LIST: "api/request/listSearch", // request list
-        REQUEST_DETAIL: "api/request/detail",
-        REQUEST_MYLIST: "api/request/myList",
-        REQUEST_CLOSED: "api/request/closed",
+        REQUEST_DETAIL: "api/request/detail", //요청서 상세
+        REQUEST_MYLIST: "api/request/myList", //내 요청서 목록
+        REQUEST_CLOSED: "api/request/closed", //요청서 마감
 
         //estimate
-        ESTIMATE_REGIST: "api/estimate/regist",
-        ESTIMATE_LIST: "api/estimate/list",
-        ESTIMATE_DETAIL: "api/estimate/detail",
-        ESTIMATE_MATCHED: "api/estimate/matched",
+        ESTIMATE_REGIST: "api/estimate/regist",//견적서 등록
+        ESTIMATE_LIST: "api/estimate/list", //(내 요청서의)견적서 리스트
+        ESTIMATE_DETAIL: "api/estimate/detail", //견적서 상세
+        ESTIMATE_MATCHED: "api/estimate/matched", //매칭
 
         //messageee
         GET_MESSAGE: "api/message/info", // message info
         SET_MESSAGE: "api/message/send", // send message
-        GET_MESSAGE_LIST: "api/message/list",
+        GET_MESSAGE_LIST: "api/message/list", //message list
 
         //feed
         FEED_REGIST: "api/feed/regist", //피드 등록
@@ -321,7 +326,23 @@
             "            </div>",
         QNA_BUTTON_ANSWER : "<div class=\"qna-button\">\n" +
             "                답변하기\n" +
-            "            </div>"
+            "            </div>",
+        PAYMENT_LIST:"<li class=\"item-container-box\">" +
+            "            <div class=\"item-box-top\">"+
+            "                <div class=\"item-box-l\">2022.04.15</div>" +
+            "                <div class=\"item-box-r\">300,000원 ></div>" +
+            "            </div>" +
+            "            <div class=\"item-box-bottom\">" +
+            "                <img src=\"../../img/img.png\" />" +
+            "                <div class=\"item-box-btm-l\">" +
+            "                    <div class=\"item-box-title\">방송댄스 레슨</div>" +
+            "                    <div class=\"item-box-pro\"></div>" +
+            "                </div>" +
+            "                <div class=\"item-box-btm-r\">" +
+            "                    <div class=\"item-box-status\">결제 완료</div>" +
+            "                </div>" +
+            "            </div>" +
+            "        </li>",
     };
 
     window.__config__ = module;

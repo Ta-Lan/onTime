@@ -53,23 +53,25 @@
                     estimateNumber: estimateNumber
                 },
                 succ: function(data){
+                    console.log(data);
+                    self.data.Data = data;
                     self.els.$paymentNum.text(data.estimateNumber)
                     self.els.$estimateDate.text(data.estimateRegisterDate);
                     self.els.$estimateContent.text(data.estimateTitle);
-                    self.els.$amount.text(data.quotePrice+"원");
+                    self.els.$amount.text(data.quotePrice);
                 },
             });
-            console.log($('input:radio[name="payment-type"]:checked').val());
             $('#payment-card').css("display", "none");
             $('#payment-account').css("display", "none");
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
+            console.log(self.data.Data);
             $("input:radio[name='payment-type']").on('click', function(){
                 self.changePayment();
             });
-            $("self.els.$purchase").on('click', function(){
+            self.els.$purchase.on('click', function(){
                 self.goPayment();
             });
         },
@@ -91,10 +93,15 @@
         },
         goPayment: function(){
             var self = this;
+            var estimateNumber = M.data.param("estimateNumber");
+            
+            console.log(M.data.param("estimateNumber"));
+            console.log();
+            console.log(self.els.$paymentType.val());
             var check = $("input:radio[name='payment-type']:checked").val();
             if(!($("input:radio[name='payment-type']").is(':checked'))){return swal('결제방식을 선택하세요.','','error');}
             if(check == 'card'){
-                if($.isEmpty(self.els.$cardNumber) || $.isEmpty(self.els.$cvc) || $.isEmpty(self.els.$exdate1) || $.isEmpty(self.els.$exdate2)){
+                if($.isEmpty(self.els.$cardNumber.val()) || $.isEmpty(self.els.$cvc.val()) || $.isEmpty(self.els.$exdate1.val()) || $.isEmpty(self.els.$exdate2.val())){
                     return swal('카드정보를 입력하세요.','','error');
                 }
                 if(self.els.$cardNumber.legnth > 16){return swal('올바른 카드번호를 입력하세요.','','error');}
@@ -103,24 +110,25 @@
                 if($.isEmpty(self.els.$accountSelect)){return swal('입금할 계좌를 선택하세요','','error');}
                 if($.isEmpty(self.els.$incomeName)){return swal('입금자명을 입력하세요.','','error');}
             }
+            console.log(self.data.Data.quotePrice);
             $.sendHttp({
                 path: SERVER_PATH.PAYMENT,
                 data:{
-                    estimateNumber: self.data.estimateNumber,
-                    paymentPrice: self.data.quotePrice,
+                    estimateNumber: estimateNumber,
+                    paymentPrice: self.data.Data.quotePrice,
                     paymentType: self.els.$paymentType.val()
                 },
                 succ:function(data){
-                    swal('결제가 완료되었습니다.','','success');
-                    $movePage({
-                        url:"/www/html/people/paymentDetail",
-                        param:{
-                            paymentNumber: data.paymentNumber
-                        }
-                    })
+                    swal('결제가 완료되었습니다.','','success')
+                        .then(function(result){
+                            $.movePage({
+                                url:"/www/html/people/paymentList.html",
+                            })
+                            }    
+                        );
                 },
                 error: function(data, status){
-                    swal.fire('결제에 실패하였습니다.','','error');
+                    swal('결제에 실패하였습니다.','','error');
                 }
             });
         }

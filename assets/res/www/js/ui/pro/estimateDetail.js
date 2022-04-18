@@ -58,11 +58,9 @@
             var self = this;
             $(self.els.$message).on('click',function(){
                 console.log(self.data.proId);
-                console.log(self.data.nickname);
                 $.movePage({
                     url : "/www/html/service/message.html",
                     param : {
-                        nickname : self.data.nickname,
                         peopleId : self.data.proId
                     }
                 });

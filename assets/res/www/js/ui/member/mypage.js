@@ -63,8 +63,7 @@
             var self = this;
             var peopleId = M.data.global("LOGIN_INFO.peopleId");
             var nickname = M.data.global("LOGIN_INFO.nickname");
-            var auth = M.data.global("LOGIN_INFO.auth");
-            console.log(auth);
+            var auth = M.data.param("auth");
             $.sendHttp({
                 path: SERVER_PATH.INFO,
                 data: {
@@ -79,7 +78,7 @@
                         $('#pro-register').css("display", "none");
                         self.proOn();
                     } else {
-                        //pro인증이 되지 않은 회원. pro가입하기 띄움
+                        //pro인증이 되지 않은 회원. pro가입하기 띄움'
                         $("#pro-register").css("display", "block");
                         self.peopleOn();
                         $("#people-mypage").css("display", "none");

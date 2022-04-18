@@ -39,14 +39,15 @@
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
-            $('#search-result').css("display", "none");
+        
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
             self.els.$searchBtn.on('click', function(){
+                $("tbody tr").empty();
                 self.searchLicenses();
-                $("#search-result").css("display", "block");
+                
             });
             $("#license-list").on('click','tr', function(){
                $(self.els.$selectedLicense).val($(this).children("td.license-name").text());
@@ -70,22 +71,39 @@
                         experiencePeriod: experiencePeriod
                     },
                     succ: function(data){
-                        alert("pro 등록이 완료되었습니다!");
-                        M.data.global("LOGIN_INFO.auth", true);
-                        
                         M.data.global({
+                            "LOGIN_INFO":{
+                                nickname: M.data.global("LOGIN_INFO.nickname"),
+                                auth: true,
+                                peopleId: M.data.global("LOGIN_INFO.peopleId"),
+                            },
                             "PRO_STATUS":{
                                 proId: M.data.global("LOGIN_INFO.peopleId"),
                                 proStatus: true,
                             }
                         });
-                        M.page.html({
-                            url:"/www/html/member/mypage.html",
-                            action:"CLEAR_TOP"
-                        });
+                        console.log(M.data.global("LOGIN_INFO"));
+                        console.log(M.data.global("PRO_STATUS"));
+
+                        swal.fire(`pro 등록이 완료되었습니다!`,'','success').then(
+                            (result)=>{
+                                M.page.html({
+                                    url:"/www/html/member/mypage.html",
+                                    param:{
+                                        auth: true
+                                    }
+                                }),
+                                console.log(M.data.param("LOGIN_INFO.auth"))
+                            });
+                            
+                        // M.page.html({
+                        //     url:"/www/html/member/mypage.html",
+                        //     action:"CLEAR_TOP"
+                        // });
                     },
                     error: function(data, status){
-                        alert("error");
+                        alert("잘못된 접근입니다.");
+                        $.moveBack();
                     }
                 })
             });
@@ -108,11 +126,11 @@
                         console.log(data.licenseList.length);
                         if(data.licenseList.length == 0){
                             alert("검색 결과가 없습니다.");
-                            $("#search-result").css("display", "none");
+                            $("tbody tr").empty();
                         }
                         else{
                             for(var i = 0; i < data.licenseList.length; i++){
-                                $(".search-license").html("<tr><td>"+data.licenseList[i].licenseType+"</td><td class='license-name'>"+data.licenseList[i].licenseName+"</td></tr>");
+                                $(".search-license").append("<tr><td>"+data.licenseList[i].licenseType+"</td><td class='license-name'>"+data.licenseList[i].licenseName+"</td></tr>");
                             }
                         }
                     }   

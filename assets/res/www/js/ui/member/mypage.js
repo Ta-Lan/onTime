@@ -63,7 +63,7 @@
             var self = this;
             var peopleId = M.data.global("LOGIN_INFO.peopleId");
             var nickname = M.data.global("LOGIN_INFO.nickname");
-            var auth = M.data.global("LOGIN_INFO.auth");
+            var auth = M.data.param("auth");
             $.sendHttp({
                 path: SERVER_PATH.INFO,
                 data: {
@@ -72,13 +72,13 @@
                 succ: function (data) {
                     self.els.$nickname.text(nickname);
                     self.els.$intro.text(data.intro);
-                    document.getElementById("profile-img-btn").src=data.imagePath+data.storeImageName; //($.imagePath(data.imagePath, data.storeImageName))
+                    document.getElementById("profile-img-btn").src=($.imagePath(data.imagePath, data.storeImageName, null, null));
                     if (auth) {
                         //pro인증이 된 회원
                         $('#pro-register').css("display", "none");
                         self.proOn();
                     } else {
-                        //pro인증이 되지 않은 회원. pro가입하기 띄움
+                        //pro인증이 되지 않은 회원. pro가입하기 띄움'
                         $("#pro-register").css("display", "block");
                         self.peopleOn();
                         $("#people-mypage").css("display", "none");
@@ -127,21 +127,28 @@
                 M.page.html("./viewInfo.html");
             })
             self.els.$modifyIntro.on('click', function(){
-                var userInput = prompt("소개 수정"+"소개를 입력하세요.");
-                self.els.$intro.text(userInput);
-                var intro = self.els.$intro.val();
-                $.sendHttp({
-                    path: SERVER_PATH.UPDATE_INTRO,
-                    data: {
-                        intro: intro
-                    },
-                    succ: function(){
-                        alert("소개가 수정되었습니다.");
-                    },
-                    error: function(){
-                        alert("소개 수정 오류");
-                    }
-                })
+                var intro = '';
+                swal("수정할 소개를 입력하세요", {
+                    content: "input",
+                  })
+                  .then((value) => {
+                    intro = value;
+                    $.sendHttp({
+                        path: SERVER_PATH.UPDATE_INTRO,
+                        data: {
+                            intro: intro
+                        },
+                        succ: function(){
+                            swal(`소개가 수정되었습니다.`,'','success');
+                            console.log(intro);
+                            self.initView();
+                        },
+                        error: function(){
+                            alert("소개 수정 오류");
+                        }
+                    });
+                  });
+                
             });
             self.els.$proRegist.on('click', function () {
                 M.page.html("../pro/proRegist.html");

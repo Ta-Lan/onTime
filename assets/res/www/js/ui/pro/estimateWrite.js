@@ -37,6 +37,7 @@
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
+            var requestNumber = M.data.param("requestNumber");
             module.onKeyupNum(self.els.$price);
             $(self.els.$write).on('click',function(){
                 var timeExpect = self.els.$timeExpect.val().trim();
@@ -52,7 +53,7 @@
                 $.sendHttp({
                     path : SERVER_PATH.ESTIMATE_REGIST,
                     data : {
-                        requestNumber : "REQUEST100010",
+                        requestNumber : requestNumber,
                         predictTime : timeExpect,
                         quotePrice : price, // unit + price
                         estimateTitle : subject,
@@ -60,6 +61,8 @@
                     },
                     succ : function (data){
                         console.log(data);
+                        alert("견적서 전송이 완료되었습니다!");
+                        $.moveBack();
                     },
                     error : function (data){
                         console.log(data);
@@ -69,7 +72,7 @@
         }
     };
     window.__page__ = page;
-})(jQuery,__util__, __config__, window);
+})(jQuery,__config__, __util__, window);
 
 (function ($, M, pageFunc, window) {
 

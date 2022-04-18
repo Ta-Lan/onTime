@@ -45,7 +45,7 @@
                     requestNumber : requestNumber
                 },
                 succ: function(data){
-                    console.log(data);
+                    console.log(data.category);
                     self.els.$peopleId.text(data.nickname);
                     self.els.$category.val(data.category);
                     self.els.$date.val(data.requestRegisterDate);
@@ -78,6 +78,8 @@
         estimateRight: function estimateRight(category){
             var proCategory = '';
             var loginInfo = M.data.global("LOGIN_INFO");
+            console.log(loginInfo)
+            console.log(loginInfo.auth);
             if(loginInfo.auth){
                 var proStatus = M.data.global("PRO_STATUS");
                 console.log(proStatus);
@@ -91,8 +93,8 @@
                     },
                     succ: function(data){
                         proCategory = data.category
-                        if(proCategory != category){
-                            $('.btn-wrap').css("display", "none");
+                        if(proCategory == category){
+                            $('.btn-wrap').css("display", "block");
                         }
                     },
                     error: function(data, status){

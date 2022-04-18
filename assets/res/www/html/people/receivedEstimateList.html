@@ -27,25 +27,25 @@
     <div class="container">
         <div class="main-box-05">
             <div class="Deadline">
-                <div class="request-closed">요청 마감 or 견적 요청</div>
+                <div class="request-closed" id="request-status">요청 마감 or 견적 요청</div>
             </div>
-            <div class="h2">앱개발 해줘</div>
-            <div>2022.03.29</div>
-            <button type="button" class="myrequest">내 요청서 보기</button>
+            <div class="h2" id="request-content">파티 준비 도와주실 고수님 구합니다.</div>
+            <div id="request-date">2022.03.29</div>
+            <button type="button" class="my-request" id="my-request">내 요청서 보기</button>
         </div>
-
+<!-- 
         <div class="main-box-04">
             <div class="request-profile">
                 <div class="img"><img src="../../img/temp-img-profile.png"></div>
                 <div class="detail">
                     <div class="profile-name">박고수</div>
                     <div class="info">
-                        <img src="../../img/star.png"> 5.0 (99+) 개잘핵
+                        <img src="../../img/star.png"> 5.0 (<span class="review-count">99+</span>) <span id="esmitate-title">개잘핵</span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="main-box-04">
+        </div>  -->
+        <!--<div class="main-box-04">
             <div class="request-profile">
                 <div class="img"><img src="../../img/temp-img-profile.png"></div>
                 <div class="detail">
@@ -66,13 +66,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--    받은 견적이 없을 때!!!-->
-        <div class="no-received-quotes">
+        <div class="no-received-quotes" style="display:none">
             <article class="no-items align-self-center text-center">
-                <h3>받은 견적이 없습니다.</h3>
+                <img src="../../img/folder.png"/>
+                <h3 style="font-weight:700;font-size:2rem">견적 내역이 없습니다.</h3>
                 <p class="help-block p2">
-                    <div class="desc">고수님에게 받은 견적이 없습니다.</div>
+                    <div class="desc">고수님들이 요청서를 확인하고 있어요. 조금만 기다려주세요!</div>
                 </p>
                 <!---->
             </article>
@@ -113,6 +114,7 @@
 <script type="text/javascript" src="../../js/mcore.min.js"></script>
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
+<script type="text/javascript" src="../../js/ui/people/receivedEstimateList.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
 
 </html>

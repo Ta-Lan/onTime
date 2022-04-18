@@ -1027,6 +1027,7 @@ li.txt-btn .btn-txt {
     width: 49%;
     /*height:14.5rem;*/
     border: 1px solid #e0e0e0;
+    border-radius: 3rem;
 }
 
 .metro-wrap li:nth-child(1),
@@ -1057,6 +1058,7 @@ li.txt-btn .btn-txt {
     bottom: 0;
     width: 100%;
     min-height: 100%;
+    border-radius: 3rem;
 }
 
 .metro-wrap .info-box {
@@ -2623,6 +2625,7 @@ strong.ellipsis {
 .item-box-top {
     width: 100%;
     border-bottom: 1px solid #e9e9e9;
+    background-color: rgba(51, 51, 51, 0.041);
     padding: .5rem .5rem 0 .5rem;
 }
 
@@ -2714,7 +2717,22 @@ strong.ellipsis {
     margin-right: 1rem;
 }
 
+#payment-status{
+    color:#58AAFF;
+}
 
+#payment-type, #payment-amount{
+    padding-right: 1rem;
+}
+#payment-detail{
+    border-bottom: 1px solid #e9e9e9;
+    text-align: center;
+    background-color: rgba(51, 51, 51, 0.041);
+}
+
+#payment-info{
+    background-color: rgba(51, 51, 51, 0.041);
+}
 /** messageList **/
 .page-body {
     padding: .625rem 0 0;
@@ -3165,6 +3183,12 @@ strong.ellipsis {
     padding: 5rem 0;
 }
 
+.no-received-quotes img{
+    width:30%;
+    height:30%;
+    align-content: center;
+}
+
 .request-profile {
     width: 100%;
     float: left;
@@ -3393,6 +3417,7 @@ input[type=range] {
 
 .comment-writer {
     font-weight: 600;
+    padding: 0 2rem;
 }
 
 .comment-write-date {
@@ -3494,7 +3519,6 @@ input:checked + .slider:before {
 
 .pro-people {
     float: right;
-    left: 3rem;
 }
 .pro-background{
     background-color: #58AAFF;

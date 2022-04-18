@@ -2,7 +2,7 @@
 <manifest useDirectView="false">
     <log>y</log>
     <lang>ko</lang>
-    <resource>
+    <resource>..
         <base_version>000000</base_version>
         <target>app</target>
         <update>
@@ -17,6 +17,7 @@
         <orient>default</orient>
         <orient-tablet>default</orient-tablet>
     </startpage>
+
     <settings/>
     <default_action>
         <orient>default</orient>

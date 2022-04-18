@@ -37,6 +37,22 @@
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                items:1,                 // 한번에 보여줄 아이템 수
+                loop:true,               // 반복여부
+                margin:35,               // 오른쪽 간격
+                autoplay:true,           // 자동재생 여부
+                autoplayTimeout:2500,    // 재생간격
+                autoplayHoverPause:true  //마우스오버시 멈출지 여부
+            });
+            $('.customNextBtn').on('click', function() {
+                owl.trigger('next.owl.carousel');
+            })
+            
+            $('.customPrevBtn').on('click',function() {
+                owl.trigger('prev.owl.carousel', [300]);
+            })
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
@@ -68,9 +84,11 @@
                     succ: function(){
                         M.data.removeGlobal("LOGIN_INFO");
                         M.data.removeGlobal("PRO_STATUS");
+                        $.storage.clearAuth();
                         console.log("logout");
                         $.movePage({
-                            url:"./member/login.html"
+                            url:"./member/login.html",
+                            actionType:"CLEAR_TOP"
                         });
                     }
                 })

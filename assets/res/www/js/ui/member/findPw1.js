@@ -42,13 +42,13 @@
             var email = this.els.$email.val().trim();
 
             if(id == ''){
-                return alert("아이디를 입력해주세요.");
+                return swal("아이디를 입력해주세요.","","warning");
             }
             if(name == ''){
-                return alert("이름을 입력해주세요.");
+                return swal("이름을 입력해주세요.","","warning");
             }
             if(email == ''){
-                return alert("이메일을 입력해주세요.");
+                return swal("이메일을 입력해주세요.","","warning");
             }
 
             $.sendHttp({
@@ -60,20 +60,25 @@
                 },
                 succ: function(data){
                     if(data.existYn == 'Y'){
-                        alert("본인인증에 성공했습니다.");
-                        M.page.html({
-                            path:"./findPw2.html",
-                            param: {
-                                "peopleId" : id
+                        swal("본인인증에 성공했습니다.")
+                        .then(
+                            (result)=>{
+                                M.page.html({
+                                    path:"./findPw2.html",
+                                    param: {
+                                        "peopleId" : id
+                                    }
+                                });
                             }
-                        });
+                        )
+                        
                     }
                     else{
-                        return alert("일치하는 정보가 없습니다.");
+                        return swal("일치하는 정보가 없습니다.","","error");
                     }
                 },
                 error: function(data){
-                    alert("본인인증에 실패했습니다.");
+                    swal("본인인증에 실패했습니다.","","warning");
                 }
             })
         }

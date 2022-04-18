@@ -60,29 +60,36 @@
             })
             $('#request-list').on('click','button.decline-btn', function(){
                 var self = this;
-                M.pop.alert({
-                    title: '요청 마감',
-                    message: '요청을 마감하시겠습니까? (마감되면 더 이상 견적서를 받을 수 없습니다.)',
-                    buttons: ['예', '아니오'],
-                    callback: function(index){
-                        if(index == 0){
-                            $.sendHttp({
-                                path: SERVER_PATH.REQUEST_CLOSED,
-                                data:{
-                                    requestNumber: $(self).parent().attr('id')
-                                },
-                                succ: function(data){
-                                    alert("요청이 마감되었습니다.");
-                                    self.initView();
-                                },
-                                error: function(data){
-                                    console.log(data.requestNumber);
-                                    console.log($(this).parent().parent().attr('id'))
-                                }
-                            })
-                        }      
+                swal({
+                    title: "요청을 마감하시겠습니까?",
+                    text:  "마감되면 더 이상 견적서를 받을 수 없습니다.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                    })
+                  .then((willDelete) => {
+                    if (willDelete) {
+                        $.sendHttp({
+                            path: SERVER_PATH.REQUEST_CLOSED,
+                            data:{
+                                requestNumber: $(self).parent().attr('id')
+                            },
+                            succ: function(data){
+                                swal("요청이 마감되었습니다.","","success")
+                                .then(
+                                    (result)=>{
+                                        self.initView();
+                                    }
+                                )
+                            },
+                            error: function(data){
+                                swal("요청서 마감 오류","","warning")
+                            }
+                        })  
                     }
-                });
+                    else {
+                    }
+                  });
             });
         },
         showRequestList: function showRequestList(data, i){

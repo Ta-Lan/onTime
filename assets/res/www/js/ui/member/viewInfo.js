@@ -73,35 +73,71 @@
             });
         },
         drop: function(){
-            M.pop.alert({
-                title: '탈퇴확인',
-                message: '탈퇴하시겠습니까?',
-                buttons: ['예', '아니오'],
-                callback: function (index) {
-                  if (index == 0) {
-                    //탈퇴후 로그인페이지로 이동
+            var peopleId = M.data.global("LOGIN_INFO.peopleId");
+            swal({
+                title: "탈퇴하시겠습니까?",
+                text: "탈퇴하신 정보는 되돌릴 수 없습니다.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
                     $.sendHttp({
-                      path: SERVER_PATH.OUT,
-                      data: {
-                        peopleId: peopleId
-                      },
-                      succ: function (data) {
-                        alert("정상적으로 탈퇴되었습니다.");
-                        M.page.html({
-                          url: "./login.html",
-                          actionType: "CLEAR_TOP"
-                        });
-                      },
-                      error: function (status, data){
-                          console.log(peopleId);
-                          alert("탈퇴 오류");
-                      }
-                    });
-                  } else {
-                    return false;
-                  }
+                        path: SERVER_PATH.OUT,
+                        data: {
+                          peopleId: peopleId
+                        },
+                        succ: function(data){
+                            swal("탈퇴되었습니다","","success")
+                            .then(
+                                (result)=>{
+                                    M.page.html({
+                                        url: "./login.html",
+                                        actionType: "CLEAR_TOP"
+                                      });
+                                }
+                            )
+                        },
+                        error: function(status, data){
+                            swal("탈퇴 오류","","warning")
+                        }
+                    })
+                } else {
                 }
               });
+            
+            
+            
+            // M.pop.alert({
+            //     title: '탈퇴확인',
+            //     message: '탈퇴하시겠습니까?',
+            //     buttons: ['예', '아니오'],
+            //     callback: function (index) {
+            //       if (index == 0) {
+            //         //탈퇴후 로그인페이지로 이동
+            //         $.sendHttp({
+            //           path: SERVER_PATH.OUT,
+            //           data: {
+            //             peopleId: peopleId
+            //           },
+            //           succ: function (data) {
+            //             alert("정상적으로 탈퇴되었습니다.");
+            //             M.page.html({
+            //               url: "./login.html",
+            //               actionType: "CLEAR_TOP"
+            //             });
+            //           },
+            //           error: function (status, data){
+            //               console.log(peopleId);
+            //               alert("탈퇴 오류");
+            //           }
+            //         });
+            //       } else {
+            //         return false;
+            //       }
+            //     }
+            //   });
         }
     };
     window.__page__ = page;

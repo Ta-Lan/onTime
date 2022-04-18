@@ -276,24 +276,24 @@
             var introduce = self.els.$introduce.val().trim();
 
             //validation
-            if($.isEmpty(name)){return alert("이름을 입력하세요.");}
-            if(!($("input:radio[name='gender']").is(':checked'))){return alert("성별을 선택하세요.");}
-            if(!module.isBirthday(year,module.digitNum(month),module.digitNum(day))){return alert("올바른 생년월일을 입력하세요.");}
-            if(!module.isCellphone(phone)){return alert("올바른 연락처를 입력하세요.");}
-            if($.isEmpty(peopleId)){return alert("아이디를 입력하세요.");}
-            if(!self.els.$isCheckedId){return alert("아이디 중복확인을 해주세요.");}
-            if($.isEmpty(password)){return alert("비밀번호를 입력하세요.");}
-            if($.isEmpty(repassword)){return alert("비밀번호 확인을 입력하세요.");}
-            if(password != repassword){return alert("비밀번호와 비밀번호 확인이 다릅니다.");}
-            if(!self.checkPw(password)){return alert("비밀번호는 8~20자 사이의 문자, 숫자, 특수문자를 한 개 이상 포함해야 합니다.");}
-            if($.isEmpty(email)){return alert("이메일을 입력하세요.");}
-            if(!self.els.$isCheckedEmail){return alert("이메일 중복확인을 해주세요.");}
-            if(city === '시/도'){return alert("시도를 선택하세요.");}
-            if(country === '시/군/구 선택'){return alert("시/군/구를 선택하세요.");}
-            if($.isEmpty(account)){return alert("계좌번호를 입력하세요.");}
-            if($.isEmpty(nickname)){return alert("닉네임을 입력하세요.");}
-            if(!self.els.$isCheckedNickname){return alert("닉네임 중복확인을 해주세요.")}
-            if($.isEmpty(introduce)){return alert("소개를 입력하세요.");}
+            if($.isEmpty(name)){return swal("이름을 입력하세요.","","warning");}
+            if(!($("input:radio[name='gender']").is(':checked'))){return swal("성별을 선택하세요.","","warning");}
+            if(!module.isBirthday(year,module.digitNum(month),module.digitNum(day))){return swal("올바른 생년월일을 입력하세요.","","warning");}
+            if(!module.isCellphone(phone)){return swal("올바른 연락처를 입력하세요.","","warning");}
+            if($.isEmpty(peopleId)){return swal("아이디를 입력하세요.","","warning");}
+            if(!self.els.$isCheckedId){return swal("아이디 중복확인을 해주세요.","","warning");}
+            if($.isEmpty(password)){return swal("비밀번호를 입력하세요.","","warning");}
+            if($.isEmpty(repassword)){return swal("비밀번호 확인을 입력하세요.","","warning");}
+            if(password != repassword){return swal("비밀번호와 비밀번호 확인이 다릅니다.","","warning");}
+            if(!self.checkPw(password)){return swal("비밀번호는 8~20자 사이의 문자, 숫자, 특수문자를 한 개 이상 포함해야 합니다.","","warning");}
+            if($.isEmpty(email)){return swal("이메일을 입력하세요.","","warning");}
+            if(!self.els.$isCheckedEmail){return swal("이메일 중복확인을 해주세요.","","warning");}
+            if(city === '시/도'){return swal("시도를 선택하세요.","","warning");}
+            if(country === '시/군/구 선택'){return swal("시/군/구를 선택하세요.","","warning");}
+            if($.isEmpty(account)){return swal("계좌번호를 입력하세요.","","warning");}
+            if($.isEmpty(nickname)){return swal("닉네임을 입력하세요.","","warning");}
+            if(!self.els.$isCheckedNickname){return swal("닉네임 중복확인을 해주세요.","","warning")}
+            if($.isEmpty(introduce)){return swal("소개를 입력하세요.","","warning");}
 
             $.sendHttp({
                 path: SERVER_PATH.JOIN,
@@ -318,7 +318,7 @@
                     });
                 },
                 error: function(data){
-                    alert("회원가입 오류");
+                    swal("회원가입 오류","","warning");
                 }
             })
         },
@@ -364,7 +364,7 @@
                 error: function(status, data){
                     console.log(body);
                     console.log(status + JSON.stringify(data));
-                    alert("회원가입 오류");
+                    swal("회원가입 오류","","warning");
                 }
             });
         },

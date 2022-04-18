@@ -349,13 +349,13 @@
         PAYMENT_LIST:"<li class=\"item-container-box\">" +
             "            <div class=\"item-box-top\">"+
             "                <div class=\"item-box-l\">2022.04.15</div>" +
-            "                <div class=\"item-box-r\">300,000원 ></div>" +
+            "                <div class=\"item-box-r\">카드</div>" +
             "            </div>" +
             "            <div class=\"item-box-bottom\">" +
             "                <img src=\"../../img/img.png\" />" +
             "                <div class=\"item-box-btm-l\">" +
-            "                    <div class=\"item-box-title\">방송댄스 레슨</div>" +
-            "                    <div class=\"item-box-pro\"></div>" +
+            "                    <div class=\"item-box-title\">션이 님과의 매칭</div>" +
+            "                    <div class=\"item-box-pro\">30000원</div>" +
             "                </div>" +
             "                <div class=\"item-box-btm-r\">" +
             "                    <div class=\"item-box-status\">결제 완료</div>" +

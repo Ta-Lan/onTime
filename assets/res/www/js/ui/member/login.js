@@ -75,10 +75,10 @@
             var isAutoLogin = self.els.$autoLoginChk.prop('checked'); // true / false
       
             if (id == '') {
-              return alert('아이디를 입력해주세요');
+              return swal('아이디를 입력해주세요',"","warning");
             }
             if (pw == '') {
-              return alert('비밀빈호를 입력해주세요');
+              return swal('비밀빈호를 입력해주세요',"","warning");
             }
             $.sendHttp({
                 path: SERVER_PATH.LOGIN,
@@ -126,9 +126,13 @@
                     M.page.html("../main.html");
                 },
                 error: function (data) {
-                    alert("아이디 혹은 비밀번호가 틀립니다.");
-                    self.els.$peopleId.val('');
-                    self.els.$password.val('');
+                    swal("아이디 혹은 비밀번호가 틀립니다.","","warning")
+                    .then(
+                        (result)=>{
+                            self.els.$peopleId.val('');
+                            self.els.$password.val('');
+                        }
+                    )
                 }
             });
 

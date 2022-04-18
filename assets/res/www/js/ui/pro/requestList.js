@@ -70,7 +70,7 @@
                     }
                 },
                 error: function(status, data){
-                    alert("request list error");
+                    swal("요청서 리스트를 불러오는 데 실패하였습니다","","error");
                 }
 
             });

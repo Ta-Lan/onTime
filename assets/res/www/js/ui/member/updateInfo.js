@@ -222,21 +222,20 @@
                 var account = self.els.$account.val().trim();
 
                 
-                if($.isEmpty(name)){return alert("이름을 입력하세요.");}
-                if(!module.isBirthday(year,module.digitNum(month),module.digitNum(date))){return alert("올바른 생년월일을 입력하세요.");}
-                if(!module.isCellphone(phone)){return alert("올바른 연락처를 입력하세요.");}
-                if($.isEmpty(email)){return alert("이메일을 입력하세요.");}
+                if($.isEmpty(name)){return swal("이름을 입력하세요.","","warning");}
+                if(!module.isBirthday(year,module.digitNum(month),module.digitNum(date))){return swal("올바른 생년월일을 입력하세요.","","warning");}
+                if(!module.isCellphone(phone)){return swal("올바른 연락처를 입력하세요.","","warning");}
+                if($.isEmpty(email)){return swal("이메일을 입력하세요.","","warning");}
                 if(email != originEmail){
-                    if(!self.els.$isCheckedEmail){return alert("이메일 중복확인을 해주세요.");}
+                    if(!self.els.$isCheckedEmail){return swal("이메일 중복확인을 해주세요.","","warning");}
                 }
-                if(city === '시/도'){return alert("시도를 선택하세요.");}
-                if(country === '시/군/구 선택'){return alert("시/군/구를 선택하세요.");}
-                if($.isEmpty(account)){return alert("계좌번호를 입력하세요.");}
-                if($.isEmpty(nickname)){return alert("닉네임을 입력하세요.");}
+                if(city === '시/도'){return swal("시도를 선택하세요.","","warning");}
+                if(country === '시/군/구 선택'){return swal("시/군/구를 선택하세요.","","warning");}
+                if($.isEmpty(account)){return swal("계좌번호를 입력하세요.","","warning");}
+                if($.isEmpty(nickname)){return swal("닉네임을 입력하세요.","","warning");}
                 if(nickname != originNickname){
-                    if(!self.els.$isCheckedNickname){return alert("닉네임 중복확인을 해주세요.");}
+                    if(!self.els.$isCheckedNickname){return swal("닉네임 중복확인을 해주세요.","","warning");}
                 }
-                //머야 여까진 댐
                 $.sendHttp({
                     path: SERVER_PATH.UPDATE,
                     data: {
@@ -249,15 +248,20 @@
                         account: account
                     },
                     succ: function (data) {
-                        alert("정보가 수정되었습니다.");
-                        M.page.tab.remove("viewInfo.html");
-                        M.page.html({
-                            url: "./viewInfo.html",
-                            actionType: "CLEAR_TOP"
-                        });
+                        swal("정보가 수정되었습니다.","","success")
+                        .then(
+                            (result)=>{
+                                M.page.tab.remove("viewInfo.html");
+                                M.page.html({
+                                url: "./viewInfo.html",
+                                actionType: "CLEAR_TOP"
+                            });
+                            }
+                        )
+                        
                     },
                     error: function (status, data) {
-                        alert("수정 오류");
+                        swal("수정 오류","","warning");
                     }
                 });
 

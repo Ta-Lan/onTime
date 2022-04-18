@@ -91,6 +91,49 @@
                     
             }
         },
+        // requestPay : function () {
+        //     var IMP = window.IMP;
+        //     var estimateNumber = M.data.param("estimateNumber");
+        //     IMP.init("imp22479890");
+        //     // IMP.request_pay(param, callback) 결제창 호출
+        //     IMP.request_pay({ // param
+        //         pg: "html5_inicis", // 이니시스
+        //         pay_method: "vbank", //
+        //         merchant_uid: paymentNumber,
+        //         name: category,
+        //         amount: paymentPrice,
+        //         buyer_email: email,
+        //         buyer_name: nickname,
+        //         buyer_tel: phone,
+        //     }, function (rsp) { // callback
+        //         if (rsp.success) {
+        //             // 결제 성공 시 로직, 제가 만든 결제 API를 호출해서 INSERT 해주십셔
+        //             $.sendHttp({
+        //                 path: SERVER_PATH.PAYMENT,
+        //                 data:{
+        //                     estimateNumber: estimateNumber,
+        //                     paymentPrice: self.data.Data.quotePrice,
+        //                     paymentType: self.els.$paymentType.val()
+        //                 },
+        //                 succ:function(data){
+        //                     swal('결제가 완료되었습니다.','','success')
+        //                         .then(function(result){
+        //                             $.movePage({
+        //                                 url:"/www/html/people/paymentList.html",
+        //                             })
+        //                         })    
+        //                 },
+        //                 error: function(data, status){
+        //                     swal('결제에 실패하였습니다.','','error');
+        //                 }
+        //             });
+                    
+        //         } else {
+        //             return swal('결제에 실패하였습니다.','','error');
+                    
+        //         }
+        //     });
+        // },
         goPayment: function(){
             var self = this;
             var estimateNumber = M.data.param("estimateNumber");
@@ -123,7 +166,8 @@
                         .then(function(result){
                             $.movePage({
                                 url:"/www/html/people/paymentList.html",
-                            })
+                            }),
+                            
                             }    
                         );
                 },

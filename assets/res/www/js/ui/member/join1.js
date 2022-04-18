@@ -53,7 +53,7 @@
             M.page.html("./join2.html")
         }
         else{
-            return alert("가입하시려면 필수 이용 약관에 동의하셔야 합니다.");
+            return swal("가입하시려면 필수 이용 약관에 동의하셔야 합니다.","","warning");
         }
       }
   //    method: {},

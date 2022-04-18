@@ -61,11 +61,15 @@
                     },
                     succ : function (data){
                         console.log(data);
-                        alert("견적서 전송이 완료되었습니다!");
-                        $.moveBack();
+                        swal("견적서 전송이 완료되었습니다!","","success")
+                        .then(
+                            (result)=>{
+                                $.moveBack();
+                            }
+                        )
                     },
                     error : function (data){
-                        console.log(data);
+                        swal("견적서 전송 오류","","error");
                     }
                 });
             });

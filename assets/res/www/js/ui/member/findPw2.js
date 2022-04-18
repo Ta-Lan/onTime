@@ -42,13 +42,13 @@
             var repassword = this.els.$repassword.val().trim();
 
             if (password == '') {
-                return alert("비밀번호를 입력해 주세요.");
+                return swal("비밀번호를 입력해 주세요.","","warning");
             }
             if (repassword == '') {
-                return alert("비밀번호 확인을 입력해 주세요.");
+                return swal("비밀번호 확인을 입력해 주세요.","","warning");
             }
             if (password != repassword) {
-               return alert("비밀번호와 비밀번호 확인이 다릅니다.");
+               return swal("비밀번호와 비밀번호 확인이 다릅니다.","","warning");
             }
         
             if(self.checkPw(password)){
@@ -59,16 +59,20 @@
                     password: password
                   },
                   succ: function (data) {
-                    alert("비밀번호가 성공적으로 변경되었습니다.\n로그인 페이지로 이동합니다.")
-                    M.page.html({
-                      url: "./login.html",
-                      actionType: "CLEAR_TOP"
-                    });
+                    swal("비밀번호가 성공적으로 변경되었습니다.\n로그인 페이지로 이동합니다.")
+                    .then(
+                      (result)=>{
+                        M.page.html({
+                          url: "./login.html",
+                          actionType: "CLEAR_TOP"
+                        });
+                      }
+                    )
                   }
                 });
               }
             else{
-                return alert("비밀번호는 8~20자 사이의 문자, 숫자, 특수문자를 한 개 이상 포함해야 합니다.");
+                return swal("비밀번호는 8~20자 사이의 문자, 숫자, 특수문자를 한 개 이상 포함해야 합니다.","","warning");
             }
             
         

@@ -57,10 +57,10 @@
             $("ul.page-list").append(HTML.PAYMENT_LIST);
             $("li.item-container-box:eq("+i+")").attr('id',data.list[i].paymentNumber);
             $("div.item-box-l:eq("+i+")").html(data.list[i].paymentDate);
-            $("div.item-box-r:eq("+i+")").html(data.list[i].paymentPrice+"원");
+            $("div.item-box-r:eq("+i+")").html(data.list[i].paymentType);
             $(".pro-info-img").attr('src',$.imagePath(data.list[i].imagePath,data.list[i].storeImageName));
-            $("div.item-box-title:eq("+i+")").html(data.list[i].estimateNumber);
-            $("div.item-box-pto:eq("+i+")").html(data.list[i].nickname);
+            $("div.item-box-title:eq("+i+")").html(data.list[i].nickname+" 님과의 매칭");
+            $("div.item-box-pro:eq("+i+")").html(data.list[i].paymentPrice+"원");
             $("div.item-box-status:eq("+i+")").html(data.list[i].progressiveStatus);
         }
     };

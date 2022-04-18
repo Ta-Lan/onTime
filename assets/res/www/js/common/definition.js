@@ -36,7 +36,8 @@
         UPDATE: "api/people/update", //회원 정보 수정
         UPDATE_INTRO: "api/people/updateIntro",//회원 소개 수정
         CHECK_PASSWORD: "api/people/chkPwd", //회원 비밀번호 확인
-        
+        MY_PAGE : "api/people/myPage",
+
         //payment
         PAYMENT: "api/payment/insert",//결제
         PAYMENT_LIST: "api/payment/myList", //결제목록
@@ -64,7 +65,7 @@
         GET_MESSAGE: "api/message/info", // message info
         SET_MESSAGE: "api/message/send", // send message
         GET_MESSAGE_LIST: "api/message/list", //message list
-
+        GET_MESSAGE_NUM : "api/message/setChatRoom",
         //feed
         FEED_REGIST: "api/feed/regist", //피드 등록
         FEED_UPDATE: "api/feed/update", //피드 업데이트
@@ -102,6 +103,14 @@
         REPORT_LIST : "api/admin/reportList",
         REPORT_DETAIL : "api/report/detail",
         REPORT_PROCESS : "api/admin/report", //신고 처리
+
+
+        REVIEW_REGIST : "api/review/regist",
+        REVIEW_MY_LIST : "api/review/list",
+        REVIEW_LIST : "api/review/list",
+        REVIEW_DETAIL : "api/review/detail",
+        REVIEW_RESPONSE : "api/review/response",
+
 
     };
 
@@ -353,6 +362,16 @@
             "                </div>" +
             "            </div>" +
             "        </li>",
+        NO_LIST : "<div class=\"no-received-quotes\">\n" +
+            "            <article class=\"no-items align-self-center text-center\">\n" +
+            "                <img src=\"../../img/folder.png\"/>\n" +
+            "                <h3 style=\"font-weight:700;font-size:2rem\" id='title-h3'>견적 내역이 없습니다.</h3>\n" +
+            "                <p class=\"help-block p2\">\n" +
+            "                    <div class=\"desc\">고수님들이 요청서를 확인하고 있어요. 조금만 기다려주세요!</div>\n" +
+            "                </p>\n" +
+            "                <!---->\n" +
+            "            </article>\n" +
+            "        </div>"
     };
 
     window.__config__ = module;

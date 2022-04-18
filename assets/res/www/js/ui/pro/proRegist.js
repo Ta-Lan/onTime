@@ -70,7 +70,6 @@
                         experiencePeriod: experiencePeriod
                     },
                     succ: function(data){
-                        alert("pro 등록이 완료되었습니다!");
                         var _LOGIN_INFO = M.data.global("LOGIN_INFO");
                         _LOGIN_INFO.auth = true;
                         M.data.global("LOGIN_INFO", _LOGIN_INFO);
@@ -81,11 +80,13 @@
                                 proStatus: true,
                             }
                         });
-                        console.log(M.data.global("PRO_STATUS"));
-                        M.page.html({
-                            url:"/www/html/member/mypage.html",
-                            action:"CLEAR_TOP"
+                        swal.fire({title : 'pro 등록이 완료되었습니다!',icon : 'success'}).then((result)=>{
+                            M.page.html({
+                                url:"/www/html/member/mypage.html",
+                                action:"CLEAR_TOP"
+                            });
                         });
+                        console.log(M.data.global("PRO_STATUS"));
                     },
                     error: function(data, status){
                         alert("error");

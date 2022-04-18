@@ -21,6 +21,7 @@
             $paymentInfo: null,
             $latestPayment: null,
             $latestRequest: null,
+            $latestEstimate:null,
             $latestReview: null,
             $latestInquiry: null,
             $proRegist: null,
@@ -45,6 +46,7 @@
             self.els.$paymentInfo = $('#payment-info');
             self.els.$latestPayment = $('#latest-payment');
             self.els.$latestRequest = $('#latest-request');
+            self.els.$latestEstimate = $('#latest-estimate');
             self.els.$latestReview = $('#latest-review');
             self.els.$latestInquiry = $('#latest-inquiry');
             self.els.$proRegist = $('#pro-register');
@@ -63,7 +65,7 @@
             var self = this;
             var peopleId = M.data.global("LOGIN_INFO.peopleId");
             var nickname = M.data.global("LOGIN_INFO.nickname");
-            var auth = M.data.param("auth");
+            var auth = M.data.global("LOGIN_INFO.auth");
             $.sendHttp({
                 path: SERVER_PATH.INFO,
                 data: {
@@ -88,19 +90,29 @@
                 error: function () {
                     alert("ㅇㅔㄹㅓ")
                 }
-            })
+            });
+            $.sendHttp({
+                path : SERVER_PATH.MY_PAGE,
+                succ : function(data){
+                    $("#latest-payment").html(data.payment);
+                    $("#latest-request").html(data.request);
+                    $("#latest-estimate").html(data.estimate)
+                    $("#latest-review").html(data.review);
+                    $("#latest-inquiry").html(data.inquiry);
+                }
+            });
         },
         initEvent: function initEvent() {
             var self = this;
             self.els.$paymentList.on('click', function(){
                 $.movePage({
                     url:"/www/html/people/paymentList.html"
-                })
+                });
             });
             self.els.$requestList.on('click', function(){
                 $.movePage({
                     url:"/www/html/people/requestMyList.html"
-                })
+                });
             });
             self.els.$estimateList.on('click', function(){
                 $.movePage({
@@ -109,13 +121,13 @@
             });
             self.els.$reviewList.on('click', function(){
                 $.movePage({
-                    url:"/www/html/pro/reviewMyList.html"
-                })
+                    url:"/www/html/people/reviewMyList.html"
+                });
             });
             self.els.$inquiryList.on('click', function(){
                 $.movePage({
                     url:"/www/html/pro/qnaMyList.html"
-                })
+                });
             });
             self.els.$goPro.on('click', function () {
                 self.goPro();
@@ -177,11 +189,14 @@
             $("#people-mypage1").css("display", "none");
             $("#people-mypage2").css("display", "none");
             $("#people-mypage3").css("display", "none");
+            M.data.removeGlobal("PRO_STATUS.proStatus");
+            console.log(M.data.global("PRO_STATUS.proStatus"));
             M.data.global("PRO_STATUS.proStatus", true);
-
             //people로 전환하는 버튼
             $("#people-mypage").css("display", "block");
             $("#pro-mypage").css("display", "none");
+            console.log(M.data.global("PRO_STATUS.proStatus"));
+
         },
         peopleOn: function peopleOn(){
             //pro -> people
@@ -194,8 +209,11 @@
             //pro로 전환
             $("#pro-mypage").css("display", "block");
             $("#people-mypage").css("display","none");
-
+            M.data.removeGlobal("PRO_STATUS.proStatus");
+            console.log(M.data.global("PRO_STATUS.proStatus"));
             M.data.global("PRO_STATUS.proStatus", false);
+            console.log(M.data.global("PRO_STATUS.proStatus"));
+
         },
         updateImage: function updateImage(){
             //프로필 이미지 수정
@@ -212,5 +230,8 @@
         pageFunc.initView();
         pageFunc.initEvent();
     });
+    M.onRestore(function(){
+        pageFunc.initView();
+    })
 
 })(jQuery, M, __page__, window);

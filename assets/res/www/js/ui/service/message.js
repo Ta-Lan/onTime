@@ -29,27 +29,13 @@
             self.els.$payment = $('#payment');
             self.els.$proInfo = $('#pro-info');
             self.els.$report = $('#report');
-            // parameter 가져오기  chatNumber, adversary nickname
-            self.data.nicknameAdr = M.data.param('nickname');
+            // parameter 가져오기  peopleId
             self.data.peopleId = M.data.param('peopleId');
-            console.log(self.data.peopleId);
             // 내 정보 가져오기
             self.data.loginInfo = M.data.global("LOGIN_INFO");
             // initial date
             console.log(self.data.loginInfo);
             self.data.date = "1900.01.01";
-            // 채팅방 정보 가져오기
-            $.sendHttp({
-                path: SERVER_PATH.SET_MESSAGE,
-                data: {
-                    messageSender: self.data.loginInfo.peopleId,
-                    messageReceiver: self.data.peopleId,
-                    messageContent: ""
-                },
-                error : function(data){
-                    self.data.chatNumber = data.chatNumber;
-                }
-            });
             // 메세지 보낸사람에 대한 정보 가져오기
             $.sendHttp({
                 path: SERVER_PATH.INFO,
@@ -61,6 +47,23 @@
                     self.data.isProRegisted = data.isProRegisted;
                     self.data.nicknameAdr = data.nickname;
                     self.data.imagepath = $.imagePath(data.imagePath, data.storeImageName);
+                    // 채팅방 정보 가져오기
+                    console.log(self.data.peopleId);
+                    self.initView();
+                }
+            });
+            // 채팅방 정보 가져오기
+            $.sendHttp({
+                path: SERVER_PATH.GET_MESSAGE_NUM,
+                data: {
+                    messageSender: self.data.loginInfo.peopleId,
+                    messageReceiver: self.data.peopleId,
+                },
+                succ : function(data){
+                    console.log(data);
+                },
+                error : function(data){
+                    console.log(data);
                 }
             });
         },
@@ -70,13 +73,12 @@
             $("#adversary").html(self.data.nicknameAdr);
             // 채팅방 정보 가져오기
             $.sendHttp({
-                path: SERVER_PATH.SET_MESSAGE,
+                path: SERVER_PATH.GET_MESSAGE_NUM,
                 data: {
                     messageSender: self.data.loginInfo.peopleId,
                     messageReceiver: self.data.peopleId,
-                    messageContent: ""
                 },
-                error : function(data){
+                succ : function(data){
                     self.data.chatNumber = data.chatNumber;
                     $.sendHttp({
                         path: SERVER_PATH.GET_MESSAGE,
@@ -213,7 +215,7 @@
                 path: SERVER_PATH.SET_MESSAGE,
                 data: {
                     messageSender: self.data.loginInfo.peopleId,
-                    messageReceiver: self.data.adversary,
+                    messageReceiver: self.data.peopleId,
                     messageContent: value
                 },
                 succ: function (data) {
@@ -267,7 +269,7 @@
 
     M.onReady(function () {
         pageFunc.init();
-        pageFunc.initView();
+        // pageFunc.initView();
         pageFunc.initEvent();
     });
     M.onRestore(function(){

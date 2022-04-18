@@ -5,17 +5,17 @@
  */
 
 // 페이지 단위 모듈
-(function ($, module,window) {
+(function ($, module, window) {
 
     var page = {
         els: {
-            $btnBack : null,
-            $btnMenu : null,
-            $requestBtn : null,
-            $messageBtn : null,
-            $homeBtn : null,
-            $inquireBtn : null,
-            $myPageBtn : null
+            $btnBack: null,
+            $btnMenu: null,
+            $requestBtn: null,
+            $messageBtn: null,
+            $homeBtn: null,
+            $inquireBtn: null,
+            $myPageBtn: null
         },
         data: {},
         init: function init() {
@@ -28,67 +28,75 @@
             self.els.$inquireBtn = $('#inquire-btn');
             self.els.$myPageBtn = $('#my-page-btn');
             self.data.loginInfo = M.data.global('LOGIN_INFO');
-            console.log(self.data.loginInfo.peopleId);
-            if (self.data.loginInfo.peopleId === 'admin'){
-                $(self.els.$myPageBtn).children("p").html("신고리스트");
+            if (self.data.loginInfo.peopleId === 'admin') {
+                $(self.els.$myPageBtn).html("<img src=\"../img/pictogram/people.png\" alt=\"마이페이지\">\n" +
+                    "            <br />신고리스트");
             }
         },
-       initView: function initView() {
+        initView: function initView() {
             // 화면에서 세팅할 동적데이터
         },
         initEvent: function initEvent() {
             var self = this;
             // 뒤로가기
-            $(self.els.$btnBack).on('click',function(){
+            $(self.els.$btnBack).on('click', function () {
                 $.moveBack();
             });
             // 요청/견적
             // 사용자의
             // 프로 -> requestList
             // 피플 -> requestMyList
-            $(self.els.$requestBtn).on('click',function(){
-                $.movePage({
-                    url : "/www/html/people/requestMyList.html",
-                    actionType : 'NO_HISTORY'
-                });
+            $(self.els.$requestBtn).on('click', function () {
+                console.log(M.data.global('PRO_STATUS.proStatus'));
+                if (M.data.global('PRO_STATUS.proStatus') === true) { // 프로일때
+                    $.movePage({
+                        url: "/www/html/people/requestMyList.html",
+                        actionType: 'NO_HISTORY'
+                    });
+                } else {
+                    $.movePage({
+                        url: "/www/html/pro/estimateMyList.html",
+                        actionType: 'NO_HISTORY'
+                    });
+                }
             });
+
             // 메시지
-            $(self.els.$messageBtn).on('click',function(){
+            $(self.els.$messageBtn).on('click', function () {
                 $.movePage({
-                    url : "/www/html/service/messageList.html",
+                    url: "/www/html/service/messageList.html",
                 });
             });
             // 홈
-            $(self.els.$homeBtn).on('click',function(){
+            $(self.els.$homeBtn).on('click', function () {
                 $.movePage({
-                    url : "/www/html/main.html",
-                    actionType : 'NO_HISTORY'
+                    url: "/www/html/main.html",
+                    actionType: 'NO_HISTORY'
                 });
             });
             // 문의
-            $(self.els.$inquireBtn).on('click',function(){
+            $(self.els.$inquireBtn).on('click', function () {
                 $.movePage({
-                    url : "/www/html/member/qnaList.html",
+                    url: "/www/html/member/qnaList.html",
                 });
             });
             // 마이페이지 or 신고 리스트
-            $(self.els.$myPageBtn).on('click',function(){
-                console.log(self.data.loginInfo.peopleId);
-                if (self.data.loginInfo.peopleId !== 'admin'){
+            $(self.els.$myPageBtn).on('click', function () {
+                if (self.data.loginInfo.peopleId !== 'admin') {
+
                     $.movePage({
-                        url : "/www/html/member/mypage.html"
+                        url: "/www/html/member/mypage.html"
                     });
-                }else{
+                } else {
                     $.movePage({
-                        url : "/www/html/admin/reportList.html"
+                        url: "/www/html/admin/reportList.html"
                     });
                 }
-
             });
         }
     };
     window.__page__ = page;
-})(jQuery,__util__ ,window);
+})(jQuery, __util__, window);
 
 // 해당 페이지에서 실제 호출
 (function ($, M, pageFunc, window) {

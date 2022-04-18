@@ -118,7 +118,9 @@
                 if ($.isFunction(options.succ)) {
                     options.succ(data);
                 }
-            } else {
+            } else if(data.rsltCode == SERVER_CODE.SUCC){ // 로그인 필요시
+                swal('로그인')
+            }else {
                 // 실패
                 //$.modal(data.rsltMsg);
 

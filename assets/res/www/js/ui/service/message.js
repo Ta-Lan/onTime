@@ -59,6 +59,7 @@
                 succ: function (data) {
                     console.log(data);
                     self.data.isProRegisted = data.isProRegisted;
+                    self.data.nicknameAdr = data.nickname;
                     self.data.imagepath = $.imagePath(data.imagePath, data.storeImageName);
                 }
             });

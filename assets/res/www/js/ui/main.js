@@ -27,13 +27,13 @@
                     cnt: '8'
                 },
                 succ: function (data) {
+                    $("string.ellipsis2").html()
                     for (var i = 0; i < data.list.length; i++) {
                         console.log(data.list[i]);
                         self.addFeedList(data.list[i], i);
                     }
                 }
             });
-
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터

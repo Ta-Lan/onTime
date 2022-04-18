@@ -28,10 +28,11 @@
             self.els.$inquiryNumber = $('#inquiry-number');
             self.els.$subject = $('#subject');
             self.els.$content = $('#content');
-            self.els.$$chk1 = $('#chk1');
+            self.els.$chk1 = $('#chk1');
             self.els.$password = $('#password');
             self.els.$submit = $('#submit');
             self.els.$cancel = $('#cancel');
+            $("#password").attr("disabled", true);
             // 수정인지?
             if ($.isEmpty(M.data.param('isModify'))) { // 수정아닐때
                 self.data.isModify = false;
@@ -75,11 +76,19 @@
                 }
             });
             $(self.els.$submit).on('click', function () {
-                console.log('submit');
                 var inquiryTitle = self.els.$subject.val().trim();
                 var inquiryContent = self.els.$content.val().trim();
+                if ($.isEmpty(inquiryTitle)) {
+                    return swal.fire('제목을 입력하세요', '필수 입력사항입니다.', 'error')
+                }
+                ;
+                if ($.isEmpty(inquiryContent)) {
+                    return swal.fire('내용을 입력하세요', '필수 입력사항입니다.', 'error')
+                }
+                ;
                 if (self.data.isModify === true) { // 수정하기
                     var inquiryNumber = self.data.inquiryNumber;
+
                     $.sendHttp({
                         path: SERVER_PATH.QNA_UPDATE,
                         data: {
@@ -89,18 +98,24 @@
                         },
                         succ: function (data) {
                             console.log(data);
-                            swal('수정에 성공했습니다.').then();
-                            self.initView();
+                            swal.fire('수정에 성공했습니다.')
+                                .then((result) => {
+                                    self.initView();
+                                });
                         }
                     });
                 } else { // 등록하기
                     var status = "0";
-                    if ($("#chk1").is("checked")) {
+                    if ($("#chk1").is(":checked")) {
                         status = "1";
                     }
                     var password = self.els.$password.val().trim();
                     if (status === 0) { // 비밀글 일떄
                         password = null;
+                    }
+                    console.log(status);
+                    if ($.isEmpty(password)) {
+                        return swal.fire('패스워드를 입력하세요', '패스워드는 필수 입력사항입니다.', 'error');
                     }
                     $.sendHttp({
                         path: SERVER_PATH.QNA_REGIST,
@@ -112,7 +127,13 @@
                         },
                         succ: function (data) {
                             console.log(data);
-                            swal.fire('등록에 성공했습니다!', '', 'success').then($.moveBack());
+                            swal.fire({
+                                title: '등록에 성공했습니다!',
+                                icon: 'success'
+                            }).then((result) => {
+                                console.log(result);
+                                $.moveBack();
+                            });
                         }
                     });
                 }

@@ -54,7 +54,7 @@
                                 신 고 대 상
                             </th>
                             <td>
-                                <input type="text" value="박people" readonly="readonly" id="reportTarget" class="full"/>
+                                <input type="text" readonly="readonly" id="reportTarget" class="full"/>
                             </td>
                         </tr>
                         <tr>
@@ -70,17 +70,9 @@
                                 내 용
                             </th>
                             <td>
-                                <textarea class="full report-textarea">
+                                <textarea id="content" class="full report-textarea">
 퇴근하고싶은데 아직 5시37분이에요. 시간이 이상하게 느리게 가는 거 같아서 신고합니다.
                                 </textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="required">
-                                메 일
-                            </th>
-                            <td>
-                                <input type="text" id="email" value="people@talan.com" class="full"/>
                             </td>
                         </tr>
                     </tbody>
@@ -98,10 +90,10 @@
 
         <div class="btn-wrap count2 pd">
             <!--신고대상 회원 추방-->
-            <button type="button" class="btn-point-color">
+            <button type="button" id="approval" class="btn-point-color">
                 승인하기
             </button>
-            <button type="button" class="btn-line">
+            <button type="button" id="reject" class="btn-line">
                 반려하기
             </button>
         </div>
@@ -111,4 +103,5 @@
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
+<script type="text/javascript" src="../../js/ui/admin/reportDetail.js"></script>
 </html>

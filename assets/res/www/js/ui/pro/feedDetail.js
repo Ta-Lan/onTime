@@ -41,8 +41,8 @@
             // 화면에서 세팅할 동적데이터
             var self = this;
             // nick name get
-            var login_info = M.data.global("LOGIN_INFO");
-            self.data.myNickname = login_info.nickname;
+            self.data.loginInfo = M.data.global("LOGIN_INFO");
+            self.data.myNickname = self.data.loginInfo.nickname;
             var feedNumber = M.data.param("feedNumber");
             // chat 대화가 없을때
             $.sendHttp({
@@ -74,8 +74,8 @@
                     for (var i = 0; i < data.list.length; i++) {
                         $(self.els.$commentList).append(HTML.FEED_COMMENT_HTML);
                         $("div.comment-writer:eq(" + i + ")").html(data.list[i].nickname);
-                        // x 버튼 글쓴이 == l일때만 보이기
-                        if (self.data.myNickname === data.list[i].nickname) {
+                        // x 버튼 글쓴이 == l일때만 보이기 관리자일 경우 처리 가능까지
+                        if (self.data.myNickname === data.list[i].nickname || self.data.loginInfo.peopleId === 'admin') {
                             $("div.comment-write-date:eq(" + i + ")").append(data.list[i].feedCommentsRegisterDate);
                         } else {
                             $("div.comment-write-date:eq(" + i + ")").html(data.list[i].feedCommentsRegisterDate);
@@ -120,17 +120,34 @@
                 });
             });
             $("#comment-list").on('click', 'span.delete-comment', function () {
-                var result = confirm('정말 삭제하시겠습니까?');
-                if (result === true) {
-                    $.sendHttp({
-                        path: SERVER_PATH.FEED_COMMENT_DELETE,
-                        data: {
-                            feedCommentsNumber: $(this).attr('id')
-                        },
-                        succ: function (data) {
-                            console.log(data);
-                            alert('삭제되었습니다!');
-                            self.initView();
+                if (self.data.loginInfo.peopleId==='admin'){
+                    swal.fire('정말 삭제하시겠습니까?').then((result)=>{
+                        if (result.value === true){
+                            $.sendHttp({
+                                path: SERVER_PATH.FEED_COMMENT_DELETE,
+                                data: {
+                                    feedCommentsNumber: $(this).attr('id')
+                                },
+                                succ: function (data) {
+                                    swal('삭제되었습니다!');
+                                    self.initView();
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    swal.fire('정말 삭제하시겠습니까?').then((result)=>{
+                        if (result.value === true){
+                            $.sendHttp({
+                                path: SERVER_PATH.FEED_COMMENT_DELETE,
+                                data: {
+                                    feedCommentsNumber: $(this).attr('id')
+                                },
+                                succ: function (data) {
+                                    swal('삭제되었습니다!');
+                                    self.initView();
+                                }
+                            });
                         }
                     });
                 }

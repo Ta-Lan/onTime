@@ -54,7 +54,7 @@
                                 신 고 대 상
                             </th>
                             <td>
-                                <input type="text" placeholder="신고대상 입력" id="password" class="full"/>
+                                <input type="text" readonly placeholder="신고대상 입력" id="password" class="full"/>
                             </td>
                         </tr>
                         <tr>
@@ -76,15 +76,7 @@
                                 내 용
                             </th>
                             <td>
-                                <textarea class="full report-textarea" placeholder="신고내용 입력"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="required">
-                                메 일
-                            </th>
-                            <td>
-                                <input type="text" id="email" placeholder="이메일 입력" class="full"/>
+                                <textarea id="content" class="full report-textarea" placeholder="신고내용 입력"></textarea>
                             </td>
                         </tr>
                     </tbody>
@@ -101,10 +93,10 @@
     <!-- 푸터 영역 (푸터 디자인에 따라 바꿔치기 가능) -->
 
         <div class="btn-wrap count2 pd">
-            <button type="button" class="btn-point-color">
+            <button type="button" id="submit" class="btn-point-color">
                 신고하기
             </button>
-            <button type="button" class="btn-line">
+            <button type="button" id="cancel" class="btn-line">
                 취소하기
             </button>
         </div>

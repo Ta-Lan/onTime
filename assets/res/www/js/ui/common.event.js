@@ -27,8 +27,13 @@
             self.els.$homeBtn = $('#home-btn');
             self.els.$inquireBtn = $('#inquire-btn');
             self.els.$myPageBtn = $('#my-page-btn');
+            self.data.loginInfo = M.data.global('LOGIN_INFO');
+            console.log(self.data.loginInfo.peopleId);
+            if (self.data.loginInfo.peopleId === 'admin'){
+                $(self.els.$myPageBtn).children("p").html("신고리스트");
+            }
         },
-        initView: function initView() {
+       initView: function initView() {
             // 화면에서 세팅할 동적데이터
         },
         initEvent: function initEvent() {
@@ -66,11 +71,19 @@
                     url : "/www/html/member/qnaList.html",
                 });
             });
-            // 마이페이지
+            // 마이페이지 or 신고 리스트
             $(self.els.$myPageBtn).on('click',function(){
-                $.movePage({
-                    url : "/www/html/member/mypage.html"
-                });
+                console.log(self.data.loginInfo.peopleId);
+                if (self.data.loginInfo.peopleId !== 'admin'){
+                    $.movePage({
+                        url : "/www/html/member/mypage.html"
+                    });
+                }else{
+                    $.movePage({
+                        url : "/www/html/admin/reportList.html"
+                    });
+                }
+
             });
         }
     };

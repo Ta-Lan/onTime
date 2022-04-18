@@ -78,12 +78,22 @@
         QNA_UPDATE : "api/inquiry/update",
         QNA_REGIST : "api/inquiry/regist",
         QNA_DELETE : "api/inquiry/delete",
+
         //admin
         ADMIN_QNA_DELETE : "api/admin/inquiryDelete",
+        ADMIN_QNA_RESPONSE : "api/admin/response/regist",
+
+        //신고하기
+        REPORT_REGIST : "api/report/regist",
+        REPORT_LIST : "api/admin/reportList",
+        REPORT_DETAIL : "api/report/detail",
+        REPORT_PROCESS : "api/admin/report", //신고 처리
+
     };
 
     var SERVER_CODE = module.SERVER_CODE = {
         SUCC: '0000', // 성공시
+        LOGIN_REQUIRED: '1003' // 로그인 필요시
     }
 
     // 상수 키 값

@@ -34,7 +34,7 @@
                     console.log(data);
                     $("#inquiry-number").html(data.inquiryNumber);
                     $("#subject").html("RE: " + data.inquiryTitle);
-                    $("#content").html(data.inquiryContent + "&#10;&#10;=====================&#10;&#10;");
+                    $("#content").val(data.inquiryContent + "&#10;&#10;=====================&#10;&#10;");
                 }
             })
         },
@@ -43,7 +43,8 @@
             var self = this;
             self.els.$answer.on('click', function () {
                 var content = $("#content").val();
-                content.replaceAll(/\s*/g,"&#10;");
+                content = content.replace(/(\r\n|\n|\r)/gm, "</br>");
+                console.log(content);
                 $.sendHttp({
                     path: SERVER_PATH.ADMIN_QNA_RESPONSE,
                     data: {

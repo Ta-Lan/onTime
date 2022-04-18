@@ -106,17 +106,19 @@
                     });
                 } else { // 등록하기
                     var status = "0";
+                    var password = self.els.$password.val().trim();
                     if ($("#chk1").is(":checked")) {
                         status = "1";
+                        if ($.isEmpty(password)) {
+                            return swal.fire('패스워드를 입력하세요', '패스워드는 필수 입력사항입니다.', 'error');
+                        }
                     }
-                    var password = self.els.$password.val().trim();
+
                     if (status === 0) { // 비밀글 일떄
                         password = null;
+
                     }
-                    console.log(status);
-                    if ($.isEmpty(password)) {
-                        return swal.fire('패스워드를 입력하세요', '패스워드는 필수 입력사항입니다.', 'error');
-                    }
+
                     $.sendHttp({
                         path: SERVER_PATH.QNA_REGIST,
                         data: {

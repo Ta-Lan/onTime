@@ -15,6 +15,10 @@
 .card-title{
     font-size: 1.5em;
     display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:75%;
 
 }
 .card{
@@ -115,6 +119,12 @@ select{line-height:5rem;font-size:1.9rem;font-weight:bold;text-align: center;}
 
 .estimate-title{
     width:100%
+}
+.request-content{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 87.5%;
 }
 
 .decline-btn{

@@ -32,8 +32,12 @@
                 data:{},
                 succ: function(data){
                     console.log(data);
-                    for(var i = 0; i < data.list.length; i++){
-                        self.showRequestList(data, i);
+                    if(data.list.length == 0){
+                        $(".no-received-quotes").css("display","block");
+                    }else{
+                        for(var i = 0; i < data.list.length; i++){
+                            self.showRequestList(data, i);
+                        }
                     }
                 },
                 error: function(data, status){
@@ -43,14 +47,16 @@
         },
         initEvent: function initEvent() {
             // Dom Event 바인딩
-            $('#request-list').on('click', 'li.div-card', function(){
-                var self = this;
+            var self = this;
+            self.els.$requestList.on('click', 'div.card-body', function(){
+                var requestNumber =  $(this).parent().attr('id');
+                console.log(requestNumber);
                 $.movePage({
                     url:"/www/html/people/receivedEstimateList.html",
                     param:{
-                        requestNumber: $(self).attr('id')
+                        requestNumber: requestNumber
                     }
-                })
+                });
             })
             $('#request-list').on('click','button.decline-btn', function(){
                 var self = this;
@@ -63,7 +69,7 @@
                             $.sendHttp({
                                 path: SERVER_PATH.REQUEST_CLOSED,
                                 data:{
-                                    requestNumber: $(self).parent().parent().attr('id')
+                                    requestNumber: $(self).parent().attr('id')
                                 },
                                 succ: function(data){
                                     alert("요청이 마감되었습니다.");
@@ -90,7 +96,7 @@
             }else{
                 $("div.decline-btn-wrap:eq("+i+")").html("<button type='button' disabled class='declined-btn' id='declined-btn'>마감됨</button>")
             }
-            $("p.request-title:eq("+i+")").html(data.list[i].requestTitle);
+            $("p.request-content:eq("+i+")").html(data.list[i].requestContent);
         }
     };
     window.__page__ = page;

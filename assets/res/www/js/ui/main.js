@@ -36,7 +36,7 @@
                     for (var i = 0;i<data.popularFeeds.length; i++){
                         $(".item"+i+"").children("img").attr('src',$.imagePath(data.popularFeeds[i].filePath,data.popularFeeds[i].storeFileName,null,null));
                         $(".item"+i+"").children(".popular-info").children(".popular-title").html("<p class=\"popular-title\">"+data.popularFeeds[i].feedTitle+"<img src=\"../img/comment.png\" class=\"comment-img\"><span class=\"comment-count\">"+data.popularFeeds[i].commentsCount+"</span></p>")
-                        $(".item"+i+"").attr('name',data.list[i].feedNumber);
+                        $(".item"+i+"").attr('name',data.popularFeeds[i].feedNumber);
                     }
                     var owl = $('.owl-carousel');
                     owl.owlCarousel({

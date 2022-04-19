@@ -333,7 +333,7 @@
             });
         }
         if ($.isEmpty(image)) {
-            return "/res/www/img/profile-image.png"
+            return "/res/www/img/no-image-found-290180.png"
         } else {
             return path + image;
         }

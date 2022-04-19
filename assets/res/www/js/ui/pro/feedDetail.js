@@ -44,7 +44,7 @@
             self.data.loginInfo = M.data.global("LOGIN_INFO");
             self.data.myNickname = self.data.loginInfo.nickname;
             var feedNumber = M.data.param("feedNumber");
-            // chat 대화가 없을때
+            //
             $.sendHttp({
                 path: SERVER_PATH.FEED_DETAIL,
                 data: {
@@ -56,8 +56,9 @@
                     $("div.feed-writer").html(data.feedWriterNickname);
                     $("div.feed-write-date").html(data.feedRegisterDate);
 
-                    $("div#feed-image").html("<img src='" + $.imagePath(data.filePath, data.storeFileName,"img.feed-link",data.feedWriterId) + "'/>");
+                    $("div#feed-image").html("<img src='" + $.imagePath(data.filePath, data.storeFileName,null,null) + "'/>");
                     self.data.feedWriter = data.feedWriterId;
+                    self.getWriterInfo();
                 },
                 error: function errir(data) {
                     console.log(data);
@@ -182,6 +183,20 @@
             if (self.data.feedWriter !== loginInfo.peopleId) {
                 document.getElementById("is-my-feed").style.display = "none";
             }
+        },
+        getWriterInfo: function getWriterInfo(){
+            var self = this;
+            var proId = self.data.feedWriter;
+            $.sendHttp({
+                path : SERVER_PATH.PRO_INFO,
+                data : {
+                    proId : proId
+                },
+                succ : function (data){
+                    $("#feed-writer-image").html("<img src='"+$.imagePath(data.imagePath,data.storeImageName,"img.feed-link",proId)+"'>")
+
+                }
+            })
         }
     };
     window.__page__ = page;

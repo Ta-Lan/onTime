@@ -196,7 +196,7 @@
                     $("#feed-writer-image").html("<img src='"+$.imagePath(data.imagePath,data.storeImageName,"img.feed-link",proId)+"'>")
 
                 }
-            })
+            });
         }
     };
     window.__page__ = page;

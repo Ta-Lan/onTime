@@ -56,7 +56,7 @@
             self.els.$goPeople = $('#go-people');
             self.els.$feedWriteBtn = $('#pro-mypage3');
 
-            self.els.$paymentList = $('#payment-list');
+            self.els.$paymentList = $('#latest-payment');
             self.els.$requestList = $('#request-list');
             self.els.$estimateList = $('#estimate-list');
             self.els.$reviewList = $('#review-list');
@@ -96,7 +96,7 @@
             $.sendHttp({
                 path : SERVER_PATH.MY_PAGE,
                 succ : function(data){
-                    $("#latest-payment").html(data.payment);
+                    $("#latest-payment").html(data.paymentPro);
                     $("#latest-request").html(data.request);
                     $("#latest-estimate").html(data.estimate)
                     $("#latest-review").html(data.review);

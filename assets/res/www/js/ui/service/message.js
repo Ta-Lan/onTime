@@ -221,7 +221,7 @@
             $("div#" + data.messageContent + "").children(".receiver-message-box").html(data.messageContent);
             $("div#" + data.messageContent + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
             $("div#" + data.messageContent + "").children(".chat-profile").html("<img src='" + self.data.imagepath + "'>");
-            $("div.message-subtitle").children("span").html(self.data.loginInfo.peopleId);
+            $("div.message-subtitle").children("span").html(data.messageReceiver);
             $.sendHttp({
                 path: SERVER_PATH.ESTIMATE_DETAIL,
                 data: {

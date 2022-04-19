@@ -162,7 +162,7 @@
                     paymentType: self.els.$paymentType.val()
                 },
                 succ:function(data){
-                    swal('결제가 완료되었습니다.','','success')
+                    swal.fire('결제가 완료되었습니다.','','success')
                         .then(function(result){
                             $.movePage({
                                 url:"/www/html/people/paymentList.html",

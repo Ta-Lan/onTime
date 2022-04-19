@@ -111,7 +111,7 @@
         REVIEW_LIST : "api/review/list",
         REVIEW_DETAIL : "api/review/detail",
         REVIEW_RESPONSE : "api/review/response",
-
+        REVIEW_ANSWER : "api/review/response",
 
     };
 

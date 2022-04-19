@@ -50,6 +50,7 @@
                     paymentNumber: paymentNumber
                 },
                 succ: function(data){
+                    self.data.reviewNumber = data.reviewNumber;
                     $(self.els.$paymentDate).html(data.paymentDate);
                     $(self.els.$paymentNumber).html(data.paymentNumber);
                     $(self.els.$paymentStatus).html(data.progressiveStatus);
@@ -59,6 +60,10 @@
                     $(self.els.$proId).html(data.nickname+" 님의 견적서");
                     $(self.els.$estimateTitle).html(data.estimateTitle);
                     $(self.els.$estimateContent).html(data.estimateContent);
+                    if (data.reviewStatus === "1"){
+                        $(self.els.$reviewWrite).html("리뷰 이동");
+                        self.data.reviewStatus = "1";
+                    }
                 }
             })
         },
@@ -68,12 +73,22 @@
             // Dom Event 바인딩
             var self = this;
             self.els.$reviewWrite.on('click', function(){
-                $.movePage({
-                    url:"/www/html/people/reviewWrite.html",
-                    param:{
-                        paymentNumber: M.data.param("paymentNumber")
-                    }
-                })
+                if (self.data.reviewStatus === "1"){
+                    $.movePage({
+                        url:"/www/html/people/reviewDetail.html",
+                        param:{
+                            reviewNumber: self.data.reviewNumber
+                        }
+                    });
+                }else{
+                    $.movePage({
+                        url:"/www/html/people/reviewWrite.html",
+                        param:{
+                            paymentNumber: M.data.param("paymentNumber")
+                        }
+                    });
+                }
+
             })
         }
     };

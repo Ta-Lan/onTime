@@ -23,10 +23,12 @@
             self.els.$writeBtn = $('#write-btn');
             self.els.$requestList = $('#request-list');
             self.els.$category = $('#category');
+            //
+            self.data.category = M.data.param('category');
         },
         initView: function initView() {
             var self = this;
-            $('#category').val(M.data.param("category"));
+            $('#category').val(self.data.category);
             self.changeCategory(M.data.param("category"));
         },
         initEvent: function initEvent() {

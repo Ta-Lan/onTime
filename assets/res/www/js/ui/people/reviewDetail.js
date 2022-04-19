@@ -20,7 +20,7 @@
         init: function init() {
             var self = this;
             self.data.reviewNumber = M.data.param('reviewNumber');
-            //
+            console.log(self.data.reviewNumber);
             self.els.$comment = $("#comment");
             self.els.$submit = $("#submit");
         },
@@ -60,7 +60,7 @@
                     },
                     succ: function (data) {
                         console.log(data);
-                        swal.fire('답변을 등록했습니다.', '', 'success').then((result) => {
+                        swal('답변을 등록했습니다.', '', 'success').then((result) => {
                             $("#comment").val(" ");
                             self.initView();
                             }

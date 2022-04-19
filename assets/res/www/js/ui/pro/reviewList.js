@@ -25,14 +25,16 @@
             var self = this;
             self.els.$list.html(" ");
             $.sendHttp({
-                path : SERVER_PATH.REVIEW_MY_LIST,
+                path : SERVER_PATH.REVIEW_LIST_PRO,
                 succ : function(data){
                     console.log(data);
                     for (var i = 0; i<data.list.length;i++){
                         self.els.$list.append(HTML.QNA_ITEM);
-                        $("div.item-box-l:eq("+i+")").html(data.list[i].proNickname);
-                        $("div.item-box-r:eq("+i+")").html(datal.list[i].reviewDate);
+                        $("li.item-container-box:eq("+i+")").attr('id',data.list[i].reviewNumber);
+                        $("div.item-box-l:eq("+i+")").html(data.list[i].peopleNickname);
+                        $("div.item-box-r:eq("+i+")").html(data.list[i].reviewDate);
                         $("div.item-box-title:eq("+i+")").html(data.list[i].reviewTitle);
+                        $("div.item-box-content:eq("+i+")").html(data.list[i].reviewContent)
                     }
                     if (data.list.length === 0){
                         self.els.$list.append(HTML.NO_LIST);
@@ -45,6 +47,16 @@
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
+            self.els.$list.on('click','li',function(){
+                console.log($(this).attr('id'));
+                var reviewNumber = $(this).attr('id');
+                $.movePage({
+                    url : "/www/html/people/reviewDetail.html",
+                    param : {
+                        reviewNumber : reviewNumber
+                    }
+                });
+            })
         }
     };
     window.__page__ = page;

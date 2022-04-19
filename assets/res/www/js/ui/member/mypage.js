@@ -45,7 +45,8 @@
             self.els.$modifyInfo = $('#modify-info');
             self.els.$modifyIntro = $('#modify-intro');
             self.els.$paymentInfo = $('#payment-info');
-            self.els.$latestPayment = $('#latest-payment');
+            self.els.$latestPaymentPeople = $('#latest-payment-people');
+            self.els.$latestPaymentPro = $('#latest-payment-pro');
             self.els.$latestRequest = $('#latest-request');
             self.els.$latestEstimate = $('#latest-estimate');
             self.els.$latestReviewWrite = $('#latest-review-write');
@@ -56,7 +57,8 @@
             self.els.$goPeople = $('#go-people');
             self.els.$feedWriteBtn = $('#pro-mypage3');
 
-            self.els.$paymentList = $('#latest-payment');
+            self.els.$paymentListPeople = $('#latest-payment-people');
+            self.els.$paymentListPro = $('#latest-payment-pro');
             self.els.$requestList = $('#request-list');
             self.els.$estimateList = $('#estimate-list');
             self.els.$reviewList = $('#review-list');
@@ -96,21 +98,35 @@
             $.sendHttp({
                 path : SERVER_PATH.MY_PAGE,
                 succ : function(data){
-                    $("#latest-payment").html(data.paymentPro);
+                    $("#latest-payment-pro").html(data.paymentPro);
+                    $("#latest-payment-people").html(data.paymentPeople);
                     $("#latest-request").html(data.request);
                     $("#latest-estimate").html(data.estimate)
                     $("#latest-review").html(data.review);
                     $("#latest-inquiry").html(data.inquiry);
+                    $("#latest-review-receive").html(data.reviewPro);
                 }
             });
         },
         initEvent: function initEvent() {
             var self = this;
-            self.els.$paymentList.on('click', function(){
+            self.els.$paymentListPeople.on('click',function(){
                 $.movePage({
-                    url:"/www/html/people/paymentList.html"
+                    url:"/www/html/people/paymentList.html",
+                    param : {
+                        auth : 'people'
+                    }
                 });
             });
+            self.els.$paymentListPro.on('click',function(){
+                $.movePage({
+                    url:"/www/html/people/paymentList.html",
+                    param : {
+                        auth : 'pro'
+                    }
+                });
+            });
+
             self.els.$requestList.on('click', function(){
                 $.movePage({
                     url:"/www/html/people/requestMyList.html"
@@ -194,10 +210,12 @@
             $("#pro-mypage2").css("display", "block");
             $("#pro-mypage3").css("display", "block");
             $("#pro-mypage4").css("display", "block");
+            $("#pro-mypage5").css("display", "block");
             $("#people-mypage1").css("display", "none");
             $("#people-mypage2").css("display", "none");
             $("#people-mypage3").css("display", "none");
             $("#people-mypage4").css("display", "none");
+            $("#people-mypage5").css("display", "none");
             M.data.removeGlobal("PRO_STATUS.proStatus");
             console.log(M.data.global("PRO_STATUS.proStatus"));
             M.data.global("PRO_STATUS.proStatus", true);
@@ -213,10 +231,12 @@
             $("#pro-mypage2").css("display","none");
             $("#pro-mypage3").css("display", "none");
             $("#pro-mypage4").css("display", "none");
+            $("#pro-mypage5").css("display", "none");
             $("#people-mypage1").css("display", "block");
             $("#people-mypage2").css("display", "block");
             $("#people-mypage3").css("display", "block");
             $("#people-mypage4").css("display", "block");
+            $("#people-mypage5").css("display", "block");
             //pro로 전환
             $("#pro-mypage").css("display", "block");
             $("#people-mypage").css("display","none");

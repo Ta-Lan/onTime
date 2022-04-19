@@ -18,6 +18,7 @@
             $amount: null,
             $paymentType: null,
             $purchase: null,
+            $incomeName : null,
 
             $cardNumber: null,
             $cvc: null,
@@ -35,7 +36,7 @@
             self.els.$amount = $('#amount');
             self.els.$paymentType = $('input:radio[name="payment-type"]');
             self.els.$purchase = $('#purchase');
-
+            self.els.$incomeName = $('#income-name');
             self.els.$cardNumber = $('#card-number');
             self.els.$cvc = $('#cvc');
             self.els.$exdate1 = $('#exdate1');
@@ -154,6 +155,8 @@
                 if($.isEmpty(self.els.$incomeName)){return swal('입금자명을 입력하세요.','','error');}
             }
             console.log(self.data.Data.quotePrice);
+            console.log(estimateNumber);
+            console.log(self.els.$paymentType.val());
             $.sendHttp({
                 path: SERVER_PATH.PAYMENT,
                 data:{
@@ -162,7 +165,7 @@
                     paymentType: self.els.$paymentType.val()
                 },
                 succ:function(data){
-                    swal.fire('결제가 완료되었습니다.','','success')
+                    swal('결제가 완료되었습니다.','','success')
                         .then(function(result){
                             $.movePage({
                                 url:"/www/html/people/paymentList.html",

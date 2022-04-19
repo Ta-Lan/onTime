@@ -66,10 +66,10 @@
                                     결 제 유 형
                                 </th>
                                 <td>
-                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="payment-type"
+                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="card"
                                         value="card">
                                     <label for="card">카드</label>
-                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="payment-type"
+                                    <input type="radio" class="radio border-lightgray" name="payment-type" id="account"
                                         value="account">
                                     <label for="account">무통장입금</label>
                                 </td>
@@ -82,7 +82,7 @@
                         </tbody>
                     </table>
                     <!--카드/무통장 선택으로 hidden-->
-                    <table class="tbl-ipt"id="payment-card" style="display:none">
+                    <table class="tbl-ipt" id="payment-card" style="display:none">
                         <colgroup>
                             <col style="width:30%" />
                             <col style="width:70%" />
@@ -114,7 +114,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="tbl-ipt">
+                    <table class="tbl-ipt" id="payment-account">
                         <colgroup>
                             <col style="width:30%" />
                             <col style="width:70%" />

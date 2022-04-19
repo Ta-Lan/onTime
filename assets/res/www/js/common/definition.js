@@ -112,6 +112,7 @@
         REVIEW_DETAIL : "api/review/detail",
         REVIEW_RESPONSE : "api/review/response",
         REVIEW_ANSWER : "api/review/response",
+        REVIEW_LIST_PRO : "api/review/proList",
 
     };
 

@@ -18,6 +18,7 @@
         data: {},
         init: function init() {
             var self = this;
+            self.data.auth = M.data.param('auth');
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터

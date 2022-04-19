@@ -50,13 +50,11 @@
                 console.log(M.data.global('PRO_STATUS.proStatus'));
                 if (M.data.global('PRO_STATUS.proStatus') === true) { // 프로일때
                     $.movePage({
-                        url: "/www/html/people/requestMyList.html",
-                        actionType: 'NO_HISTORY'
+                        url: "/www/html/pro/estimateMyList.html",
                     });
                 } else {
                     $.movePage({
-                        url: "/www/html/pro/estimateMyList.html",
-                        actionType: 'NO_HISTORY'
+                        url: "/www/html/people/requestMyList.html",
                     });
                 }
             });

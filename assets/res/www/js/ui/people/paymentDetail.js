@@ -43,21 +43,22 @@
             // 화면에서 세팅할 동적데이터
             var self = this;
             var paymentNumber = M.data.param("paymentNumber");
+            console.log(paymentNumber);
             $.sendHttp({
                 path: SERVER_PATH.PAYMENT_DETAIL,
                 data:{
                     paymentNumber: paymentNumber
                 },
                 succ: function(data){
-                    self.els.$paymentDate.text(data.paymentDate);
-                    self.els.$paymentNumber.text(data.paymentNumber);
-                    self.els.$paymentStatus.text(data.progressiveStatus);
-                    self.els.$paymentAmount.text(data.paymentPrice+"원");
-                    self.els.$requestTitle.text(data.requestTitle);
-                    self.els.$requestContent.text(data.requestContent);
-                    self.els.$proId.text(data.nickname+" 님의 견적서");
-                    self.els.$estimateTitle.text(data.estimateTitle);
-                    self.els.$estimateContent.text(data.estimateContent);
+                    $(self.els.$paymentDate).html(data.paymentDate);
+                    $(self.els.$paymentNumber).html(data.paymentNumber);
+                    $(self.els.$paymentStatus).html(data.progressiveStatus);
+                    $(self.els.$paymentAmount).html(data.paymentPrice+"원");
+                    $(self.els.$requestTitle).html(data.requestTitle);
+                    $(self.els.$requestContent).html(data.requestContent);
+                    $(self.els.$proId).html(data.nickname+" 님의 견적서");
+                    $(self.els.$estimateTitle).html(data.estimateTitle);
+                    $(self.els.$estimateContent).html(data.estimateContent);
                 }
             })
         },
@@ -86,5 +87,8 @@
         pageFunc.initView();
         pageFunc.initEvent();
     });
+    M.onRestore(function(){
+        pageFunc.initView();
+    })
 
 })(jQuery, M, __page__, window);

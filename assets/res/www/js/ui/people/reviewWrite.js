@@ -27,7 +27,7 @@
             // 화면에서 세팅할 동적데이터
             var self = this;
             self.data.paymentNumber = M.data.param("paymentNumber");
-            //
+            console.log(self.data.paymentNumber);
             self.els.$subject = $("#subject");
             self.els.$content = $("#content");
             self.els.$starPoint = $("#star-point");
@@ -37,6 +37,7 @@
         initEvent: function initEvent() {
             // Dom Event 바인딩
             var self = this;
+            $("#payment-number").val(self.data.paymentNumber);
             self.els.$submit.on('click',function(){
                 var paymentNumber = self.data.paymentNumber;
                 var subject = self.els.$subject.val().trim();
@@ -54,6 +55,10 @@
                     },
                     succ : function(data){
                         console.log(data);
+                        swal.fire('리뷰 작성을 완료했습니다','','success')
+                            .then((result)=>{
+                                $.moveBack();
+                            });
                     }
                 });
             });

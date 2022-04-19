@@ -77,7 +77,7 @@
         FEED_COMMENT_REGIST: "api/feed/commentsRegist", //피드 댓글 작성
         FEED_COMMENT_DETAIL: "api/feed/commentsDetail", //피드 댓글 조회
         FEED_COMMENT_DELETE: "api/feed/commentsDelete", //피드 댓글 삭제
-        FEED_LIST_BY_WRITER: "api/feed/listByWriter", //피드 작성자별 리스트
+        FEED_LIST_BY_WRITER: "api/feed/proList", //피드 작성자별 리스트
 
         //estimate
         ESTIMATE_REGIST: "api/estimate/regist", //견적서 등록
@@ -92,6 +92,7 @@
         QNA_UPDATE : "api/inquiry/update",
         QNA_REGIST : "api/inquiry/regist",
         QNA_DELETE : "api/inquiry/delete",
+        QNA_MY_LIST : "api/inquiry/personalList",
 
         //admin
 
@@ -132,6 +133,25 @@
 
     // html default form
     var HTML = module.HTML = {
+        FEED_CONTENT : "<li>\n" +
+            "                        <div class=\"thumbnail-wrap\">\n" +
+            "                            <div class=\"thumbnail\">\n" +
+            "                                <img src=\"../../img/pro-feed-image.png\" alt=\"\"/>\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"info-box\">\n" +
+            "                            <div class=\"info-box-top\">\n" +
+            "                                <strong class=\"ellipsis_1\">\n" +
+            "                                    PRO FEED TITLE\n" +
+            "                                </strong>\n" +
+            "                            </div>\n" +
+            "                            <div class=\"info-box-btm\">\n" +
+            "                                <p style=\"text-align:left;\" class=\"ellipsis_1\">\n" +
+            "                                    PRO FEED CONTENT\n" +
+            "                                </p>\n" +
+            "                            </div>\n" +
+            "                        </div>\n" +
+            "                    </li>",
         FEED_COMMENT_HTML: "<ul>\n" +
             "                    <li>\n" +
             "                        <div class=\"comment-writer-info\">\n" +
@@ -243,6 +263,48 @@
             "                            <div class=\"receiver-message-box\">\n" +
             // "                                안녕못해요? 혹시 죄송한데 실례가 되지 않으면 집에 보내주시겠어요?\n" +
             "                            </div>\n" +
+            "                            <div class=\"message-status\">\n" +
+            "                                <p class=\"message-time\">\n" +
+            "                                    <span>" +
+            // "                               오전 10:49" +
+            "                                   </span>\n" +
+            "                                </p>\n" +
+            "                            </div>\n" +
+            "                        </div>",
+        MESSAGE_SEND_ESTIMATE: "<div class=\"r-message-bubble bubble\">\n" +
+            "                           <div class=\"sender-message-box\">\n" +
+            "                                <div class=\"message-title\">\n" +
+            "                                    <img src=\"../../img/icon-money.png\">\n" +
+            "                                    견적서를 보냈습니다.\n" +
+            "                                </div>\n" +
+            "                                <div class=\"message-subtitle\">\n" +
+            "                                    <span>doyoung</span> 고객님 안녕하세요. 요청서에 따른 예상 금액입니다.\n" +
+            "                                </div>\n" +
+            "                                <div class=\"divider\"></div>\n" +
+            "                                <div class=\"service-info\">\n" +
+            "                                    <span class=\"service\">서비스</span>\n" +
+            "                                    <span class=\"service-name\">방송댄스 레슨</span>\n" +
+            "                                </div>\n" +
+            "                                <div class=\"price-info\">\n" +
+            "                                    <span class=\"price\">예상금액</span>\n" +
+            "                                    <span class=\"price-value\">시간 당 20,000원</span>\n" +
+            "                                </div>\n" +
+            "                                <div class=\"divider\"></div>\n" +
+            "                                <div class=\"guide\">\n" +
+            "                                    <div class=\"guide-icon\">\n" +
+            "                                        <img src=\"../../img/ico-noti.png\">\n" +
+            "                                    </div>\n" +
+            "                                    <div class=\"guide-text\">\n" +
+            "                                        견적금액에 대해 궁금한 점을 채팅으로 물어보세요!\n" +
+            "                                    </div>\n" +
+            "                                </div>\n" +
+            "                                <div class=\"message-foot\">\n" +
+            "                                    <button class=\"estimate-btn\">\n" +
+            "                                        <!--detailEstimate이동-->\n" +
+            "                                        견적서 상세보기 <img src=\"../../img/ico-arrow-white.png\">\n" +
+            "                                    </button>\n" +
+            "                                </div>\n" +
+            "                            </div>" +
             "                            <div class=\"message-status\">\n" +
             "                                <p class=\"message-time\">\n" +
             "                                    <span>" +

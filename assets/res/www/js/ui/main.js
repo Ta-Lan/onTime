@@ -113,7 +113,7 @@
         addFeedList: function addFeedList(feedData, idx) {
             $("strong.ellipsis_1:eq(" + idx + ")").html(feedData.feedTitle);
             $("p.ellipsis_1:eq(" + idx + ")").html(feedData.feedContent);
-            $("li.feed-li:eq(" + idx + ")").attr('id', feedData.feedNumber);
+            $("#feed-list").children("li.feed-li:eq(" + idx + ")").attr('id', feedData.feedNumber);
             if (feedData.filePath === null) {
                 $("div.thumbnail:eq(" + idx + ")").html("<img src='/res/www/img/profile-image.png'/>");
             } else {

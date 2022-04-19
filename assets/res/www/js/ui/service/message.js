@@ -59,10 +59,10 @@
                     messageSender: self.data.loginInfo.peopleId,
                     messageReceiver: self.data.peopleId,
                 },
-                succ : function(data){
+                succ: function (data) {
                     console.log(data);
                 },
-                error : function(data){
+                error: function (data) {
                     console.log(data);
                 }
             });
@@ -78,7 +78,8 @@
                     messageSender: self.data.loginInfo.peopleId,
                     messageReceiver: self.data.peopleId,
                 },
-                succ : function(data){
+                succ: function (data) {
+                    console.log(data);
                     self.data.chatNumber = data.chatNumber;
                     $.sendHttp({
                         path: SERVER_PATH.GET_MESSAGE,
@@ -86,6 +87,7 @@
                             chatNumber: self.data.chatNumber
                         },
                         succ: function (data) {
+                            console.log(data);
                             console.log(data.Data);
                             $("#chatting").html(" "); // 기존 채팅 내역 지우기
                             if (data.Data.length === 0) {
@@ -110,7 +112,11 @@
                                         self.receiveEstimate(data.Data[i], i);
                                     }
                                 } else { // 송신 메세지
-                                    self.sendMessage(data.Data[i], i);
+                                    if (data.Data[i].messageNumber.substr(0, 8) === 'MESSAGES') { // 메시지인 경우
+                                        self.sendMessage(data.Data[i], i);
+                                    } else {
+                                        self.sendEstimate(data.Data[i], i);
+                                    }
                                     self.data.adversary = data.Data[i].messageReceiver;
                                 }
                             }
@@ -185,10 +191,10 @@
         receiveEstimate: function receiveEstimate(data, idx) {
             var self = this;
             $("#chatting").append(HTML.MESSAGE_ESTIMATE);
-            $("div.bubble:eq(" + idx + ")").attr('id', data.messageNumber);
-            $("div#" + data.messageNumber + "").children(".receiver-message-box").html(data.messageContent);
-            $("div#" + data.messageNumber + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
-            $("div#" + data.messageNumber + "").children(".chat-profile").html("<img src='" + self.data.imagepath + "'>");
+            $("div.bubble:eq(" + idx + ")").attr('id', data.messageContent);
+            $("div#" + data.messageContent + "").children(".receiver-message-box").html(data.messageContent);
+            $("div#" + data.messageContent + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
+            $("div#" + data.messageContent + "").children(".chat-profile").html("<img src='" + self.data.imagepath + "'>");
             $("div.message-subtitle").children("span").html(self.data.loginInfo.peopleId);
             $.sendHttp({
                 path: SERVER_PATH.ESTIMATE_DETAIL,
@@ -197,16 +203,36 @@
                 },
                 succ: function (datas) {
                     console.log(datas);
-                    self.getRequest(datas.requestNumber, data.messageNumber, datas.quotePrice);
+                    self.getRequest(datas.requestNumber, data.messageContent, datas.quotePrice);
                 }
             });
-            self.setEvent(data.messageNumber);
+            self.setEvent(data.messageContent);
         },
         sendMessage: function sendMessage(data, idx) {
             $("#chatting").append(HTML.MESSAGE_SEND);
             $("div.bubble:eq(" + idx + ")").attr('id', data.messageNumber);
             $("div#" + data.messageNumber + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
             $("div#" + data.messageNumber + "").children(".receiver-message-box").html(data.messageContent);
+        },
+        sendEstimate: function sendEstimate(data, idx) {
+            var self = this;
+            $("#chatting").append(HTML.MESSAGE_SEND_ESTIMATE);
+            $("div.bubble:eq(" + idx + ")").attr('id', data.messageContent);
+            $("div#" + data.messageContent + "").children(".receiver-message-box").html(data.messageContent);
+            $("div#" + data.messageContent + "").children(".message-status").children(".message-time").html("<span>" + data.messageTime.substr(12, 5) + "</span>");
+            $("div#" + data.messageContent + "").children(".chat-profile").html("<img src='" + self.data.imagepath + "'>");
+            $("div.message-subtitle").children("span").html(self.data.loginInfo.peopleId);
+            $.sendHttp({
+                path: SERVER_PATH.ESTIMATE_DETAIL,
+                data: {
+                    estimateNumber: data.messageContent
+                },
+                succ: function (datas) {
+                    console.log(datas);
+                    self.getRequest(datas.requestNumber, data.messageContent, datas.quotePrice);
+                }
+            });
+            self.setEvent(data.messageContent);
         },
         sendEvent: function sendEvent() {
             var self = this;
@@ -258,7 +284,7 @@
         },
         noData: function noData() {
             $("#chatting").append(HTML.NO_LIST);
-            $("#no-message").html("대화 내역이 없습니다.");
+            $("#title-h3").html("대화 내역이 없습니다.");
             $(".desc").html("채팅을 시작해보세요!");
         },
     };
@@ -272,7 +298,7 @@
         // pageFunc.initView();
         pageFunc.initEvent();
     });
-    M.onRestore(function(){
+    M.onRestore(function () {
         pageFunc.initView();
     });
 

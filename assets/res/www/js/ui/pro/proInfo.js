@@ -35,10 +35,12 @@
             $.sendHttp({
                 path: SERVER_PATH.FEED_LIST_BY_WRITER,
                 data: {
-                    proId : self.data.proId
+                    proId : self.data.proId,
+                    cnt : "0"
                 },
                 succ: function (data) {
                     // 리스트의 개수에 따라
+                    console.log(data);
                     if (data.list.length > 0){
                         $("#list").html(" ");
                         for (var i = 0; i < data.list.length; i++) {
@@ -58,7 +60,7 @@
                 succ : function(data){
                     console.log(data);
                     self.data.nickname = data.nickname;
-                    $("div.people-info-name").html(data.nickname + "pro님의 프로필");
+                    $("div.people-info-name").html(data.nickname + "님의 프로필");
                     $("div.people-info-name").append($.setStar(data.kindScore,data.reviewCount));
                     $(".pro-image-img").attr('src',$.imagePath(data.imagePath,data.storeImageName));
                     $(".item-info").html(data.intro + "</br>" +

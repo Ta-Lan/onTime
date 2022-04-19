@@ -108,7 +108,6 @@
                     path: SERVER_PATH.FEED_DELETE,
                     data: {
                         feedNumber: feedNumber,
-                        nickname : self.data.myNickname
                     },
                     succ: function (data) {
                         console.log(data);

@@ -22,7 +22,8 @@
             $latestPayment: null,
             $latestRequest: null,
             $latestEstimate:null,
-            $latestReview: null,
+            $latestReviewWrite: null,
+            $latestReviewReceive: null,
             $latestInquiry: null,
             $proRegist: null,
             $goPro: null,
@@ -47,7 +48,8 @@
             self.els.$latestPayment = $('#latest-payment');
             self.els.$latestRequest = $('#latest-request');
             self.els.$latestEstimate = $('#latest-estimate');
-            self.els.$latestReview = $('#latest-review');
+            self.els.$latestReviewWrite = $('#latest-review-write');
+            self.els.$latestReviewReceive = $('#latest-review-receive');
             self.els.$latestInquiry = $('#latest-inquiry');
             self.els.$proRegist = $('#pro-register');
             self.els.$goPro = $('#go-pro');
@@ -119,14 +121,19 @@
                     url:"/www/html/pro/estimateMyList.html"
                 })
             });
-            self.els.$reviewList.on('click', function(){
+            self.els.$latestReviewWrite.on('click', function(){
                 $.movePage({
                     url:"/www/html/people/reviewMyList.html"
                 });
             });
+            self.els.$latestReviewReceive.on('click', function(){
+                $.movePage({
+                    url:"/www/html/pro/reviewList.html"
+                });
+            });
             self.els.$inquiryList.on('click', function(){
                 $.movePage({
-                    url:"/www/html/pro/qnaMyList.html"
+                    url:"/www/html/member/qnaMyList.html"
                 });
             });
             self.els.$goPro.on('click', function () {
@@ -186,9 +193,11 @@
             $("#pro-mypage1").css("display", "block");
             $("#pro-mypage2").css("display", "block");
             $("#pro-mypage3").css("display", "block");
+            $("#pro-mypage4").css("display", "block");
             $("#people-mypage1").css("display", "none");
             $("#people-mypage2").css("display", "none");
             $("#people-mypage3").css("display", "none");
+            $("#people-mypage4").css("display", "none");
             M.data.removeGlobal("PRO_STATUS.proStatus");
             console.log(M.data.global("PRO_STATUS.proStatus"));
             M.data.global("PRO_STATUS.proStatus", true);
@@ -203,9 +212,11 @@
             $("#pro-mypage1").css("display","none");
             $("#pro-mypage2").css("display","none");
             $("#pro-mypage3").css("display", "none");
+            $("#pro-mypage4").css("display", "none");
             $("#people-mypage1").css("display", "block");
             $("#people-mypage2").css("display", "block");
             $("#people-mypage3").css("display", "block");
+            $("#people-mypage4").css("display", "block");
             //pro로 전환
             $("#pro-mypage").css("display", "block");
             $("#people-mypage").css("display","none");

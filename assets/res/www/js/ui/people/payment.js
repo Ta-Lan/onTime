@@ -166,8 +166,7 @@
                         .then(function(result){
                             $.movePage({
                                 url:"/www/html/people/paymentList.html",
-                            }),
-                            
+                            });
                             }    
                         );
                 },

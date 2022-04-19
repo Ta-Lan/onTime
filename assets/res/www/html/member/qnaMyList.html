@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../css/morpheus-style.css" />
     <link rel="stylesheet" href="../../css/swiper.min.css" />
     <link rel="stylesheet" href="../../css/muikit.css" />
+    <link rel="stylesheet" href="../../css/ui/requestlist.css">
 </head>
 
 <body>
@@ -21,86 +22,96 @@
         <button type="button" class="btn-back l-fix">
             뒤로가기
         </button>
-        </div>
+        <img src="../../img/ico-write.png" id="write-btn" class="write-btn r-fix" alt="write button"/>
     </header>
 
     <!-- 상단바 -->
     <div class="container">
         <div class="aa">
-            <ul class="page-list">
-                <li class="item-container-box">
-                    <div class="item-box-top">
-                        <div class="item-box-l">답변 전</div>
-                        <div class="item-box-r">2022.03.31</div>
-                    </div>
-                    <div class="item-box-bottom">
-                        <img src="../../img/img.png" />
-                        <div class="item-box-btm-l">
-                            <div class="item-box-title">앱이 개똥이에요</div>
-                            <div class="item-box-content">이따구로 만들면 누가 사용하나요?</div>
-                        </div>
-                        <div class="item-box-btm-r">
-                            <div class="item-box-status">
-                                상세 보기
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="item-container-box">
-                    <div class="item-box-top">
-                        <div class="item-box-l">답변 전</div>
-                        <div class="item-box-r">2022.03.31</div>
-                    </div>
-                    <div class="item-box-bottom">
-                        <img src="../../img/img.png" />
-                        <div class="item-box-btm-l">
-                            <div class="item-box-title">이 편지는</div>
-                            <div class="item-box-content">영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게 행운을 주었고 지금은 당신에게로 옮겨진 이 편지는 4일 안에 당신 곁을 떠나야 합니다.</div>
-                        </div>
-                        <div class="item-box-btm-r">
-                            <div class="item-box-status">
-                                상세 보기
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="item-container-box">
-                    <div class="item-box-top">
-                        <div class="item-box-l">답변 완료</div>
-                        <div class="item-box-r">2022.03.31</div>
-                    </div>
-                    <div class="item-box-bottom">
-                        <img src="../../img/img.png" />
-                        <div class="item-box-btm-l">
-                            <div class="item-box-title">문의 제목</div>
-                            <div class="item-box-content">문의 내용</div>
-                        </div>
-                        <div class="item-box-btm-r">
-                            <div class="item-box-status">
-                                상세 보기
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="item-container-box">
-                    <div class="item-box-top">
-                        <div class="item-box-l">답변 완료</div>
-                        <div class="item-box-r">2022.03.31</div>
-                    </div>
-                    <div class="item-box-bottom">
-                        <img src="../../img/img.png" />
-                        <div class="item-box-btm-l">
-                            <div class="item-box-title">문의 제목</div>
-                            <div class="item-box-content">문의 내용</div>
-                        </div>
-                        <div class="item-box-btm-r">
-                            <div class="item-box-status">
-                                상세 보기
-                            </div>
-                        </div>
-                    </div>
-                </li>
+            <ul class="page-list" id="list">
+<!--                <li class="item-container-box">-->
+<!--                    <div class="item-box-top">-->
+<!--                        <div class="item-box-l">답변 전</div>-->
+<!--                        <div class="item-box-r">2022.03.31</div>-->
+<!--                    </div>-->
+<!--                    <div class="item-box-bottom">-->
+<!--                        <img src="../../img/img.png" />-->
+<!--                        <div class="item-box-btm-l">-->
+<!--                            <div class="item-box-title">앱이 개똥이에요</div>-->
+<!--                            <div class="item-box-content">이따구로 만들면 누가 사용하나요?</div>-->
+<!--                        </div>-->
+<!--                        <div class="item-box-btm-r">-->
+<!--                            <div class="item-box-status">-->
+<!--                                상세 보기-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="item-container-box">-->
+<!--                    <div class="item-box-top">-->
+<!--                        <div class="item-box-l">답변 전</div>-->
+<!--                        <div class="item-box-r">2022.03.31</div>-->
+<!--                    </div>-->
+<!--                    <div class="item-box-bottom">-->
+<!--                        <img src="../../img/img.png" />-->
+<!--                        <div class="item-box-btm-l">-->
+<!--                            <div class="item-box-title">이 편지는</div>-->
+<!--                            <div class="item-box-content">영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게 행운을 주었고 지금은 당신에게로 옮겨진 이 편지는 4일 안에 당신 곁을 떠나야 합니다.</div>-->
+<!--                        </div>-->
+<!--                        <div class="item-box-btm-r">-->
+<!--                            <div class="item-box-status">-->
+<!--                                상세 보기-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="item-container-box">-->
+<!--                    <div class="item-box-top">-->
+<!--                        <div class="item-box-l">답변 완료</div>-->
+<!--                        <div class="item-box-r">2022.03.31</div>-->
+<!--                    </div>-->
+<!--                    <div class="item-box-bottom">-->
+<!--                        <img src="../../img/img.png" />-->
+<!--                        <div class="item-box-btm-l">-->
+<!--                            <div class="item-box-title">문의 제목</div>-->
+<!--                            <div class="item-box-content">문의 내용</div>-->
+<!--                        </div>-->
+<!--                        <div class="item-box-btm-r">-->
+<!--                            <div class="item-box-status">-->
+<!--                                상세 보기-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="item-container-box">-->
+<!--                    <div class="item-box-top">-->
+<!--                        <div class="item-box-l">답변 완료</div>-->
+<!--                        <div class="item-box-r">2022.03.31</div>-->
+<!--                    </div>-->
+<!--                    <div class="item-box-bottom">-->
+<!--                        <img src="../../img/img.png" />-->
+<!--                        <div class="item-box-btm-l">-->
+<!--                            <div class="item-box-title">문의 제목</div>-->
+<!--                            <div class="item-box-content">문의 내용</div>-->
+<!--                        </div>-->
+<!--                        <div class="item-box-btm-r">-->
+<!--                            <div class="item-box-status">-->
+<!--                                상세 보기-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </li>-->
             </ul>
+            <div class="no-received-quotes" style="display:none">
+                <article class="no-items align-self-center text-center">
+                    <img src="../../img/folder.png"/>
+                    <h3 style="font-weight:700;font-size:2rem">등록된 문의 사항이 없습니다.</h3>
+                    <p class="help-block p2">
+                    <div class="desc">운영진에게 궁금한것을 물어보세요</div>
+                    </p>
+                    <!---->
+                </article>
+            </div>
         </div>
     </div>
     <!-- 하단바 -->
@@ -139,5 +150,5 @@
 <!-- 뒤로가기 홈버튼 등 기본 동작에 대한 js 파일-->
 <script type="text/javascript" src="../../js/ui/common.event.js"></script>
 <!-- 페이지마다 만든 js 파일 여기에 추가해주기-->
-<script type="text/javascript" src="../../js/ui/member/qnaDetail.js"></script>
+<script type="text/javascript" src="../../js/ui/member/qnaMyList.js"></script>
 </html>

@@ -23,7 +23,7 @@
         data: {},
         init: function init() {
             var self = this;
-            self.els.$name = $('#name');
+            self.els.$name = $('#pro-id');
             self.els.$timeExpect = $('#time-expect');
             self.els.$price = $('#price');
             self.els.$subject = $('#subject');
@@ -32,6 +32,9 @@
             self.els.$purchase = $('#purchase');
             self.data.loginInfo = M.data.global("LOGIN_INFO");
             self.data.estimateNumber = M.data.param('estimateNumber');
+            console.log(self.data.estimateNumber);
+            self.data.proId = M.data.param('proId');
+
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
@@ -45,11 +48,16 @@
                 },
                 succ : function(data){
                     console.log(data);
+                    self.data.proId = data.proId;
                     $(self.els.$name).html(data.proId);
                     $(self.els.$timeExpect).val(data.predictTime);
                     $(self.els.$price).val(data.quotePrice+'원');
                     $(self.els.$subject).val(data.estimateTitle);
                     $(self.els.$content).html(data.estimateContent);
+
+                    if (self.data.proId === self.data.loginInfo.peopleId){
+                        $(".footer").css("display", "none");
+                    }
                 }
             });
         },
@@ -73,7 +81,7 @@
                         estimateNumber : self.data.estimateNumber,
                     }
                 })
-            })
+            });
         }
     };
     window.__page__ = page;

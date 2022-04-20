@@ -3452,6 +3452,7 @@ input[type=range]:not(.rating) {
 
 .delete-comment {
     color: red;
+    font-size: 1rem;
 }
 
 .comment-inbox {

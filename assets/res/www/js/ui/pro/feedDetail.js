@@ -56,7 +56,7 @@
                     $("div.feed-writer").html(data.feedWriterNickname);
                     $("div.feed-write-date").html(data.feedRegisterDate);
 
-                    $("div#feed-image").html("<img src='" + $.imagePath(data.filePath, data.storeFileName,null,null) + "'/>");
+                    $("div#feed-image").html("<img src='" + $.imagePath(data.filePath, data.storeFileName, null, null) + "'/>");
                     self.data.feedWriter = data.feedWriterId;
                     self.getWriterInfo();
                 },
@@ -120,13 +120,23 @@
                 });
             });
             $("#comment-list").on('click', 'span.delete-comment', function () {
-                if (self.data.loginInfo.peopleId==='admin'){
-                    swal.fire('정말 삭제하시겠습니까?').then((result)=>{
-                        if (result.value === true){
+                var self2 = this;
+                if (self.data.loginInfo.peopleId === 'admin') {
+                    swal.fire({
+                        title: '정말 삭제하시겠습니까?!',
+                        icon: 'info',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: '확인',
+                        cancelButtonText: '취소'
+                    }).then((result) => {
+                        console.log(result);
+                        if (result.value === true) {
                             $.sendHttp({
                                 path: SERVER_PATH.FEED_COMMENT_DELETE,
                                 data: {
-                                    feedCommentsNumber: $(this).attr('id')
+                                    feedCommentsNumber: $(self2).attr('id')
                                 },
                                 succ: function (data) {
                                     swal('삭제되었습니다!');
@@ -135,16 +145,24 @@
                             });
                         }
                     });
-                }else{
-                    swal.fire('정말 삭제하시겠습니까?').then((result)=>{
-                        if (result.value === true){
+                } else {
+                    swal.fire({
+                        title: '정말 삭제하시겠습니까?!',
+                        icon: 'info',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: '확인',
+                        cancelButtonText: '취소'
+                    }).then((result) => {
+                        if (result.value === true) {
                             $.sendHttp({
                                 path: SERVER_PATH.FEED_COMMENT_DELETE,
                                 data: {
-                                    feedCommentsNumber: $(this).attr('id')
+                                    feedCommentsNumber: $(self2).attr('id')
                                 },
                                 succ: function (data) {
-                                    swal('삭제되었습니다!');
+                                    swal.fire('삭제되었습니다!');
                                     self.initView();
                                 }
                             });
@@ -184,16 +202,16 @@
                 document.getElementById("is-my-feed").style.display = "none";
             }
         },
-        getWriterInfo: function getWriterInfo(){
+        getWriterInfo: function getWriterInfo() {
             var self = this;
             var proId = self.data.feedWriter;
             $.sendHttp({
-                path : SERVER_PATH.PRO_INFO,
-                data : {
-                    proId : proId
+                path: SERVER_PATH.PRO_INFO,
+                data: {
+                    proId: proId
                 },
-                succ : function (data){
-                    $("#feed-writer-image").html("<img src='"+$.imagePath(data.imagePath,data.storeImageName,"img.feed-link",proId)+"'>")
+                succ: function (data) {
+                    $("#feed-writer-image").html("<img src='" + $.imagePath(data.imagePath, data.storeImageName, "img.feed-link", proId) + "'>")
 
                 }
             });

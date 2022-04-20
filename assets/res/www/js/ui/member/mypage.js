@@ -11,6 +11,7 @@
     var SERVER_CODE = CONFIG.SERVER_CODE;
     var SERVER_PATH = CONFIG.SERVER_PATH;
     var proStatus = M.data.global("PRO_STATUS.proStatus");
+    var HTML = CONFIG.HTML;
     var page = {
         els: {
             $nickname: null,
@@ -63,6 +64,8 @@
             self.els.$estimateList = $('#estimate-list');
             self.els.$reviewList = $('#review-list');
             self.els.$inquiryList = $('#inquiry-list');
+
+            self.data.loginInfo = M.data.global("LOGIN_INFO");
         },
         initView: function initView() {
             // 화면에서 세팅할 동적데이터
@@ -107,6 +110,23 @@
                     $("#latest-review-receive").html(data.reviewPro);
                 }
             });
+
+            $.sendHttp({
+                path : SERVER_PATH.FEED_LIST_BY_WRITER,
+                data : {
+                    proId : self.data.loginInfo.peopleId
+                },
+                succ : function(data){
+                    if (data.list.length > 0){
+                        $("#list").html(" ");
+                        for (var i = 0; i < data.list.length; i++) {
+                            self.addFeedList(data.list[i], i);
+                        }
+                    }else{
+                        self.noFeedList();
+                    }
+                }
+            })
         },
         initEvent: function initEvent() {
             var self = this;
@@ -248,7 +268,19 @@
         },
         updateImage: function updateImage(){
             //프로필 이미지 수정
-        }
+        },
+        addFeedList: function addFeedList(feedData, idx) {
+            $("#list").append(HTML.FEED_CONTENT);
+            $("strong.ellipsis_1:eq(" + idx + ")").html(feedData.feedTitle);
+            $("p.ellipsis_1:eq(" + idx + ")").html(feedData.feedContent);
+            $("#list>li:eq(" + idx + ")").attr('id', feedData.feedNumber);
+            $(".feed-image:eq(" + idx + ")").attr('src',$.imagePath(feedData.filePath,feedData.storeFileName,null,null));
+        },
+        noFeedList: function noFeedList(){
+            var self = this;
+            $(self.els.$list).hide();
+            $(self.els.$list).after(HTML.NO_LIST);
+        },
         
     };
     window.__page__ = page;

@@ -36,6 +36,7 @@
                 succ: function (data) {
                     $("#subject").html(data.reviewTitle);
                     $("#content").html(data.reviewContent);
+                    $("#star-point").html(" ");
                     for (var i = 0; i < data.starPoint; i++) {
                         $("#star-point").append("⭐");
                     }

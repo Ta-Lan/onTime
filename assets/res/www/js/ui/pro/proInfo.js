@@ -115,7 +115,7 @@
             var self = this;
             $(self.els.$list).hide();
             $(self.els.$list).after(HTML.NO_LIST);
-        }
+        },
     };
     window.__page__ = page;
 })(jQuery, __config__, window);

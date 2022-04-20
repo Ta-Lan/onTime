@@ -82,7 +82,10 @@
                         console.log(data);
                         $.movePage({
                            url : "/www/html/pro/requestList.html",
-                           action: "CLEAR_TOP"
+                           action: "CLEAR_TOP",
+                            param : {
+                               category : category
+                            }
                         });
                     },
                     error : function(){

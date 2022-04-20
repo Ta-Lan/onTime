@@ -67,6 +67,7 @@
                 },
                 succ: function(data){
                     console.log(data);
+                    $("#request-list").html(" ");
                     for(var i = 0; i < data.list.length; i++){
                         self.showRequestList(data, i);
                     }
@@ -74,11 +75,9 @@
                 error: function(status, data){
                     swal("요청서 리스트를 불러오는 데 실패하였습니다","","error");
                 }
-
             });
         },
         showRequestList: function showRequestList(data, i){
-            $("div#requst-list").html(" ");
             $("#request-list").append(HTML.REQUEST_LIST);
             $("li.div-card:eq("+i+")").attr('id', data.list[i].requestNumber);
             $("h3.card-title:eq("+i+")").html(data.list[i].requestTitle);
